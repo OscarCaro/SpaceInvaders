@@ -1,12 +1,19 @@
 package tp.p1;
 
 public class UCM_Ship {
-	//Valores iniciales
+
+	private int posX, posY;		// These attributes change over time -> init in constructor
+	private int shield;
 	
-	int pos[][] = new int [8][9];
-	private int shield = 3;
-	private int damage = 1;
-	private boolean weapons = true;
+	private final int damage = 1;		// final = const
+	private final boolean weapons = true;
 	
-	
+	public UCM_Ship (int posX, int posY) {
+		//Class constructor
+		
+		// Initial values:
+		this.shield = 3;
+		this.posX = posX;
+		this.posY = posY;
+	}
 }

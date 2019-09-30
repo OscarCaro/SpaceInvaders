@@ -27,7 +27,7 @@ public class controller {
 		else if (input == "shockwave" || input == "w") {
 			
 		}
-		else if (input == "none" || input == "n") {
+		else if (input == "none" || input == "n" || input == "") {
 			
 		}
 		else if (input == "list" || input == "l") {

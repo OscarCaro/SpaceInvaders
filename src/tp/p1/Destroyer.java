@@ -1,10 +1,18 @@
 package tp.p1;
 
 public class Destroyer {
-	//Valores iniciales
-	int pos[][] = new int [8][9];	//No entiendo esto. Hay que almacenar solo dos ints, es decir, int x,y
-	private int shield = 1;
-	private int damage = 1;
-	private boolean weapons = true;
-	private int points = 10;
+	
+	private int posX, posY;		// These attributes change over time -> init in constructor
+	private int shield;
+	
+	private final int damage = 1;		// final = const
+	private final boolean weapons = true;
+	private final int points = 10;
+	
+	public Destroyer (int posX, int posY) {
+		//Class constructor
+		this.shield = 1;
+		this.posX = posX;
+		this.posY = posY;
+	}
 }
