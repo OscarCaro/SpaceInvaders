@@ -2,7 +2,7 @@
 package tp.p1;
 import java.util.Scanner;
 
-public class controller {
+public class Controller {
 
 	public void processInput(String input) {
 		// This function assumes that the String input is already taken from the CMD
