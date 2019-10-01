@@ -4,7 +4,7 @@ public class DestroyerList {
 	
 	private Destroyer[] destroyerList;
 	
-	int posX = 4;
+	int posX = 4; 	//Same planning as for carrierList.
 	int posY = 2;
 	
 	public DestroyerList(int initNumOfDestroyers) {
