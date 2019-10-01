@@ -2,8 +2,8 @@ package tp.p1;
 
 public class Board {
 	
-	public static int ROWS = 8;
-	public static int COLUMNS = 9;
+	public static final int ROWS = 8;
+	public static final int COLUMNS = 9;
 	
 	private CellTypes[][] enumBoard;
 	
