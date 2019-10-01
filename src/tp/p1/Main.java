@@ -13,6 +13,7 @@ public class Main {
 		if (Arguments.processArgs(args)) {
 			// Continue with program -- diffLevel and randomSeed are correctly set
 			
+			
 		}
 		else {
 			// Stop program: wrong arguments have been passed

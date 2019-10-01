@@ -8,12 +8,12 @@ public class Game {
 	private Random randomValue;
 	private Board board;			// Contains list for bombs, carriers and destroyers
 	
-	public Game () {
+	public Game (Level diffLevel, Random randomValue) {
 		// Class constructor
 		this.cycleCounter = 0;
 		this.score = 0;
-		this.randomValue = new Random();
-		this.board = new Board();		
+		this.randomValue = randomValue;
+		this.board = new Board(diffLevel);		
 	}
 	
 	public void update() {
