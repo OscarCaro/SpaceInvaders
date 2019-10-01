@@ -15,17 +15,43 @@ public class Controller {
 		input = input.toLowerCase();	
 		
 		if (input == "move left 1" || input == "m left 1") {
-			positionx = positionx -1;
+			if(positionx == 0) {
+				positionx = 8;
+			}
+			
+			else {
+				positionx = positionx -1;
+			}
+			
 		} 
 		else if (input == "move left 2" || input == "m left 2") {
-			positionx = positionx -2;
+			if(positionx == 0) {
+				positionx = 7;
+			}
+			
+			else {
+				positionx = positionx -2;
+			}
 		}
 		else if (input == "move right 1" || input == "m right 1") {
-			positionx = positionx +1;
+			if(positionx == 8) {
+				positionx = 0;
+			}
+			
+			else {
+				positionx = positionx +1;
+			}
 		}
 		else if (input == "move right 2" || input == "m right 2") {
-			positionx = positionx +2;
+			if(positionx == 8) {
+				positionx = 1;
+			}
+			
+			else {
+				positionx = positionx +2;
+			}
 		}
+		
 		else if (input == "shoot" || input == "s") {
 			
 		}
