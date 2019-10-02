@@ -7,22 +7,63 @@ public class CarrierList {
 	public CarrierList(Level diffLevel, CellTypes[][] enumBoard) {
 		int initNumOfCarriers = diffLevel.getNumOfCarriers();
 		
-		int posX = 3;
-		int posY = 1; //always in row 1 except for hard and insane, that the 4 remaining go to row 2
-		boolean isUfo = false;
-		// The max amount of carriers at the same time is the initial number (determined by difficulty)
-		this.carrierList = new Carrier [initNumOfCarriers];
-		for (int i = 0; i < initNumOfCarriers; i++) {
-			// ToDo: for each new Carrier, determine position and uncomment the next
-			 if (i == 4) {
-				 posY++;	//if i has 5 iterations (There are more than 4 ships) goes to next row 
-				 posX = 3;
-			 }			//(About the comment above) Equivalent to levels hard and insane
-			 carrierList[i] = new Carrier(isUfo,  posX,  posY);
-			 posX++;
+		if(diffLevel == Level.EASY) {
+			createEasy(initNumOfCarriers, enumBoard);
 		}
+		
+		else if(diffLevel == Level.HARD) {
+			createHard(initNumOfCarriers, enumBoard);
+		}
+		
+		else if(diffLevel == Level.INSANE) {
+			createInsane(initNumOfCarriers, enumBoard);
+		}
+
 	}
 	
+	public void createEasy(int initNumOfCarriers, CellTypes[][] enumBoard) {
+		int posX = 3;
+		int posY = 1;
+		
+		this.carrierList = new Carrier [initNumOfCarriers];
+		
+		for (int i = 0; i < initNumOfCarriers; i++ ) {
+			carrierList[i] = new Carrier(false,  posX,  posY);
+			posX++;
+		}
+		
+	}
 	
+	public void createHard(int initNumOfCarriers, CellTypes[][] enumBoard) {
+		int posX = 3;
+		int posY = 2;
+		
+		this.carrierList = new Carrier [initNumOfCarriers];
+		
+		for (int i = 0; i < initNumOfCarriers; i++ ) {
+			carrierList[i] = new Carrier(false,  posX,  posY);
+			posX++;
+		}
+		
+	}
+	
+	public void createInsane(int initNumOfCarriers, CellTypes[][] enumBoard) {
+		int posX = 3;
+		int posY = 1;
+		
+		this.carrierList = new Carrier [initNumOfCarriers];
+		
+		for (int i = 0; i < initNumOfCarriers; i++ ) {
+			
+			if(i == 4) {
+				posY++;
+				posX = 3;
+			}
+			
+			carrierList[i] = new Carrier(false,  posX,  posY);
+			posX++;
+		}
+		
+	}
 	
 }
