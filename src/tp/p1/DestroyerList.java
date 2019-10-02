@@ -38,7 +38,7 @@ public class DestroyerList {
 	
 	public void createHard( Board boardObj, int initNumOfDestroyers, CellTypes[][] enumBoard) {
 		int posX = 4;
-		int posY = 2;
+		int posY = 3;
 		
 		this.destroyerList = new Destroyer [initNumOfDestroyers];
 		
