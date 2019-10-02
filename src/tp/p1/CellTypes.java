@@ -10,6 +10,11 @@ public enum CellTypes {
 	
 	private int posInList;	// Store the position of, lets say, a carrier, in the array of carrierList
 	
+	private CellTypes () {
+	}
 	
+	public void setPosInList(int posInList) {
+		this.posInList = posInList;
+	}
 	
 }

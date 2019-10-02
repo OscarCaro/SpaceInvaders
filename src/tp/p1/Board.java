@@ -28,17 +28,13 @@ public class Board {
 			}
 		}
 		
-		// ToDo: populate according to difflevel (setting the posInLIst of each enum value) +
-		// + create objects of carrierList, DestroyerList and BombList at the same time
-		if (diffLevel == Level.EASY) {
-			
-		} 
-		else if (diffLevel== Level.HARD) {
-			
+		// ToDo: create ucmShip
+	}
+	
+	public void fillEnumBoardPosition(CellTypes type, int posX, int posY, int posInList) {
+		if ( (posX >= 0 && posX < COLUMNS) && (posY >= 0 && posY < ROWS) ) {
+			enumBoard[posX][posY] = type;
+			enumBoard[posX][posY].setPosInList(posInList);
 		}
-		else if (diffLevel == Level.INSANE) {
-			
-		}
-		
 	}
 }
