@@ -4,8 +4,8 @@ public class CarrierList {
 	
 	private Carrier[] carrierList;	
 	
-	public CarrierList(Level diffLevel) {
-		int initNumOfCarriers; // ToDo: Give value according to difflevel
+	public CarrierList(Level diffLevel, CellTypes[][] enumBoard) {
+		int initNumOfCarriers = diffLevel.getNumOfCarriers();
 		
 		int posX = 3;
 		int posY = 1; //always in row 1 except for hard and insane, that the 4 remaining go to row 2
@@ -22,4 +22,7 @@ public class CarrierList {
 			 posX++;
 		}
 	}
+	
+	
+	
 }
