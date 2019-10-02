@@ -15,8 +15,8 @@ public class Board {
 	public Board (Level diffLevel) {
 		initBoard(diffLevel);
 		this.enumBoard = new CellTypes[ROWS][COLUMNS];
-		this.carrierList = new CarrierList(diffLevel, enumBoard);
-		this.destroyerList = new DestroyerList(diffLevel, enumBoard);
+		this.carrierList = new CarrierList(this, diffLevel, enumBoard);
+		this.destroyerList = new DestroyerList(this, diffLevel, enumBoard);
 		this.bombList = new BombList();	
 	}
 	

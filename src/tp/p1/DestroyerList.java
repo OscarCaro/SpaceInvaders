@@ -4,7 +4,7 @@ public class DestroyerList {
 	
 	private Destroyer[] destroyerList;
 	
-	public DestroyerList(Level diffLevel, CellTypes[][] enumBoard) {
+	public DestroyerList( Board boardObj, Level diffLevel, CellTypes[][] enumBoard) {
 		int initNumOfDestroyers; // ToDo: Give value according to difflevel
 		
 		int posX = 4; 	//Same planning as for carrierList.
