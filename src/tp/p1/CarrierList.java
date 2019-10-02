@@ -4,7 +4,9 @@ public class CarrierList {
 	
 	private Carrier[] carrierList;	
 	
-	public CarrierList(int initNumOfCarriers) {
+	public CarrierList(Level diffLevel) {
+		int initNumOfCarriers; // ToDo: Give value according to difflevel
+		
 		int posX = 3;
 		int posY = 1; //always in row 1 except for hard and insane, that the 4 remaining go to row 2
 		boolean isUfo = false;

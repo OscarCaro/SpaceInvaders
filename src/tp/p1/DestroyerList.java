@@ -4,7 +4,8 @@ public class DestroyerList {
 	
 	private Destroyer[] destroyerList;
 	
-	public DestroyerList(int initNumOfDestroyers) {
+	public DestroyerList(Level diffLevel) {
+		int initNumOfDestroyers; // ToDo: Give value according to difflevel
 		
 		int posX = 4; 	//Same planning as for carrierList.
 		int posY = 2;

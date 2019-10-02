@@ -13,8 +13,8 @@ public class Board {
 	
 	
 	public Board (Level diffLevel) {
-		this.carrierList = new CarrierList();
-		this.destroyerList = new DestroyerList();
+		this.carrierList = new CarrierList(diffLevel);
+		this.destroyerList = new DestroyerList(diffLevel);
 		this.bombList = new BombList();
 		this.enumBoard = new CellTypes[ROWS][COLUMNS];
 		initBoard(diffLevel);
