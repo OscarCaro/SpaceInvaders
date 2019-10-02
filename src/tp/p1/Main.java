@@ -13,6 +13,8 @@ public class Main {
 		if (Arguments.processArgs(args)) {
 			// Continue with program -- diffLevel and randomSeed are correctly set
 			
+			//GamePrinter printer = new GamePrinter(game, 8, 9);
+			//System.out.println(printer);
 			
 		}
 		else {
