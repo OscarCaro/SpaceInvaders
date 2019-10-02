@@ -5,7 +5,7 @@ public class UCM_Ship {
 	private int posX, posY;		// These attributes change over time -> init in constructor
 	private int shield;
 	
-	private final int damage = 1;		// final = const
+	private final int damage = 1;
 	private final boolean weapons = true;
 	private String sprite;
 	boolean shock; 

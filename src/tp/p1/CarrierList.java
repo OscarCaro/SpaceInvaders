@@ -2,8 +2,7 @@ package tp.p1;
 
 public class CarrierList {
 	
-	private Carrier[] carrierList;
-	
+	private Carrier[] carrierList;	
 	
 	public CarrierList(int initNumOfCarriers) {
 		int posX = 3;
@@ -15,10 +14,10 @@ public class CarrierList {
 			// ToDo: for each new Carrier, determine position and uncomment the next
 			 if (i == 4) {
 				 posY++;	//if i has 5 iterations (There are more than 4 ships) goes to next row 
+				 posX = 3;
 			 }			//(About the comment above) Equivalent to levels hard and insane
 			 carrierList[i] = new Carrier(isUfo,  posX,  posY);
 			 posX++;
-
 		}
 	}
 }
