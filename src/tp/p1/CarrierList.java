@@ -4,24 +4,24 @@ public class CarrierList {
 	
 	private Carrier[] carrierList;	
 	
-	public CarrierList(Level diffLevel, CellTypes[][] enumBoard) {
+	public CarrierList( Board boardObj, Level diffLevel, CellTypes[][] enumBoard) {
 		int initNumOfCarriers = diffLevel.getNumOfCarriers();
 		
 		if(diffLevel == Level.EASY) {
-			createEasy(initNumOfCarriers, enumBoard);
+			createEasy(boardObj, initNumOfCarriers, enumBoard);
 		}
 		
 		else if(diffLevel == Level.HARD) {
-			createHard(initNumOfCarriers, enumBoard);
+			createHard(boardObj, initNumOfCarriers, enumBoard);
 		}
 		
 		else if(diffLevel == Level.INSANE) {
-			createInsane(initNumOfCarriers, enumBoard);
+			createInsane(boardObj, initNumOfCarriers, enumBoard);
 		}
 
 	}
 	
-	public void createEasy(int initNumOfCarriers, CellTypes[][] enumBoard) {
+	public void createEasy( Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
 		int posX = 3;
 		int posY = 1;
 		
@@ -29,12 +29,13 @@ public class CarrierList {
 		
 		for (int i = 0; i < initNumOfCarriers; i++ ) {
 			carrierList[i] = new Carrier(false,  posX,  posY);
+			boardObj.fillEnumBoardPosition(CellTypes.CARRIER, posX, posY, i);
 			posX++;
 		}
 		
 	}
 	
-	public void createHard(int initNumOfCarriers, CellTypes[][] enumBoard) {
+	public void createHard(Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
 		int posX = 3;
 		int posY = 2;
 		
@@ -42,12 +43,13 @@ public class CarrierList {
 		
 		for (int i = 0; i < initNumOfCarriers; i++ ) {
 			carrierList[i] = new Carrier(false,  posX,  posY);
+			boardObj.fillEnumBoardPosition(CellTypes.CARRIER, posX, posY, i);
 			posX++;
 		}
 		
 	}
 	
-	public void createInsane(int initNumOfCarriers, CellTypes[][] enumBoard) {
+	public void createInsane(Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
 		int posX = 3;
 		int posY = 1;
 		
@@ -61,6 +63,7 @@ public class CarrierList {
 			}
 			
 			carrierList[i] = new Carrier(false,  posX,  posY);
+			boardObj.fillEnumBoardPosition(CellTypes.CARRIER, posX, posY, i);
 			posX++;
 		}
 		
