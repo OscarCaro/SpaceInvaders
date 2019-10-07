@@ -9,12 +9,15 @@ public class Destroyer {
 	private final boolean weapons = true;
 	private final int points = 10;
 	
-	private String sprite;
+	private String sprite = "!<" + this.shield + ">!"; 
+	
+	public String toString() {
+		return this.sprite;
+	}
 	
 	public Destroyer (int posX, int posY) {
 		//Class constructor
 		this.shield = 1;
-		this.sprite = "!<" + this.shield + ">!"; 
 		this.posX = posX;
 		this.posY = posY;
 	}

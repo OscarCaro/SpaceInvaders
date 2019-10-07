@@ -10,13 +10,21 @@ public class Carrier {
 	private final int damage = 0;
 	private final boolean weapons = false;
 	
-	private String sprite;			//Lo meto dentro del constructor para que sea mas comodo de usar y distinguir
+	private String sprite = "-<" + this.shield + ">-";  		//Lo meto dentro del constructor para que sea mas comodo de usar y distinguir
+	private String ufoSprite = "<(+)>";   
+	
+	public String toString() {
+		return this.sprite;									//sprite normal
+	}
+	
+	public String UfotoString() {
+		return this.ufoSprite;								//sprite ufo
+	}
 	
 	public Carrier(boolean isUfo ,int posX, int posY) {
 		//Class constructor
 		if (isUfo) {
 			// Ufo constructor
-			this.sprite = "<(+)>";   
 			this.points = 25;
 			this.shield = 1;
 			this.posX = posX;
@@ -25,7 +33,6 @@ public class Carrier {
 			// Carrier constructor
 			this.points = 5;
 			this.shield = 2;
-			this.sprite = "-<" + this.shield + ">-";  
 			this.posX = posX;
 			this.posY = posY;
 		}	
