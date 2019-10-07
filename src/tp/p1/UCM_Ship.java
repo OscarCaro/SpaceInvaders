@@ -7,15 +7,17 @@ public class UCM_Ship {
 	
 	private final int damage = 1;
 	private final boolean weapons = true;
-	private String sprite;
+	private String sprite = "/-^-\\";
 	boolean shock; 
-	public UCM_Ship (int posX, int posY) {
 	
+	public String toString() {
+		return this.sprite;
+	}
+	
+	public UCM_Ship (int posX, int posY) {
 		//Class constructor
-		
 		// Initial values:
 		this.shield = 3;
-		this.sprite = "/-^-\\";
 		this.posX = posX;
 		this.posY = posY;
 		this.shock = false;
