@@ -28,7 +28,7 @@ public class Board {
 			}
 		}
 		
-		// ToDo: create ucmShip
+		this.enumBoard[7][4] = CellTypes.UCM_SHIP; //UCM_Ship Created
 	}
 	
 	public void fillEnumBoardPosition(CellTypes type, int posX, int posY, int posInList) {
