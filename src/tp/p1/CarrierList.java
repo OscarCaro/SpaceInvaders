@@ -4,19 +4,19 @@ public class CarrierList {
 	
 	private Carrier[] carrierList;	
 	
-	public CarrierList( Board boardObj, Level diffLevel, CellTypes[][] enumBoard) {
+	public CarrierList( Board boardObj, Level diffLevel) {
 		int initNumOfCarriers = diffLevel.getNumOfCarriers();
 		
 		if(diffLevel == Level.EASY) {
-			createEasy(boardObj, initNumOfCarriers, enumBoard);
+			createEasy(boardObj, initNumOfCarriers);
 		}
 		
 		else if(diffLevel == Level.HARD) {
-			createHard(boardObj, initNumOfCarriers, enumBoard);
+			createHard(boardObj, initNumOfCarriers);
 		}
 		
 		else if(diffLevel == Level.INSANE) {
-			createInsane(boardObj, initNumOfCarriers, enumBoard);
+			createInsane(boardObj, initNumOfCarriers);
 		}
 
 	}
@@ -35,7 +35,7 @@ public class CarrierList {
 		return str;
 	}
 	
-	public void createEasy( Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
+	public void createEasy( Board boardObj, int initNumOfCarriers) {
 		int posX = 3;
 		int posY = 1;
 		
@@ -43,13 +43,12 @@ public class CarrierList {
 		
 		for (int i = 0; i < initNumOfCarriers; i++ ) {
 			carrierList[i] = new Carrier(false,  posX,  posY);
-			boardObj.fillEnumBoardPosition(CellTypes.CARRIER, posX, posY, i);
 			posX++;
 		}
 		
 	}
 	
-	public void createHard(Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
+	public void createHard(Board boardObj, int initNumOfCarriers) {
 		int posX = 3;
 		int posY = 2;
 		
@@ -57,13 +56,12 @@ public class CarrierList {
 		
 		for (int i = 0; i < initNumOfCarriers; i++ ) {
 			carrierList[i] = new Carrier(false,  posX,  posY);
-			boardObj.fillEnumBoardPosition(CellTypes.CARRIER, posX, posY, i);
 			posX++;
 		}
 		
 	}
 	
-	public void createInsane(Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
+	public void createInsane(Board boardObj, int initNumOfCarriers) {
 		int posX = 3;
 		int posY = 1;
 		
@@ -77,10 +75,8 @@ public class CarrierList {
 			}
 			
 			carrierList[i] = new Carrier(false,  posX,  posY);
-			boardObj.fillEnumBoardPosition(CellTypes.CARRIER, posX, posY, i);
 			posX++;
-		}
-		
+		}		
 	}
 	
 }

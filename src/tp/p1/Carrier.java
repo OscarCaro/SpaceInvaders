@@ -45,8 +45,6 @@ public class Carrier {
 	
 	public String UfotoString() {
 		return this.ufoSprite;								//sprite ufo
-	}
-	
-	
+	}	
 	
 }

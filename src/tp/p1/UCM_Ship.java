@@ -8,9 +8,7 @@ public class UCM_Ship {
 	private final int damage = 1;
 	private final boolean weapons = true;
 	private String sprite = "/-^-\\";
-	boolean shock; 
-	
-	
+	boolean shock; 	
 	
 	public UCM_Ship (int posX, int posY) {
 		//Class constructor

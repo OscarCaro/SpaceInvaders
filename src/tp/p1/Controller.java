@@ -13,7 +13,7 @@ public class Controller {
 		int positionx = 4;
 		int positiony = 7;
 		
-		UCM_Ship player = new UCM_Ship(positionx,positiony);
+		//UCM_Ship player = new UCM_Ship(positionx,positiony);
 		
 		input = input.toLowerCase();	
 		
