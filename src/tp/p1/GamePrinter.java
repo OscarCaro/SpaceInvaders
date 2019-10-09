@@ -8,10 +8,10 @@ public class GamePrinter {
 	final String space = " ";
 	
 	
-	public GamePrinter (Game game, int rows, int cols) {
+	public GamePrinter (int rows, int cols) {
 		this.numRows = rows;
 		this.numCols = cols;		
-		encodeGame(game);
+		//encodeGame(game);
 	}
 	
 	private void encodeGame(Game game) {
@@ -23,8 +23,10 @@ public class GamePrinter {
 		}
 	}
 	
-	public String toString() {
+	public String toString(Game game) {
 
+		encodeGame(game);
+		
 		int cellSize = 7;
 		int marginSize = 2;
 		String vDelimiter = "|";

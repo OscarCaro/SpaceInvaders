@@ -6,17 +6,23 @@ public class Game {
 	private int score;
 	private int randomValue;
 	private Board board;			// Contains list for bombs, carriers and destroyers
+	private GamePrinter gamePrinter;
 	
 	public Game (Level diffLevel, int randomValue) {
 		// Class constructor
 		this.cycleCounter = 0;
 		this.score = 0;
 		this.randomValue = randomValue;
-		this.board = new Board(diffLevel);		
+		this.board = new Board(diffLevel);	
+		this.gamePrinter = new GamePrinter(Board.ROWS, Board.COLUMNS);
 	}
 	
 	public void update() {
 		// call each object's update methods
+	}
+	
+	public String toString () {
+		return gamePrinter.toString(this);
 	}
 	
 	public String checkPos(int x, int y) {
