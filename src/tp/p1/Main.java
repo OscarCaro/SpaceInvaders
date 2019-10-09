@@ -5,8 +5,8 @@ import java.util.Random;
 public class Main {
 	
 	private static Level diffLevel;
-	private static Random randomSeed;
-
+	private static long seed;
+	private static int randomValue;
 
 	public static void main(String[] args) {
 		
@@ -15,6 +15,11 @@ public class Main {
 			
 			//GamePrinter printer = new GamePrinter(game, 8, 9);
 			//System.out.println(printer);
+			randomValue = new Random(seed).nextInt();
+			Game game = new Game(diffLevel, randomValue);
+			
+			GamePrinter printer = new GamePrinter(game, 8, 9);
+			System.out.println(printer);
 			
 		}
 		else {
@@ -26,8 +31,8 @@ public class Main {
 		diffLevel = level;
 	}
 	
-	public static void setRandomSeed(Random seed) {
-		randomSeed = seed;
+	public static void setRandomSeed(long seed) {
+		Main.seed = seed;
 	}	
 
 }

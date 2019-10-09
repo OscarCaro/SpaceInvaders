@@ -9,10 +9,10 @@ public class Destroyer {
 	private final boolean weapons = true;
 	private final int points = 10;
 	
-	private String sprite = "!<" + this.shield + ">!"; 
+	//private String sprite = "!<" + this.shield + ">!"; 
 	
 	public String toString() {
-		return this.sprite;
+		return "!<" + this.shield + ">!";
 	}
 	
 	public Destroyer (int posX, int posY) {
@@ -20,5 +20,13 @@ public class Destroyer {
 		this.shield = 1;
 		this.posX = posX;
 		this.posY = posY;
+	}
+	
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosY() {
+		return posY;
 	}
 }

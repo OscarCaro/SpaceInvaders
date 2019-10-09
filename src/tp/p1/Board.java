@@ -20,6 +20,14 @@ public class Board {
 		this.bombList = new BombList();	
 	}
 	
+	public String checkCarrierListPos(int x, int y) {
+		return carrierList.checkPos(x, y);
+	}
+
+	public String checkDestroyerListPos(int x, int y) {
+		return destroyerList.checkPos(x, y);
+	}
+
 	private void initBoard(Level diffLevel) {
 		
 		for (int i = 0; i < ROWS; i++) {

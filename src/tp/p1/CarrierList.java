@@ -21,6 +21,20 @@ public class CarrierList {
 
 	}
 	
+	public String checkPos (int x, int y) {
+		String str = "";
+		int i = 0;
+		boolean found = false;
+		while ( i < carrierList.length && !found) {
+			if (carrierList[i].getPosX() == x && carrierList[i].getPosY() == y) {
+				str = carrierList[i].toString();
+				found = true;
+			}
+			i++;
+		}
+		return str;
+	}
+	
 	public void createEasy( Board boardObj, int initNumOfCarriers, CellTypes[][] enumBoard) {
 		int posX = 3;
 		int posY = 1;

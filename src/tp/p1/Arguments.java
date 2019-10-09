@@ -13,7 +13,7 @@ public class Arguments {
 		} 
 		else if (args.length == 1) {
 			ok = processDiffArg(args[0]);
-			Main.setRandomSeed (new Random(System.currentTimeMillis()));
+			Main.setRandomSeed (System.currentTimeMillis());
 		} 		 
 		else {
 			ok = false;
@@ -42,6 +42,6 @@ public class Arguments {
 	}
 	
 	private static void processRandomSeedArg (String arg2) {
-		Main.setRandomSeed (new Random(Long.parseLong(arg2)));
+		Main.setRandomSeed (Long.parseLong(arg2));
 	}
 }

@@ -10,9 +10,7 @@ public class UCM_Ship {
 	private String sprite = "/-^-\\";
 	boolean shock; 
 	
-	public String toString() {
-		return this.sprite;
-	}
+	
 	
 	public UCM_Ship (int posX, int posY) {
 		//Class constructor
@@ -21,5 +19,9 @@ public class UCM_Ship {
 		this.posX = posX;
 		this.posY = posY;
 		this.shock = false;
+	}
+	
+	public String toString() {
+		return this.sprite;
 	}
 }

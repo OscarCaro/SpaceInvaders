@@ -21,6 +21,19 @@ public class DestroyerList {
 		
 	}
 	
+	public String checkPos (int x, int y) {
+		String str = "";
+		int i = 0;
+		boolean found = false;
+		while ( i < destroyerList.length && !found) {
+			if (destroyerList[i].getPosX() == x && destroyerList[i].getPosY() == y) {
+				str = destroyerList[i].toString();
+				found = true;
+			}
+			i++;
+		}
+		return str;
+	}
 	
 	public void createEasy( Board boardObj, int initNumOfDestroyers, CellTypes[][] enumBoard) {
 		int posX = 4;

@@ -13,13 +13,6 @@ public class Carrier {
 	private String sprite = "-<" + this.shield + ">-";  		//Lo meto dentro del constructor para que sea mas comodo de usar y distinguir
 	private String ufoSprite = "<(+)>";   
 	
-	public String toString() {
-		return this.sprite;									//sprite normal
-	}
-	
-	public String UfotoString() {
-		return this.ufoSprite;								//sprite ufo
-	}
 	
 	public Carrier(boolean isUfo ,int posX, int posY) {
 		//Class constructor
@@ -37,5 +30,23 @@ public class Carrier {
 			this.posY = posY;
 		}	
 	}
+	
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public String toString() {
+		return this.sprite;									//sprite normal
+	}
+	
+	public String UfotoString() {
+		return this.ufoSprite;								//sprite ufo
+	}
+	
+	
 	
 }
