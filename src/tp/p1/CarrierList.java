@@ -50,11 +50,15 @@ public class CarrierList {
 	
 	public void createHard(Board boardObj, int initNumOfCarriers) {
 		int posX = 3;
-		int posY = 2;
+		int posY = 1;
 		
 		this.carrierList = new Carrier [initNumOfCarriers];
 		
 		for (int i = 0; i < initNumOfCarriers; i++ ) {
+			if(i == 4) {
+				posY++;
+				posX = 3;
+			}
 			carrierList[i] = new Carrier(false,  posX,  posY);
 			posX++;
 		}
