@@ -26,7 +26,9 @@ public class Game {
 	}
 	
 	public String checkPos(int x, int y) {
-		return board.checkCarrierListPos(x, y) + board.checkDestroyerListPos(x, y);
+		return board.checkCarrierListPos(x, y) 
+				+ board.checkDestroyerListPos(x, y)
+				+ board.checkUcmShip(x, y);
 	}
 
 }

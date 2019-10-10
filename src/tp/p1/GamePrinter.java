@@ -9,8 +9,8 @@ public class GamePrinter {
 	
 	
 	public GamePrinter (int rows, int cols) {
-		this.numRows = rows;	// 8
-		this.numCols = cols;	// 9	
+		this.numRows = rows;
+		this.numCols = cols;	
 	}
 	
 	private void encodeGame(Game game) {
