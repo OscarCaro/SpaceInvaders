@@ -9,16 +9,15 @@ public class GamePrinter {
 	
 	
 	public GamePrinter (int rows, int cols) {
-		this.numRows = rows;
-		this.numCols = cols;		
-		//encodeGame(game);
+		this.numRows = rows;	// 8
+		this.numCols = cols;	// 9	
 	}
 	
 	private void encodeGame(Game game) {
 		board = new String[numRows][numCols];
 		for(int i = 0; i < numRows; i++) {
 			for(int j = 0; j < numCols; j++) {
-				board[i][j] = game.checkPos(i, j);				
+				board[i][j] = game.checkPos(j, i);				
 			}
 		}
 	}
