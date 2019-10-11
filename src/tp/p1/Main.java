@@ -21,6 +21,7 @@ public class Main {
 		}
 		else {
 			// Stop program: wrong arguments have been passed
+			System.out.println ("No arguments");
 		}		
 	}
 	
