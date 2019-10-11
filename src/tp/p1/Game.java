@@ -21,6 +21,10 @@ public class Game {
 		// call each object's update methods
 	}
 	
+	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
+		this.board.moveUcmShip(left, right, numOfCells);
+	}
+	
 	public String toString () {
 		return gamePrinter.toString(this);
 	}

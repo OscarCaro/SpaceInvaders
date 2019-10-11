@@ -30,43 +30,49 @@ public class Controller {
 		
 		input = input.toLowerCase();	
 		
-		if (input == "move left 1" || input == "m left 1") {			
-			if(positionX == 0) {
-				positionX = 8;
-			}			
-			else {
-				positionX = positionX -1;
-			}			
+		if (input == "move left 1" || input == "m left 1") {		
+			this.game.moveUcmShip(true, false, 1);
+//			if(positionX == 0) {
+//				positionX = 8;
+//			}			
+//			else {
+//				positionX = positionX -1;
+//			}			
 		} 
-		else if (input == "move left 2" || input == "m left 2") {			
-			if(positionX == 0) {
-				positionX = 7;
-			}		
-			else if(positionX == 1) {
-				positionX = 8;
-			}
-			else {
-				positionX = positionX -2;
-			}			
+		else if (input == "move left 2" || input == "m left 2") {	
+			this.game.moveUcmShip(true, false, 2);
+
+//			if(positionX == 0) {
+//				positionX = 7;
+//			}		
+//			else if(positionX == 1) {
+//				positionX = 8;
+//			}
+//			else {
+//				positionX = positionX -2;
+//			}			
 		}
 		else if (input == "move right 1" || input == "m right 1") {
-			if(positionX == 8) {
-				positionX = 0;
-			}			
-			else {
-				positionX = positionX +1;
-			}
+			this.game.moveUcmShip(false, true, 1);
+
+//			if(positionX == 8) {
+//				positionX = 0;
+//			}			
+//			else {
+//				positionX = positionX +1;
+//			}
 		}
 		else if (input == "move right 2" || input == "m right 2") {
-			if(positionX == 8) {
-				positionX = 1;
-			}
-			else if (positionX == 7) {
-				positionX = 0;
-			}
-			else {
-				positionX = positionX +2;
-			}
+			this.game.moveUcmShip(false, true, 2);
+//			if(positionX == 8) {
+//				positionX = 1;
+//			}
+//			else if (positionX == 7) {
+//				positionX = 0;
+//			}
+//			else {
+//				positionX = positionX +2;
+//			}
 		}
 		
 		else if (input == "shoot" || input == "s") {

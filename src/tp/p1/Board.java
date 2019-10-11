@@ -20,6 +20,65 @@ public class Board {
 		this.ucm_Ship = new UCM_Ship();
 	}
 	
+	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
+		// Todo: develop movement (already half developed in controller class
+		int posX = this.ucm_Ship.getPosX();
+		
+		if(left == true) {
+
+			if(numOfCells == 1) {
+				if(posX == 0) {
+					this.ucm_Ship.setPosX(8);
+				}
+				
+				else {
+					this.ucm_Ship.setPosX(posX - 1);
+				}
+			}
+			
+			else if(numOfCells == 2)  {
+				if(posX == 0) {
+					this.ucm_Ship.setPosX(7);
+				}
+				
+				else if(posX == 1) {
+					this.ucm_Ship.setPosX(8);
+				}
+				
+				else {
+					this.ucm_Ship.setPosX(posX - 2);
+				}
+			}	
+		}
+		
+		else if(right == true) {
+			if(numOfCells == 1) {
+				if(posX == 8) {
+					this.ucm_Ship.setPosX(0);
+				}
+				
+				else {
+					this.ucm_Ship.setPosX(posX + 1);
+				}
+			}
+			
+			else if(numOfCells == 2)  {
+				if(posX == 7) {
+					this.ucm_Ship.setPosX(0);
+				}
+				
+				else if(posX == 8) {
+					this.ucm_Ship.setPosX(1);
+				}
+				
+				else {
+					this.ucm_Ship.setPosX(posX + 2);
+				}
+			}	
+		}
+		
+	}
+	
 	public String checkCarrierListPos(int x, int y) {
 		return carrierList.checkPos(x, y);
 	}

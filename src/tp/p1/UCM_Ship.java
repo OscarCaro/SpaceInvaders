@@ -19,6 +19,22 @@ public class UCM_Ship {
 		this.shock = false;
 	}
 	
+	public int getPosX() {
+		return posX;
+	}
+
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+
 	public String checkPos (int x, int y) {
 		String str = "";
 		if (this.posX == x && this.posY == y) {
@@ -26,6 +42,8 @@ public class UCM_Ship {
 		}
 		return str;
 	}
+	
+	
 	
 //	public String toString() {
 //		return this.sprite;
