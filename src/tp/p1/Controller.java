@@ -13,8 +13,13 @@ public class Controller {
 	}
 	
 	public void run () {
+		String input;
+		
 		printInfo();
 		System.out.println(game);	// calling game.toString()
+		System.out.println("Command > ");
+		input = in.nextLine();
+		processInput(input);
 		
 	}
 	
@@ -45,7 +50,7 @@ public class Controller {
 		
 		input = input.toLowerCase();	
 		
-		if (input == "move left 1" || input == "m left 1") {		
+		if (input.equals("move left 1") || input.equals("m left 1")) {	
 			this.game.moveUcmShip(true, false, 1);
 //			if(positionX == 0) {
 //				positionX = 8;
@@ -54,7 +59,7 @@ public class Controller {
 //				positionX = positionX -1;
 //			}			
 		} 
-		else if (input == "move left 2" || input == "m left 2") {	
+		else if (input.equals("move left 2") || input.equals("m left 2")) {	
 			this.game.moveUcmShip(true, false, 2);
 
 //			if(positionX == 0) {
@@ -67,7 +72,7 @@ public class Controller {
 //				positionX = positionX -2;
 //			}			
 		}
-		else if (input == "move right 1" || input == "m right 1") {
+		else if (input.equals("move right 1") || input.equals("m right 1")) {
 			this.game.moveUcmShip(false, true, 1);
 
 //			if(positionX == 8) {
@@ -77,7 +82,7 @@ public class Controller {
 //				positionX = positionX +1;
 //			}
 		}
-		else if (input == "move right 2" || input == "m right 2") {
+		else if (input.equals("move right 2") || input.equals("m right 2")) {
 			this.game.moveUcmShip(false, true, 2);
 //			if(positionX == 8) {
 //				positionX = 1;
@@ -90,7 +95,7 @@ public class Controller {
 //			}
 		}
 		
-		else if (input == "shoot" || input == "s") {
+		else if (input.equals("shoot") || input.equals("s")) {
 			
 		}
 //		else if (input == "shockwave" || input == "w") {
@@ -101,19 +106,19 @@ public class Controller {
 //				System.out.println("Shockwave not available!!");
 //			}
 //		}
-		else if (input == "none" || input == "n" || input == "") {
+		else if (input.equals("none") || input.equals("n") || input.equals("")) {
 			
 		}
-		else if (input == "list" || input == "l") {
+		else if (input.equals("list") || input.equals("l")) {
 			
 		}
-		else if (input == "reset" || input == "r") {
+		else if (input.equals("reset") || input.equals( "r")) {
 			
 		}
-		else if (input == "help" || input == "h") {
+		else if (input.equals( "help") ||input.equals("h")) {
 			
 		}
-		else if (input == "exit" || input == "e") {
+		else if (input.equals("exit") || input.equals("e")) {
 			
 		}
 		else {
