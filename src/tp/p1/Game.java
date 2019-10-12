@@ -8,6 +8,8 @@ public class Game {
 	private Board board;			// Contains list for bombs, carriers and destroyers
 	private GamePrinter gamePrinter;
 	
+	
+
 	public Game (Level diffLevel, int randomValue) {
 		// Class constructor
 		this.cycleCounter = 0;
@@ -23,6 +25,26 @@ public class Game {
 	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
+	}
+	
+	public int getCycleCounter() {
+		return cycleCounter;
+	}
+
+	public int getScore() {
+		return score;
+	}
+	
+	public int getUcmShipShield() {
+		return this.board.getUcmShipShield();
+	}
+	
+	public boolean getUcmShipIsShock() {
+		return this.board.getUcmShipIsShock();
+	}
+	
+	public int getNumOfAliens() {
+		return this.board.getNumOfCarriers() + this.board.getNumOfDestroyers();
 	}
 	
 	public String toString () {

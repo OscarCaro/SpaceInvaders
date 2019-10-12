@@ -71,4 +71,8 @@ public class DestroyerList {
 			posX++;
 		}
 	}
+	
+	public int getNumOfDestroyers() {
+		return this.destroyerList.length;
+	}
 }

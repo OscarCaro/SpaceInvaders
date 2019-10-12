@@ -83,4 +83,8 @@ public class CarrierList {
 		}		
 	}
 	
+	public int getNumOfCarriers() {
+		return this.carrierList.length;
+	}
+	
 }

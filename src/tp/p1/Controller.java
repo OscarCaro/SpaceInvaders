@@ -13,8 +13,23 @@ public class Controller {
 	}
 	
 	public void run () {
+		printInfo();
 		System.out.println(game);	// calling game.toString()
 		
+	}
+	
+	public void printInfo() {
+		System.out.println("Score: " + this.game.getScore());
+		System.out.println("Shield Strength: " + this.game.getUcmShipShield());
+		String hasShock; 
+		if (this.game.getUcmShipIsShock()) {
+			hasShock = "Yes";
+		} else {
+			hasShock = "No";
+		}
+		System.out.println("Shockwave: " + hasShock);
+		System.out.println("Cycle number: " + this.game.getCycleCounter());
+		System.out.println("Remaining alien ships: " + this.game.getNumOfAliens());
 	}
 
 	public void processInput(String input) {

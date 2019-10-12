@@ -19,6 +19,14 @@ public class UCM_Ship {
 		this.shock = false;
 	}
 	
+	public boolean isShock() {
+		return shock;
+	}
+
+	public int getShield() {
+		return shield;
+	}
+
 	public int getPosX() {
 		return posX;
 	}

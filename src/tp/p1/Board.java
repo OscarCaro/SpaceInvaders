@@ -78,6 +78,22 @@ public class Board {
 		}
 		
 	}
+
+	public int getNumOfCarriers() {
+		return this.carrierList.getNumOfCarriers();
+	}
+	
+	public int getNumOfDestroyers() {
+		return this.destroyerList.getNumOfDestroyers();
+	}
+	
+	public int getUcmShipShield() {
+		return this.ucm_Ship.getShield();
+	}
+	
+	public boolean getUcmShipIsShock() {
+		return this.ucm_Ship.isShock();
+	}
 	
 	public String checkCarrierListPos(int x, int y) {
 		return carrierList.checkPos(x, y);
