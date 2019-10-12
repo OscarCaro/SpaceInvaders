@@ -42,9 +42,7 @@ public class Controller {
 		input = input.toLowerCase();	
 		
 		while(!input.equals("exit") || !input.equals("e")) {
-			System.out.println("Command > ");
-			input = in.nextLine();
-			input = input.toLowerCase();
+				this.run();
 			
 			if (input.equals("move left 1") || input.equals("m left 1")) {	
 				this.game.moveUcmShip(true, false, 1);
