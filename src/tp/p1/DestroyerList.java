@@ -88,17 +88,17 @@ public class DestroyerList {
 	}
 	
 
-	public void moveCarierToLeft (int idx) {
+	public void moveDestroyerToLeft (int idx) {
 		int nextPos = this.destroyerList[idx].getPosX() - 1;
 		this.destroyerList[idx].setPosX(nextPos);
 	}
 	
-	public void moveCarierToRight (int idx) {
+	public void moveDestroyerToRight (int idx) {
 		int nextPos = this.destroyerList[idx].getPosX() + 1;
 		this.destroyerList[idx].setPosX(nextPos);
 	}
 	
-	public void moveCarierDown (int idx) {
+	public void moveDestroyerDown (int idx) {
 		int nextPos = this.destroyerList[idx].getPosY() + 1;
 		this.destroyerList[idx].setPosY(nextPos);
 	}
