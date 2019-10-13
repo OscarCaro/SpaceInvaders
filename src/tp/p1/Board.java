@@ -118,6 +118,8 @@ public class Board {
 		}
 	}
 	
+	//CARRIER MOVEMENT//
+	
 	public int minDistToLeftSide() {
 		return this.carrierList.minDistToLeftSide();
 	}
@@ -141,6 +143,40 @@ public class Board {
 	public void carrierListSetMovingRight(boolean movingRight) {
 		carrierList.setMovingRight(movingRight);
 	}
+	
+	///////////////////////////////////////////////////////
+	
+	
+	//DESTROYER MOVEMENT//
+	
+	public int DESTminDistToLeftSide() {
+		return this.destroyerList.minDistToLeftSide();
+	}
+	
+	public int DESTminDistToRightSide() {
+		return destroyerList.minDistToRightSide();
+	}
+	
+	public boolean destroyerListIsMovingLeft() {
+		return destroyerList.isMovingLeft();
+	}
+
+	public void destroyerListSetMovingLeft(boolean movingLeft) {
+		 destroyerList.setMovingLeft(movingLeft);
+	}
+
+	public boolean destroyerListIsMovingRight() {
+		return destroyerList.isMovingRight();
+	}
+
+	public void destroyerListSetMovingRight(boolean movingRight) {
+		destroyerList.setMovingRight(movingRight);
+	}
+	
+	//////////////////////////////////////////////////
+	
+	
+	//GETTERS, SETTERS AND CHECKERS//
 
 	public int getNumOfCarriers() {
 		return this.carrierList.getNumOfCarriers();
@@ -169,5 +205,7 @@ public class Board {
 	public String checkUcmShip (int x, int y) {
 		return ucm_Ship.checkPos(x, y);
 	}
-
+	
+	///////////////////////////////////////////////////////////
+	
 }
