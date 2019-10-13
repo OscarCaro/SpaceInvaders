@@ -17,6 +17,18 @@ public class Game {
 		this.randomValue = randomValue;
 		this.board = new Board(diffLevel);	
 		this.gamePrinter = new GamePrinter(Board.ROWS, Board.COLUMNS);
+		
+		if(diffLevel == Level.EASY) {
+			this.shipEASYMovement();
+		}
+		
+		if(diffLevel == Level.HARD) {
+			this.shipHARDMovement();
+		}
+		
+		if(diffLevel == Level.INSANE) {
+			this.shipINSANEMovement();
+		}
 	}
 	
 	public void update() {
@@ -54,12 +66,17 @@ public class Game {
 		}
 	}	
 	
+	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
 	}
 	
 	public int getCycleCounter() {
 		return cycleCounter;
+	}
+
+	public void setCycleCounter(int cycleCounter) {
+		this.cycleCounter = cycleCounter;
 	}
 
 	public int getScore() {
@@ -87,5 +104,29 @@ public class Game {
 				+ board.checkDestroyerListPos(x, y)
 				+ board.checkUcmShip(x, y);
 	}
+	
+	public void shipEASYMovement(){
+		int cycles = 0;
+		cycles = this.getCycleCounter();
+		if(cycles % 3 == 0) {
+			this.moveCarrListAndDestList();
+		}
+	}
+	
+	public void shipHARDMovement(){
+		int cycles = 0;
+		cycles = this.getCycleCounter();
+		if(cycles % 2 == 0) {
+			this.moveCarrListAndDestList();
+		}
+	}
+	
+	public void shipINSANEMovement(){
+		int cycles = 0;
+		cycles = this.getCycleCounter();
+		this.moveCarrListAndDestList();
+		
+	}
+	
 
 }
