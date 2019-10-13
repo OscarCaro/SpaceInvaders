@@ -21,6 +21,34 @@ public class CarrierList {
 
 	}
 	
+	public int minDistToLeftSide() {
+		int minDist = -1;
+		
+		if (carrierList.length > 0) {
+			minDist = carrierList[0].getPosX();
+			for (int i = 1; i < carrierList.length; i++) {				
+				if (carrierList[i].getPosX() < minDist) {
+					minDist = carrierList[i].getPosX();
+				}
+			}
+		}		
+		return minDist;
+	}
+	
+	public int minDistToRightSide() {
+		int minDist = -1;
+		
+		if (carrierList.length > 0) {
+			minDist = Board.ROWS - 1 - carrierList[0].getPosX();
+			for (int i = 1; i < carrierList.length; i++) {				
+				if (Board.ROWS - 1 - carrierList[i].getPosX() < minDist) {
+					minDist = Board.ROWS - 1 - carrierList[i].getPosX();
+				}
+			}
+		}		
+		return minDist;
+	}
+	
 	public String checkPos (int x, int y) {
 		String str = "";
 		int i = 0;

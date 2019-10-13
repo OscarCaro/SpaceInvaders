@@ -4,9 +4,7 @@ public class Board {
 	
 	public static final int ROWS = 8;
 	public static final int COLUMNS = 9;
-	
-	//private CellTypes[][] enumBoard;
-	
+		
 	private CarrierList carrierList;
 	private DestroyerList destroyerList;
 	private BombList bombList;
@@ -20,6 +18,14 @@ public class Board {
 		this.ucm_Ship = new UCM_Ship();
 	}
 	
+	public int minDistToLeftSide() {
+		return this.carrierList.minDistToLeftSide();
+	}
+	
+	public int minDistToRightSide() {
+		return carrierList.minDistToRightSide();
+	}
+
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		// Todo: develop movement (already half developed in controller class
 		int posX = this.ucm_Ship.getPosX();
