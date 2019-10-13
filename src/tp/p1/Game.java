@@ -23,6 +23,31 @@ public class Game {
 		// call each object's update methods
 	}
 	
+	public void moveCarrierList() {
+		if (this.board.carrierListIsMovingLeft()) {
+			if (this.board.minDistToLeftSide() > 0) {
+				// shift all carriers to left
+				this.board.moveCarrierListLeft();
+			}
+			else {
+				this.board.carrierListSetMovingRight(true);
+				// shift all carriers one line down
+				this.board.moveCarrierListDown();
+			}
+		}
+		else {
+			if (this.board.minDistToRightSide() > 0) {
+				// shift all carriers to right
+				this.board.moveCarrierListRight();
+			}
+			else {
+				this.board.carrierListSetMovingLeft(true);
+				// shift all carriers one line down
+				this.board.moveCarrierListDown();
+			}
+		}
+	}
+	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
 	}

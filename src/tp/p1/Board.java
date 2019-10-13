@@ -18,12 +18,25 @@ public class Board {
 		this.ucm_Ship = new UCM_Ship();
 	}
 	
-	public int minDistToLeftSide() {
-		return this.carrierList.minDistToLeftSide();
+	public void moveCarrierListLeft () {
+		// All checks for errors done (in Game) before calling this function
+		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+			this.carrierList.moveCarierToLeft(i);
+		}
 	}
 	
-	public int minDistToRightSide() {
-		return carrierList.minDistToRightSide();
+	public void moveCarrierListRight () {
+		// All checks for errors done (in Game) before calling this function
+		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+			this.carrierList.moveCarierToRight(i);
+		}
+	}
+	
+	public void moveCarrierListDown () {
+		// All checks for errors done (in Game) before calling this function
+		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+			this.carrierList.moveCarierDown(i);
+		}
 	}
 
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
@@ -82,7 +95,30 @@ public class Board {
 				}
 			}	
 		}
-		
+	}
+	
+	public int minDistToLeftSide() {
+		return this.carrierList.minDistToLeftSide();
+	}
+	
+	public int minDistToRightSide() {
+		return carrierList.minDistToRightSide();
+	}
+	
+	public boolean carrierListIsMovingLeft() {
+		return carrierList.isMovingLeft();
+	}
+
+	public void carrierListSetMovingLeft(boolean movingLeft) {
+		carrierList.setMovingLeft(movingLeft);
+	}
+
+	public boolean carrierListIsMovingRight() {
+		return carrierList.isMovingRight();
+	}
+
+	public void carrierListSetMovingRight(boolean movingRight) {
+		carrierList.setMovingRight(movingRight);
 	}
 
 	public int getNumOfCarriers() {

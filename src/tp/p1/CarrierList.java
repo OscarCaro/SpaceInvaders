@@ -3,6 +3,8 @@ package tp.p1;
 public class CarrierList {
 	
 	private Carrier[] carrierList;	
+	private boolean movingLeft;
+	private boolean movingRight;
 	
 	public CarrierList( Board boardObj, Level diffLevel) {
 		int initNumOfCarriers = diffLevel.getNumOfCarriers();
@@ -18,7 +20,9 @@ public class CarrierList {
 		else if(diffLevel == Level.INSANE) {
 			createInsane(boardObj, initNumOfCarriers);
 		}
-
+		
+		this.movingLeft = true;
+		this.movingRight = false;
 	}
 	
 	public int minDistToLeftSide() {
@@ -49,6 +53,39 @@ public class CarrierList {
 		return minDist;
 	}
 	
+	public boolean isMovingLeft() {
+		return movingLeft;
+	}
+
+	public void setMovingLeft(boolean movingLeft) {
+		this.movingLeft = movingLeft;
+		this.movingRight = !movingLeft;	// To make sure both of them are never true at the same time
+	}
+
+	public boolean isMovingRight() {
+		return movingRight;
+	}
+
+	public void setMovingRight(boolean movingRight) {
+		this.movingRight = movingRight;
+		this.movingLeft = !movingRight; // To make sure both of them are never true at the same time
+	}
+	
+	public void moveCarierToLeft (int idx) {
+		int nextPos = this.carrierList[idx].getPosX() - 1;
+		this.carrierList[idx].setPosX(nextPos);
+	}
+	
+	public void moveCarierToRight (int idx) {
+		int nextPos = this.carrierList[idx].getPosX() + 1;
+		this.carrierList[idx].setPosX(nextPos);
+	}
+	
+	public void moveCarierDown (int idx) {
+		int nextPos = this.carrierList[idx].getPosY() + 1;
+		this.carrierList[idx].setPosY(nextPos);
+	}
+
 	public String checkPos (int x, int y) {
 		String str = "";
 		int i = 0;
