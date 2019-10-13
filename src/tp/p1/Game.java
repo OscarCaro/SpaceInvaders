@@ -48,6 +48,32 @@ public class Game {
 		}
 	}
 	
+	public void moveDestroyerList() {
+		if (this.board.destroyerListIsMovingLeft()) {
+			if (this.board.DESTminDistToLeftSide() > 0) {
+				// shift all carriers to left
+				this.board.moveDestroyerListLeft();
+			}
+			else {
+				this.board.destroyerListSetMovingRight(true);
+				// shift all carriers one line down
+				this.board.moveDestroyerListDown();
+			}
+		}
+		else {
+			if (this.board.DESTminDistToRightSide() > 0) {
+				// shift all carriers to right
+				this.board.moveDestroyerListRight();
+			}
+			else {
+				this.board.destroyerListSetMovingLeft(true);
+				// shift all carriers one line down
+				this.board.moveDestroyerListDown();
+			}
+		}
+	}
+	
+	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
 	}
