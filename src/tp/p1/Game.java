@@ -23,9 +23,9 @@ public class Game {
 		// call each object's update methods
 	}
 	
-	public void moveCarrierList() {
-		if (this.board.carrierListIsMovingLeft()) {
-			if (this.board.minDistToLeftSide() > 0) {
+	public void moveCarrListAndDestList () {
+		if (this.board.carrierListIsMovingLeft() && this.board.destroyerListIsMovingLeft()) {
+			if (this.board.carrMinDistToLeftSide() > 0) {
 				// shift all carriers to left
 				this.board.moveCarrierListLeft();
 			}
@@ -36,7 +36,32 @@ public class Game {
 			}
 		}
 		else {
-			if (this.board.minDistToRightSide() > 0) {
+			if (this.board.carrMinDistToRightSide() > 0) {
+				// shift all carriers to right
+				this.board.moveCarrierListRight();
+			}
+			else {
+				this.board.carrierListSetMovingLeft(true);
+				// shift all carriers one line down
+				this.board.moveCarrierListDown();
+			}
+		}
+	}
+	
+	public void moveCarrierList() {
+		if (this.board.carrierListIsMovingLeft()) {
+			if (this.board.carrMinDistToLeftSide() > 0) {
+				// shift all carriers to left
+				this.board.moveCarrierListLeft();
+			}
+			else {
+				this.board.carrierListSetMovingRight(true);
+				// shift all carriers one line down
+				this.board.moveCarrierListDown();
+			}
+		}
+		else {
+			if (this.board.carrMinDistToRightSide() > 0) {
 				// shift all carriers to right
 				this.board.moveCarrierListRight();
 			}
@@ -50,7 +75,7 @@ public class Game {
 	
 	public void moveDestroyerList() {
 		if (this.board.destroyerListIsMovingLeft()) {
-			if (this.board.DESTminDistToLeftSide() > 0) {
+			if (this.board.destMinDistToLeftSide() > 0) {
 				// shift all carriers to left
 				this.board.moveDestroyerListLeft();
 			}
@@ -61,7 +86,7 @@ public class Game {
 			}
 		}
 		else {
-			if (this.board.DESTminDistToRightSide() > 0) {
+			if (this.board.destMinDistToRightSide() > 0) {
 				// shift all carriers to right
 				this.board.moveDestroyerListRight();
 			}

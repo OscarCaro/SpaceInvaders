@@ -120,11 +120,11 @@ public class Board {
 	
 	//CARRIER MOVEMENT//
 	
-	public int minDistToLeftSide() {
+	public int carrMinDistToLeftSide() {
 		return this.carrierList.minDistToLeftSide();
 	}
 	
-	public int minDistToRightSide() {
+	public int carrMinDistToRightSide() {
 		return carrierList.minDistToRightSide();
 	}
 	
@@ -149,11 +149,11 @@ public class Board {
 	
 	//DESTROYER MOVEMENT//
 	
-	public int DESTminDistToLeftSide() {
+	public int destMinDistToLeftSide() {
 		return this.destroyerList.minDistToLeftSide();
 	}
 	
-	public int DESTminDistToRightSide() {
+	public int destMinDistToRightSide() {
 		return destroyerList.minDistToRightSide();
 	}
 	
