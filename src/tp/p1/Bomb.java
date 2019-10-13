@@ -18,14 +18,14 @@ public class Bomb {
 		return posY;
 	}
 	
-		public String toString() {
-			String sprite;
-			if(this.isEnemy) {
-				sprite = "!";
-			}
-			else {
-				sprite = "^";
-			}
-			return sprite;
+	public String toString() {
+		String sprite;
+		if(this.isEnemy) {
+			sprite = "!";
 		}
+		else {
+			sprite = "^";
+		}
+		return sprite;
+	}
 }
