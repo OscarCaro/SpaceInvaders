@@ -25,79 +25,34 @@ public class Game {
 	
 	public void moveCarrListAndDestList () {
 		if (this.board.carrierListIsMovingLeft() && this.board.destroyerListIsMovingLeft()) {
-			if (this.board.carrMinDistToLeftSide() > 0) {
-				// shift all carriers to left
+			if (this.board.carrMinDistToLeftSide() > 0 && this.board.destMinDistToLeftSide() > 0) {
+				// shift all carriers and destroyers to left
 				this.board.moveCarrierListLeft();
-			}
-			else {
-				this.board.carrierListSetMovingRight(true);
-				// shift all carriers one line down
-				this.board.moveCarrierListDown();
-			}
-		}
-		else {
-			if (this.board.carrMinDistToRightSide() > 0) {
-				// shift all carriers to right
-				this.board.moveCarrierListRight();
-			}
-			else {
-				this.board.carrierListSetMovingLeft(true);
-				// shift all carriers one line down
-				this.board.moveCarrierListDown();
-			}
-		}
-	}
-	
-	public void moveCarrierList() {
-		if (this.board.carrierListIsMovingLeft()) {
-			if (this.board.carrMinDistToLeftSide() > 0) {
-				// shift all carriers to left
-				this.board.moveCarrierListLeft();
-			}
-			else {
-				this.board.carrierListSetMovingRight(true);
-				// shift all carriers one line down
-				this.board.moveCarrierListDown();
-			}
-		}
-		else {
-			if (this.board.carrMinDistToRightSide() > 0) {
-				// shift all carriers to right
-				this.board.moveCarrierListRight();
-			}
-			else {
-				this.board.carrierListSetMovingLeft(true);
-				// shift all carriers one line down
-				this.board.moveCarrierListDown();
-			}
-		}
-	}
-	
-	public void moveDestroyerList() {
-		if (this.board.destroyerListIsMovingLeft()) {
-			if (this.board.destMinDistToLeftSide() > 0) {
-				// shift all carriers to left
 				this.board.moveDestroyerListLeft();
 			}
 			else {
+				this.board.carrierListSetMovingRight(true);
 				this.board.destroyerListSetMovingRight(true);
-				// shift all carriers one line down
+				// shift all carriers and destroyers one line down
+				this.board.moveCarrierListDown();
 				this.board.moveDestroyerListDown();
 			}
 		}
 		else {
-			if (this.board.destMinDistToRightSide() > 0) {
+			if (this.board.carrMinDistToRightSide() > 0 && this.board.destMinDistToRightSide() > 0) {
 				// shift all carriers to right
+				this.board.moveCarrierListRight();
 				this.board.moveDestroyerListRight();
 			}
 			else {
+				this.board.carrierListSetMovingLeft(true);
 				this.board.destroyerListSetMovingLeft(true);
-				// shift all carriers one line down
+				// shift all carriers and destroyers one line down
+				this.board.moveCarrierListDown();
 				this.board.moveDestroyerListDown();
 			}
 		}
-	}
-	
+	}	
 	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
