@@ -38,6 +38,27 @@ public class Board {
 			this.carrierList.moveCarierDown(i);
 		}
 	}
+	
+	public void moveDestroyerListLeft () {
+		// All checks for errors done (in Game) before calling this function
+		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+			this.destroyerList.moveDestroyerToLeft(i);
+		}
+	}
+	
+	public void moveDestroyerListRight () {
+		// All checks for errors done (in Game) before calling this function
+		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+			this.destroyerList.moveDestroyerToRight(i);
+		}
+	}
+	
+	public void moveDestroyerListDown () {
+		// All checks for errors done (in Game) before calling this function
+		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+			this.destroyerList.moveDestroyerDown(i);
+		}
+	}
 
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		// Todo: develop movement (already half developed in controller class
