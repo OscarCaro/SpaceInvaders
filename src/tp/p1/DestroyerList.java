@@ -21,6 +21,8 @@ public class DestroyerList {
 			createInsane(boardObj, initNumOfDestroyers);
 		}
 		
+		this.movingLeft = true;
+		this.movingRight = false;	
 	}
 	
 	public String checkPos (int x, int y) {
@@ -51,8 +53,54 @@ public class DestroyerList {
 		this.movingRight = movingRight;
 		this.movingLeft = !movingRight; 
 	}
+	
 	public boolean isMovingRight() {
 		return movingRight;
+	}
+	
+
+	public int minDistToLeftSide() {
+		int minDist = -1;
+		
+		if (destroyerList.length > 0) {
+			minDist = destroyerList[0].getPosX();
+			for (int i = 1; i < destroyerList.length; i++) {				
+				if (destroyerList[i].getPosX() < minDist) {
+					minDist = destroyerList[i].getPosX();
+				}
+			}
+		}		
+		return minDist;
+	}
+	
+	public int minDistToRightSide() {
+		int minDist = -1;
+		
+		if (destroyerList.length > 0) {
+			minDist = Board.ROWS - 1 - destroyerList[0].getPosX();
+			for (int i = 1; i < destroyerList.length; i++) {				
+				if (Board.ROWS - 1 - destroyerList[i].getPosX() < minDist) {
+					minDist = Board.ROWS - 1 - destroyerList[i].getPosX();
+				}
+			}
+		}		
+		return minDist;
+	}
+	
+
+	public void moveCarierToLeft (int idx) {
+		int nextPos = this.destroyerList[idx].getPosX() - 1;
+		this.destroyerList[idx].setPosX(nextPos);
+	}
+	
+	public void moveCarierToRight (int idx) {
+		int nextPos = this.destroyerList[idx].getPosX() + 1;
+		this.destroyerList[idx].setPosX(nextPos);
+	}
+	
+	public void moveCarierDown (int idx) {
+		int nextPos = this.destroyerList[idx].getPosY() + 1;
+		this.destroyerList[idx].setPosY(nextPos);
 	}
 
 
