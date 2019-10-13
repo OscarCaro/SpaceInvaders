@@ -3,6 +3,8 @@ package tp.p1;
 public class DestroyerList {
 	
 	private Destroyer[] destroyerList;
+	private boolean movingLeft;
+	private boolean movingRight;
 	
 	public DestroyerList( Board boardObj, Level diffLevel) {
 		int initNumOfDestroyers = diffLevel.getNumOfDestroyers();
@@ -34,6 +36,26 @@ public class DestroyerList {
 		}
 		return str;
 	}
+	
+	public void setMovingLeft(boolean movingLeft) {
+		this.movingLeft = movingLeft;
+		this.movingRight = !movingLeft;	// To make sure both of them are never true at the same time
+	}
+
+	public boolean isMovingLeft() {
+		return movingLeft;
+	}
+
+
+	public void setMovingRight(boolean movingRight) {
+		this.movingRight = movingRight;
+		this.movingLeft = !movingRight; // To make sure both of them are never true at the same time
+	}
+	public boolean isMovingRight() {
+		return movingRight;
+	}
+
+
 	
 	public void createEasy( Board boardObj, int initNumOfDestroyers) {
 		int posX = 4;
