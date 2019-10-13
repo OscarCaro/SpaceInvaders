@@ -39,7 +39,7 @@ public class DestroyerList {
 	
 	public void setMovingLeft(boolean movingLeft) {
 		this.movingLeft = movingLeft;
-		this.movingRight = !movingLeft;	// To make sure both of them are never true at the same time
+		this.movingRight = !movingLeft;	
 	}
 
 	public boolean isMovingLeft() {
@@ -49,7 +49,7 @@ public class DestroyerList {
 
 	public void setMovingRight(boolean movingRight) {
 		this.movingRight = movingRight;
-		this.movingLeft = !movingRight; // To make sure both of them are never true at the same time
+		this.movingLeft = !movingRight; 
 	}
 	public boolean isMovingRight() {
 		return movingRight;
