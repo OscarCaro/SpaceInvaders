@@ -3,10 +3,12 @@ package tp.p1;
 public class Bomb {
 	
 	private int posX, posY;
+	private Destroyer destroyer;
 		
-	public Bomb(int posX, int posY) {
+	public Bomb(int posX, int posY, Destroyer destroyer) {
 		this.posX = posX;
 		this.posY = posY;
+		this.destroyer = destroyer;
 	}
 	
 	public int getPosX() {

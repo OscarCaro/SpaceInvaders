@@ -2,35 +2,35 @@ package tp.p1;
 
 public class BombList {
 	
-	private Bomb [] projectileList;
+	private Bomb [] bombList;
 
 	public BombList(Level diffLevel) {
 		// at most one projectile from each destroyer at a given time
 		// then the max size of list is the starting number of destroyers
-		this.projectileList = new Bomb[diffLevel.getNumOfDestroyers()];	
+		this.bombList = new Bomb[diffLevel.getNumOfDestroyers()];	
 		// ucmMissile will be created/set-to-null at run time
 	}
 	
-	public void newProjectile(int posX, int posY) {
-		this.projectileList[getNumOfValidProjectiles()] = new Bomb(posX, posY);
+	public void newBomb(int posX, int posY, Destroyer destroyer) {
+		this.bombList[getNumOfValidBombs()] = new Bomb(posX, posY, destroyer);
 	}
 	
-	public void deleteProjectile(int posX, int posY) {
+	public void deleteBomb(int posX, int posY) {
 		// 1. Find pos in list
-		int idx = findProjectile(posX, posY);
+		int idx = findBomb(posX, posY);
 		// 2. Remove from list
-		this.projectileList[idx] = null;
+		this.bombList[idx] = null;
 		// 3. Shift left remaining elements
-		for (int i = idx; i < getNumOfValidProjectiles(); i++) {
-			this.projectileList[i] = this.projectileList[i + 1];
+		for (int i = idx; i < getNumOfValidBombs(); i++) {
+			this.bombList[i] = this.bombList[i + 1];
 		}		
 	}
 
 	
-	public int getNumOfValidProjectiles() {
+	public int getNumOfValidBombs() {
 		// Return num of instantiated bombs in projectileList (i.e. num of not null elems)
 		int count = 0;
-		for (Bomb current : this.projectileList) {
+		for (Bomb current : this.bombList) {
 			if (current != null) {
 				count++;
 			}
@@ -38,16 +38,19 @@ public class BombList {
 		return count;
 	}
 	
-	private int findProjectile(int posX, int posY) {
+	private int findBomb(int posX, int posY) {
 		int idx = 0;
 		boolean found = false;
-		while (!found && idx < getNumOfValidProjectiles()) {
-			if (this.projectileList[idx].getPosX() == posX && this.projectileList[idx].getPosY() == posY) {
+		while (!found && idx < getNumOfValidBombs()) {
+			if (this.bombList[idx].getPosX() == posX && this.bombList[idx].getPosY() == posY) {
 				found = true;
 			} else {
 				idx++;
 			}
-		}		
+		}	
+		if (!found) {
+			idx = -1;
+		}
 		return idx;
 	}
 	
