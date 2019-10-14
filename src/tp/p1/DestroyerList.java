@@ -112,7 +112,7 @@ public class DestroyerList {
 		this.destroyerList = new Destroyer [initNumOfDestroyers];
 		
 		for (int i = 0; i < initNumOfDestroyers; i++ ) {
-			destroyerList[i] = new Destroyer( posX,  posY);
+			destroyerList[i] = new Destroyer( posX,  posY, i);
 			posX++;
 		}
 		
@@ -125,7 +125,7 @@ public class DestroyerList {
 		this.destroyerList = new Destroyer [initNumOfDestroyers];
 		
 		for (int i = 0; i < initNumOfDestroyers; i++ ) {
-			destroyerList[i] = new Destroyer( posX,  posY);
+			destroyerList[i] = new Destroyer( posX,  posY, i);
 			posX++;
 		}
 	}
@@ -137,7 +137,7 @@ public class DestroyerList {
 		this.destroyerList = new Destroyer [initNumOfDestroyers];
 		
 		for (int i = 0; i < initNumOfDestroyers; i++ ) {
-			destroyerList[i] = new Destroyer( posX,  posY);
+			destroyerList[i] = new Destroyer( posX,  posY, i);
 			posX++;
 		}
 	}

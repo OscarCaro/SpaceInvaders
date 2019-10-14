@@ -21,6 +21,7 @@ public class Controller {
 			System.out.println("Command > ");
 			input = in.nextLine();
 			processInput(input);
+			this.game.update();
 		} while (!input.equals("exit") || !input.equals("e"));		
 	}
 	
@@ -48,10 +49,12 @@ public class Controller {
 		}
 	
 		else if (input.equals("shoot") || input.equals("s")) {
+			
 			this.game.incrementCycleCounter();
 		}
 
 		else if (input.equals("none") || input.equals("n") || input.equals("")) {
+			
 			this.game.incrementCycleCounter();
 		}
 		

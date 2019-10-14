@@ -1,6 +1,7 @@
 package tp.p1;
 
 public class Bomb {
+	
 	private boolean isEnemy;
 	private int posX, posY;
 		
