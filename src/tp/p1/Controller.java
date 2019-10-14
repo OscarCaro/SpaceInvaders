@@ -22,6 +22,7 @@ public class Controller {
 			System.out.println("Command > ");
 			input = in.nextLine();
 			processInput(input);
+			this.game.computerAction();
 			this.game.update();
 		} while (!input.equals("exit") || !input.equals("e"));		
 	}

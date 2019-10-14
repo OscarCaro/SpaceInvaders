@@ -29,9 +29,32 @@ public class Game {
 		// Check if in this turn the ships should be moved
 		if (checkTurnToMoveShips()) {
 			this.moveCarrListAndDestList();
-		}
+		}		
+		// Check for colitions!!!
 		
 	}	
+	
+	public void computerAction() {
+		Destroyer currentDest;
+		
+		// 1. Check if any destroyer is going to shoot
+		for (int i = 0; i < this.board.getDestroyerListNumOfDestroyers(); i++) {
+			currentDest = this.board.getDestroyer(i);
+			if (currentDest.isCanShoot() && determineByProb(this.diffLevel.getFireFreq())) {
+				// shoot
+				this.board.newBomb(currentDest.getPosX(), currentDest.getPosY(), currentDest);
+			}
+			
+		}
+	}
+	
+	public boolean determineByProb(int max) {
+		boolean goOn = false;
+		if (random.nextInt(max - 1) == 1) {
+			goOn = true;
+		}
+		return goOn;
+	}
 	
 	public void moveCarrListAndDestList () {
 		if (this.board.carrierListIsMovingLeft() && this.board.destroyerListIsMovingLeft()) {

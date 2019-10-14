@@ -2,17 +2,17 @@ package tp.p1;
 
 public enum Level {
 	
-	EASY (4, 2, 0.1, 3, 0.5),
-	HARD (8, 2, 0.3, 2, 0.2),
-	INSANE (8, 4, 0.5, 1, 0.1);
+	EASY (4, 2, 10, 3, 0.5),
+	HARD (8, 2, 3, 2, 0.2),
+	INSANE (8, 4, 2, 1, 0.1);
 	
 	private int numOfCarriers;
 	private int numOfDestroyers;
-	private double fireFreq;
+	private int fireFreq;
 	private int speed;			// CAUTION: measured in number of cycles per (single-square) movement -> The lower, the faster
 	private double ufoFreq;
 	
-	private Level(int numOfCarriers, int numOfDestroyers, double fireFreq, int speed, double ufoFreq) {
+	private Level(int numOfCarriers, int numOfDestroyers, int fireFreq, int speed, double ufoFreq) {
 		this.numOfCarriers = numOfCarriers;
 		this.numOfDestroyers = numOfDestroyers;
 		this.fireFreq = fireFreq;
@@ -28,7 +28,7 @@ public enum Level {
 		return numOfDestroyers;
 	}
 	
-	public double getFireFreq() {
+	public int getFireFreq() {
 		return fireFreq;
 	}
 	

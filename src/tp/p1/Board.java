@@ -208,4 +208,22 @@ public class Board {
 	
 	///////////////////////////////////////////////////////////
 	
+	public int getDestroyerListNumOfDestroyers() {
+		return this.destroyerList.getNumOfDestroyers();
+	}
+
+	public boolean destroyerCanShoot(int idx) {
+		return destroyerList.destroyerCanShoot(idx);
+	}
+
+	public Destroyer getDestroyer(int idx) {
+		return destroyerList.getDestroyer(idx);
+	}
+
+	public void newBomb(int posX, int posY, Destroyer destroyer) {
+		bombList.newBomb(posX, posY, destroyer);
+	}
+	
+	
+	
 }

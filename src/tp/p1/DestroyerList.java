@@ -39,6 +39,14 @@ public class DestroyerList {
 		return str;
 	}
 	
+	public Destroyer getDestroyer(int idx) {
+		return this.destroyerList[idx];
+	}
+	
+	public boolean destroyerCanShoot(int idx) {
+		return this.destroyerList[idx].isCanShoot();
+	}
+	
 	public void setMovingLeft(boolean movingLeft) {
 		this.movingLeft = movingLeft;
 		this.movingRight = !movingLeft;	
