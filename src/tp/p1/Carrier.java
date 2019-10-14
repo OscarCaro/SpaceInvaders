@@ -3,7 +3,6 @@ package tp.p1;
 public class Carrier {
 	// (UFO es objeto de esta clase pero tiene atributos con valor diferente.
 	
-	private boolean isUfo;
 	private int posX, posY;		// These attributes change over time -> init in constructor
 	private int shield;		//Shield me da error si esto no es static
 	private final int points;
@@ -15,23 +14,16 @@ public class Carrier {
 	private String ufoSprite;   
 	
 	
-	public Carrier(boolean isUfo ,int posX, int posY) {
+	public Carrier(int posX, int posY) {
 		//Class constructor
-		if (isUfo) {
-			// Ufo constructor
-			this.points = 25;
-			this.shield = 1;
-			this.posX = posX;
-			this.posY = posY;
-			this.isUfo = isUfo;
-		} else {
+
 			// Carrier constructor
 			this.points = 5;
 			this.shield = 2;
 			this.posX = posX;
 			this.posY = posY;
-			this.isUfo = isUfo;
-		}	
+		
+		
 	}
 	
 	public int getPosX() {
@@ -52,12 +44,9 @@ public class Carrier {
 
 	public String toString() {
 		String sprite;
-		if (this.isUfo) {
-			sprite = "<(+)>";
-		}
-		else {
+	
 			sprite = "-<" + this.shield + ">-";
-		}
+		
 		return sprite;
 	}	
 	

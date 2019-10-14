@@ -107,7 +107,7 @@ public class CarrierList {
 		this.carrierList = new Carrier [initNumOfCarriers];
 		
 		for (int i = 0; i < initNumOfCarriers; i++ ) {
-			carrierList[i] = new Carrier(false,  posX,  posY);
+			carrierList[i] = new Carrier(posX,  posY);
 			posX++;
 		}
 		
@@ -124,7 +124,7 @@ public class CarrierList {
 				posY++;
 				posX = 3;
 			}
-			carrierList[i] = new Carrier(false,  posX,  posY);
+			carrierList[i] = new Carrier(posX,  posY);
 			posX++;
 		}
 		
@@ -143,7 +143,7 @@ public class CarrierList {
 				posX = 3;
 			}
 			
-			carrierList[i] = new Carrier(false,  posX,  posY);
+			carrierList[i] = new Carrier(posX,  posY);
 			posX++;
 		}		
 	}
