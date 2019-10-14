@@ -6,19 +6,19 @@ public class DestroyerList {
 	private boolean movingLeft;
 	private boolean movingRight;
 	
-	public DestroyerList( Board boardObj, Level diffLevel) {
+	public DestroyerList( Level diffLevel) {
 		int initNumOfDestroyers = diffLevel.getNumOfDestroyers();
 		
 		if(diffLevel == Level.EASY) {
-			createEasy(boardObj, initNumOfDestroyers);
+			createEasy(initNumOfDestroyers);
 		}
 		
 		else if(diffLevel == Level.HARD) {
-			createHard(boardObj, initNumOfDestroyers);
+			createHard(initNumOfDestroyers);
 		}
 		
 		else if(diffLevel == Level.INSANE) {
-			createInsane(boardObj, initNumOfDestroyers);
+			createInsane(initNumOfDestroyers);
 		}
 		
 		this.movingLeft = true;
@@ -105,7 +105,7 @@ public class DestroyerList {
 
 
 	
-	public void createEasy( Board boardObj, int initNumOfDestroyers) {
+	public void createEasy(int initNumOfDestroyers) {
 		int posX = 4;
 		int posY = 2;
 		
@@ -118,7 +118,7 @@ public class DestroyerList {
 		
 	}
 	
-	public void createHard( Board boardObj, int initNumOfDestroyers) {
+	public void createHard(int initNumOfDestroyers) {
 		int posX = 4;
 		int posY = 3;
 		
@@ -130,7 +130,7 @@ public class DestroyerList {
 		}
 	}
 	
-	public void createInsane( Board boardObj, int initNumOfDestroyers) {
+	public void createInsane(int initNumOfDestroyers) {
 		int posX = 3;
 		int posY = 3;
 		

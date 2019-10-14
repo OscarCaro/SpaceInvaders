@@ -12,9 +12,9 @@ public class Board {
 	
 	
 	public Board (Level diffLevel) {
-		this.carrierList = new CarrierList(this, diffLevel);
-		this.destroyerList = new DestroyerList(this, diffLevel);
-		this.bombList = new BombList(this, diffLevel);	
+		this.carrierList = new CarrierList(diffLevel);
+		this.destroyerList = new DestroyerList(diffLevel);
+		this.bombList = new BombList(diffLevel);	
 		this.ucm_Ship = new UCM_Ship();
 	}
 	

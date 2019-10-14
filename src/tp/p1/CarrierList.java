@@ -6,19 +6,19 @@ public class CarrierList {
 	private boolean movingLeft;
 	private boolean movingRight;
 	
-	public CarrierList( Board boardObj, Level diffLevel) {
+	public CarrierList(Level diffLevel) {
 		int initNumOfCarriers = diffLevel.getNumOfCarriers();
 		
 		if(diffLevel == Level.EASY) {
-			createEasy(boardObj, initNumOfCarriers);
+			createEasy(initNumOfCarriers);
 		}
 		
 		else if(diffLevel == Level.HARD) {
-			createHard(boardObj, initNumOfCarriers);
+			createHard(initNumOfCarriers);
 		}
 		
 		else if(diffLevel == Level.INSANE) {
-			createInsane(boardObj, initNumOfCarriers);
+			createInsane(initNumOfCarriers);
 		}
 		
 		this.movingLeft = true;
@@ -100,7 +100,7 @@ public class CarrierList {
 		return str;
 	}
 	
-	public void createEasy( Board boardObj, int initNumOfCarriers) {
+	public void createEasy(int initNumOfCarriers) {
 		int posX = 3;
 		int posY = 1;
 		
@@ -113,7 +113,7 @@ public class CarrierList {
 		
 	}
 	
-	public void createHard(Board boardObj, int initNumOfCarriers) {
+	public void createHard(int initNumOfCarriers) {
 		int posX = 3;
 		int posY = 1;
 		
@@ -130,7 +130,7 @@ public class CarrierList {
 		
 	}
 	
-	public void createInsane(Board boardObj, int initNumOfCarriers) {
+	public void createInsane(int initNumOfCarriers) {
 		int posX = 3;
 		int posY = 1;
 		
