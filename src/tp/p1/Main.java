@@ -6,16 +6,16 @@ public class Main {
 	
 	private static Level diffLevel;
 	private static long seed;
-	private static int randomValue;
 	private static Controller controller;
+	private static Random random;
 
 	public static void main(String[] args) {
 		
 		if (Arguments.processArgs(args)) {
 			// Continue with program -- diffLevel and randomSeed are correctly set
 			
-			randomValue = new Random(seed).nextInt();
-			controller = new Controller(diffLevel, randomValue);
+			random = new Random(seed);
+			controller = new Controller(diffLevel, random);
 			controller.run();
 			
 		}

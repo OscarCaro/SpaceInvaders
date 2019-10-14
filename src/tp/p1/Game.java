@@ -1,21 +1,23 @@
 package tp.p1;
 
+import java.util.Random;
+
 public class Game {
 	
 	private int cycleCounter;
 	private int score;
-	private int randomValue;
+	private Random random;
 	private Board board;			// Contains list for bombs, carriers and destroyers
 	private GamePrinter gamePrinter;
 	private Level diffLevel;
 	
 	
 
-	public Game (Level diffLevel, int randomValue) {
+	public Game (Level diffLevel, Random random) {
 		// Class constructor
 		this.cycleCounter = 0;
 		this.score = 0;
-		this.randomValue = randomValue;
+		this.random = random;
 		this.board = new Board(diffLevel);	
 		this.gamePrinter = new GamePrinter(Board.ROWS, Board.COLUMNS);
 		this.diffLevel = diffLevel;

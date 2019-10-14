@@ -9,6 +9,11 @@ public class Bomb {
 		this.posX = posX;
 		this.posY = posY;
 		this.destroyer = destroyer;
+		this.destroyer.setCanShoot(false);
+	}
+	
+	public void allowDestroyerShoot() {
+		this.destroyer.setCanShoot(true);
 	}
 	
 	public int getPosX() {
@@ -23,5 +28,11 @@ public class Bomb {
 		String sprite;
 			sprite = "!";
 		return sprite;
+	}
+	
+	public void outOfBoard() {
+		if(this.posY > Board.ROWS) {
+			this.allowDestroyerShoot();
+		}
 	}
 }

@@ -1,5 +1,6 @@
 
 package tp.p1;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Controller {
@@ -7,9 +8,9 @@ public class Controller {
 	private Game game;
 	private Scanner in;
 	
-	public Controller (Level diffLevel, int randomValue) {
+	public Controller (Level diffLevel, Random random) {
 		in = new Scanner(System.in);
-		game = new Game(diffLevel, randomValue);
+		game = new Game(diffLevel, random);
 	}
 	
 	public void run () {
