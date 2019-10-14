@@ -118,6 +118,12 @@ public class Board {
 		}
 	}
 	
+	public void moveDownProjectiles() {
+		for (int i = 0; i < this.getNumOfValidBombs(); i++) {
+			this.bombList.incrementPosY(i);
+		}
+	}
+	
 	//CARRIER MOVEMENT//
 	
 	public int carrMinDistToLeftSide() {
@@ -222,6 +228,10 @@ public class Board {
 
 	public void newBomb(int posX, int posY, Destroyer destroyer) {
 		bombList.newBomb(posX, posY, destroyer);
+	}
+
+	public int getNumOfValidBombs() {
+		return bombList.getNumOfValidBombs();
 	}
 	
 	

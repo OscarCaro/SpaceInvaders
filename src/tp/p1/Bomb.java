@@ -24,6 +24,10 @@ public class Bomb {
 		return posY;
 	}
 	
+	public void incrementPosY() {
+		this.posY++;
+	}
+	
 	public String toString() {
 		String sprite;
 			sprite = "!";

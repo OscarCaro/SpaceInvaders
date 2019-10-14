@@ -30,7 +30,10 @@ public class Game {
 		if (checkTurnToMoveShips()) {
 			this.moveCarrListAndDestList();
 		}		
-		// Check for colitions!!!
+		
+		// Move down the projectiles + Todo: Check for colitions!!!
+		this.board.moveDownProjectiles();
+
 		
 	}	
 	

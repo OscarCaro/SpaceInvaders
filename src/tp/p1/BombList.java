@@ -54,4 +54,8 @@ public class BombList {
 		return idx;
 	}
 	
+	public void incrementPosY(int idx) {
+		this.bombList[idx].incrementPosY();
+	}
+	
 }
