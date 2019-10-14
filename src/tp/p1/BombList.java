@@ -12,6 +12,21 @@ public class BombList {
 		// ucmMissile will be created/set-to-null at run time
 	}
 	
+	public void newProjectile(int posX, int posY) {
+		this.projectileList[getNumOfValidProjectiles()] = new Bomb(true, posX, posY);
+	}
+	
+	public void deleteProjectile(int posX, int posY) {
+		// 1. Find pos in list
+		int idx = findProjectile(posX, posY);
+		// 2. Remove from list
+		this.projectileList[idx] = null;
+		// 3. Shift left remaining elements
+		for (int i = idx; i < getNumOfValidProjectiles(); i++) {
+			this.projectileList[i] = this.projectileList[i + 1];
+		}		
+	}
+	
 	public boolean isThereUcmMissile () {
 		return (ucmMissile != null);		
 	}
@@ -25,6 +40,19 @@ public class BombList {
 			}
 		}
 		return count;
+	}
+	
+	private int findProjectile(int posX, int posY) {
+		int idx = 0;
+		boolean found = false;
+		while (!found && idx < getNumOfValidProjectiles()) {
+			if (this.projectileList[idx].getPosX() == posX && this.projectileList[idx].getPosY() == posY) {
+				found = true;
+			} else {
+				idx++;
+			}
+		}		
+		return idx;
 	}
 	
 }
