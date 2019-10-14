@@ -2,7 +2,6 @@ package tp.p1;
 
 public class BombList {
 	
-	private Bomb ucmMissile;		// at most one on the board at a given time
 	private Bomb [] projectileList;
 
 	public BombList(Level diffLevel) {
@@ -13,7 +12,7 @@ public class BombList {
 	}
 	
 	public void newProjectile(int posX, int posY) {
-		this.projectileList[getNumOfValidProjectiles()] = new Bomb(true, posX, posY);
+		this.projectileList[getNumOfValidProjectiles()] = new Bomb(posX, posY);
 	}
 	
 	public void deleteProjectile(int posX, int posY) {
@@ -26,10 +25,7 @@ public class BombList {
 			this.projectileList[i] = this.projectileList[i + 1];
 		}		
 	}
-	
-	public boolean isThereUcmMissile () {
-		return (ucmMissile != null);		
-	}
+
 	
 	public int getNumOfValidProjectiles() {
 		// Return num of instantiated bombs in projectileList (i.e. num of not null elems)
