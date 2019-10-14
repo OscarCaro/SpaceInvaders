@@ -7,6 +7,7 @@ public class Game {
 	private int randomValue;
 	private Board board;			// Contains list for bombs, carriers and destroyers
 	private GamePrinter gamePrinter;
+	private Level diffLevel;
 	
 	
 
@@ -17,23 +18,18 @@ public class Game {
 		this.randomValue = randomValue;
 		this.board = new Board(diffLevel);	
 		this.gamePrinter = new GamePrinter(Board.ROWS, Board.COLUMNS);
-		
-		if(diffLevel == Level.EASY) {
-			this.shipEASYMovement();
-		}
-		
-		if(diffLevel == Level.HARD) {
-			this.shipHARDMovement();
-		}
-		
-		if(diffLevel == Level.INSANE) {
-			this.shipINSANEMovement();
-		}
+		this.diffLevel = diffLevel;
 	}
 	
 	public void update() {
 		// call each object's update methods
-	}
+		
+		// Check if in this turn the ships should be moved
+		if (checkTurnToMoveShips()) {
+			this.moveCarrListAndDestList();
+		}
+		
+	}	
 	
 	public void moveCarrListAndDestList () {
 		if (this.board.carrierListIsMovingLeft() && this.board.destroyerListIsMovingLeft()) {
@@ -66,6 +62,19 @@ public class Game {
 		}
 	}	
 	
+	private boolean checkTurnToMoveShips() {
+		boolean move = false;
+		if (this.diffLevel == Level.EASY && this.cycleCounter % 3 == 0) {
+			move = true;
+		}
+		else if (this.diffLevel == Level.HARD && this.cycleCounter % 2 == 0) {
+			move = true;
+		}
+		else if (this.diffLevel == Level.INSANE) {
+			move = true;
+		}
+		return move;
+	}
 	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
@@ -77,6 +86,10 @@ public class Game {
 
 	public void setCycleCounter(int cycleCounter) {
 		this.cycleCounter = cycleCounter;
+	}
+	
+	public void incrementCycleCounter() {
+		this.cycleCounter++;
 	}
 
 	public int getScore() {
@@ -104,29 +117,5 @@ public class Game {
 				+ board.checkDestroyerListPos(x, y)
 				+ board.checkUcmShip(x, y);
 	}
-	
-	public void shipEASYMovement(){
-		int cycles = 0;
-		cycles = this.getCycleCounter();
-		if(cycles % 3 == 0) {
-			this.moveCarrListAndDestList();
-		}
-	}
-	
-	public void shipHARDMovement(){
-		int cycles = 0;
-		cycles = this.getCycleCounter();
-		if(cycles % 2 == 0) {
-			this.moveCarrListAndDestList();
-		}
-	}
-	
-	public void shipINSANEMovement(){
-		int cycles = 0;
-		cycles = this.getCycleCounter();
-		this.moveCarrListAndDestList();
-		
-	}
-	
 
 }

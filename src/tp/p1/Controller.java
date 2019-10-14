@@ -32,27 +32,27 @@ public class Controller {
 			
 		if (input.equals("move left 1") || input.equals("m left 1")) {	
 			this.game.moveUcmShip(true, false, 1);
-	
+			this.game.incrementCycleCounter();	
 		} 
 		else if (input.equals("move left 2") || input.equals("m left 2")) {	
 			this.game.moveUcmShip(true, false, 2);
-		
+			this.game.incrementCycleCounter();		
 		}
 		else if (input.equals("move right 1") || input.equals("m right 1")) {
 			this.game.moveUcmShip(false, true, 1);
-
+			this.game.incrementCycleCounter();
 		}
 		else if (input.equals("move right 2") || input.equals("m right 2")) {
 			this.game.moveUcmShip(false, true, 2);
-
+			this.game.incrementCycleCounter();
 		}
 	
 		else if (input.equals("shoot") || input.equals("s")) {
-		
+			this.game.incrementCycleCounter();
 		}
 
 		else if (input.equals("none") || input.equals("n") || input.equals("")) {
-		
+			this.game.incrementCycleCounter();
 		}
 		
 		else if (input.equals("list") || input.equals("l")) {
