@@ -16,14 +16,22 @@ public class BombList {
 	}
 	
 	public void deleteBomb(int posX, int posY) {
+		boolean listShifted = false;
 		// 1. Find pos in list
 		int idx = findBomb(posX, posY);
-		// 2. Remove from list
-		this.bombList[idx] = null;
-		// 3. Shift left remaining elements
-		for (int i = idx; i < getNumOfValidBombs(); i++) {
+		
+		// 2. Shift left remaining elements
+		for (int i = idx; i < getNumOfValidBombs() - 1; i++) {
+			listShifted = true;
 			this.bombList[i] = this.bombList[i + 1];
-		}		
+			
+		}	
+		
+		this.bombList[getNumOfValidBombs() - 1] = null; 	// Segunda llamada a getvalidbomb retorna una menos 		
+			//Delete last element pointer because it is already pointed by the previous one 
+		
+		
+		
 	}
 
 	
@@ -70,6 +78,18 @@ public class BombList {
 	
 	public void incrementPosY(int idx) {
 		this.bombList[idx].incrementPosY();
+	}
+	
+	public boolean bombOutOfBoard(int idx) {
+		return this.bombList[idx].outOfBoard();
+	}
+	
+	public int getPosX(int idx) {
+		return this.bombList[idx].getPosX();
+	}
+	
+	public int getPosY(int idx) {
+		return this.bombList[idx].getPosY();
 	}
 	
 }

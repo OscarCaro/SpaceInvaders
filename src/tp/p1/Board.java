@@ -128,11 +128,18 @@ public class Board {
 		for (int i = 0; i < this.getNumOfValidBombs(); i++) {
 			this.bombList.incrementPosY(i);
 			//Check if out of board -> to destroy the object + destroyer.canShoot = true
+			if(this.bombOutOfBoard(i)) {
+				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
+			}
 		}
 	}
 	
 	public void launchMissile() {
 		this.ucm_Missile.decrementPosY();
+		if(this.outOfBoard()) {
+			this.ucm_Ship.setCanShoot(true);
+			this.ucm_Missile = null;
+		}
 	}
 	
 	public void checkBombsOutOfBoard() {
@@ -239,6 +246,10 @@ public class Board {
 		return str;
 	}
 	
+	public boolean missileExists() {
+		return this.ucm_Missile != null;
+	}
+	
 	///////////////////////////////////////////////////////////
 	
 	public boolean ucmShipIsCanShoot() {
@@ -268,6 +279,15 @@ public class Board {
 	public int getNumOfValidBombs() {
 		return bombList.getNumOfValidBombs();
 	}
+
+	public boolean bombOutOfBoard(int idx) {
+		return bombList.bombOutOfBoard(idx);
+	}
+
+	public boolean outOfBoard() {
+		return ucm_Missile.outOfBoard();
+	}
+	
 	
 	
 	

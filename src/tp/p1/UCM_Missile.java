@@ -46,4 +46,9 @@ public class UCM_Missile {
 		return str;
 	}
 	
+	public boolean outOfBoard() {
+	
+		return (this.posY < 0);
+	}
+	
 }

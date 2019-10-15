@@ -34,7 +34,10 @@ public class Game {
 		// Move down the projectiles 
 		// Todo: Check for colitions!!!  +  check if out of board
 		this.board.moveDownBombs();
-		this.board.launchMissile();
+		if(this.board.missileExists()) {
+			this.board.launchMissile();
+		}
+		
 		
 	}	
 	
@@ -52,6 +55,7 @@ public class Game {
 			
 		}
 	}
+	
 	
 	public boolean determineByProb(int max) {
 		boolean goOn = false;

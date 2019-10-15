@@ -34,9 +34,12 @@ public class Bomb {
 		return sprite;
 	}
 	
-	public void outOfBoard() {
+	public boolean outOfBoard() {
+		boolean out = false;
 		if(this.posY > Board.ROWS) {
 			this.allowDestroyerShoot();
+			out = true;
 		}
+		return out;
 	}
 }
