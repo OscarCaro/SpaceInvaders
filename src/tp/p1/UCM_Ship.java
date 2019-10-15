@@ -37,6 +37,10 @@ public class UCM_Ship {
 	public int getShield() {
 		return shield;
 	}
+	
+	public void decrementShield() {
+		this.shield--;
+	}
 
 	public int getPosX() {
 		return posX;

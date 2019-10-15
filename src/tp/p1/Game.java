@@ -24,16 +24,21 @@ public class Game {
 	}
 	
 	public void update() {
-		// call each object's update methods
 		
-		// Check if in this turn the ships should be moved
+		
+		// 1. Check if in this turn the ships should be moved -> move them
 		if (checkTurnToMoveShips()) {
 			this.moveCarrListAndDestList();
 		}		
 		
-		// Move down the projectiles 
-		// Todo: Check for colitions!!!  +  check if out of board
+		// 2.1 move bombs down
+		// 2.2 check for out of board
+		// 2.3 check for collitions 		TODO
 		this.board.moveDownBombs();
+		
+		// 3.1 Move missile
+		// 3.2 check out of board
+		// 3.3 check for collitions			TODO
 		if(this.board.missileExists()) {
 			this.board.launchMissile();
 		}

@@ -131,15 +131,45 @@ public class Board {
 			if(this.bombOutOfBoard(i)) {
 				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
 			}
+			else if (bombCheckCollitions(this.bombList.getPosX(i), this.bombList.getPosY(i))) {
+				
+			}
+			else if (bombCheckCollitions(this.bombList.getPosX(i), this.bombList.getPosY(i))) {
+				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
+			}
+			
 		}
 	}
+	
+	public boolean bombCheckCollitions(int posX, int posY) {
+		boolean coll = false;
+		// Check in carrierList
+		if (this.ucm_Ship.getPosX() == posX && this.ucm_Ship.getPosY() == posY) {
+			// collition with ucmShip -> decrement shield + remove bomb
+			this.ucm_Ship.decrementShield();
+			coll = true;
+		}
+		if (this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY) {
+			// collition with ucmMissile -> remove missile and bomb
+			deleteUcmMissile();
+			coll = true;
+		}
+		
+		return coll;
+	}
+	
+	
 	
 	public void launchMissile() {
 		this.ucm_Missile.decrementPosY();
 		if(this.outOfBoard()) {
-			this.ucm_Ship.setCanShoot(true);
-			this.ucm_Missile = null;
+			deleteUcmMissile();
 		}
+	}
+	
+	public void deleteUcmMissile() {
+		this.ucm_Ship.setCanShoot(true);
+		this.ucm_Missile = null;
 	}
 	
 	public void checkBombsOutOfBoard() {
