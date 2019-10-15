@@ -144,15 +144,18 @@ public class Board {
 	public boolean bombCheckCollitions(int posX, int posY) {
 		boolean coll = false;
 		// Check in carrierList
-		if (this.ucm_Ship.getPosX() == posX && this.ucm_Ship.getPosY() == posY + 1) {
+		if (this.ucm_Ship.getPosX() == posX && this.ucm_Ship.getPosY() == posY) {
 			// collition with ucmShip -> decrement shield + remove bomb
 			this.ucm_Ship.decrementShield();
 			coll = true;
 		}
-		if (this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY + 1) {
+		if(missileExists()) {
+		if (this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY - 1) {
 			// collition with ucmMissile -> remove missile and bomb
 			deleteUcmMissile();
+			
 			coll = true;
+			}
 		}
 		
 		return coll;
