@@ -151,7 +151,7 @@ public class Board {
 			coll = true;
 		}
 		if(missileExists()) {
-		if (this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY - 1) {
+		if (this.ucm_Missile.getPosX() == posX && (this.ucm_Missile.getPosY() == posY + 1 || this.ucm_Missile.getPosY() == posY)) {
 			// collition with ucmMissile -> remove missile and bomb
 			deleteUcmMissile();
 			this.bombList.deleteBomb(posX, posY);
