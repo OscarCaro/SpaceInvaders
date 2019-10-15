@@ -53,7 +53,7 @@ public class Game {
 	
 	public boolean determineByProb(int max) {
 		boolean goOn = false;
-		if (random.nextInt(max - 1) == 1) {
+		if (random.nextInt(max) == 1) {
 			goOn = true;
 		}
 		return goOn;
@@ -143,7 +143,8 @@ public class Game {
 	public String checkPos(int x, int y) {
 		return board.checkCarrierListPos(x, y) 
 				+ board.checkDestroyerListPos(x, y)
-				+ board.checkUcmShip(x, y);
+				+ board.checkUcmShip(x, y)
+				+ board.checkBombListPos(x, y);				
 	}
 
 }

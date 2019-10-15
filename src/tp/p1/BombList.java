@@ -38,6 +38,20 @@ public class BombList {
 		return count;
 	}
 	
+	public String checkPos (int x, int y) {
+		String str = "";
+		int i = 0;
+		boolean found = false;
+		while ( i < getNumOfValidBombs() && !found) {
+			if (bombList[i].getPosX() == x && bombList[i].getPosY() == y) {
+				str = bombList[i].toString();
+				found = true;
+			}
+			i++;
+		}
+		return str;
+	}
+	
 	private int findBomb(int posX, int posY) {
 		int idx = 0;
 		boolean found = false;

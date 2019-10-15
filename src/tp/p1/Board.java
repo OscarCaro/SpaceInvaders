@@ -208,6 +208,10 @@ public class Board {
 		return destroyerList.checkPos(x, y);
 	}
 	
+	public String checkBombListPos(int x, int y) {
+		return bombList.checkPos(x, y);
+	}
+	
 	public String checkUcmShip (int x, int y) {
 		return ucm_Ship.checkPos(x, y);
 	}
