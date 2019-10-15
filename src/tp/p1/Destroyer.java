@@ -25,6 +25,9 @@ public class Destroyer {
 		return "!<" + this.shield + ">!";
 	}
 	
+	public void decrementShield() {
+		this.shield--;
+	}
 	
 	
 	public boolean isCanShoot() {

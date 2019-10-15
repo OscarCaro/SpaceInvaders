@@ -153,7 +153,7 @@ public class Board {
 		if (this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY - 1) {
 			// collition with ucmMissile -> remove missile and bomb
 			deleteUcmMissile();
-			
+			this.bombList.deleteBomb(posX, posY);
 			coll = true;
 			}
 		}
@@ -176,18 +176,47 @@ public class Board {
 	public boolean missileCheckCollitions(int posX, int posY) {
 		boolean coll = false;
 		// Check in carrierList
-		if (this.ucm_Ship.getPosX() == posX && this.ucm_Ship.getPosY() == posY - 1) {
+		if (missileCollidesDestroyer(posX,posY)) {
 			// collition with ucmShip -> decrement shield + remove bomb
-			this.ucm_Ship.decrementShield();
 			coll = true;
+			
 		}
-		if (this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY - 1) {
-			// collition with ucmMissile -> remove missile and bomb
-			deleteUcmMissile();
+		
+		if (missileCollidesCarrier(posX, posY)) {
 			coll = true;
 		}
 		
 		return coll;
+	}
+	
+	public boolean missileCollidesDestroyer(int posX, int posY) {
+		boolean collDest = false;
+		
+		for(int i = 0; i < this.getDestroyerListNumOfDestroyers(); i++) {
+			if(this.destroyerList.getPosX(i) == posX && this.destroyerList.getPosY(i) == posY) {
+				collDest = true;
+				deleteUcmMissile();
+				this.destroyerList.decrementShield(i);
+				
+			}
+		}
+		
+		return collDest;
+	}
+	
+	public boolean missileCollidesCarrier(int posX, int posY) {
+		boolean collCarr = false;
+		
+		for(int i = 0; i < this.getNumOfCarriers(); i++) {
+			if(this.carrierList.getPosX(i) == posX && this.carrierList.getPosY(i) == posY) {
+				collCarr = true;
+				deleteUcmMissile();
+				this.carrierList.decrementShield(i);
+				
+			}
+		}
+		
+		return collCarr;
 	}
 	
 	public void deleteUcmMissile() {

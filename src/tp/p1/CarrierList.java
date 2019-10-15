@@ -152,4 +152,16 @@ public class CarrierList {
 		return this.carrierList.length;
 	}
 	
+	public int getPosX(int idx) {
+		return this.carrierList[idx].getPosX();
+	}
+	
+	public int getPosY(int idx) {
+		return this.carrierList[idx].getPosY();
+	}
+	
+	public void decrementShield(int idx) {
+		this.carrierList[idx].decrementShield();
+	}
+	
 }

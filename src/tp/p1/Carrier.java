@@ -26,6 +26,10 @@ public class Carrier {
 		
 	}
 	
+	public void decrementShield() {
+		this.shield--;
+	}
+	
 	public int getPosX() {
 		return posX;
 	}

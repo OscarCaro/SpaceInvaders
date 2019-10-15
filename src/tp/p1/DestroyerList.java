@@ -153,4 +153,16 @@ public class DestroyerList {
 	public int getNumOfDestroyers() {
 		return this.destroyerList.length;
 	}
+	
+	public int getPosX(int idx) {
+		return this.destroyerList[idx].getPosX();
+	}
+	
+	public int getPosY(int idx) {
+		return this.destroyerList[idx].getPosY();
+	}
+	
+	public void decrementShield(int idx) {
+		this.destroyerList[idx].decrementShield();
+	}
 }
