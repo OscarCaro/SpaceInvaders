@@ -1,32 +1,49 @@
 package tp.p1;
 
+
+
 public class UCM_Missile {
-	private int PosX;
-	private int PosY;
+	private int posX;
+	private int posY;
+	
+	private String sprite;
 	
 	public UCM_Missile(int PosX, int PosY) {
-		this.PosX = PosX;
-		this.PosY = PosY;
+		this.posX = PosX;
+		this.posY = PosY;
+		this.sprite = "^";
 	}
 	
 	public String toString() {
-		return "^";
+		return this.sprite;
 	}
 	
 	public int getPosX() {
-		return PosX;
+		return posX;
 	}
 
 	public void setPosX(int posX) {
-		this.PosX = posX;
+		this.posX = posX;
 	}
 
 	public int getPosY() {
-		return PosY;
+		return posY;
 	}
 
 	public void setPosY(int posY) {
-		this.PosY = posY;
+		this.posY = posY;
+	}
+	
+	public void decrementPosY() {
+		this.posY--;
+	}
+	
+	public String checkPos (int x, int y) {
+		String str = "";
+		if (this.posX == x && this.posY == y) {
+			str = this.sprite;
+		}
+		return str;
 	}
 	
 }

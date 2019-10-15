@@ -34,7 +34,7 @@ public class Game {
 		// Move down the projectiles 
 		// Todo: Check for colitions!!!  +  check if out of board
 		this.board.moveDownBombs();
-		
+		this.board.launchMissile();
 		
 	}	
 	
@@ -150,7 +150,9 @@ public class Game {
 		return board.checkCarrierListPos(x, y) 
 				+ board.checkDestroyerListPos(x, y)
 				+ board.checkUcmShip(x, y)
-				+ board.checkBombListPos(x, y);				
+				+ board.checkBombListPos(x, y)
+				+ board.checkUcmMissile(x, y);
+				
 	}
 
 	public boolean ucmShipIsCanShoot() {

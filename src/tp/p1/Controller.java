@@ -57,6 +57,8 @@ public class Controller {
 		}	
 		else if (input.equals("shoot") || input.equals("s")) {
 			if (this.game.ucmShipIsCanShoot()) {
+				this.game.shootUcmMissile();
+				
 				// Set missile + isCanShoot false
 			}
 			else {

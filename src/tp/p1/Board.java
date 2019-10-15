@@ -131,6 +131,10 @@ public class Board {
 		}
 	}
 	
+	public void launchMissile() {
+		this.ucm_Missile.decrementPosY();
+	}
+	
 	public void checkBombsOutOfBoard() {
 		
 	}
@@ -225,6 +229,14 @@ public class Board {
 	
 	public String checkUcmShip (int x, int y) {
 		return ucm_Ship.checkPos(x, y);
+	}
+	
+	public String checkUcmMissile (int x, int y) {
+		String str = "";
+		if(this.ucm_Missile != null) {
+			str = ucm_Missile.checkPos(x, y);
+		}
+		return str;
 	}
 	
 	///////////////////////////////////////////////////////////
