@@ -371,10 +371,7 @@ public class Board {
 		return ucm_Missile.outOfBoard();
 	}
 	
-	public void spawnUfo(int posX, int posY) {
-		
-	}
-	
+
 	
 	
 }
