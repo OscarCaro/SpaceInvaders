@@ -31,11 +31,13 @@ public class Game {
 			this.moveCarrListAndDestList();
 		}		
 		
-		// Move down the projectiles + Todo: Check for colitions!!!
-		this.board.moveDownProjectiles();
-
+		// Move down the projectiles 
+		// Todo: Check for colitions!!!  +  check if out of board
+		this.board.moveDownBombs();
+		
 		
 	}	
+	
 	
 	public void computerAction() {
 		Destroyer currentDest;
@@ -106,6 +108,10 @@ public class Game {
 	
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		this.board.moveUcmShip(left, right, numOfCells);
+	}
+	
+	public void shootUcmMissile() {
+		this.board.shootUcmMissile();
 	}
 	
 	public int getCycleCounter() {

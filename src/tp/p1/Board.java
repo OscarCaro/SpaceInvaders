@@ -60,6 +60,11 @@ public class Board {
 			this.destroyerList.moveDestroyerDown(i);
 		}
 	}
+	
+	public void shootUcmMissile() {
+		this.ucm_Missile = new UCM_Missile(this.ucm_Ship.getPosX(), this.ucm_Ship.getPosY());
+		ucmShipSetCanShoot(false);
+	}
 
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		// Todo: develop movement (already half developed in controller class
@@ -119,10 +124,15 @@ public class Board {
 		}
 	}
 	
-	public void moveDownProjectiles() {
+	public void moveDownBombs() {
 		for (int i = 0; i < this.getNumOfValidBombs(); i++) {
 			this.bombList.incrementPosY(i);
+			//Check if out of board -> to destroy the object + destroyer.canShoot = true
 		}
+	}
+	
+	public void checkBombsOutOfBoard() {
+		
 	}
 	
 	//CARRIER MOVEMENT//
