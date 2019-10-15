@@ -10,6 +10,7 @@ public class Board {
 	private BombList bombList;
 	private UCM_Ship ucm_Ship;
 	private UCM_Missile ucm_Missile;
+	private Ufo Ufo;
 	
 	
 	public Board (Level diffLevel) {
@@ -370,6 +371,9 @@ public class Board {
 		return ucm_Missile.outOfBoard();
 	}
 	
+	public void spawnUfo(int posX, int posY) {
+		
+	}
 	
 	
 	

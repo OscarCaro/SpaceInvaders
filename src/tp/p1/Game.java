@@ -45,6 +45,7 @@ public class Game {
 		
 		
 	}	
+
 	
 	
 	public void computerAction() {
@@ -59,6 +60,7 @@ public class Game {
 			}
 			
 		}
+		
 	}
 	
 	
