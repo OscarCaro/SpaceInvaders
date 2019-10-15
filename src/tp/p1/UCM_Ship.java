@@ -9,6 +9,8 @@ public class UCM_Ship {
 	private final boolean weapons = true;
 	private String sprite = "/-^-\\";
 	private boolean shock; 	
+	private boolean canShoot;
+
 	
 	public UCM_Ship () {
 		//Class constructor
@@ -17,6 +19,15 @@ public class UCM_Ship {
 		this.posX = 4;
 		this.posY = 7;
 		this.shock = false;
+		this.canShoot = true;
+	}
+	
+	public boolean isCanShoot() {
+		return canShoot;
+	}
+
+	public void setCanShoot(boolean canShoot) {
+		this.canShoot = canShoot;
 	}
 	
 	public boolean isShock() {

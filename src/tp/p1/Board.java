@@ -9,6 +9,7 @@ public class Board {
 	private DestroyerList destroyerList;
 	private BombList bombList;
 	private UCM_Ship ucm_Ship;
+	private UCM_Missile ucm_Missile;
 	
 	
 	public Board (Level diffLevel) {
@@ -218,6 +219,14 @@ public class Board {
 	
 	///////////////////////////////////////////////////////////
 	
+	public boolean ucmShipIsCanShoot() {
+		return ucm_Ship.isCanShoot();
+	}
+
+	public void ucmShipSetCanShoot(boolean canShoot) {
+		ucm_Ship.setCanShoot(canShoot);
+	}
+
 	public int getDestroyerListNumOfDestroyers() {
 		return this.destroyerList.getNumOfDestroyers();
 	}

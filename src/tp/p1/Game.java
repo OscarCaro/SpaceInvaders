@@ -147,4 +147,8 @@ public class Game {
 				+ board.checkBombListPos(x, y);				
 	}
 
+	public boolean ucmShipIsCanShoot() {
+		return board.ucmShipIsCanShoot();
+	}
+
 }

@@ -14,71 +14,81 @@ public class Controller {
 	}
 	
 	public void run () {
-		String input;
+		boolean continueGame = false;
 		
-		do {
-			printInfo();
-			System.out.println(game);	// calling game.toString()
-			System.out.println("Command > ");
-			input = in.nextLine();
-			processInput(input);
+		printInfo();
+		System.out.println(game);	// calling game.toString()
+		continueGame = handleCommand();
+		while (continueGame) {			
 			this.game.computerAction();
 			this.game.update();
-		} while (!input.equals("exit") || !input.equals("e"));		
+			this.game.incrementCycleCounter();
+			
+			printInfo();
+			System.out.println(game);	// calling game.toString()
+			continueGame = handleCommand();
+		} 
+		// Todo: ask if user wants to play again or exit app
 	}
 	
-	
+	public boolean handleCommand() {
+		String input;
+		System.out.println("Command > ");
+		input = in.nextLine();
+		return processInput(input);
+	}
 
-	public void processInput(String input) {
+	public boolean processInput(String input) {
+		boolean continueGame = true;
 		
 		input = input.toLowerCase();	
 			
 		if (input.equals("move left 1") || input.equals("m left 1")) {	
-			this.game.moveUcmShip(true, false, 1);
-			this.game.incrementCycleCounter();	
+			this.game.moveUcmShip(true, false, 1);			
 		} 
 		else if (input.equals("move left 2") || input.equals("m left 2")) {	
 			this.game.moveUcmShip(true, false, 2);
-			this.game.incrementCycleCounter();		
 		}
 		else if (input.equals("move right 1") || input.equals("m right 1")) {
 			this.game.moveUcmShip(false, true, 1);
-			this.game.incrementCycleCounter();
 		}
 		else if (input.equals("move right 2") || input.equals("m right 2")) {
 			this.game.moveUcmShip(false, true, 2);
-			this.game.incrementCycleCounter();
-		}
-	
+		}	
 		else if (input.equals("shoot") || input.equals("s")) {
-			
-			this.game.incrementCycleCounter();
+			if (this.game.ucmShipIsCanShoot()) {
+				// Set missile + isCanShoot false
+			}
+			else {
+				System.out.println("Error: A missile is already fired");
+				continueGame = handleCommand();		// Be careful -> recursion to ask input again
+			}			
 		}
-
 		else if (input.equals("none") || input.equals("n") || input.equals("")) {
 			
-			this.game.incrementCycleCounter();
-		}
-		
+		}		
 		else if (input.equals("list") || input.equals("l")) {
 			printList();
-		}
-		
+			continueGame = handleCommand();		// Be careful -> recursion to ask input again
+		}		
 		else if (input.equals("reset") || input.equals( "r")) {
-		
-		}
-		
+			continueGame = false;
+		}		
 		else if (input.equals( "help") ||input.equals("h")) {
 			printHelp();
-		}
-		
+			continueGame = handleCommand();		// Be careful -> recursion to ask input again
+		}		
 		else if (input.equals("exit") || input.equals("e")) {
-		
-		}
-		
+			continueGame = false;
+			System.out.println("Game over");
+			System.out.println("Player exit");
+		}		
 		else {
-		// Error Message to ask again for input
+			System.out.println("Wrong input. Try again");
+			continueGame = handleCommand();		// Be careful -> recursion to ask input again
 		}
+		
+		return continueGame;
 	}
 			
 	private void printInfo() {
