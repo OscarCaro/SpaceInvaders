@@ -23,7 +23,7 @@ public class Game {
 		this.diffLevel = diffLevel;
 	}
 	
-	public boolean update() {
+	public void update() {
 		
 		
 		// 1. Check if in this turn the ships should be moved -> move them
@@ -51,7 +51,8 @@ public class Game {
 		// 4 Check for dead enemies (Shield == 0)
 		this.checkDeadEnemies();
 		
-		return this.game
+		
+	
 	}	
 
 	
@@ -87,11 +88,10 @@ public class Game {
 	
 	public boolean checkEnemiesInBottomRow() {
 		boolean thereIs = false;
-		if (this.board.checkCarriersInBottomRow()) {
+		if (this.board.checkCarriersInBottomRow() || this.board.checkDestroyersInBottomRow()) {
 			thereIs = true;
 		}
-		// lo mismo para destructores
-		
+
 		return thereIs;
 	}
 	

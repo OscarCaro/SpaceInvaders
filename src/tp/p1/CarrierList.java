@@ -132,6 +132,16 @@ public class CarrierList {
 		int nextPos = this.carrierList[idx].getPosY() + 1;
 		this.carrierList[idx].setPosY(nextPos);
 	}
+	
+	public boolean carriersInBottomRow() {
+		boolean is = false;
+		for (int i = 0; i < this.getNumOfValidCarriers(); i++) {
+			if (this.carrierList[i].getPosY() == Board.ROWS - 1) {
+				is = true;
+			}
+		}
+		return is;
+	}
 
 	public String checkPos (int x, int y) {
 		String str = "";

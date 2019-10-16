@@ -73,6 +73,16 @@ public class DestroyerList {
 		return idx;
 	}
 	
+	public boolean destroyersInBottomRow() {
+		boolean is = false;
+		for (int i = 0; i < this.getNumOfValidDestroyers(); i++) {
+			if (this.destroyerList[i].getPosY() == Board.ROWS - 1) {
+				is = true;
+			}
+		}
+		return is;
+	}
+	
 	public String checkPos (int x, int y) {
 		String str = "";
 		int i = 0;

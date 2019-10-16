@@ -161,6 +161,14 @@ public class Board {
 		}
 	}
 	
+	public boolean checkCarriersInBottomRow() {
+		return this.carrierList.carriersInBottomRow();
+	}
+	
+	public boolean checkDestroyersInBottomRow() {
+		return this.destroyerList.destroyersInBottomRow();
+	}
+	
 	public void moveDownBombs() {
 		for (int i = 0; i < this.getBombListNumOfValidBombs(); i++) {
 			this.bombList.incrementPosY(i);
