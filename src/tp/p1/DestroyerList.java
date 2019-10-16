@@ -85,10 +85,10 @@ public class DestroyerList {
 		int minDist = -1;
 		
 		if (destroyerList.length > 0) {
-			minDist = Board.ROWS - 1 - destroyerList[0].getPosX();
+			minDist = Board.ROWS - destroyerList[0].getPosX();
 			for (int i = 1; i < destroyerList.length; i++) {				
-				if (Board.ROWS - 1 - destroyerList[i].getPosX() < minDist) {
-					minDist = Board.ROWS - 1 - destroyerList[i].getPosX();
+				if (Board.ROWS - destroyerList[i].getPosX() < minDist) {
+					minDist = Board.ROWS - destroyerList[i].getPosX();
 				}
 			}
 		}		

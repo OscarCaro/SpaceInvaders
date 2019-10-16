@@ -43,10 +43,10 @@ public class CarrierList {
 		int minDist = -1;
 		
 		if (carrierList.length > 0) {
-			minDist = Board.ROWS - 1 - carrierList[0].getPosX();
+			minDist = Board.ROWS - carrierList[0].getPosX();
 			for (int i = 1; i < carrierList.length; i++) {				
-				if (Board.ROWS - 1 - carrierList[i].getPosX() < minDist) {
-					minDist = Board.ROWS - 1 - carrierList[i].getPosX();
+				if (Board.ROWS - carrierList[i].getPosX() < minDist) {
+					minDist = Board.ROWS - carrierList[i].getPosX();
 				}
 			}
 		}		
