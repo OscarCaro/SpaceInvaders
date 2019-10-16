@@ -21,9 +21,7 @@ First project for TP
 			- Shoot Bomb and place it at destroyer's coordinates
 			- CanShoot = false (done in Bomb constructor
 			
-4. Update
-
-Note: UcmShip already moved in Ask Command part
+4. Update (ucmShip already moved in Ask Command Part)
 
 	1. Move carriers and destroyers
 	2. Move Ufo
