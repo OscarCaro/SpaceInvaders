@@ -17,7 +17,7 @@ public class Controller {
 		boolean continueGame = false;
 		
 		printInfo();
-		System.out.println(game);	// calling game.toString()
+		System.out.println(game);	
 		continueGame = handleCommand();
 		while (continueGame) {			
 			this.game.computerAction();
@@ -25,7 +25,7 @@ public class Controller {
 			this.game.incrementCycleCounter();
 			
 			printInfo();
-			System.out.println(game);	// calling game.toString()
+			System.out.println(game);	
 			continueGame = handleCommand();
 		} 
 		// Todo: ask if user wants to play again or exit app

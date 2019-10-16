@@ -18,6 +18,9 @@ public class Ufo {
 		new Ufo(posX, posY);
 	}
 	
+	public void decrementShield() {
+		this.shield--;
+	}
 	
 	public int getShield() {
 		return shield;

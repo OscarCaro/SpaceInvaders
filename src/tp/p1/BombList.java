@@ -13,6 +13,7 @@ public class BombList {
 	
 	public void newBomb(int posX, int posY, Destroyer destroyer) {
 		this.bombList[getNumOfValidBombs()] = new Bomb(posX, posY, destroyer);
+		// The constructor sets the canShoot of destroyer to false
 	}
 	
 	public void deleteBomb(int posX, int posY) {

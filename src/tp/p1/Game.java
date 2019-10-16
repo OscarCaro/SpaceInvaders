@@ -29,11 +29,12 @@ public class Game {
 		// 1. Check if in this turn the ships should be moved -> move them
 		if (checkTurnToMoveShips()) {
 			this.moveCarrListAndDestList();
-		}		
+		}	
+		// 1.1 Move Ufo						TODO
 		
 		// 2.1 move bombs down
 		// 2.2 check for out of board
-		// 2.3 check for collitions 		TODO
+		// 2.3 check for collitions 		
 		this.board.moveDownBombs();
 		
 		// 3.1 Move missile
@@ -55,7 +56,7 @@ public class Game {
 		for (int i = 0; i < this.board.getDestroyerListNumOfDestroyers(); i++) {
 			currentDest = this.board.getDestroyer(i);
 			if (currentDest.isCanShoot() && determineByProb(this.diffLevel.getFireFreq())) {
-				// shoot
+				// shoot + canShoot = false (done in bomb constructor)
 				this.board.newBomb(currentDest.getPosX(), currentDest.getPosY(), currentDest);
 			}
 			
