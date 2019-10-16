@@ -24,7 +24,9 @@ First project for TP
 4. Update (ucmShip already moved in Ask Command Part)
 
 	1. Move carriers and destroyers
-	2. Move Ufo
+	2. Ufo
+		1. Move Ufo
+		2. Check OutOfBoard -> remove Ufo
 	3. Bombs:
 		1. Move bombs down
 		2. Check for collitions with:

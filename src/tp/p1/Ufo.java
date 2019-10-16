@@ -7,16 +7,14 @@ public class Ufo {
 	private int posY;
 	private String sprite;
 	
-	public Ufo(int posX, int posY) {
+	public Ufo() {
 		this.points = 25;
 		this.shield = 1;
-		this.posX = posX;
-		this.posY = posY;
+		this.posX = Board.COLUMNS;
+		this.posY = 0;
+		this.sprite = this.toString();
 	}
 	
-	public void newUFO(int posX, int posY) {
-		new Ufo(posX, posY);
-	}
 	
 	public void decrementShield() {
 		this.shield--;
@@ -25,14 +23,26 @@ public class Ufo {
 	public int getShield() {
 		return shield;
 	}
+	
+	public void moveUfo() {
+		this.posX--;
+	}
 
-
-
+	public String checkPos(int x, int y) {
+		String str = "";
+		if (this.posX == x && this.posY == y) {
+			str = this.sprite;
+		}
+		return str;
+	}
+	
+	public boolean outOfBoard() {
+		return (this.posX < 0);
+	}
+	
 	public void setShield(int shield) {
 		this.shield = shield;
 	}
-
-
 
 	public int getPosX() {
 		return posX;

@@ -30,7 +30,11 @@ public class Game {
 		if (checkTurnToMoveShips()) {
 			this.moveCarrListAndDestList();
 		}	
-		// 1.1 Move Ufo						TODO
+		// 1.1 Move Ufo	
+		// 1.2 Check out of board
+		if (this.board.ufoExists()) {
+			this.board.moveUfo();
+		}
 		
 		// 2.1 move bombs down
 		// 2.2 check for out of board
@@ -39,7 +43,7 @@ public class Game {
 		
 		// 3.1 Move missile
 		// 3.2 check out of board
-		// 3.3 check for collitions			TODO
+		// 3.3 check for collitions	
 		if(this.board.missileExists()) {
 			this.board.launchMissile();
 		}
@@ -60,6 +64,11 @@ public class Game {
 				this.board.newBomb(currentDest.getPosX(), currentDest.getPosY(), currentDest);
 			}
 			
+		}
+		
+		// 2. Spawn ufo if there's none and prob
+		if (!this.board.ufoExists() && determineByProb(this.diffLevel.getUfoFreq())) {
+			this.board.createUfo();
 		}
 		
 	}
@@ -163,7 +172,8 @@ public class Game {
 				+ board.checkDestroyerListPos(x, y)
 				+ board.checkUcmShip(x, y)
 				+ board.checkBombListPos(x, y)
-				+ board.checkUcmMissile(x, y);
+				+ board.checkUcmMissile(x, y)
+				+ board.checkUfo(x, y);
 				
 	}
 

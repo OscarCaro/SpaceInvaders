@@ -66,6 +66,18 @@ public class Board {
 		this.ucm_Missile = new UCM_Missile(this.ucm_Ship.getPosX(), this.ucm_Ship.getPosY());
 		ucmShipSetCanShoot(false);
 	}
+	
+	public void createUfo() {
+		this.Ufo = new Ufo();
+	}
+	
+	public void moveUfo() {
+		this.Ufo.moveUfo();
+		// Check out of Board
+		if (this.Ufo.outOfBoard()) {
+			this.Ufo = null;
+		}
+	}
 
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		// Todo: develop movement (already half developed in controller class
@@ -359,6 +371,14 @@ public class Board {
 		String str = "";
 		if(this.ucm_Missile != null) {
 			str = ucm_Missile.checkPos(x, y);
+		}
+		return str;
+	}
+	
+	public String checkUfo(int x, int y) {		
+		String str = "";
+		if(ufoExists()) {
+			str = this.Ufo.checkPos(x, y);
 		}
 		return str;
 	}
