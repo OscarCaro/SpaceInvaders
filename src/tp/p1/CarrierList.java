@@ -26,21 +26,19 @@ public class CarrierList {
 	}
 	
 	public void deleteCarrier(int posX, int posY) {
-		boolean listShifted = false;
 		// 1. Find pos in list
 		int idx = findCarrier(posX, posY);
 		
 		// 2. Shift left remaining elements
 		if (idx != -1) {
 			for (int i = idx; i < getNumOfValidCarriers() - 1; i++) {
-				listShifted = true;
 				this.carrierList[i] = this.carrierList[i + 1];
 				
 			}	
-			if (listShifted) {
-				this.carrierList[getNumOfValidCarriers() - 1] = null; 	// Segunda llamada a getvalidcarrier retorna una menos 		
-				//Delete last element pointer because it is already pointed by the previous one 
-			}
+			
+			this.carrierList[getNumOfValidCarriers() - 1] = null; 	// Segunda llamada a getvalidcarrier retorna una menos 		
+			//Delete last element pointer because it is already pointed by the previous one 
+			
 		}
 		
 	}

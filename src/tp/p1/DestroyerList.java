@@ -26,21 +26,19 @@ public class DestroyerList {
 	}
 	
 	public void deleteDestroyer(int posX, int posY) {
-		boolean listShifted = false;
 		// 1. Find pos in list
 		int idx = findDestroyer(posX, posY);
 		
 		// 2. Shift left remaining elements
 		if (idx != -1) {
 			for (int i = idx; i < getNumOfValidDestroyers() - 1; i++) {
-				listShifted = true;
 				this.destroyerList[i] = this.destroyerList[i + 1];
 				
 			}	
-			if (listShifted) {
-				this.destroyerList[getNumOfValidDestroyers() - 1] = null; 	// Segunda llamada a getvaliddestroyer retorna uno menos 		
-				//Delete last element pointer because it is already pointed by the previous one 
-			}
+			
+			this.destroyerList[getNumOfValidDestroyers() - 1] = null; 	// Segunda llamada a getvaliddestroyer retorna uno menos 		
+			//Delete last element pointer because it is already pointed by the previous one 
+			
 		}
 		
 	}
