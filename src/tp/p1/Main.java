@@ -1,3 +1,15 @@
+/*	Space Invaders
+ * 
+ * 	Authors:	- Alberto López Cervantes
+ * 				- Óscar Caro Navarro
+ * 
+ *  Note: As we didn't know the correct format of submission, we included two folders: 
+ *  			- One for the whole Eclipse project
+ * 				- One for the java classes only 
+ */
+
+
+
 package tp.p1;
 
 import java.util.Random;
