@@ -29,10 +29,12 @@ public class Controller {
 			System.out.println(game);	
 			continueGame = handleCommand();
 			
-			if(this.game.checkEnemiesInBottomRow()) {
+			if(this.game.checkEnemiesInBottomRow() || this.game.checkUCMdead()) {
 				continueGame = false;
 				System.out.println("Game Over, Aliens win");
 			}
+			
+			
 		} 
 		// Todo: ask if user wants to play again or exit app
 	}
