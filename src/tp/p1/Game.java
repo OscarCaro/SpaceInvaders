@@ -48,6 +48,8 @@ public class Game {
 			this.board.launchMissile();
 		}
 		
+		// 4 Check for dead enemies (Shield == 0)
+		this.checkDeadEnemies();
 		
 	}	
 
@@ -114,12 +116,41 @@ public class Game {
 	}	
 	
 	public void checkDeadEnemies() {
-		this.board.checkDestroyersDead();
-		this.board.checkCarriersDead();
+		checkDestroyersDead();
+		checkCarriersDead();
+		checkUFOdead();
 	}
 	
 	public boolean playerDead() {
-		return this.board.checkUCMdead();
+		return checkUCMdead();
+	}
+	
+	public boolean checkUCMdead() {
+		return (this.board.getUcmShipShield() <= 0);		
+	}
+	
+	public void checkUFOdead() {
+		if(this.board.ufoExists() && this.board.getUFOShield() <= 0) {
+			this.score += this.board.getUFOPoints();
+		}
+	}
+	
+	public void checkDestroyersDead() {
+		for (int i = 0; i < this.board.getNumOfDestroyers(); i++) {
+			if(this.board.getDestroyerShield(i) == 0) {
+				//kill destroyer and remove it
+				this.score += this.board.getDestroyerScore(i);
+			}
+		}
+	}
+	
+	public void checkCarriersDead() {
+		for (int i = 0; i < this.board.getNumOfCarriers(); i++) {
+			if(this.board.getCarrierShield(i) == 0) {
+				//kill carrier and remove it
+				this.score += this.board.getCarrierScore(i);
+			}
+		}
 	}
 	
 	public boolean useShockwave() {

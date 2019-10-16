@@ -169,4 +169,8 @@ public class DestroyerList {
 	public int getShield(int idx) {
 		return this.destroyerList[idx].getShield();
 	}
+	
+	public int getDestroyerScore(int idx) {
+		return this.destroyerList[idx].getPoints();
+	}
 }

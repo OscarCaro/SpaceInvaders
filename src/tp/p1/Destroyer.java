@@ -60,6 +60,12 @@ public class Destroyer {
 	public int getShield() {
 		return shield;
 	}
+
+
+	public int getPoints() {
+		return points;
+	}
+	
 	
 	
 }

@@ -167,4 +167,9 @@ public class CarrierList {
 	public int getShield(int idx) {
 		return this.carrierList[idx].getShield();
 	}
+	
+	public int getCarrierScore(int idx) {
+		return this.carrierList[idx].getPoints();
+	}
+	
 }

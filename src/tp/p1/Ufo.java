@@ -24,6 +24,10 @@ public class Ufo {
 		return shield;
 	}
 	
+	public int getPoints() {
+		return points;
+	}
+	
 	public void moveUfo() {
 		this.posX--;
 	}

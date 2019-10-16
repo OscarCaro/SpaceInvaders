@@ -11,7 +11,7 @@ First project for TP
 	- If shoot: Create missile and place it on ucmShip's coordinates
 	- If shockwave:	 
 		1. Decrement enemies shields 
-		2. Dheck for dead enemies (shield == 0)
+		2. Check for dead enemies (shield == 0) (including UFO)
 
 3. Computer Action
 
@@ -41,5 +41,5 @@ First project for TP
 			- Destroyer -> decrement shield + remove missile
 			- Bomb -> remove bomb + remove missile
 		3. Check Out of board -> remove missile
-	5. Check for dead enemies (shield == 0)
+	5. Check for dead enemies (shield == 0) (including UFO)
 		

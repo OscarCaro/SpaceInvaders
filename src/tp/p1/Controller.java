@@ -72,8 +72,8 @@ public class Controller {
 		
 		else if (input.equals("shockwave") || input.equals("w")) {
 			
-			if (this.game.useShockwave()) {
-				
+			if (this.game.useShockwave()) {		//THis also decrements enemy shields
+				this.game.checkDeadEnemies();
 			}
 			else {
 				System.out.println("No shockwave available");

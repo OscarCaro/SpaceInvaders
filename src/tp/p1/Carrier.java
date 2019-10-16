@@ -58,4 +58,10 @@ public class Carrier {
 		return shield;
 	}	
 	
+
+	public int getPoints() {
+		return points;
+	}
+	
+	
 }

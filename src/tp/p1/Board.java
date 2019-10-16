@@ -272,25 +272,7 @@ public class Board {
 		this.ucm_Missile = null;
 	}
 	
-	public boolean checkUCMdead() {
-		return (this.ucm_Ship.getShield() <= 0);		
-	}
 	
-	public void checkDestroyersDead() {
-		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
-			if(this.destroyerList.getShield(i) == 0) {
-				//kill destroyer and remove it
-			}
-		}
-	}
-	
-	public void checkCarriersDead() {
-		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
-			if(this.carrierList.getShield(i) == 0) {
-				//kill carrier and remove it
-			}
-		}
-	}
 	
 
 	public void useShockwave() {
@@ -371,17 +353,35 @@ public class Board {
 	
 	
 	//GETTERS, SETTERS AND CHECKERS//
+	
+	
 
 	public int getNumOfCarriers() {
 		return this.carrierList.getNumOfCarriers();
 	}
 	
+	public int getCarrierScore(int idx) {
+		return carrierList.getCarrierScore(idx);
+	}
+
+	public int getDestroyerScore(int idx) {
+		return destroyerList.getDestroyerScore(idx);
+	}
+
 	public int getNumOfDestroyers() {
 		return this.destroyerList.getNumOfDestroyers();
 	}
 	
 	public int getUcmShipShield() {
 		return this.ucm_Ship.getShield();
+	}
+	
+	public int getDestroyerShield(int idx) {
+		return this.destroyerList.getShield(idx);
+	}
+	
+	public int getCarrierShield(int idx) {
+		return this.carrierList.getShield(idx);
 	}
 	
 	public boolean getUcmShipIsShock() {
@@ -420,6 +420,16 @@ public class Board {
 		return str;
 	}
 	
+	
+	
+	public int getUFOPoints() {
+		return Ufo.getPoints();
+	}
+
+	public int getUFOShield() {
+		return Ufo.getShield();
+	}
+
 	public boolean missileExists() {
 		return this.ucm_Missile != null;
 	}
@@ -465,6 +475,8 @@ public class Board {
 	public boolean ucmHasShockwave() {
 		return this.ucm_Ship.isShock();
 	}
+	
+	
 	
 
 	
