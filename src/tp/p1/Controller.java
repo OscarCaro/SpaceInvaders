@@ -69,6 +69,18 @@ public class Controller {
 		else if (input.equals("none") || input.equals("n") || input.equals("")) {
 			
 		}		
+		
+		else if (input.equals("shockwave") || input.equals("w")) {
+			
+			if (this.game.useShockwave()) {
+				
+			}
+			else {
+				System.out.println("No shockwave available");
+				continueGame = handleCommand();
+			}
+		}	
+		
 		else if (input.equals("list") || input.equals("l")) {
 			printList();
 			continueGame = handleCommand();		// Be careful -> recursion to ask input again

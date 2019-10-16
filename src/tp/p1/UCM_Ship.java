@@ -57,6 +57,12 @@ public class UCM_Ship {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
+	
+	
+
+	public void setShock(boolean shock) {
+		this.shock = shock;
+	}
 
 	public String checkPos (int x, int y) {
 		String str = "";

@@ -206,6 +206,7 @@ public class Board {
 		if (ufoExists()) {
 			if (missileCollidesUfo(posX, posY)) {
 				coll = true;
+				this.ucm_Ship.setShock(true);
 			}
 		}		
 		
@@ -271,8 +272,44 @@ public class Board {
 		this.ucm_Missile = null;
 	}
 	
-	public void checkBombsOutOfBoard() {
+	public boolean checkUCMdead() {
+		return (this.ucm_Ship.getShield() <= 0);		
+	}
+	
+	public void checkDestroyersDead() {
+		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+			if(this.destroyerList.getShield(i) == 0) {
+				//kill destroyer and remove it
+			}
+		}
+	}
+	
+	public void checkCarriersDead() {
+		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+			if(this.carrierList.getShield(i) == 0) {
+				//kill carrier and remove it
+			}
+		}
+	}
+	
+
+	public void useShockwave() {
+		// Iterate over all enemies to decrease their shields
+		// 1. Carriers
 		
+		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+			this.carrierList.decrementShield(i);
+		}
+		
+		// 2. Destroyer
+		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+			this.destroyerList.decrementShield(i);
+		}
+		
+		this.ucm_Ship.setShock(false);
+		
+		// 3. Ufo shield is not decreased because it can lead to a permanent shockwave state
+	
 	}
 	
 	//CARRIER MOVEMENT//
@@ -423,6 +460,10 @@ public class Board {
 
 	public boolean outOfBoard() {
 		return ucm_Missile.outOfBoard();
+	}
+	
+	public boolean ucmHasShockwave() {
+		return this.ucm_Ship.isShock();
 	}
 	
 

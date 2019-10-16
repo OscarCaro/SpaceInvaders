@@ -41,4 +41,5 @@ First project for TP
 			- Destroyer -> decrement shield + remove missile
 			- Bomb -> remove bomb + remove missile
 		3. Check Out of board -> remove missile
+	5. Check for dead enemies (shield == 0)
 		

@@ -113,6 +113,24 @@ public class Game {
 		}
 	}	
 	
+	public void checkDeadEnemies() {
+		this.board.checkDestroyersDead();
+		this.board.checkCarriersDead();
+	}
+	
+	public boolean playerDead() {
+		return this.board.checkUCMdead();
+	}
+	
+	public boolean useShockwave() {
+		boolean okay = false;
+		
+		if (this.board.ucmHasShockwave()) {
+			this.board.useShockwave();
+		}
+		return okay;
+	}
+	
 	private boolean checkTurnToMoveShips() {
 		boolean move = false;
 		if (this.diffLevel == Level.EASY && this.cycleCounter % 3 == 0) {

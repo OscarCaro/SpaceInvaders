@@ -165,4 +165,8 @@ public class DestroyerList {
 	public void decrementShield(int idx) {
 		this.destroyerList[idx].decrementShield();
 	}
+	
+	public int getShield(int idx) {
+		return this.destroyerList[idx].getShield();
+	}
 }

@@ -52,6 +52,10 @@ public class Carrier {
 			sprite = "-<" + this.shield + ">-";
 		
 		return sprite;
+	}
+
+	public int getShield() {
+		return shield;
 	}	
 	
 }

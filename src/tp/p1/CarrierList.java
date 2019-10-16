@@ -164,4 +164,7 @@ public class CarrierList {
 		this.carrierList[idx].decrementShield();
 	}
 	
+	public int getShield(int idx) {
+		return this.carrierList[idx].getShield();
+	}
 }

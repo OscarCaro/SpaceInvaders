@@ -55,4 +55,11 @@ public class Destroyer {
 	public int getPosY() {
 		return posY;
 	}
+
+
+	public int getShield() {
+		return shield;
+	}
+	
+	
 }
