@@ -176,8 +176,9 @@ public class Board {
 			if(this.bombOutOfBoard(i)) {
 				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
 			}
-			else if (bombCheckCollitions(this.bombList.getPosX(i), this.bombList.getPosY(i))) {
+			if (bombCheckCollitions(this.bombList.getPosX(i), this.bombList.getPosY(i))) {
 				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
+				deleteUcmMissile();
 			}			
 		}
 	}
@@ -193,8 +194,8 @@ public class Board {
 		
 		// collition with ucmMissile -> remove missile + remove bomb
 		if(missileExists()) {
-			if ( this.ucm_Missile.getPosX() == posX && this.ucm_Missile.getPosY() == posY ) {
-				deleteUcmMissile();
+			if ( this.ucm_Missile.getPosX() == posX && (this.ucm_Missile.getPosY() == posY || this.ucm_Missile.getPosY() == posY + 1) ) {
+				//deleteUcmMissile();
 				coll = true;
 			}
 		}		
