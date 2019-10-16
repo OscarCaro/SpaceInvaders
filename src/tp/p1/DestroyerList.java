@@ -25,11 +25,59 @@ public class DestroyerList {
 		this.movingRight = false;	
 	}
 	
+	public void deleteDestroyer(int posX, int posY) {
+		boolean listShifted = false;
+		// 1. Find pos in list
+		int idx = findDestroyer(posX, posY);
+		
+		// 2. Shift left remaining elements
+		if (idx != -1) {
+			for (int i = idx; i < getNumOfValidDestroyers() - 1; i++) {
+				listShifted = true;
+				this.destroyerList[i] = this.destroyerList[i + 1];
+				
+			}	
+			if (listShifted) {
+				this.destroyerList[getNumOfValidDestroyers() - 1] = null; 	// Segunda llamada a getvaliddestroyer retorna uno menos 		
+				//Delete last element pointer because it is already pointed by the previous one 
+			}
+		}
+		
+	}
+
+	
+	public int getNumOfValidDestroyers() {
+		// Return num of instantiated destroyers in destroyerList (i.e. num of not null elems)
+		int count = 0;
+		for (Destroyer current : this.destroyerList) {
+			if (current != null) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	private int findDestroyer(int posX, int posY) {
+		int idx = 0;
+		boolean found = false;
+		while (!found && idx < getNumOfValidDestroyers()) {
+			if (this.destroyerList[idx].getPosX() == posX && this.destroyerList[idx].getPosY() == posY) {
+				found = true;
+			} else {
+				idx++;
+			}
+		}	
+		if (!found) {
+			idx = -1;
+		}
+		return idx;
+	}
+	
 	public String checkPos (int x, int y) {
 		String str = "";
 		int i = 0;
 		boolean found = false;
-		while ( i < destroyerList.length && !found) {
+		while ( i < this.getNumOfValidDestroyers() && !found) {
 			if (destroyerList[i].getPosX() == x && destroyerList[i].getPosY() == y) {
 				str = destroyerList[i].toString();
 				found = true;
@@ -72,7 +120,7 @@ public class DestroyerList {
 		
 		if (destroyerList.length > 0) {
 			minDist = destroyerList[0].getPosX();
-			for (int i = 1; i < destroyerList.length; i++) {				
+			for (int i = 1; i < this.getNumOfValidDestroyers(); i++) {				
 				if (destroyerList[i].getPosX() < minDist) {
 					minDist = destroyerList[i].getPosX();
 				}
@@ -86,7 +134,7 @@ public class DestroyerList {
 		
 		if (destroyerList.length > 0) {
 			minDist = Board.ROWS - destroyerList[0].getPosX();
-			for (int i = 1; i < destroyerList.length; i++) {				
+			for (int i = 1; i < this.getNumOfValidDestroyers(); i++) {				
 				if (Board.ROWS - destroyerList[i].getPosX() < minDist) {
 					minDist = Board.ROWS - destroyerList[i].getPosX();
 				}
@@ -150,9 +198,9 @@ public class DestroyerList {
 		}
 	}
 	
-	public int getNumOfDestroyers() {
-		return this.destroyerList.length;
-	}
+//	public int getNumOfDestroyers() {
+//		return this.destroyerList.length;
+//	}
 	
 	public int getPosX(int idx) {
 		return this.destroyerList[idx].getPosX();

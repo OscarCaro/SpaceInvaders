@@ -25,12 +25,59 @@ public class CarrierList {
 		this.movingRight = false;
 	}
 	
+	public void deleteCarrier(int posX, int posY) {
+		boolean listShifted = false;
+		// 1. Find pos in list
+		int idx = findCarrier(posX, posY);
+		
+		// 2. Shift left remaining elements
+		if (idx != -1) {
+			for (int i = idx; i < getNumOfValidCarriers() - 1; i++) {
+				listShifted = true;
+				this.carrierList[i] = this.carrierList[i + 1];
+				
+			}	
+			if (listShifted) {
+				this.carrierList[getNumOfValidCarriers() - 1] = null; 	// Segunda llamada a getvalidcarrier retorna una menos 		
+				//Delete last element pointer because it is already pointed by the previous one 
+			}
+		}
+		
+	}
+	
+	private int findCarrier(int posX, int posY) {
+		int idx = 0;
+		boolean found = false;
+		while (!found && idx < getNumOfValidCarriers()) {
+			if (this.carrierList[idx].getPosX() == posX && this.carrierList[idx].getPosY() == posY) {
+				found = true;
+			} else {
+				idx++;
+			}
+		}	
+		if (!found) {
+			idx = -1;
+		}
+		return idx;
+	}
+	
+	public int getNumOfValidCarriers() {
+		// Return num of instantiated carriers in carrierList (i.e. num of not null elems)
+		int count = 0;
+		for (Carrier current : this.carrierList) {
+			if (current != null) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
 	public int minDistToLeftSide() {
 		int minDist = -1;
 		
 		if (carrierList.length > 0) {
 			minDist = carrierList[0].getPosX();
-			for (int i = 1; i < carrierList.length; i++) {				
+			for (int i = 1; i < this.getNumOfValidCarriers(); i++) {				
 				if (carrierList[i].getPosX() < minDist) {
 					minDist = carrierList[i].getPosX();
 				}
@@ -44,7 +91,7 @@ public class CarrierList {
 		
 		if (carrierList.length > 0) {
 			minDist = Board.ROWS - carrierList[0].getPosX();
-			for (int i = 1; i < carrierList.length; i++) {				
+			for (int i = 1; i < this.getNumOfValidCarriers(); i++) {				
 				if (Board.ROWS - carrierList[i].getPosX() < minDist) {
 					minDist = Board.ROWS - carrierList[i].getPosX();
 				}
@@ -90,7 +137,7 @@ public class CarrierList {
 		String str = "";
 		int i = 0;
 		boolean found = false;
-		while ( i < carrierList.length && !found) {
+		while ( i < this.getNumOfValidCarriers() && !found) {
 			if (carrierList[i].getPosX() == x && carrierList[i].getPosY() == y) {
 				str = carrierList[i].toString();
 				found = true;
@@ -148,9 +195,9 @@ public class CarrierList {
 		}		
 	}
 	
-	public int getNumOfCarriers() {
-		return this.carrierList.length;
-	}
+//	public int getNumOfCarriers() {
+//		return this.carrierList.length;
+//	}
 	
 	public int getPosX(int idx) {
 		return this.carrierList[idx].getPosX();

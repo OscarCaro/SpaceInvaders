@@ -116,7 +116,7 @@ public class Controller {
 		}
 		System.out.println("Shockwave: " + hasShock);
 		System.out.println("Cycle number: " + this.game.getCycleCounter());
-		System.out.println("Remaining alien ships: " + this.game.getNumOfAliens());
+		System.out.println("Remaining alien ships: " + this.game.getNumOfValidAliens());
 	}
 	
 	private void printHelp() {

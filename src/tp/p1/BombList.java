@@ -22,16 +22,17 @@ public class BombList {
 		int idx = findBomb(posX, posY);
 		
 		// 2. Shift left remaining elements
-		for (int i = idx; i < getNumOfValidBombs() - 1; i++) {
-			listShifted = true;
-			this.bombList[i] = this.bombList[i + 1];
-			
-		}	
-		
-		this.bombList[getNumOfValidBombs() - 1] = null; 	// Segunda llamada a getvalidbomb retorna una menos 		
-			//Delete last element pointer because it is already pointed by the previous one 
-		
-		
+		if (idx != -1) {
+			for (int i = idx; i < getNumOfValidBombs() - 1; i++) {
+				listShifted = true;
+				this.bombList[i] = this.bombList[i + 1];
+				
+			}	
+			if (listShifted) {
+				this.bombList[getNumOfValidBombs() - 1] = null; 	// Segunda llamada a getvalidbomb retorna una menos 		
+				//Delete last element pointer because it is already pointed by the previous one 
+			}
+		}
 		
 	}
 

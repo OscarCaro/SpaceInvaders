@@ -59,7 +59,7 @@ public class Game {
 		Destroyer currentDest;
 		
 		// 1. Check if any destroyer is going to shoot
-		for (int i = 0; i < this.board.getDestroyerListNumOfDestroyers(); i++) {
+		for (int i = 0; i < this.board.getDestroyerListNumOfValidDestroyers(); i++) {
 			currentDest = this.board.getDestroyer(i);
 			if (currentDest.isCanShoot() && determineByProb(this.diffLevel.getFireFreq())) {
 				// shoot + canShoot = false (done in bomb constructor)
@@ -136,19 +136,21 @@ public class Game {
 	}
 	
 	public void checkDestroyersDead() {
-		for (int i = 0; i < this.board.getNumOfDestroyers(); i++) {
-			if(this.board.getDestroyerShield(i) == 0) {
-				//kill destroyer and remove it
+		for (int i = 0; i < this.board.getDestroyerListNumOfValidDestroyers(); i++) {
+			if(this.board.getDestroyerShield(i) <= 0) {
+				//Add destroyer score and then kill destroyer/remove it
 				this.score += this.board.getDestroyerScore(i);
+				this.board.destroyerListDeleteDestroyer(this.board.getDestroyerListPosX(i), this.board.getDestroyerListPosY(i));
 			}
 		}
 	}
 	
 	public void checkCarriersDead() {
-		for (int i = 0; i < this.board.getNumOfCarriers(); i++) {
-			if(this.board.getCarrierShield(i) == 0) {
+		for (int i = 0; i < this.board.getCarrierListNumOfValidCarriers(); i++) {
+			if(this.board.getCarrierShield(i) <= 0) {
 				//kill carrier and remove it
 				this.score += this.board.getCarrierScore(i);
+				this.board.carrierListDeleteCarrier(this.board.getCarrierListPosX(i), this.board.getCarrierListPosY(i));
 			}
 		}
 	}
@@ -188,10 +190,10 @@ public class Game {
 		return cycleCounter;
 	}
 
-	public void setCycleCounter(int cycleCounter) {
-		this.cycleCounter = cycleCounter;
-	}
-	
+//	public void setCycleCounter(int cycleCounter) {
+//		this.cycleCounter = cycleCounter;
+//	}
+//	
 	public void incrementCycleCounter() {
 		this.cycleCounter++;
 	}
@@ -208,8 +210,8 @@ public class Game {
 		return this.board.getUcmShipIsShock();
 	}
 	
-	public int getNumOfAliens() {
-		return this.board.getNumOfCarriers() + this.board.getNumOfDestroyers();
+	public int getNumOfValidAliens() {
+		return this.board.getCarrierListNumOfValidCarriers() + this.board.getDestroyerListNumOfValidDestroyers();
 	}
 	
 	public String toString () {

@@ -22,44 +22,68 @@ public class Board {
 	
 	public void moveCarrierListLeft () {
 		// All checks for errors done (in Game) before calling this function
-		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+		for (int i = 0; i < this.carrierList.getNumOfValidCarriers(); i++) {
 			this.carrierList.moveCarierToLeft(i);
 		}
 	}
 	
 	public void moveCarrierListRight () {
 		// All checks for errors done (in Game) before calling this function
-		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+		for (int i = 0; i < this.carrierList.getNumOfValidCarriers(); i++) {
 			this.carrierList.moveCarierToRight(i);
 		}
 	}
 	
 	public void moveCarrierListDown () {
 		// All checks for errors done (in Game) before calling this function
-		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+		for (int i = 0; i < this.carrierList.getNumOfValidCarriers(); i++) {
 			this.carrierList.moveCarierDown(i);
 		}
 	}
 	
 	public void moveDestroyerListLeft () {
 		// All checks for errors done (in Game) before calling this function
-		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+		for (int i = 0; i < this.destroyerList.getNumOfValidDestroyers(); i++) {
 			this.destroyerList.moveDestroyerToLeft(i);
 		}
 	}
 	
 	public void moveDestroyerListRight () {
 		// All checks for errors done (in Game) before calling this function
-		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+		for (int i = 0; i < this.destroyerList.getNumOfValidDestroyers(); i++) {
 			this.destroyerList.moveDestroyerToRight(i);
 		}
 	}
 	
 	public void moveDestroyerListDown () {
 		// All checks for errors done (in Game) before calling this function
-		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+		for (int i = 0; i < this.destroyerList.getNumOfValidDestroyers(); i++) {
 			this.destroyerList.moveDestroyerDown(i);
 		}
+	}
+	
+	public void carrierListDeleteCarrier(int posX, int posY) {
+		this.carrierList.deleteCarrier(posX, posY);
+	}
+	
+	public int getCarrierListPosX(int idx) {
+		return this.carrierList.getPosX(idx);
+	}
+	
+	public int getCarrierListPosY(int idx) {
+		return this.carrierList.getPosY(idx);
+	}
+	
+	public void destroyerListDeleteDestroyer(int posX, int posY) { 
+		this.destroyerList.deleteDestroyer(posX, posY);
+	}
+	
+	public int getDestroyerListPosX(int idx) {
+		return this.destroyerList.getPosX(idx);
+	}
+	
+	public int getDestroyerListPosY(int idx) {
+		return this.destroyerList.getPosY(idx);
 	}
 	
 	public void shootUcmMissile() {
@@ -138,7 +162,7 @@ public class Board {
 	}
 	
 	public void moveDownBombs() {
-		for (int i = 0; i < this.getNumOfValidBombs(); i++) {
+		for (int i = 0; i < this.getBombListNumOfValidBombs(); i++) {
 			this.bombList.incrementPosY(i);
 			//Check if out of board -> to destroy the object + destroyer.canShoot = true
 			if(this.bombOutOfBoard(i)) {
@@ -169,13 +193,11 @@ public class Board {
 		return coll;
 	}
 	
-	
-	
 	public void launchMissile() {
 		// 1. Move missile up
 		this.ucm_Missile.decrementPosY();
 		// 2. If out of Board -> remove missile
-		if(this.outOfBoard()) {
+		if(this.UCM_missileOutOfBoard()) {
 			deleteUcmMissile();
 		}
 		// 3. Collitions
@@ -216,7 +238,7 @@ public class Board {
 	public boolean missileCollidesDestroyer(int posX, int posY) {
 		boolean collDest = false;
 		
-		for(int i = 0; i < this.getDestroyerListNumOfDestroyers(); i++) {
+		for(int i = 0; i < this.getDestroyerListNumOfValidDestroyers(); i++) {
 			if(this.destroyerList.getPosX(i) == posX && this.destroyerList.getPosY(i) == posY) {
 				collDest = true;
 				this.destroyerList.decrementShield(i);				
@@ -229,7 +251,7 @@ public class Board {
 	public boolean missileCollidesCarrier(int posX, int posY) {
 		boolean collCarr = false;
 		
-		for(int i = 0; i < this.getNumOfCarriers(); i++) {
+		for(int i = 0; i < this.getCarrierListNumOfValidCarriers(); i++) {
 			if(this.carrierList.getPosX(i) == posX && this.carrierList.getPosY(i) == posY) {
 				collCarr = true;
 				this.carrierList.decrementShield(i);				
@@ -242,7 +264,7 @@ public class Board {
 	public boolean missileCollidesBomb(int posX, int posY) {
 		boolean collBomb = false;
 		
-		for(int i = 0; i < this.getNumOfValidBombs(); i++) {
+		for(int i = 0; i < this.getBombListNumOfValidBombs(); i++) {
 			if(this.bombList.getPosX(i) == posX && this.bombList.getPosY(i) == posY) {
 				collBomb = true;
 				this.bombList.deleteBomb(posX, posY);				
@@ -279,12 +301,12 @@ public class Board {
 		// Iterate over all enemies to decrease their shields
 		// 1. Carriers
 		
-		for (int i = 0; i < this.carrierList.getNumOfCarriers(); i++) {
+		for (int i = 0; i < this.carrierList.getNumOfValidCarriers(); i++) {
 			this.carrierList.decrementShield(i);
 		}
 		
 		// 2. Destroyer
-		for (int i = 0; i < this.destroyerList.getNumOfDestroyers(); i++) {
+		for (int i = 0; i < this.destroyerList.getNumOfValidDestroyers(); i++) {
 			this.destroyerList.decrementShield(i);
 		}
 		
@@ -356,8 +378,8 @@ public class Board {
 	
 	
 
-	public int getNumOfCarriers() {
-		return this.carrierList.getNumOfCarriers();
+	public int getCarrierListNumOfValidCarriers() {
+		return this.carrierList.getNumOfValidCarriers();
 	}
 	
 	public int getCarrierScore(int idx) {
@@ -368,9 +390,9 @@ public class Board {
 		return destroyerList.getDestroyerScore(idx);
 	}
 
-	public int getNumOfDestroyers() {
-		return this.destroyerList.getNumOfDestroyers();
-	}
+//	public int getNumOfDestroyers() {
+//		return this.destroyerList.getNumOfDestroyers();
+//	}
 	
 	public int getUcmShipShield() {
 		return this.ucm_Ship.getShield();
@@ -420,8 +442,6 @@ public class Board {
 		return str;
 	}
 	
-	
-	
 	public int getUFOPoints() {
 		return Ufo.getPoints();
 	}
@@ -444,8 +464,8 @@ public class Board {
 		ucm_Ship.setCanShoot(canShoot);
 	}
 
-	public int getDestroyerListNumOfDestroyers() {
-		return this.destroyerList.getNumOfDestroyers();
+	public int getDestroyerListNumOfValidDestroyers() {
+		return this.destroyerList.getNumOfValidDestroyers();
 	}
 
 	public boolean destroyerCanShoot(int idx) {
@@ -460,7 +480,7 @@ public class Board {
 		bombList.newBomb(posX, posY, destroyer);
 	}
 
-	public int getNumOfValidBombs() {
+	public int getBombListNumOfValidBombs() {
 		return bombList.getNumOfValidBombs();
 	}
 
@@ -468,7 +488,7 @@ public class Board {
 		return bombList.bombOutOfBoard(idx);
 	}
 
-	public boolean outOfBoard() {
+	public boolean UCM_missileOutOfBoard() {
 		return ucm_Missile.outOfBoard();
 	}
 	
