@@ -62,47 +62,7 @@ public class Board {
 		}
 	}
 	
-	public void carrierListDeleteCarrier(int posX, int posY) {
-		this.carrierList.deleteCarrier(posX, posY);
-	}
 	
-	public int getCarrierListPosX(int idx) {
-		return this.carrierList.getPosX(idx);
-	}
-	
-	public int getCarrierListPosY(int idx) {
-		return this.carrierList.getPosY(idx);
-	}
-	
-	public void destroyerListDeleteDestroyer(int posX, int posY) { 
-		this.destroyerList.deleteDestroyer(posX, posY);
-	}
-	
-	public int getDestroyerListPosX(int idx) {
-		return this.destroyerList.getPosX(idx);
-	}
-	
-	public int getDestroyerListPosY(int idx) {
-		return this.destroyerList.getPosY(idx);
-	}
-	
-	public void shootUcmMissile() {
-		this.ucm_Missile = new UCM_Missile(this.ucm_Ship.getPosX(), this.ucm_Ship.getPosY());
-		ucmShipSetCanShoot(false);
-	}
-	
-	public void createUfo() {
-		this.Ufo = new Ufo();
-	}
-	
-	public void moveUfo() {
-		this.Ufo.moveUfo();
-		// Check out of Board
-		if (this.Ufo.outOfBoard()) {
-			this.Ufo = null;
-		}
-	}
-
 	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
 		// Todo: develop movement (already half developed in controller class
 		int posX = this.ucm_Ship.getPosX();
@@ -161,14 +121,6 @@ public class Board {
 		}
 	}
 	
-	public boolean checkCarriersInBottomRow() {
-		return this.carrierList.carriersInBottomRow();
-	}
-	
-	public boolean checkDestroyersInBottomRow() {
-		return this.destroyerList.destroyersInBottomRow();
-	}
-	
 	public void moveDownBombs() {
 		for (int i = 0; i < this.getBombListNumOfValidBombs(); i++) {
 			this.bombList.incrementPosY(i);
@@ -214,6 +166,18 @@ public class Board {
 			deleteUcmMissile();
 		}
 	}
+	
+
+
+	
+	
+
+	
+	
+	
+	
+	
+
 	
 	public boolean missileCheckCollitions(int posX, int posY) {
 		boolean coll = false;
@@ -325,7 +289,23 @@ public class Board {
 	
 	}
 	
-	//CARRIER MOVEMENT//
+// <<<<<<<<<<  Delegate methods to: CARRIERLIST  >>>>>>>>>>>
+
+	public void carrierListDeleteCarrier(int posX, int posY) {
+		this.carrierList.deleteCarrier(posX, posY);
+	}
+	
+	public int getCarrierListPosX(int idx) {
+		return this.carrierList.getPosX(idx);
+	}
+	
+	public int getCarrierListPosY(int idx) {
+		return this.carrierList.getPosY(idx);
+	}
+	
+	public boolean checkCarriersInBottomRow() {
+		return this.carrierList.carriersInBottomRow();
+	}
 	
 	public int carrMinDistToLeftSide() {
 		return this.carrierList.minDistToLeftSide();
@@ -351,10 +331,39 @@ public class Board {
 		carrierList.setMovingRight(movingRight);
 	}
 	
-	///////////////////////////////////////////////////////
+	public int getCarrierListNumOfValidCarriers() {
+		return this.carrierList.getNumOfValidCarriers();
+	}
 	
+	public int getCarrierScore(int idx) {
+		return carrierList.getCarrierScore(idx);
+	}
 	
-	//DESTROYER MOVEMENT//
+	public int getCarrierShield(int idx) {
+		return this.carrierList.getShield(idx);
+	}
+	
+	public String checkCarrierListPos(int x, int y) {
+		return carrierList.checkPos(x, y);
+	}
+	
+// <<<<<<<<<<  Delegate methods to: DESTROYERLIST  >>>>>>>>>>>
+	
+	public void destroyerListDeleteDestroyer(int posX, int posY) { 
+		this.destroyerList.deleteDestroyer(posX, posY);
+	}
+	
+	public int getDestroyerListPosX(int idx) {
+		return this.destroyerList.getPosX(idx);
+	}
+	
+	public int getDestroyerListPosY(int idx) {
+		return this.destroyerList.getPosY(idx);
+	}
+	
+	public boolean checkDestroyersInBottomRow() {
+		return this.destroyerList.destroyersInBottomRow();
+	}
 	
 	public int destMinDistToLeftSide() {
 		return this.destroyerList.minDistToLeftSide();
@@ -378,61 +387,38 @@ public class Board {
 
 	public void destroyerListSetMovingRight(boolean movingRight) {
 		destroyerList.setMovingRight(movingRight);
-	}
-	
-	//////////////////////////////////////////////////
-	
-	
-	//GETTERS, SETTERS AND CHECKERS//
-	
-	
-
-	public int getCarrierListNumOfValidCarriers() {
-		return this.carrierList.getNumOfValidCarriers();
-	}
-	
-	public int getCarrierScore(int idx) {
-		return carrierList.getCarrierScore(idx);
-	}
+	}	
 
 	public int getDestroyerScore(int idx) {
 		return destroyerList.getDestroyerScore(idx);
-	}
-
-//	public int getNumOfDestroyers() {
-//		return this.destroyerList.getNumOfDestroyers();
-//	}
-	
-	public int getUcmShipShield() {
-		return this.ucm_Ship.getShield();
 	}
 	
 	public int getDestroyerShield(int idx) {
 		return this.destroyerList.getShield(idx);
 	}
 	
-	public int getCarrierShield(int idx) {
-		return this.carrierList.getShield(idx);
-	}
-	
-	public boolean getUcmShipIsShock() {
-		return this.ucm_Ship.isShock();
-	}
-	
-	public String checkCarrierListPos(int x, int y) {
-		return carrierList.checkPos(x, y);
-	}
-
 	public String checkDestroyerListPos(int x, int y) {
 		return destroyerList.checkPos(x, y);
 	}
 	
-	public String checkBombListPos(int x, int y) {
-		return bombList.checkPos(x, y);
+	public int getDestroyerListNumOfValidDestroyers() {
+		return this.destroyerList.getNumOfValidDestroyers();
 	}
+
+	public boolean destroyerCanShoot(int idx) {
+		return destroyerList.destroyerCanShoot(idx);
+	}
+
+	public Destroyer getDestroyer(int idx) {
+		return destroyerList.getDestroyer(idx);
+	}
+
 	
-	public String checkUcmShip (int x, int y) {
-		return ucm_Ship.checkPos(x, y);
+// <<<<<<<<<<  Delegate methods to: UCM_MISSILE  >>>>>>>>>>>
+	
+	public void shootUcmMissile() {
+		this.ucm_Missile = new UCM_Missile(this.ucm_Ship.getPosX(), this.ucm_Ship.getPosY());
+		ucmShipSetCanShoot(false);
 	}
 	
 	public String checkUcmMissile (int x, int y) {
@@ -441,6 +427,54 @@ public class Board {
 			str = ucm_Missile.checkPos(x, y);
 		}
 		return str;
+	}
+	
+	public boolean missileExists() {
+		return this.ucm_Missile != null;
+	}
+	
+	public boolean UCM_missileOutOfBoard() {
+		return ucm_Missile.outOfBoard();
+	}
+	
+// <<<<<<<<<<  Delegate methods to: UCM_SHIP  >>>>>>>>>>>
+
+	public int getUcmShipShield() {
+		return this.ucm_Ship.getShield();
+	}
+	
+	public boolean getUcmShipIsShock() {
+		return this.ucm_Ship.isShock();
+	}
+	
+	public String checkUcmShip (int x, int y) {
+		return ucm_Ship.checkPos(x, y);
+	}
+	
+	public boolean ucmShipIsCanShoot() {
+		return ucm_Ship.isCanShoot();
+	}
+
+	public void ucmShipSetCanShoot(boolean canShoot) {
+		ucm_Ship.setCanShoot(canShoot);
+	}
+	
+	public boolean ucmHasShockwave() {
+		return this.ucm_Ship.isShock();
+	}
+	
+// <<<<<<<<<<  Delegate methods to: UFO  >>>>>>>>>>>
+
+	public void createUfo() {
+		this.Ufo = new Ufo();
+	}
+	
+	public void moveUfo() {
+		this.Ufo.moveUfo();
+		// Check out of Board
+		if (this.Ufo.outOfBoard()) {
+			this.Ufo = null;
+		}
 	}
 	
 	public String checkUfo(int x, int y) {		
@@ -458,33 +492,13 @@ public class Board {
 	public int getUFOShield() {
 		return Ufo.getShield();
 	}
-
-	public boolean missileExists() {
-		return this.ucm_Missile != null;
+	
+// <<<<<<<<<<  Delegate methods to: BOMBLIST  >>>>>>>>>>>
+	
+	public String checkBombListPos(int x, int y) {
+		return bombList.checkPos(x, y);
 	}
 	
-	///////////////////////////////////////////////////////////
-	
-	public boolean ucmShipIsCanShoot() {
-		return ucm_Ship.isCanShoot();
-	}
-
-	public void ucmShipSetCanShoot(boolean canShoot) {
-		ucm_Ship.setCanShoot(canShoot);
-	}
-
-	public int getDestroyerListNumOfValidDestroyers() {
-		return this.destroyerList.getNumOfValidDestroyers();
-	}
-
-	public boolean destroyerCanShoot(int idx) {
-		return destroyerList.destroyerCanShoot(idx);
-	}
-
-	public Destroyer getDestroyer(int idx) {
-		return destroyerList.getDestroyer(idx);
-	}
-
 	public void newBomb(int posX, int posY, Destroyer destroyer) {
 		bombList.newBomb(posX, posY, destroyer);
 	}
@@ -496,18 +510,6 @@ public class Board {
 	public boolean bombOutOfBoard(int idx) {
 		return bombList.bombOutOfBoard(idx);
 	}
-
-	public boolean UCM_missileOutOfBoard() {
-		return ucm_Missile.outOfBoard();
-	}
-	
-	public boolean ucmHasShockwave() {
-		return this.ucm_Ship.isShock();
-	}
-	
-	
-	
-
 	
 	
 }
