@@ -57,7 +57,7 @@ public class Game {
 		
 		// 1. Check if any destroyer is going to shoot
 		for (int i = 0; i < this.board.getDestroyerListNumOfValidDestroyers(); i++) {
-			currentDest = this.board.getDestroyer(i);
+			currentDest = this.board.destroyerListGetDestroyer(i);
 			if (currentDest.isCanShoot() && determineByProb(this.diffLevel.getFireFreq())) {
 				// shoot + canShoot = false (done in bomb constructor)
 				this.board.newBomb(currentDest.getPosX(), currentDest.getPosY(), currentDest);
@@ -100,7 +100,7 @@ public class Game {
 	
 	public void moveCarrListAndDestList () {
 		if (this.board.carrierListIsMovingLeft() && this.board.destroyerListIsMovingLeft()) {
-			if (this.board.carrMinDistToLeftSide() > 0 && this.board.destMinDistToLeftSide() > 0) {
+			if (this.board.carrierListMinDistToLeftSide() > 0 && this.board.destroyerListMinDistToLeftSide() > 0) {
 				// shift all carriers and destroyers to left
 				this.board.moveCarrierListLeft();
 				this.board.moveDestroyerListLeft();
@@ -114,7 +114,7 @@ public class Game {
 			}
 		}
 		else {
-			if (this.board.carrMinDistToRightSide() > 0 && this.board.destMinDistToRightSide() > 0) {
+			if (this.board.carrierListMinDistToRightSide() > 0 && this.board.destroyerListMinDistToRightSide() > 0) {
 				// shift all carriers to right
 				this.board.moveCarrierListRight();
 				this.board.moveDestroyerListRight();
@@ -147,20 +147,20 @@ public class Game {
 	
 	public void checkDestroyersDead() {
 		for (int i = 0; i < this.board.getDestroyerListNumOfValidDestroyers(); i++) {
-			if(this.board.getDestroyerShield(i) <= 0) {
+			if(this.board.destroyerListGetDestroyerShield(i) <= 0) {
 				//Add destroyer score and then kill destroyer/remove it
-				this.score += this.board.getDestroyerScore(i);
-				this.board.destroyerListDeleteDestroyer(this.board.getDestroyerListPosX(i), this.board.getDestroyerListPosY(i));
+				this.score += this.board.destroyerListGetDestroyerScore(i);
+				this.board.destroyerListDeleteDestroyer(this.board.destroyerListGetDestroyerPosX(i), this.board.destroyerListGetDestroyerPosY(i));
 			}
 		}
 	}
 	
 	public void checkCarriersDead() {
 		for (int i = 0; i < this.board.getCarrierListNumOfValidCarriers(); i++) {
-			if(this.board.getCarrierShield(i) <= 0) {
+			if(this.board.carrierListgetCarrierShield(i) <= 0) {
 				//kill carrier and remove it
-				this.score += this.board.getCarrierScore(i);
-				this.board.carrierListDeleteCarrier(this.board.getCarrierListPosX(i), this.board.getCarrierListPosY(i));
+				this.score += this.board.carrierListgetCarrierScore(i);
+				this.board.carrierListDeleteCarrier(this.board.carrierListGetCarrierPosX(i), this.board.carrierListGetCarrierPosY(i));
 			}
 		}
 	}
