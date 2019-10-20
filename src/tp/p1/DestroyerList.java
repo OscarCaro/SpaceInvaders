@@ -181,7 +181,7 @@ public class DestroyerList {
 		return movingRight;
 	}
 	
-// <<<<<<<<<<  Delegate methods to: Destroyer  >>>>>>>>>>>
+// <<<<<<<<<<  Delegate methods to: DESTROYER  >>>>>>>>>>>
 
 	public Destroyer getDestroyer(int idx) {
 		return this.destroyerList[idx];

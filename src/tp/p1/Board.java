@@ -22,13 +22,13 @@ public class Board {
 	
 	public void moveDownBombs() {
 		for (int i = 0; i < this.getBombListNumOfValidBombs(); i++) {
-			this.bombList.incrementPosY(i);
+			this.bombList.incrementBombPosY(i);
 			//Check if out of board -> to destroy the object + destroyer.canShoot = true
 			if(this.bombOutOfBoard(i)) {
-				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
+				this.bombList.deleteBomb(this.bombList.getBombPosX(i), this.bombList.getBombPosY(i));
 			}
-			if (bombCheckCollitions(this.bombList.getPosX(i), this.bombList.getPosY(i))) {
-				this.bombList.deleteBomb(this.bombList.getPosX(i), this.bombList.getPosY(i));
+			if (bombCheckCollitions(this.bombList.getBombPosX(i), this.bombList.getBombPosY(i))) {
+				this.bombList.deleteBomb(this.bombList.getBombPosX(i), this.bombList.getBombPosY(i));
 				deleteUcmMissile();
 			}			
 		}
@@ -125,7 +125,7 @@ public class Board {
 		boolean collBomb = false;
 		
 		for(int i = 0; i < this.getBombListNumOfValidBombs(); i++) {
-			if(this.bombList.getPosX(i) == posX && this.bombList.getPosY(i) == posY) {
+			if(this.bombList.getBombPosX(i) == posX && this.bombList.getBombPosY(i) == posY) {
 				collBomb = true;
 				this.bombList.deleteBomb(posX, posY);				
 			}

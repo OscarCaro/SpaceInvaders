@@ -76,9 +76,11 @@ public class BombList {
 			idx = -1;
 		}
 		return idx;
-	}
+	}	
 	
-	public void incrementPosY(int idx) {
+// <<<<<<<<<<  Delegate methods to: BOMB  >>>>>>>>>>>
+
+	public void incrementBombPosY(int idx) {
 		this.bombList[idx].incrementPosY();
 	}
 	
@@ -86,11 +88,11 @@ public class BombList {
 		return this.bombList[idx].outOfBoard();
 	}
 	
-	public int getPosX(int idx) {
+	public int getBombPosX(int idx) {
 		return this.bombList[idx].getPosX();
 	}
 	
-	public int getPosY(int idx) {
+	public int getBombPosY(int idx) {
 		return this.bombList[idx].getPosY();
 	}
 	
