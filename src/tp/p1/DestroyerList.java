@@ -95,34 +95,6 @@ public class DestroyerList {
 		return str;
 	}
 	
-	public Destroyer getDestroyer(int idx) {
-		return this.destroyerList[idx];
-	}
-	
-	public boolean destroyerCanShoot(int idx) {
-		return this.destroyerList[idx].isCanShoot();
-	}
-	
-	public void setMovingLeft(boolean movingLeft) {
-		this.movingLeft = movingLeft;
-		this.movingRight = !movingLeft;	
-	}
-
-	public boolean isMovingLeft() {
-		return movingLeft;
-	}
-
-
-	public void setMovingRight(boolean movingRight) {
-		this.movingRight = movingRight;
-		this.movingLeft = !movingRight; 
-	}
-	
-	public boolean isMovingRight() {
-		return movingRight;
-	}
-	
-
 	public int minDistToLeftSide() {
 		int minDist = -1;
 		
@@ -150,24 +122,6 @@ public class DestroyerList {
 		}		
 		return minDist;
 	}
-	
-
-	public void moveDestroyerToLeft (int idx) {
-		int nextPos = this.destroyerList[idx].getPosX() - 1;
-		this.destroyerList[idx].setPosX(nextPos);
-	}
-	
-	public void moveDestroyerToRight (int idx) {
-		int nextPos = this.destroyerList[idx].getPosX() + 1;
-		this.destroyerList[idx].setPosX(nextPos);
-	}
-	
-	public void moveDestroyerDown (int idx) {
-		int nextPos = this.destroyerList[idx].getPosY() + 1;
-		this.destroyerList[idx].setPosY(nextPos);
-	}
-
-
 	
 	public void createEasy(int initNumOfDestroyers) {
 		int posX = 4;
@@ -206,27 +160,69 @@ public class DestroyerList {
 		}
 	}
 	
-//	public int getNumOfDestroyers() {
-//		return this.destroyerList.length;
-//	}
+// <<<<<<<<<<  Getters & Setters  >>>>>>>>>>>
+
+	public void setMovingLeft(boolean movingLeft) {
+		this.movingLeft = movingLeft;
+		this.movingRight = !movingLeft;	
+	}
+
+	public boolean isMovingLeft() {
+		return movingLeft;
+	}
+
+
+	public void setMovingRight(boolean movingRight) {
+		this.movingRight = movingRight;
+		this.movingLeft = !movingRight; 
+	}
 	
-	public int getPosX(int idx) {
+	public boolean isMovingRight() {
+		return movingRight;
+	}
+	
+// <<<<<<<<<<  Delegate methods to: Destroyer  >>>>>>>>>>>
+
+	public Destroyer getDestroyer(int idx) {
+		return this.destroyerList[idx];
+	}	
+
+	public void moveDestroyerToLeft (int idx) {
+		int nextPos = this.destroyerList[idx].getPosX() - 1;
+		this.destroyerList[idx].setPosX(nextPos);
+	}
+	
+	public void moveDestroyerToRight (int idx) {
+		int nextPos = this.destroyerList[idx].getPosX() + 1;
+		this.destroyerList[idx].setPosX(nextPos);
+	}
+	
+	public void moveDestroyerDown (int idx) {
+		int nextPos = this.destroyerList[idx].getPosY() + 1;
+		this.destroyerList[idx].setPosY(nextPos);
+	}
+	
+	public int getDestroyerPosX(int idx) {
 		return this.destroyerList[idx].getPosX();
 	}
 	
-	public int getPosY(int idx) {
+	public int getDestroyerPosY(int idx) {
 		return this.destroyerList[idx].getPosY();
 	}
 	
-	public void decrementShield(int idx) {
+	public void decrementDestroyerShield(int idx) {
 		this.destroyerList[idx].decrementShield();
 	}
 	
-	public int getShield(int idx) {
+	public int getDestroyerShield(int idx) {
 		return this.destroyerList[idx].getShield();
 	}
 	
 	public int getDestroyerScore(int idx) {
 		return this.destroyerList[idx].getPoints();
+	}
+
+	public boolean getDestroyerCanShoot(int idx) {
+		return this.destroyerList[idx].isCanShoot();
 	}
 }

@@ -98,39 +98,6 @@ public class CarrierList {
 		return minDist;
 	}
 	
-	public boolean isMovingLeft() {
-		return movingLeft;
-	}
-
-	public void setMovingLeft(boolean movingLeft) {
-		this.movingLeft = movingLeft;
-		this.movingRight = !movingLeft;	// To make sure both of them are never true at the same time
-	}
-
-	public boolean isMovingRight() {
-		return movingRight;
-	}
-
-	public void setMovingRight(boolean movingRight) {
-		this.movingRight = movingRight;
-		this.movingLeft = !movingRight; // To make sure both of them are never true at the same time
-	}
-	
-	public void moveCarierToLeft (int idx) {
-		int nextPos = this.carrierList[idx].getPosX() - 1;
-		this.carrierList[idx].setPosX(nextPos);
-	}
-	
-	public void moveCarierToRight (int idx) {
-		int nextPos = this.carrierList[idx].getPosX() + 1;
-		this.carrierList[idx].setPosX(nextPos);
-	}
-	
-	public void moveCarierDown (int idx) {
-		int nextPos = this.carrierList[idx].getPosY() + 1;
-		this.carrierList[idx].setPosY(nextPos);
-	}
-	
 	public boolean carriersInBottomRow() {
 		boolean is = false;
 		for (int i = 0; i < this.getNumOfValidCarriers(); i++) {
@@ -203,23 +170,56 @@ public class CarrierList {
 		}		
 	}
 	
-//	public int getNumOfCarriers() {
-//		return this.carrierList.length;
-//	}
+// <<<<<<<<<<  Getters & Setters  >>>>>>>>>>>
+
+	public boolean isMovingLeft() {
+		return movingLeft;
+	}
+
+	public void setMovingLeft(boolean movingLeft) {
+		this.movingLeft = movingLeft;
+		this.movingRight = !movingLeft;	// To make sure both of them are never true at the same time
+	}
+
+	public boolean isMovingRight() {
+		return movingRight;
+	}
+
+	public void setMovingRight(boolean movingRight) {
+		this.movingRight = movingRight;
+		this.movingLeft = !movingRight; // To make sure both of them are never true at the same time
+	}
 	
-	public int getPosX(int idx) {
+// <<<<<<<<<<  Delegate methods to: CARRIER  >>>>>>>>>>>
+	
+	public void moveCarrierToLeft (int idx) {
+		int nextPos = this.carrierList[idx].getPosX() - 1;
+		this.carrierList[idx].setPosX(nextPos);
+	}
+	
+	public void moveCarrierToRight (int idx) {
+		int nextPos = this.carrierList[idx].getPosX() + 1;
+		this.carrierList[idx].setPosX(nextPos);
+	}
+	
+	public void moveCarrierDown (int idx) {
+		int nextPos = this.carrierList[idx].getPosY() + 1;
+		this.carrierList[idx].setPosY(nextPos);
+	}	
+
+	public int getCarrierPosX(int idx) {
 		return this.carrierList[idx].getPosX();
 	}
 	
-	public int getPosY(int idx) {
+	public int getCarrierPosY(int idx) {
 		return this.carrierList[idx].getPosY();
 	}
 	
-	public void decrementShield(int idx) {
+	public void decrementCarrierShield(int idx) {
 		this.carrierList[idx].decrementShield();
 	}
 	
-	public int getShield(int idx) {
+	public int getCarrierShield(int idx) {
 		return this.carrierList[idx].getShield();
 	}
 	
