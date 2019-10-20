@@ -9,8 +9,7 @@ public class Game {
 	private Random random;
 	private Board board;			// Contains list for bombs, carriers and destroyers
 	private GamePrinter gamePrinter;
-	private Level diffLevel;
-	
+	private Level diffLevel;	
 	
 
 	public Game (Level diffLevel, Random random) {
@@ -51,11 +50,7 @@ public class Game {
 		// 4 Check for dead enemies (Shield == 0)
 		this.checkDeadEnemies();
 		
-		
-	
-	}	
-
-	
+	}		
 	
 	public void computerAction() {
 		Destroyer currentDest;
@@ -77,6 +72,14 @@ public class Game {
 		
 	}
 	
+	public String checkPos(int x, int y) {
+		return board.checkCarrierListPos(x, y) 
+				+ board.checkDestroyerListPos(x, y)
+				+ board.checkUcmShip(x, y)
+				+ board.checkBombListPos(x, y)
+				+ board.checkUcmMissile(x, y)
+				+ board.checkUfo(x, y);				
+	}	
 	
 	public boolean determineByProb(int max) {
 		boolean goOn = false;
@@ -132,10 +135,6 @@ public class Game {
 		checkUFOdead();
 	}
 	
-	public boolean playerDead() {
-		return checkUCMdead();
-	}
-	
 	public boolean checkUCMdead() {
 		return (this.board.getUcmShipShield() <= 0);		
 	}
@@ -187,60 +186,54 @@ public class Game {
 			move = true;
 		}
 		return move;
+	}	
+	
+	public String toString () {
+		return gamePrinter.toString(this);
 	}
 	
-	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
-		this.board.moveUcmShip(left, right, numOfCells);
-	}
-	
-	public void shootUcmMissile() {
-		this.board.shootUcmMissile();
-	}
-	
-	public int getCycleCounter() {
-		return cycleCounter;
-	}
+// <<<<<<<<<<  Delegate methods to: CARRIERLIST + DESTROYERLIST  >>>>>>>>>>>
 
-//	public void setCycleCounter(int cycleCounter) {
-//		this.cycleCounter = cycleCounter;
-//	}
-//	
-	public void incrementCycleCounter() {
-		this.cycleCounter++;
-	}
-
-	public int getScore() {
-		return score;
-	}
+	public int getNumOfValidAliens() {
+		return this.board.getCarrierListNumOfValidCarriers() + this.board.getDestroyerListNumOfValidDestroyers();
+	}	
 	
-	public int getUcmShipShield() {
-		return this.board.getUcmShipShield();
+// <<<<<<<<<<  Delegate methods to: UCM_SHIP  >>>>>>>>>>>
+	
+	public boolean ucmShipIsCanShoot() {
+		return board.ucmShipIsCanShoot();
 	}
 	
 	public boolean getUcmShipIsShock() {
 		return this.board.getUcmShipIsShock();
 	}
 	
-	public int getNumOfValidAliens() {
-		return this.board.getCarrierListNumOfValidCarriers() + this.board.getDestroyerListNumOfValidDestroyers();
+	public int getUcmShipShield() {
+		return this.board.getUcmShipShield();
 	}
 	
-	public String toString () {
-		return gamePrinter.toString(this);
+	public void moveUcmShip(boolean left, boolean right, int numOfCells) {
+		this.board.moveUcmShip(left, right, numOfCells);
 	}
 	
-	public String checkPos(int x, int y) {
-		return board.checkCarrierListPos(x, y) 
-				+ board.checkDestroyerListPos(x, y)
-				+ board.checkUcmShip(x, y)
-				+ board.checkBombListPos(x, y)
-				+ board.checkUcmMissile(x, y)
-				+ board.checkUfo(x, y);
-				
+// <<<<<<<<<<  Delegate methods to: UCM_MISSILE  >>>>>>>>>>>
+	
+	public void shootUcmMissile() {
+		this.board.shootUcmMissile();
 	}
-
-	public boolean ucmShipIsCanShoot() {
-		return board.ucmShipIsCanShoot();
+	
+// <<<<<<<<<<  GETTERS & SETTERS  >>>>>>>>>>>
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public int getCycleCounter() {
+		return cycleCounter;
+	}
+	
+	public void incrementCycleCounter() {
+		this.cycleCounter++;
 	}
 
 }
