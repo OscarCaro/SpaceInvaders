@@ -15,19 +15,6 @@ public class Ufo {
 		this.sprite = this.toString();
 	}
 	
-	
-	public void decrementShield() {
-		this.shield--;
-	}
-	
-	public int getShield() {
-		return shield;
-	}
-	
-	public int getPoints() {
-		return points;
-	}
-	
 	public void moveUfo() {
 		this.posX--;
 	}
@@ -43,6 +30,18 @@ public class Ufo {
 	public boolean outOfBoard() {
 		return (this.posX < 0);
 	}
+
+	public String toString() {
+		return "<(+)>";
+	}
+	
+	public int getShield() {
+		return shield;
+	}
+	
+	public void decrementShield() {
+		this.shield--;
+	}
 	
 	public void setShield(int shield) {
 		this.shield = shield;
@@ -52,27 +51,19 @@ public class Ufo {
 		return posX;
 	}
 
-
-
 	public void setPosX(int posX) {
 		this.posX = posX;
 	}
-
-
 
 	public int getPosY() {
 		return posY;
 	}
 
-
-
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-
-
-
-	public String toString() {
-		return "<(+)>";
+	
+	public int getPoints() {
+		return points;
 	}
 }

@@ -2,24 +2,17 @@ package tp.p1;
 
 public class Destroyer {
 	
-	private int posX, posY;		// These attributes change over time -> init in constructor
+	private int posX, posY;
 	private int shield;
-	private int id;
 	private boolean canShoot;
-	
-	private final int damage = 1;
-	private final boolean weapons = true;
-	private final int points = 10;
-		
+	private final int points = 10;		
 	
 	public Destroyer (int posX, int posY, int id) {
-		//Class constructor
 		this.shield = 1;
 		this.posX = posX;
 		this.posY = posY;
 		this.canShoot = true;
-	}
-	
+	}	
 	
 	public String toString() {
 		return "!<" + this.shield + ">!";
@@ -29,16 +22,17 @@ public class Destroyer {
 		this.shield--;
 	}
 	
+	public int getShield() {
+		return shield;
+	}
 	
 	public boolean isCanShoot() {
 		return canShoot;
 	}
 
-
 	public void setCanShoot(boolean canShoot) {
 		this.canShoot = canShoot;
 	}
-
 
 	public void setPosX(int posX) {
 		this.posX = posX;
@@ -56,16 +50,7 @@ public class Destroyer {
 		return posY;
 	}
 
-
-	public int getShield() {
-		return shield;
-	}
-
-
 	public int getPoints() {
 		return points;
-	}
-	
-	
-	
+	}	
 }

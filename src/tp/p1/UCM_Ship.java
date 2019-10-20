@@ -5,16 +5,12 @@ public class UCM_Ship {
 	private int posX, posY;
 	private int shield;
 	
-	private final int damage = 1;
-	private final boolean weapons = true;
 	private String sprite = "/-^-\\";
 	private boolean shock; 	
 	private boolean canShoot;
 
 	
 	public UCM_Ship () {
-		//Class constructor
-		// Initial values:
 		this.shield = 3;
 		this.posX = 4;
 		this.posY = 7;
@@ -32,6 +28,10 @@ public class UCM_Ship {
 	
 	public boolean isShock() {
 		return shock;
+	}
+	
+	public void setShock(boolean shock) {
+		this.shock = shock;
 	}
 
 	public int getShield() {
@@ -57,12 +57,6 @@ public class UCM_Ship {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-	
-	
-
-	public void setShock(boolean shock) {
-		this.shock = shock;
-	}
 
 	public String checkPos (int x, int y) {
 		String str = "";
@@ -70,12 +64,6 @@ public class UCM_Ship {
 			str = this.sprite;
 		}
 		return str;
-	}
+	}	
 	
-	
-	
-	
-//	public String toString() {
-//		return this.sprite;
-//	}
 }

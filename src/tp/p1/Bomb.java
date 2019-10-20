@@ -4,6 +4,7 @@ public class Bomb {
 	
 	private int posX, posY;
 	private Destroyer destroyer;
+	private final String sprite = "!";
 		
 	public Bomb(int posX, int posY, Destroyer destroyer) {
 		this.posX = posX;
@@ -29,9 +30,7 @@ public class Bomb {
 	}
 	
 	public String toString() {
-		String sprite;
-			sprite = "!";
-		return sprite;
+		return this.sprite;
 	}
 	
 	public boolean outOfBoard() {
