@@ -4,7 +4,7 @@ First project for TP
 ## ToDo List
 
 - [x] Organize delegator methods of classes in parts
-- [ ] Make packages
+- [x] Make packages
 - [ ] Win game method
 - [ ] Level parser
 
