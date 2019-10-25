@@ -7,6 +7,8 @@ First project for TP
 - [ ] Make packages
 - [ ] Win game method
 - [ ] Level parser
+- [ ] Command subclasses parser methods should return new Object if that class has arguments 
+- [ ] Don't pass Controller controller to parse methods of command subclasses
 
 ## Controller.run() logic
 
