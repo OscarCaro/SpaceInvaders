@@ -37,6 +37,10 @@ public class Controller {
 				System.out.println("Game Over, Aliens win");
 			}
 			
+			if(this.game.getNumOfValidAliens() == 0) {
+				continueGame = false;
+				System.out.println("You win!!!");
+			}
 			
 		} 
 		// Todo: ask if user wants to play again or exit app
