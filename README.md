@@ -5,7 +5,7 @@ First project for TP
 
 - [x] Organize delegator methods of classes in parts
 - [ ] Make packages
-- [ ] Win game method
+- [x] Win game method
 - [ ] Level parser
 - [ ] Command subclasses parser methods should return new Object if that class has arguments 
 - [ ] Don't pass Controller controller to parse methods of command subclasses
