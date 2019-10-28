@@ -1,11 +1,11 @@
-package tp.p1.model.utils;
+package tp.p1.model.commands;
 
 import tp.p1.model.Command;
 import tp.p1.model.Game;
 
-public class HelpCommand extends Command {
+public class MoveCommand extends Command {
 
-	public HelpCommand(String name, String shortName, String commandText, String helpText) {
+	public MoveCommand(String name, String shortName, String commandText, String helpText) {
 		super(name, shortName, commandText, helpText);
 		// TODO Auto-generated constructor stub
 	}

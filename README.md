@@ -4,7 +4,7 @@ First project for TP
 ## ToDo List
 
 - [x] Organize delegator methods of classes in parts
-- [ ] Make packages
+- [x] Make packages
 - [x] Win game method
 - [ ] Level parser
 - [ ] Command subclasses parser methods should return new Object if that class has arguments 

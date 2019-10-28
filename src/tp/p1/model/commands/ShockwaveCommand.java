@@ -1,11 +1,11 @@
-package tp.p1.model.utils;
+package tp.p1.model.commands;
 
 import tp.p1.model.Command;
 import tp.p1.model.Game;
 
-public class ExitCommand extends Command {
+public class ShockwaveCommand extends Command {
 
-	public ExitCommand(String name, String shortName, String commandText, String helpText) {
+	public ShockwaveCommand(String name, String shortName, String commandText, String helpText) {
 		super(name, shortName, commandText, helpText);
 		// TODO Auto-generated constructor stub
 	}
