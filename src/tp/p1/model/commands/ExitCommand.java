@@ -10,6 +10,7 @@ public class ExitCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
+		//Print message (?)
 		return false;
 	}
 

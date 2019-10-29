@@ -10,7 +10,12 @@ public class ShockwaveCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		boolean ok = false;
+		if(game.useShockwave()) {
+			game.checkDeadEnemies();
+			ok = true;
+		}
+		return ok;
 	}
 
 	@Override

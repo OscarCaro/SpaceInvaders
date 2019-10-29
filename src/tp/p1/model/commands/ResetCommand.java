@@ -10,7 +10,8 @@ public class ResetCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		//None
+		return false; 
 	}
 
 	@Override

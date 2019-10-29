@@ -11,7 +11,10 @@ public class MoveCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		// TODO Auto-generated method stub
+		//Check whether it goes left or right and the number of cells based on command
+		
+		game.moveUcmShip(true, false, 1); //CASE FOR MOVE LEFT 1
+		
 		return false;
 	}
 
