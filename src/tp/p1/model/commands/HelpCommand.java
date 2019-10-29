@@ -1,6 +1,5 @@
 package tp.p1.model.commands;
 
-import tp.p1.model.Command;
 import tp.p1.model.Game;
 
 public class HelpCommand extends Command {

@@ -1,4 +1,6 @@
-package tp.p1.model;
+package tp.p1.model.commands;
+
+import tp.p1.model.Game;
 
 public abstract class Command {
 	protected final String name;
@@ -9,10 +11,10 @@ public abstract class Command {
 	protected static final String incorrectArgsMsg ="Incorrect argument format";
 	
 	public Command(String name, String shortName, String commandText, String helpText){
-	this.name = name;
-	this.shortName = shortName;
-	this.commandText = commandText; 
-	this.helpText = helpText;
+		this.name = name;
+		this.shortName = shortName;
+		this.commandText = commandText; 
+		this.helpText = helpText;
 	}
 	
 	public abstract boolean execute(Game game);
