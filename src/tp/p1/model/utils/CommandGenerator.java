@@ -4,7 +4,7 @@ import tp.p1.controller.*;
 import tp.p1.model.*;
 public class CommandGenerator {
 	
-	private static Command[] availableCommands = {		// Todo: correct arguments
+	private static Command[] availableCommands = {
 			new ListCommand(),
 			new HelpCommand(),
 			new ResetCommand(),
@@ -12,8 +12,9 @@ public class CommandGenerator {
 			new ShootCommand(),
 			new UpdateCommand(),
 			new MoveCommand(),
-			new ShockwaveCommand()
-	};
+			new ShockwaveCommand(),
+			new NoneCommand()
+			};
 	
 	public static Command parseCommand(String[] commandWords, Controller controller) {
 		Command aux;

@@ -18,10 +18,8 @@ public class ShootCommand extends Command {
 	@Override
 	public Command parse(String[] commandWords) {
 		Command shoot = null;
-		if (commandWords.length == 1) {
-			if (commandWords[0].equals(super.name) || commandWords[0].equals(super.shortName)) {
-				shoot = new ShootCommand();
-			}
+		if (commandWords.length == 1  &&  matchCommandName(commandWords[0])) {			
+			shoot = new ShootCommand();			
 		}
 		return shoot;
 	}
