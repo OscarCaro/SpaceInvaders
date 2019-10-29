@@ -1,6 +1,7 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
+import tp.p1.model.utils.CommandGenerator;
 
 public class HelpCommand extends Command {
 
@@ -10,7 +11,8 @@ public class HelpCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		System.out.println(CommandGenerator.commandHelp());
+		return false;	// only shows the help text, no cycle increment nor game print
 	}
 
 	@Override

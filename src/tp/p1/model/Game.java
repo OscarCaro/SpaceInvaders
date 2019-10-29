@@ -12,6 +12,7 @@ public class Game {
 	private Board board;			// Contains list for bombs, carriers and destroyers
 	private GamePrinter gamePrinter;
 	private Level diffLevel;	
+	private boolean continueGame;
 	
 
 	public Game (Level diffLevel, Random random) {
@@ -22,6 +23,7 @@ public class Game {
 		this.board = new Board(diffLevel);	
 		this.gamePrinter = new GamePrinter(Board.ROWS, Board.COLUMNS);
 		this.diffLevel = diffLevel;
+		this.continueGame = true;
 	}
 	
 	public void update() {
@@ -194,6 +196,8 @@ public class Game {
 		return gamePrinter.toString(this);
 	}
 	
+	
+	
 // <<<<<<<<<<  Delegate methods to: CARRIERLIST + DESTROYERLIST  >>>>>>>>>>>
 
 	public int getNumOfValidAliens() {
@@ -236,6 +240,14 @@ public class Game {
 	
 	public void incrementCycleCounter() {
 		this.cycleCounter++;
+	}
+	
+	public boolean isFinished() {
+		return this.continueGame;
+	}
+	
+	public void finishGame() {
+		this.continueGame = false;
 	}
 
 }

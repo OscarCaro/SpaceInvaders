@@ -10,7 +10,7 @@ public class CommandGenerator {
 			new ResetCommand(),
 			new ExitCommand(),
 			new ShootCommand(),
-			new UpdateCommand(),
+			//new UpdateCommand(),			// Class to be deleted
 			new MoveCommand(),
 			new ShockwaveCommand(),
 			new NoneCommand()
@@ -31,7 +31,7 @@ public class CommandGenerator {
 	public static String commandHelp() {
 		String helpText = "";
 		for (Command cmd : availableCommands) {
-			helpText += cmd.helpText();
+			helpText += cmd.helpText() + System.lineSeparator();
 		}
 		return helpText;
 	}
