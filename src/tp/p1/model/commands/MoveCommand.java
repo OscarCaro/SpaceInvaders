@@ -24,7 +24,9 @@ public class MoveCommand extends Command {
 		game.moveUcmShip(this.left, this.right, this.numOfCells);
 		return true;
 	}
-
+	
+	//A
+	
 	@Override
 	public Command parse(String[] commandWords) {
 		Command move = null;
