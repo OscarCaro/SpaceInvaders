@@ -5,8 +5,8 @@ import tp.p1.model.Game;
 
 public class ResetCommand extends Command {
 
-	public ResetCommand(String name, String shortName, String commandText, String helpText) {
-		super(name, shortName, commandText, helpText);
+	public ResetCommand() {
+		super("reset", "r", "Reset", "starts a new game.");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,8 +18,14 @@ public class ResetCommand extends Command {
 
 	@Override
 	public Command parse(String[] commandWords) {
-		// TODO Auto-generated method stub
-		return null;
+		Command reset = null;
+		if (commandWords.length == 1) {
+			if (commandWords[0].equals(super.name) || commandWords[0].equals(super.shortName)) {
+				reset = new ResetCommand();
+			}
+			
+		}
+		return reset;
 	}
 
 }

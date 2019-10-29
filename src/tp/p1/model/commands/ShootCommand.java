@@ -5,8 +5,8 @@ import tp.p1.model.Game;
 
 public class ShootCommand extends Command {
 
-	public ShootCommand(String name, String shortName, String commandText, String helpText) {
-		super(name, shortName, commandText, helpText);
+	public ShootCommand() {
+		super("shoot", "s", "Shoot", "causes the UCM-Ship to launch a missile");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,8 +18,13 @@ public class ShootCommand extends Command {
 
 	@Override
 	public Command parse(String[] commandWords) {
-		// TODO Auto-generated method stub
-		return null;
+		Command shoot = null;
+		if (commandWords.length == 1) {
+			if (commandWords[0].equals(super.name) || commandWords[0].equals(super.shortName)) {
+				shoot = new ShootCommand();
+			}
+		}
+		return shoot;
 	}
 
 }

@@ -5,8 +5,8 @@ import tp.p1.model.Game;
 
 public class UpdateCommand extends Command {
 
-	public UpdateCommand(String name, String shortName, String commandText, String helpText) {
-		super(name, shortName, commandText, helpText);
+	public UpdateCommand() {
+		super("update", "u", "Update", " ");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,8 +18,13 @@ public class UpdateCommand extends Command {
 
 	@Override
 	public Command parse(String[] commandWords) {
-		// TODO Auto-generated method stub
-		return null;
+		Command update = null;
+		if (commandWords.length == 1) {
+			if (commandWords[0].equals(super.name) || commandWords[0].equals(super.shortName)) {
+				update = new UpdateCommand();
+			}
+		}
+		return update;
 	}
 
 }

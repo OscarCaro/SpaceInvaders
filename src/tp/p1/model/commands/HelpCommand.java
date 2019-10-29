@@ -5,8 +5,8 @@ import tp.p1.model.Game;
 
 public class HelpCommand extends Command {
 
-	public HelpCommand(String name, String shortName, String commandText, String helpText) {
-		super(name, shortName, commandText, helpText);
+	public HelpCommand() {
+		super("help", "h", "Help", "prints this help message.");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,7 +18,12 @@ public class HelpCommand extends Command {
 
 	@Override
 	public Command parse(String[] commandWords) {
-		// TODO Auto-generated method stub
+		Command help = null;
+		if (commandWords.length == 1) {
+			if (commandWords[0].equals(super.name) || commandWords[0].equals(super.shortName)) {
+				help = new HelpCommand();
+			}
+		}
 		return null;
 	}
 

@@ -5,8 +5,8 @@ import tp.p1.model.Game;
 
 public class ExitCommand extends Command {
 
-	public ExitCommand(String name, String shortName, String commandText, String helpText) {
-		super(name, shortName, commandText, helpText);
+	public ExitCommand() {
+		super("help", "h", "Help", "terminates the program");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,8 +18,13 @@ public class ExitCommand extends Command {
 
 	@Override
 	public Command parse(String[] commandWords) {
-		// TODO Auto-generated method stub
-		return null;
+		Command exit = null;
+		if (commandWords.length == 1) {
+			if (commandWords[0].equals(super.name) || commandWords[0].equals(super.shortName)) {
+				exit = new ExitCommand();
+			}
+		}
+		return exit;
 	}
 
 }

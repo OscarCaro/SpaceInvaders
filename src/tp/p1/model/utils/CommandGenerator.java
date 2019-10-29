@@ -1,4 +1,5 @@
 package tp.p1.model.utils;
+import tp.p1.model.commands.*;
 import tp.p1.controller.*;
 import tp.p1.model.*;
 public class CommandGenerator {
@@ -16,7 +17,7 @@ public class CommandGenerator {
 	
 	public static Command parseCommand(String[] commandWords, Controller controller) {
 		Command aux;
-		Command result;
+		Command result = null;
 		for (Command cmd : availableCommands) {
 			aux = cmd.parse(commandWords);
 			if (aux != null) {
