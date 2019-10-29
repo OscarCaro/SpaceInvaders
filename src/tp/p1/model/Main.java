@@ -1,7 +1,7 @@
 /*	Space Invaders
  * 
- * 	Authors:	- Alberto López Cervantes
- * 				- Óscar Caro Navarro
+ * 	Authors:	- Alberto LÃ³pez Cervantes
+ * 				- Ã“scar Caro Navarro
  */
 
 
@@ -31,7 +31,7 @@ public class Main {
 		}
 		else {
 			// Stop program: wrong arguments have been passed
-			System.out.println ("Wrong arguments");
+			System.out.println ("Wrong arguments" + System.lineSeparator());
 		}		
 	}
 	
