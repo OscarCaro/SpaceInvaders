@@ -10,7 +10,16 @@ public class ShockwaveCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		boolean execute;
+		if (game.useShockwave()) {		//THis also decrements enemy shields
+			game.checkDeadEnemies();
+			execute = true;
+		}
+		else {
+			System.out.println("No shockwave available");
+			execute = false;
+		}
+		return execute;
 	}
 
 	@Override

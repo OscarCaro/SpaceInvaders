@@ -5,11 +5,14 @@ import tp.p1.model.Game;
 public class ExitCommand extends Command {
 
 	public ExitCommand() {
-		super("help", "h", "Help", "terminates the program");
+		super("exit", "e", "Exit", "terminates the program");
 	}
 
 	@Override
 	public boolean execute(Game game) {
+		game.finishGame();
+		System.out.println("Game over");
+		System.out.println("Player exit");
 		return false;
 	}
 

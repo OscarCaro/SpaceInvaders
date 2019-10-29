@@ -10,6 +10,7 @@ public class ResetCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
+		game.finishGame();			// TODO: add something so that user is asked to play again
 		return false;
 	}
 

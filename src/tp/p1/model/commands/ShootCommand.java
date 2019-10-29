@@ -11,8 +11,17 @@ public class ShootCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean execute;
+		if (game.ucmShipIsCanShoot()) {
+			game.shootUcmMissile();			
+			// Set missile + isCanShoot false
+			execute = true;
+		}
+		else {
+			System.out.println("Error: A missile is already fired");
+			execute = false;
+		}			
+		return execute;
 	}
 
 	@Override
