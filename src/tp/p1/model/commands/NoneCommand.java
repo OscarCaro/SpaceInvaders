@@ -16,7 +16,8 @@ public class NoneCommand extends Command{
 	@Override
 	public Command parse(String[] commandWords) {
 		Command none = null;
-		if (commandWords.length == 1  &&  matchCommandName(commandWords[0])) {			
+		if (commandWords.length == 1  &&  
+				( matchCommandName(commandWords[0]) || commandWords[0].equals("")) ) {			
 			none = new NoneCommand();			
 		}
 		return none;

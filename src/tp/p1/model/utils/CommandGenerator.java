@@ -16,7 +16,7 @@ public class CommandGenerator {
 			new NoneCommand()
 			};
 	
-	public static Command parseCommand(String[] commandWords, Controller controller) {
+	public static Command parseCommand(String[] commandWords) {
 		Command aux;
 		Command result = null;
 		for (Command cmd : availableCommands) {

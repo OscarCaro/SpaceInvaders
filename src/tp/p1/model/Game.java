@@ -243,7 +243,17 @@ public class Game {
 	}
 	
 	public boolean isFinished() {
-		return this.continueGame;
+		
+		if(checkEnemiesInBottomRow() || checkUCMdead()) {
+			continueGame = false;
+			System.out.println("Game Over, Aliens win");
+		}
+		
+		if(getNumOfValidAliens() == 0) {
+			continueGame = false;
+			System.out.println("You win!!!");
+		}
+		return !this.continueGame;
 	}
 	
 	public void finishGame() {

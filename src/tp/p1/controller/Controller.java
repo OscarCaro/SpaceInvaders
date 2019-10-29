@@ -1,5 +1,7 @@
 
 package tp.p1.controller;
+import tp.p1.model.commands.*;
+import tp.p1.model.utils.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,47 +19,72 @@ public class Controller {
 	}
 	
 	public void run () {
-		boolean continueGame = false;
 		
 		printInfo();
-		System.out.println(game);	
-		continueGame = handleCommand();
+		System.out.println(game);
 
-		while (continueGame) {			
-			this.game.computerAction();
-			this.game.update();
-			this.game.incrementCycleCounter();
+		while (!game.isFinished()){
 			
-			printInfo();
-			System.out.println(game);	
-			continueGame = handleCommand();
+			System.out.println("Command > ");
+			String[] words = in.nextLine().toLowerCase().trim().split ("\\s+");
 			
-			if(this.game.checkEnemiesInBottomRow() || this.game.checkUCMdead()) {
-				continueGame = false;
-				System.out.println("Game Over, Aliens win");
+			Command command = CommandGenerator.parseCommand(words);
+			if (command != null) {
+				if (command.execute(game)) {
+					this.game.computerAction();
+					this.game.update();
+					this.game.incrementCycleCounter();
+					printInfo();
+					System.out.println(game);
+				}
 			}
-			
-			if(this.game.getNumOfValidAliens() == 0) {
-				continueGame = false;
-				System.out.println("You win!!!");
+			else {
+				System.out.format("Unknown command");		// format or println ??
 			}
-			
-		} 
-		// Todo: ask if user wants to play again or exit app
+		}
 	}
-	
-	public boolean handleCommand() {
-		String input;
-		System.out.println("Command > ");
-		input = in.nextLine();
-		return processInput(input);
-	}
-
-	public boolean processInput(String input) {
-		boolean continueGame = true;
-		
-		input = input.toLowerCase();	
-			
+//	public void run () {
+//		boolean continueGame = false;
+//		
+//		printInfo();
+//		System.out.println(game);	
+//		continueGame = handleCommand();
+//
+//		while (continueGame) {			
+//			this.game.computerAction();
+//			this.game.update();
+//			this.game.incrementCycleCounter();
+//			
+//			printInfo();
+//			System.out.println(game);	
+//			continueGame = handleCommand();
+//			
+//			if(this.game.checkEnemiesInBottomRow() || this.game.checkUCMdead()) {
+//				continueGame = false;
+//				System.out.println("Game Over, Aliens win");
+//			}
+//			
+//			if(this.game.getNumOfValidAliens() == 0) {
+//				continueGame = false;
+//				System.out.println("You win!!!");
+//			}
+//			
+//		} 
+//		// Todo: ask if user wants to play again or exit app
+//	}
+//	
+//	public boolean handleCommand() {
+//		String input;
+//		System.out.println("Command > ");
+//		input = in.nextLine();
+//		return processInput(input);
+//	}
+//
+//	public boolean processInput(String input) {
+//		boolean continueGame = true;
+//		
+//		input = input.toLowerCase();	
+//			
 //		if (input.equals("move left 1") || input.equals("m left 1")) {	
 //			this.game.moveUcmShip(true, false, 1);			
 //		} 
@@ -116,9 +143,9 @@ public class Controller {
 //			System.out.println("Wrong input. Try again");
 //			continueGame = handleCommand();		// Be careful -> recursion to ask input again
 //		}
-		
-		return continueGame;
-	}
+//		
+//		return continueGame;
+//	}
 			
 	private void printInfo() {
 		System.out.println("Score: " + this.game.getScore());
