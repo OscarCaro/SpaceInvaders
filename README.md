@@ -9,6 +9,7 @@ First project for TP
 - [ ] Level parser
 - [x] Command subclasses parser methods should return new Object if that class has arguments 
 - [ ] Don't pass Controller controller to parse methods of command subclasses
+- [ ] Fix exception in minDist to side if there are no destroyers remaining
 
 ## Controller.run() logic
 
