@@ -222,6 +222,8 @@ public class Game {
 		this.board.moveUcmShip(left, right, numOfCells);
 	}
 	
+
+	
 // <<<<<<<<<<  Delegate methods to: UCM_MISSILE  >>>>>>>>>>>
 	
 	public void shootUcmMissile() {

@@ -27,4 +27,6 @@ public abstract class Command {
 	public String helpText(){
 		return String.format("%s : %s%n", commandText, helpText);
 	}
+	
+	
 }

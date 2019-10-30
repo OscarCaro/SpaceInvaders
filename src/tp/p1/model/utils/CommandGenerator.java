@@ -10,7 +10,6 @@ public class CommandGenerator {
 			new ResetCommand(),
 			new ExitCommand(),
 			new ShootCommand(),
-			//new UpdateCommand(),			// Class to be deleted
 			new MoveCommand(),
 			new ShockwaveCommand(),
 			new NoneCommand()

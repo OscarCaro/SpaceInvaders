@@ -3,7 +3,7 @@ package tp.p1.model.commands;
 import tp.p1.model.Game;
 import tp.p1.model.utils.CommandGenerator;
 
-public class ListCommand extends Command {
+public class ListCommand extends NoParamsCommand {
 
 	public ListCommand() {
 		super("list", "l", "List", "displays the list of ship types in the game");
@@ -15,15 +15,6 @@ public class ListCommand extends Command {
 		return false; 	// only shows the list, no cycle increment nor game print
 	}
 
-	@Override
-	public Command parse(String[] commandWords) {
-		Command list = null;
-		if (commandWords.length == 1  &&  matchCommandName(commandWords[0])) {
-			list = new ListCommand();			
-		}
-		return list;
-	}	
-	
 	private void printList() {
 		// It should not be hardcoded
 		// It should use the game object to find each type of ship and get its data

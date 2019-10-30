@@ -2,7 +2,7 @@ package tp.p1.model.commands;
 
 import tp.p1.model.Game;
 
-public class ExitCommand extends Command {
+public class ExitCommand extends NoParamsCommand {
 
 	public ExitCommand() {
 		super("exit", "e", "Exit", "terminates the program");
@@ -16,13 +16,5 @@ public class ExitCommand extends Command {
 		return false;
 	}
 
-	@Override
-	public Command parse(String[] commandWords) {
-		Command exit = null;
-		if (commandWords.length == 1  &&  matchCommandName(commandWords[0])) {
-			exit = new ExitCommand();
-		}
-		return exit;
-	}
 
 }
