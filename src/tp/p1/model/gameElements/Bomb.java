@@ -1,17 +1,18 @@
 package tp.p1.model.gameElements;
 
 import tp.p1.model.Board;
+import tp.p1.model.Game;
 
 public class Bomb extends Weapon{
 	
-	private int posX, posY;
+//	private int posX, posY;
 	private Destroyer destroyer;
 	private final String sprite = "!";
 		
-	public Bomb(int posX, int posY, Destroyer destroyer) {
-		this.posX = posX;
-		this.posY = posY;
+	public Bomb(int posX, int posY, Game game, Destroyer destroyer) {
+		super(posX, posY, game);
 		this.destroyer = destroyer;
+		
 		this.destroyer.setCanShoot(false);
 	}
 	
@@ -19,16 +20,16 @@ public class Bomb extends Weapon{
 		this.destroyer.setCanShoot(true);
 	}
 	
-	public int getPosX() {
-		return posX;
-	}
-
-	public int getPosY() {
-		return posY;
-	}
+//	public int getPosX() {
+//		return posX;
+//	}
+//
+//	public int getPosY() {
+//		return posY;
+//	}
 	
 	public void incrementPosY() {
-		this.posY++;
+		this.setPosY(this.getPosY() + 1);
 	}
 	
 	public String toString() {
@@ -37,7 +38,7 @@ public class Bomb extends Weapon{
 	
 	public boolean outOfBoard() {
 		boolean out = false;
-		if(this.posY > Board.ROWS) {
+		if(this.getPosY() > Board.ROWS) {
 			this.allowDestroyerShoot();
 			out = true;
 		}

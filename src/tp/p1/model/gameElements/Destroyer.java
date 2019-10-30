@@ -1,30 +1,30 @@
 package tp.p1.model.gameElements;
 
+import tp.p1.model.Game;
+
 public class Destroyer extends AlienShip{
 	
-	private int posX, posY;
-	private int shield;
+//	private int posX, posY;
+//	private int shield;
 	private boolean canShoot;
-	private final int points = 10;		
+//	private final int points = 10;		
 	
-	public Destroyer (int posX, int posY, int id) {
-		this.shield = 1;
-		this.posX = posX;
-		this.posY = posY;
+	public Destroyer (int posX, int posY, Game game) {
+		super(posX, posY, game, 1, 10);
 		this.canShoot = true;
 	}	
 	
 	public String toString() {
-		return "!<" + this.shield + ">!";
+		return "!<" + this.getShield() + ">!";
 	}
 	
-	public void decrementShield() {
-		this.shield--;
-	}
-	
-	public int getShield() {
-		return shield;
-	}
+//	public void decrementShield() {
+//		this.shield--;
+//	}
+//	
+//	public int getShield() {
+//		return shield;
+//	}
 	
 	public boolean isCanShoot() {
 		return canShoot;
@@ -34,23 +34,23 @@ public class Destroyer extends AlienShip{
 		this.canShoot = canShoot;
 	}
 
-	public void setPosX(int posX) {
-		this.posX = posX;
-	}
-
-	public void setPosY(int posY) {
-		this.posY = posY;
-	}
-
-	public int getPosX() {
-		return posX;
-	}
-
-	public int getPosY() {
-		return posY;
-	}
-
-	public int getPoints() {
-		return points;
-	}	
+//	public void setPosX(int posX) {
+//		this.posX = posX;
+//	}
+//
+//	public void setPosY(int posY) {
+//		this.posY = posY;
+//	}
+//
+//	public int getPosX() {
+//		return posX;
+//	}
+//
+//	public int getPosY() {
+//		return posY;
+//	}
+//
+//	public int getPoints() {
+//		return points;
+//	}	
 }
