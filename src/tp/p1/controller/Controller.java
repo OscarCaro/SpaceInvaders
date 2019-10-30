@@ -39,11 +39,9 @@ public class Controller {
 				}
 			}
 			else {
-				System.out.format("Unknown command");		// format or println ??
+				System.out.format("Unknown command");
 			}
 		}
-		
-		System.out.println(game);
 		
 		return playAgain();
 	}
