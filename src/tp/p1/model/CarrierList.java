@@ -1,5 +1,7 @@
 package tp.p1.model;
 
+import tp.p1.model.gameElements.Carrier;
+
 public class CarrierList {
 	
 	private Carrier[] carrierList;	

@@ -1,6 +1,6 @@
-package tp.p1.model;
+package tp.p1.model.gameElements;
 
-public class UCM_Ship {
+public class UCM_Ship extends Ship {
 
 	private int posX, posY;
 	private int shield;

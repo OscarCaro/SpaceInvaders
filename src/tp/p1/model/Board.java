@@ -1,5 +1,10 @@
 package tp.p1.model;
 
+import tp.p1.model.gameElements.Destroyer;
+import tp.p1.model.gameElements.UCM_Missile;
+import tp.p1.model.gameElements.UCM_Ship;
+import tp.p1.model.gameElements.Ufo;
+
 public class Board {
 	
 	public static final int ROWS = 8;

@@ -1,6 +1,6 @@
-package tp.p1.model;
+package tp.p1.model.gameElements;
 
-public class UCM_Missile {
+public class UCM_Missile extends Weapon{
 	
 	private int posX;
 	private int posY;	

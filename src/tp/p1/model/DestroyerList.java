@@ -1,5 +1,7 @@
 package tp.p1.model;
 
+import tp.p1.model.gameElements.Destroyer;
+
 public class DestroyerList {
 	
 	private Destroyer[] destroyerList;

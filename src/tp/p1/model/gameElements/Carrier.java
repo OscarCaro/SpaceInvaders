@@ -1,6 +1,6 @@
-package tp.p1.model;
+package tp.p1.model.gameElements;
 
-public class Carrier {
+public class Carrier extends AlienShip {
 	
 	private int posX, posY;		
 	private int shield;		

@@ -1,6 +1,8 @@
-package tp.p1.model;
+package tp.p1.model.gameElements;
 
-public class Bomb {
+import tp.p1.model.Board;
+
+public class Bomb extends Weapon{
 	
 	private int posX, posY;
 	private Destroyer destroyer;

@@ -1,6 +1,8 @@
-package tp.p1.model;
+package tp.p1.model.gameElements;
 
-public class Ufo {
+import tp.p1.model.Board;
+
+public class Ufo extends EnemyShip {
 	private int points;
 	private int shield;
 	private int posX;

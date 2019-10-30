@@ -2,6 +2,7 @@ package tp.p1.model;
 
 import java.util.Random;
 
+import tp.p1.model.gameElements.Destroyer;
 import tp.p1.view.GamePrinter;
 
 public class Game {

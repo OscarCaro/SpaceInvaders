@@ -1,6 +1,6 @@
-package tp.p1.model;
+package tp.p1.model.gameElements;
 
-public class Destroyer {
+public class Destroyer extends AlienShip{
 	
 	private int posX, posY;
 	private int shield;

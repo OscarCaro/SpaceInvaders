@@ -1,5 +1,8 @@
 package tp.p1.model;
 
+import tp.p1.model.gameElements.Bomb;
+import tp.p1.model.gameElements.Destroyer;
+
 public class BombList {
 	
 	private Bomb [] bombList;
