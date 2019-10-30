@@ -26,7 +26,13 @@ public class Main {
 			
 			random = new Random(seed);
 			controller = new Controller(diffLevel, random);
-			controller.run();
+			boolean playAgain = controller.run();
+			
+			while (playAgain) {		
+				random = new Random(seed);
+				controller = new Controller(diffLevel, random);
+				playAgain = controller.run();
+			}
 			
 		}
 		else {

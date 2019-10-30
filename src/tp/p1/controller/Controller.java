@@ -18,7 +18,7 @@ public class Controller {
 		game = new Game(diffLevel, random);
 	}
 	
-	public void run () {
+	public boolean run () {
 		
 		printInfo();
 		System.out.println(game);
@@ -42,7 +42,18 @@ public class Controller {
 				System.out.format("Unknown command");		// format or println ??
 			}
 		}
+		
+		System.out.println(game);
+		
+		return playAgain();
 	}
+	
+	private boolean playAgain() {
+		System.out.println("Play again [y/n]: ");
+		String input = in.nextLine().toLowerCase().trim();		
+		return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
+	}
+	
 //	public void run () {
 //		boolean continueGame = false;
 //		
@@ -161,16 +172,16 @@ public class Controller {
 		System.out.println("Remaining alien ships: " + this.game.getNumOfValidAliens());
 	}
 	
-	private void printHelp() {
-		System.out.println("move <left|right><1|2>: causes the UCM-Ship to move as indicated.");
-		System.out.println("shoot: causes the UCM-Ship to launch a missile.");
-		System.out.println("shockwave: causes the UCM-Ship to release a shock wave.");
-		System.out.println("list: displays the list of ship types in the game.");
-		System.out.println("reset: starts a new game.");
-		System.out.println("help: prints this help message.");
-		System.out.println("exit: terminates the program.");
-		System.out.println("[none]: skips one cycle.");
-	}
+//	private void printHelp() {
+//		System.out.println("move <left|right><1|2>: causes the UCM-Ship to move as indicated.");
+//		System.out.println("shoot: causes the UCM-Ship to launch a missile.");
+//		System.out.println("shockwave: causes the UCM-Ship to release a shock wave.");
+//		System.out.println("list: displays the list of ship types in the game.");
+//		System.out.println("reset: starts a new game.");
+//		System.out.println("help: prints this help message.");
+//		System.out.println("exit: terminates the program.");
+//		System.out.println("[none]: skips one cycle.");
+//	}
 	
 //	private void printList() {
 //		System.out.println("-<x>-: Points: 5 - Damage: 0 - Resistence: 2");
