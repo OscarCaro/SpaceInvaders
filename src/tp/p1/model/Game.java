@@ -4,10 +4,11 @@ import java.util.Random;
 
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Destroyer;
+import tp.p1.model.gameElements.IPlayerController;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.view.GamePrinter;
 
-public class Game {
+public class Game implements IPlayerController{
 	private Board board;
 	private UCM_Ship player;
 	private Random rand;
@@ -21,7 +22,7 @@ public class Game {
 	public void initGame () {
 		currentCycle = 0;
 		board = initializer.initialize(this, level );
-		player = newUCMShip(this, board.COLUMNS / 2, Board.ROWS - 1);
+		player = new UCM_Ship(this, board.COLUMNS / 2, Board.ROWS - 1);
 		board.add(player);
 		}
 	
