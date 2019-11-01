@@ -9,33 +9,85 @@ import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.view.GamePrinter;
 
 public class Game implements IPlayerController{
-	private Board board;
-	private UCM_Ship player;
+	public final static int DIM_X = 9;
+	public final static int DIM_Y = 8;
+	private int currentCycle;
 	private Random rand;
 	private Level level;
-	public Game (Level level, Random random){
-		this.rand = random; 
-		this.level  = level;
+	Board board; private UCM_Ship player;
+	private boolean doExit;
+	private BoardInitializer initializer; 
+	public Game (Level gameLevel, Random random){
+		rand = random;
+		level = gameLevel;
 		initializer = new BoardInitializer();
 		initGame();
 		}
+	
 	public void initGame () {
 		currentCycle = 0;
-		board = initializer.initialize(this, level );
-		player = new UCM_Ship(this, board.COLUMNS / 2, Board.ROWS - 1);
+		board = initializer.initialize (this, level);
+		player = new UCM_Ship(this, DIM_X / 2, DIM_Y-1);
 		board.add(player);
 		}
 	
-	public boolean aliensWin() {
-		return !player.isAlive () ||  AlienShip.haveLanded();
+	public Random getRandom() {
+		return rand;
 		}
-	private boolean playerWin() {
+	
+	public Level getLevel() {
+		return level;
+		}
+	
+	public void reset() {
+		initGame();
+		}
+	
+	public void addObject(GameObject object) {
+		board.add(object);
+		}
+	
+	public String positionToString(/-coordinates-/) {
+		return board.toString(/-coordinates-/);
+		}
+	
+	public boolean isFinished() {
+		return playerWin() || aliensWin() || doExit;
+		}
+	
+	public boolean aliensWin() {
 		return AlienShip.allDead();
 		}
+	
 	public void update() {
 		board.computerAction();
 		board.update();
 		currentCycle += 1;
+		}
+	
+	public boolean isOnBoard(/-coordinates/) {
+		return/range condition on the coordinates/;
+		}
+	
+	public void exit() {
+		doExit =true;
+		}
+	
+	public String infoToString() {
+		return /game-state string to be printed with the board/
+				}
+	
+	public String getWinnerMessage () {
+		if(playerWin()) {
+			return "Player win!";}
+		else if(aliensWin()) {
+			return "Aliens win!";
+		}
+		else if(doExit) {
+			return "Player exits the game";
+		}
+		else {
+			return "This should not happen";
 		}
 	}
 	
