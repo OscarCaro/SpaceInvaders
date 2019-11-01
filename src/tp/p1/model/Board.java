@@ -502,6 +502,16 @@ public class Board {
 	public boolean bombOutOfBoard(int idx) {
 		return bombList.bombOutOfBoard(idx);
 	}
+
+	public void computerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

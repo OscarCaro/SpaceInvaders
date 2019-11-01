@@ -24,4 +24,16 @@ public class Ufo extends EnemyShip implements Printable{
 		return this.sprite;
 	}
 
+	@Override
+	public void computerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

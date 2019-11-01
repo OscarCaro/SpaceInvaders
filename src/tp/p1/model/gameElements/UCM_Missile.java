@@ -22,5 +22,17 @@ public class UCM_Missile extends Weapon implements Printable{
 	public boolean outOfBoard() {	
 		return this.getPosY() < 0;
 	}
+
+	@Override
+	public void computerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

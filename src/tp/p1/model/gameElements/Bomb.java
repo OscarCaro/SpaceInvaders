@@ -36,4 +36,16 @@ public class Bomb extends Weapon implements Printable{
 		}
 		return out;
 	}
+
+	@Override
+	public void computerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub
+		
+	}
 }

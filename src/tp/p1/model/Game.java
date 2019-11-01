@@ -47,8 +47,8 @@ public class Game implements IPlayerController{
 		board.add(object);
 		}
 	
-	public String positionToString(/-coordinates-/) {
-		return board.toString(/-coordinates-/);
+	public String positionToString(int X, int Y) {
+		return board.toString();
 		}
 	
 	public boolean isFinished() {
@@ -65,17 +65,20 @@ public class Game implements IPlayerController{
 		currentCycle += 1;
 		}
 	
-	public boolean isOnBoard(/-coordinates/) {
-		return/range condition on the coordinates/;
+	public boolean isOnBoard (int X, int Y) {
+		//Check for every position based on positions
+		//of the arguments
 		}
 	
 	public void exit() {
-		doExit =true;
+		doExit = true;
 		}
 	
 	public String infoToString() {
-		return /game-state string to be printed with the board/
-				}
+		String infoString = " ";
+		//Will depend on number of alien ships, cycles...
+		return infoString;
+		}
 	
 	public String getWinnerMessage () {
 		if(playerWin()) {
@@ -89,6 +92,51 @@ public class Game implements IPlayerController{
 		else {
 			return "This should not happen";
 		}
+	}
+
+	private boolean playerWin() {
+		boolean win = false;
+		//1) Implement function for checking dead enemies
+		//2) Implement function for checking enemies in bottom row
+		//3) Condition player alive
+		//Final: Combine previous conditions
+		return win;
+	}
+
+	@Override
+	public boolean move(int numCells) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean shootMissile() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean shockWave() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void receivePoints(int points) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void enableShockWave() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void enableMissile() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

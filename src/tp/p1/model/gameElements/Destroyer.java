@@ -23,4 +23,16 @@ public class Destroyer extends AlienShip implements Printable{
 		this.canShoot = canShoot;
 	}
 
+	@Override
+	public void computerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

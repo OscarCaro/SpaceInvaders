@@ -9,7 +9,7 @@ public class UCM_Ship extends Ship implements Printable{
 	private boolean canShoot;
 
 	
-	public UCM_Ship (Game game) {
+	public UCM_Ship (Game game, int posX, int posY) {
 		super(4, 7, game, 3);
 		this.shock = false;
 		this.canShoot = true;
@@ -33,6 +33,18 @@ public class UCM_Ship extends Ship implements Printable{
 	
 	public String toString() {
 		return this.sprite;
+	}
+
+	@Override
+	public void computerAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
