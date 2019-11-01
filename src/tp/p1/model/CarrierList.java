@@ -1,6 +1,9 @@
 package tp.p1.model;
 
+import java.util.Random;
+
 import tp.p1.model.gameElements.Carrier;
+import tp.p1.model.gameElements.UCM_Missile;
 
 public class CarrierList {
 	
@@ -121,7 +124,7 @@ public class CarrierList {
 			}
 			i++;
 		}
-		return str;
+		return str;		
 	}
 	
 	public void createEasy(int initNumOfCarriers) {

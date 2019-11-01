@@ -11,12 +11,12 @@ First project for TP
 - [x] Don't pass Controller controller to parse methods of command subclasses
 - [ ] Fix exception in minDist to side if there are no destroyers remaining
 - [x] Enum with directions (up, down, left, right)
-- [ ] Generalize method move(Direction dir, int num) in GameElem (only shockWave doesn't need it)
-- [ ] Generalize method checkPos and place it on GameElem (only shockWave doesn't need it)
+- [x] Generalize method move(Direction dir, int num) in GameElem (only shockWave doesn't need it)
+- [x] Generalize method checkPos and place it on GameElem (only shockWave doesn't need it)
 
 ## GameElements Hierarchy
 
-	- GameElements (Position + Game attribute)
+	- GameElements (Position + Game attribute + checkPos)
 		- Ship (shield)
 			- UcmShip
 			- EnemyShip (points)

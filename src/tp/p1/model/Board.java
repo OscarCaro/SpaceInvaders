@@ -60,7 +60,7 @@ public class Board {
 	
 	public void launchMissile() {
 		// 1. Move missile up
-		this.ucm_Missile.decrementPosY();
+		this.ucm_Missile.moveUp();
 		// 2. If out of Board -> remove missile
 		if(this.UCM_missileOutOfBoard()) {
 			deleteUcmMissile();

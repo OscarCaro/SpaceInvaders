@@ -1,5 +1,6 @@
 package tp.p1.model.gameElements;
 
+import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
 public class UCM_Missile extends Weapon implements Printable{
@@ -10,16 +11,12 @@ public class UCM_Missile extends Weapon implements Printable{
 		super(PosX, PosY, game);
 	}
 	
-	public void decrementPosY() {
-		this.setPosY(this.getPosY() - 1);
+	public void moveUp() {
+		this.move(Direction.UP, 1);
 	}
 	
-	public String checkPos (int x, int y) {
-		String str = "";
-		if (this.getPosX() == x && this.getPosY() == y) {
-			str = this.sprite;
-		}
-		return str;
+	public String toString() {
+		return this.sprite;
 	}
 	
 	public boolean outOfBoard() {	

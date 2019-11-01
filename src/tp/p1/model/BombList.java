@@ -84,7 +84,7 @@ public class BombList {
 // <<<<<<<<<<  Delegate methods to: BOMB  >>>>>>>>>>>
 
 	public void incrementBombPosY(int idx) {
-		this.bombList[idx].incrementPosY();
+		this.bombList[idx].moveDown();
 	}
 	
 	public boolean bombOutOfBoard(int idx) {

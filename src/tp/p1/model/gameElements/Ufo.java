@@ -1,6 +1,7 @@
 package tp.p1.model.gameElements;
 
 import tp.p1.model.Board;
+import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
 public class Ufo extends EnemyShip implements Printable{
@@ -12,15 +13,7 @@ public class Ufo extends EnemyShip implements Printable{
 	}
 	
 	public void moveUfo() {
-		this.setPosX(this.getPosX() - 1);
-	}
-
-	public String checkPos(int x, int y) {
-		String str = "";
-		if (this.getPosX() == x && this.getPosY() == y) {
-			str = this.toString();
-		}
-		return str;
+		this.move(Direction.LEFT, 1);
 	}
 	
 	public boolean outOfBoard() {

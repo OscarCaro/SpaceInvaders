@@ -1,6 +1,7 @@
 package tp.p1.model.gameElements;
 
 import tp.p1.model.Board;
+import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
 public class Bomb extends Weapon implements Printable{
@@ -19,8 +20,8 @@ public class Bomb extends Weapon implements Printable{
 		this.destroyer.setCanShoot(true);
 	}
 	
-	public void incrementPosY() {
-		this.setPosY(this.getPosY() + 1);
+	public void moveDown() {
+		this.move(Direction.DOWN, 1);
 	}
 	
 	public String toString() {

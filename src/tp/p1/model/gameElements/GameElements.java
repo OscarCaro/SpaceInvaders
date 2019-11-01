@@ -15,6 +15,20 @@ public class GameElements {
 	public void move(Direction direction, int numOfCells) {
 		this.posX += direction.getXmovement() * numOfCells;
 		this.posY += direction.getYmovement() * numOfCells;
+		// See Direction class for better explanation
+	}
+	
+	public String checkPos (int x, int y) {
+		String str = "";
+		
+		if (this instanceof Printable) {
+			// Method toString only valid for sub-classes that implement Printable
+			
+			if (this.getPosX() == x && this.getPosY() == y) {
+				str = this.toString();
+			}
+		}		
+		return str;
 	}
 	
 	public int getPosX() {

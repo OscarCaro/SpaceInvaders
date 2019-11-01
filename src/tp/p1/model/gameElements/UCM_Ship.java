@@ -34,13 +34,5 @@ public class UCM_Ship extends Ship implements Printable{
 	public String toString() {
 		return this.sprite;
 	}
-
-	public String checkPos (int x, int y) {
-		String str = "";
-		if (this.getPosX() == x && this.getPosY() == y) {
-			str = this.toString();
-		}
-		return str;
-	}	
 	
 }
