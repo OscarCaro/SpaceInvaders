@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class Destroyer extends AlienShip{
+public class Destroyer extends AlienShip implements Printable{
 	
 //	private int posX, posY;
 //	private int shield;

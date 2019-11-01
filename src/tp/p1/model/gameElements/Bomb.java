@@ -3,7 +3,7 @@ package tp.p1.model.gameElements;
 import tp.p1.model.Board;
 import tp.p1.model.Game;
 
-public class Bomb extends Weapon{
+public class Bomb extends Weapon implements Printable{
 	
 //	private int posX, posY;
 	private Destroyer destroyer;

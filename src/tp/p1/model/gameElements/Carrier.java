@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class Carrier extends AlienShip {
+public class Carrier extends AlienShip implements Printable{
 	
 //	private int posX, posY;		
 //	private int shield;		

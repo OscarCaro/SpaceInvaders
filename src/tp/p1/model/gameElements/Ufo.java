@@ -3,7 +3,7 @@ package tp.p1.model.gameElements;
 import tp.p1.model.Board;
 import tp.p1.model.Game;
 
-public class Ufo extends EnemyShip {
+public class Ufo extends EnemyShip implements Printable{
 //	private int points;
 	//private int shield;
 //	private int posX;

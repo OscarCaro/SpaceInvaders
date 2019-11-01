@@ -8,8 +8,23 @@ First project for TP
 - [x] Win game method
 - [ ] Level parser
 - [x] Command subclasses parser methods should return new Object if that class has arguments 
-- [ ] Don't pass Controller controller to parse methods of command subclasses
+- [x] Don't pass Controller controller to parse methods of command subclasses
 - [ ] Fix exception in minDist to side if there are no destroyers remaining
+
+## GameElements Hierarchy
+
+	- GameElements (Position + Game attribute)
+		- Ship (shield)
+			- UcmShip
+			- EnemyShip (points)
+				- UFO
+				- AlienShip (???)
+					- Carrier 
+					- Destroyer
+		- Weapon (???)
+			- Bomb
+			- Missile
+			- ShockWave
 
 ## Controller.run() logic
 

@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class UCM_Missile extends Weapon{
+public class UCM_Missile extends Weapon implements Printable{
 	
 //	private int posX;
 //	private int posY;	

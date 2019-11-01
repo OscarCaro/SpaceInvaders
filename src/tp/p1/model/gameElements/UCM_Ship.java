@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class UCM_Ship extends Ship {
+public class UCM_Ship extends Ship implements Printable{
 
 	//private int posX, posY;
 //	private int shield;
