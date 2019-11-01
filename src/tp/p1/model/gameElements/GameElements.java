@@ -12,6 +12,11 @@ public class GameElements {
 		this.game = game;
 	}
 	
+	public void move(Direction direction, int numOfCells) {
+		this.posX += direction.getXmovement() * numOfCells;
+		this.posY += direction.getYmovement() * numOfCells;
+	}
+	
 	public int getPosX() {
 		return posX;
 	}
