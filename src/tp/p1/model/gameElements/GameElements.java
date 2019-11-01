@@ -22,7 +22,8 @@ public class GameElements {
 		String str = "";
 		
 		if (this instanceof Printable) {
-			// Method toString only valid for sub-classes that implement Printable
+			// Check if object's sub-class implements Printable interface
+			// Because if not, method toString makes no sense
 			
 			if (this.getPosX() == x && this.getPosY() == y) {
 				str = this.toString();
