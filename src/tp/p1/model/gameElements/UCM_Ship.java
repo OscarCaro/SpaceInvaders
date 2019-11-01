@@ -3,11 +3,8 @@ package tp.p1.model.gameElements;
 import tp.p1.model.Game;
 
 public class UCM_Ship extends Ship implements Printable{
-
-	//private int posX, posY;
-//	private int shield;
 	
-	private String sprite = "/-^-\\";
+	private final String sprite = "/-^-\\";
 	private boolean shock; 	
 	private boolean canShoot;
 
@@ -33,30 +30,6 @@ public class UCM_Ship extends Ship implements Printable{
 	public void setShock(boolean shock) {
 		this.shock = shock;
 	}
-
-//	public int getShield() {
-//		return shield;
-//	}
-//	
-//	public void decrementShield() {
-//		this.shield--;
-//	}
-
-//	public int getPosX() {
-//		return posX;
-//	}
-//
-//	public void setPosX(int posX) {
-//		this.posX = posX;
-//	}
-//
-//	public int getPosY() {
-//		return posY;
-//	}
-//
-//	public void setPosY(int posY) {
-//		this.posY = posY;
-//	}
 	
 	public String toString() {
 		return this.sprite;

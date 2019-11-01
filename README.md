@@ -10,6 +10,9 @@ First project for TP
 - [x] Command subclasses parser methods should return new Object if that class has arguments 
 - [x] Don't pass Controller controller to parse methods of command subclasses
 - [ ] Fix exception in minDist to side if there are no destroyers remaining
+- [ ] Enum with directions (up, down, left, right)
+- [ ] Generalize method move(Direction dir, int num) in GameElem (only shockWave doesn't need it)
+- [ ] Generalize method checkPos and place it on GameElem (only shockWave doesn't need it)
 
 ## GameElements Hierarchy
 

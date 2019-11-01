@@ -5,7 +5,6 @@ import tp.p1.model.Game;
 
 public class Bomb extends Weapon implements Printable{
 	
-//	private int posX, posY;
 	private Destroyer destroyer;
 	private final String sprite = "!";
 		
@@ -19,14 +18,6 @@ public class Bomb extends Weapon implements Printable{
 	public void allowDestroyerShoot() {
 		this.destroyer.setCanShoot(true);
 	}
-	
-//	public int getPosX() {
-//		return posX;
-//	}
-//
-//	public int getPosY() {
-//		return posY;
-//	}
 	
 	public void incrementPosY() {
 		this.setPosY(this.getPosY() + 1);

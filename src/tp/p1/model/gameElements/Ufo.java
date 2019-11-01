@@ -4,15 +4,11 @@ import tp.p1.model.Board;
 import tp.p1.model.Game;
 
 public class Ufo extends EnemyShip implements Printable{
-//	private int points;
-	//private int shield;
-//	private int posX;
-//	private int posY;
-	private String sprite;
+
+	private final String sprite = "<(+)>";
 	
 	public Ufo(Game game) {
-		super(Board.COLUMNS, 0, game, 1, 25);
-		
+		super(Board.COLUMNS, 0, game, 1, 25);		
 	}
 	
 	public void moveUfo() {
@@ -22,7 +18,7 @@ public class Ufo extends EnemyShip implements Printable{
 	public String checkPos(int x, int y) {
 		String str = "";
 		if (this.getPosX() == x && this.getPosY() == y) {
-			str = this.sprite;
+			str = this.toString();
 		}
 		return str;
 	}
@@ -32,38 +28,7 @@ public class Ufo extends EnemyShip implements Printable{
 	}
 
 	public String toString() {
-		return "<(+)>";
+		return this.sprite;
 	}
-	
-//	public int getShield() {
-//		return shield;
-//	}
-//	
-//	public void decrementShield() {
-//		this.shield--;
-//	}
-	
-//	public void setShield(int shield) {
-//		this.shield = shield;
-//	}
 
-//	public int getPosX() {
-//		return posX;
-//	}
-//
-//	public void setPosX(int posX) {
-//		this.posX = posX;
-//	}
-//
-//	public int getPosY() {
-//		return posY;
-//	}
-//
-//	public void setPosY(int posY) {
-//		this.posY = posY;
-//	}
-	
-//	public int getPoints() {
-//		return points;
-//	}
 }

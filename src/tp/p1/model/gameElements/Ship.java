@@ -18,7 +18,7 @@ public abstract class Ship extends GameElements {
 		this.shield = shield;
 	}
 	
-	public void decrementShield() {
-		this.shield--;
+	public void decrementShield(int amount) {
+		this.shield -= amount;
 	}
 }
