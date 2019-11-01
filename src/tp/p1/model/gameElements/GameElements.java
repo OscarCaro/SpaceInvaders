@@ -1,10 +1,10 @@
 package tp.p1.model.gameElements;
 import tp.p1.model.*;
 
-public class GameElements {
-	private int posX;
-	private int posY;
-	private Game game;
+public abstract class GameElements implements IAttack {
+	protected int posX;
+	protected int posY;
+	protected Game game;
 	
 	public GameElements(int posX,int posY,Game game) {
 		this.posX = posX;
@@ -31,6 +31,19 @@ public class GameElements {
 		}		
 		return str;
 	}
+	
+	public boolean isOnPosition( int posX, int posY) {
+		return ( this.posX == posX && this.posY == posY);
+	}
+	
+	public boolean isOut() {
+		return !game.isOnBoard(this.posX, this.posY);
+	}
+	
+	public abstract void computerAction();
+	public abstract void onDelete();
+	// public abstract void move();				we did it in another way with general method move here
+	// public abstract String toString();		we did it in another way with Interface Printable
 	
 	public int getPosX() {
 		return posX;

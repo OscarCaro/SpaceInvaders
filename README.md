@@ -13,6 +13,7 @@ First project for TP
 - [x] Enum with directions (up, down, left, right)
 - [x] Generalize method move(Direction dir, int num) in GameElem (only shockWave doesn't need it)
 - [x] Generalize method checkPos and place it on GameElem (only shockWave doesn't need it)
+- [ ] Add every "implements interface"  according with script with corresponding implementation of their 		functions
 
 ## GameElements Hierarchy
 
