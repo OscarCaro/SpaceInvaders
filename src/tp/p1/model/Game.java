@@ -4,81 +4,87 @@ import java.util.Random;
 
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Destroyer;
+import tp.p1.model.gameElements.GameElements;
 import tp.p1.model.gameElements.IPlayerController;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.view.GamePrinter;
 
 public class Game implements IPlayerController{
-	public final static int DIM_X = 9;
-	public final static int DIM_Y = 8;
-	private int currentCycle;
-	private Random rand;
-	private Level level;
-	Board board; private UCM_Ship player;
-	private boolean doExit;
+	
+	public static final int ROWS = 8;
+	public static final int COLUMNS = 9;
+	
+	Board board; 					// Private??
+	private UCM_Ship player;
 	private BoardInitializer initializer; 
+
+	private Random rand;
+	private Level diffLevel;	
+	private int currentCycle;
+	private boolean doExit;
+	
 	public Game (Level gameLevel, Random random){
 		rand = random;
-		level = gameLevel;
+		diffLevel = gameLevel;
 		initializer = new BoardInitializer();
 		initGame();
-		}
+	}
 	
 	public void initGame () {
 		currentCycle = 0;
-		board = initializer.initialize (this, level);
-		player = new UCM_Ship(this, DIM_X / 2, DIM_Y-1);
+		board = initializer.initialize (this, diffLevel);
+		player = new UCM_Ship(this, COLUMNS / 2, ROWS - 1);
 		board.add(player);
-		}
+	}
 	
 	public Random getRandom() {
 		return rand;
-		}
+	}
 	
-	public Level getLevel() {
-		return level;
-		}
+	public Level getDiffLevel() {
+		return diffLevel;
+	}
 	
 	public void reset() {
 		initGame();
-		}
+	}
 	
-	public void addObject(GameObject object) {
+	public void addObject(GameElements object) {
 		board.add(object);
-		}
+	}
 	
-	public String positionToString(int X, int Y) {
-		return board.toString();
-		}
+	public String posToString(int x, int y) {
+		return board.posToString(x, y);			// called toString in statement
+	}
 	
 	public boolean isFinished() {
 		return playerWin() || aliensWin() || doExit;
-		}
+	}
 	
 	public boolean aliensWin() {
 		return AlienShip.allDead();
-		}
+	}
 	
 	public void update() {
 		board.computerAction();
 		board.update();
 		currentCycle += 1;
-		}
+	}
 	
-	public boolean isOnBoard (int X, int Y) {
-		//Check for every position based on positions
-		//of the arguments
-		}
+	public boolean isOnBoard (int x, int y) {
+		return (x >= 0 && x < COLUMNS) && (y >= 0 && y < ROWS);
+	}
 	
 	public void exit() {
 		doExit = true;
-		}
+	}
 	
 	public String infoToString() {
 		String infoString = " ";
 		//Will depend on number of alien ships, cycles...
 		return infoString;
-		}
+		// Return info to be printed above the board (cycle num, num of aliens, points...)
+	}
 	
 	public String getWinnerMessage () {
 		if(playerWin()) {
@@ -104,8 +110,9 @@ public class Game implements IPlayerController{
 	}
 
 	@Override
-	public boolean move(int numCells) {
+	public boolean movePlayer (int numCells, Direction dir) {
 		// TODO Auto-generated method stub
+		this.player.move(dir, numCells);
 		return false;
 	}
 
@@ -138,10 +145,6 @@ public class Game implements IPlayerController{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
-	
 	
 	
 	

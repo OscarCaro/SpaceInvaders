@@ -1,8 +1,10 @@
 package tp.p1.model.gameElements;
 
+import tp.p1.model.Direction;
+
 public interface IPlayerController {
 	// Player actions
-	public boolean move (int numCells);
+	public boolean movePlayer (int numCells, Direction direction);
 	public boolean shootMissile();
 	public boolean shockWave();
 	// Callbacks 
