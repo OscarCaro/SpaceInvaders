@@ -145,6 +145,10 @@ public class Game implements IPlayerController{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void finishGame() {
+		
+	}
 	
 	
 	

@@ -1,27 +1,26 @@
 package tp.p1.model.commands;
 
+import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
 public class MoveCommand extends Command {
 	
-	private boolean left;
-	private boolean right;
+	private Direction dir;
 	private int numOfCells;
 
 	public MoveCommand() {
 		super("move", "m", "Move", "causes the UCM-Ship to move as indicated.");
 	}
 	
-	public MoveCommand(boolean left, boolean right, int numOfCells) {
+	public MoveCommand(int numOfCells, Direction dir) {
 		super("move", "m", "Move", "causes the UCM-Ship to move as indicated.");
-		this.left = left;
-		this.right = right;
 		this.numOfCells = numOfCells;
+		this.dir = dir;
 	}
 
 	@Override
 	public boolean execute(Game game) {
-		game.moveUcmShip(this.left, this.right, this.numOfCells);
+		game.movePlayer(this.numOfCells, dir);
 		// Use new method movePlayer in game class
 		return true;
 	}
@@ -36,20 +35,20 @@ public class MoveCommand extends Command {
 			if (commandWords[1].equalsIgnoreCase("left")) {
 				
 				if (commandWords[2].equalsIgnoreCase("1")) {
-					move = new MoveCommand(true, false, 1);
+					move = new MoveCommand(1, dir.LEFT);
 				}
 				else if (commandWords[2].equalsIgnoreCase("2")) {
-					move = new MoveCommand(true, false, 2);
+					move = new MoveCommand(2, dir.LEFT);
 				}
 				
 			}
 			else if (commandWords[1].equalsIgnoreCase("right")) {
 				
 				if (commandWords[2].equalsIgnoreCase("1")) {
-					move = new MoveCommand(false, true, 1);
+					move = new MoveCommand(1, dir.RIGHT);
 				}
 				else if (commandWords[2].equalsIgnoreCase("2")) {
-					move = new MoveCommand(false, true, 2);
+					move = new MoveCommand(2, dir.RIGHT);
 				}
 				
 			}		
