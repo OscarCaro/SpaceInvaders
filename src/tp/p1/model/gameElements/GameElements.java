@@ -14,6 +14,11 @@ public abstract class GameElements implements IAttack {
 		this.shield = shield;
 	}
 	
+	public abstract void computerAction();
+	public abstract void onDelete();
+	public abstract void move();				
+	public abstract String toString();
+	
 	public void move(Direction direction, int numOfCells) {
 		this.posX += direction.getXmovement() * numOfCells;
 		this.posY += direction.getYmovement() * numOfCells;
@@ -22,15 +27,11 @@ public abstract class GameElements implements IAttack {
 	
 	public String checkPos (int x, int y) {
 		String str = "";
-		
-		if (this instanceof Printable) {
-			// Check if object's sub-class implements Printable interface
-			// Because if not, method toString makes no sense
 			
-			if (isOnPosition(x, y)) {
-				str = this.toString();
-			}
-		}		
+		if (isOnPosition(x, y)) {
+			str = this.toString();
+		}
+			
 		return str;
 	}
 	
@@ -41,11 +42,6 @@ public abstract class GameElements implements IAttack {
 	public boolean isOut() {
 		return !game.isOnBoard(this.posX, this.posY);
 	}
-	
-	public abstract void computerAction();
-	public abstract void onDelete();
-	// public abstract void move();				we did it in another way with general method move here
-	// public abstract String toString();		we did it in another way with Interface Printable
 	
 	public int getShield() {
 		return shield;

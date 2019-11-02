@@ -4,7 +4,7 @@ import tp.p1.model.Board;
 import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
-public class Bomb extends Weapon implements Printable{
+public class Bomb extends Weapon{
 	
 	private Destroyer destroyer;
 	private final String sprite = "!";
@@ -16,27 +16,17 @@ public class Bomb extends Weapon implements Printable{
 		this.destroyer.setCanShoot(false);
 	}
 	
-	public void allowDestroyerShoot() {
-		this.destroyer.setCanShoot(true);
-	}
 	
-	public void moveDown() {
+	@Override
+	public void move() {
 		this.move(Direction.DOWN, 1);
 	}
 	
+	@Override
 	public String toString() {
 		return this.sprite;
 	}
 	
-	public boolean outOfBoard() {
-		boolean out = false;
-		if(this.getPosY() > Game.ROWS) {
-			this.allowDestroyerShoot();
-			out = true;
-		}
-		return out;
-	}
-
 	@Override
 	public void computerAction() {
 		// TODO Auto-generated method stub
@@ -48,4 +38,19 @@ public class Bomb extends Weapon implements Printable{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public boolean outOfBoard() {			// ----> use isOut in GameElem class
+		boolean out = false;
+		if(this.getPosY() > Game.ROWS) {
+			this.allowDestroyerShoot();
+			out = true;
+		}
+		return out;
+	}
+	
+	public void allowDestroyerShoot() {
+		this.destroyer.setCanShoot(true);
+	}
+	
+	
 }

@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class Destroyer extends AlienShip implements Printable{
+public class Destroyer extends AlienShip{
 
 	private boolean canShoot;
 	
@@ -11,16 +11,9 @@ public class Destroyer extends AlienShip implements Printable{
 		this.canShoot = true;
 	}	
 	
+	@Override
 	public String toString() {
 		return "!<" + this.getShield() + ">!";
-	}
-	
-	public boolean isCanShoot() {
-		return canShoot;
-	}
-
-	public void setCanShoot(boolean canShoot) {
-		this.canShoot = canShoot;
 	}
 
 	@Override
@@ -35,4 +28,17 @@ public class Destroyer extends AlienShip implements Printable{
 		
 	}
 
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isCanShoot() {
+		return canShoot;
+	}
+
+	public void setCanShoot(boolean canShoot) {
+		this.canShoot = canShoot;
+	}
 }

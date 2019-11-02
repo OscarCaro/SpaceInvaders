@@ -4,22 +4,20 @@ import tp.p1.model.Board;
 import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
-public class Ufo extends EnemyShip implements Printable{
+public class Ufo extends EnemyShip{
 
 	private final String sprite = "<(+)>";
 	
 	public Ufo(Game game) {
-		super(Board.COLUMNS, 0, game, 1, 25);		
+		super(Game.COLUMNS, 0, game, 1, 25);		
 	}
 	
-	public void moveUfo() {
+	@Override
+	public void move() {
 		this.move(Direction.LEFT, 1);
 	}
-	
-	public boolean outOfBoard() {
-		return (this.getPosX() < 0);
-	}
 
+	@Override
 	public String toString() {
 		return this.sprite;
 	}

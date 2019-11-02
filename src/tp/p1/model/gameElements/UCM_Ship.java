@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class UCM_Ship extends Ship implements Printable{
+public class UCM_Ship extends Ship{
 	
 	private final String sprite = "/-^-\\";
 	private boolean shock; 	
@@ -13,6 +13,26 @@ public class UCM_Ship extends Ship implements Printable{
 		super(4, 7, game, 3);
 		this.shock = false;
 		this.canShoot = true;
+	}
+	
+	@Override
+	public String toString() {
+		return this.sprite;
+	}
+
+	@Override
+	public void computerAction() {
+		// TODO Auto-generated method stub		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub		
+	}
+
+	@Override
+	public void move() {
+		// This method should be empty because ucmShip doesn't move on update 		
 	}
 	
 	public boolean isCanShoot() {
@@ -29,22 +49,6 @@ public class UCM_Ship extends Ship implements Printable{
 	
 	public void setShock(boolean shock) {
 		this.shock = shock;
-	}
-	
-	public String toString() {
-		return this.sprite;
-	}
-
-	@Override
-	public void computerAction() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onDelete() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }

@@ -3,7 +3,7 @@ package tp.p1.model.gameElements;
 import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
-public class UCM_Missile extends Weapon implements Printable{
+public class UCM_Missile extends Weapon{
 
 	private final String sprite = "^";
 	
@@ -11,17 +11,16 @@ public class UCM_Missile extends Weapon implements Printable{
 		super(PosX, PosY, game, 1);
 	}
 	
-	public void moveUp() {
+	@Override
+	public void move() {
 		this.move(Direction.UP, 1);
 	}
 	
+	@Override
 	public String toString() {
 		return this.sprite;
 	}
 	
-	public boolean outOfBoard() {	
-		return this.getPosY() < 0;
-	}
 
 	@Override
 	public void computerAction() {
@@ -34,5 +33,8 @@ public class UCM_Missile extends Weapon implements Printable{
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+//	public boolean outOfBoard() {			----> use isOut in GameElem class
+//		return this.getPosY() < 0;
+//	}
 }
