@@ -13,4 +13,9 @@ public abstract class AlienShip extends EnemyShip {
 		//ToDo: Extend comparison for shield == 0 for all VALID alien ships | Ships counter == 0
 		return dead;
 	}
+
+	public static boolean haveLanded() {
+		// Previous "CheckEnemiesInBottomRow()
+		return false;
+	}
 }

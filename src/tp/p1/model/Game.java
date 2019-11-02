@@ -62,7 +62,8 @@ public class Game implements IPlayerController{
 	}
 	
 	public boolean aliensWin() {
-		return AlienShip.allDead();
+		
+		return !player.isAlive () ||  AlienShip.haveLanded();
 	}
 	
 	public void update() {
@@ -106,6 +107,9 @@ public class Game implements IPlayerController{
 		//2) Implement function for checking enemies in bottom row
 		//3) Condition player alive
 		//Final: Combine previous conditions
+		if(AlienShip.allDead()) {
+			win = true;
+		}
 		return win;
 	}
 
