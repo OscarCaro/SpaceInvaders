@@ -30,7 +30,7 @@ public class Bomb extends Weapon implements Printable{
 	
 	public boolean outOfBoard() {
 		boolean out = false;
-		if(this.getPosY() > Board.ROWS) {
+		if(this.getPosY() > Game.ROWS) {
 			this.allowDestroyerShoot();
 			out = true;
 		}

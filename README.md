@@ -6,7 +6,7 @@ First project for TP
 - [x] Organize delegator methods of classes in parts
 - [x] Make packages
 - [x] Win game method
-- [ ] Level parser
+- [x] Level parser
 - [x] Command subclasses parser methods should return new Object if that class has arguments 
 - [x] Don't pass Controller controller to parse methods of command subclasses
 - [ ] Fix exception in minDist to side if there are no destroyers remaining

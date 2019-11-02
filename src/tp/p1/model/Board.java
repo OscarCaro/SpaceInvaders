@@ -20,7 +20,10 @@ public class Board {
 	}
 	
 	public void add (GameElements gameElement) {
-	// TODO implement
+		if (currentElements < elements.length) {
+			elements[currentElements] = gameElement;
+			currentElements++;
+		}
 	}
 	
 	public void update() {
