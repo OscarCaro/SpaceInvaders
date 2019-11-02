@@ -23,22 +23,9 @@ public class Arguments {
 	}
 	
 	private static boolean processDiffArg(String arg1) {
-		boolean ok = true;
-		
-		if (arg1.equals("EASY")) {
-			Main.setDiffLevel (Level.EASY);
-		} 
-		else if(arg1.equals("HARD")) {
-			Main.setDiffLevel (Level.HARD);
-		}
-		else if (arg1.equals("INSANE")) {
-			Main.setDiffLevel (Level.INSANE);
-		} 
-		else {
-			ok = false;
-		}
-		
-		return ok;
+		Level inputLevel = Level.parse(arg1);
+		Main.setDiffLevel(inputLevel);
+		return (inputLevel != null);
 	}
 	
 	private static void processRandomSeedArg (String arg2) {
