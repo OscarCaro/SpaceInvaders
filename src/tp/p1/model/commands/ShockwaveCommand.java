@@ -11,8 +11,8 @@ public class ShockwaveCommand extends NoParamsCommand {
 	@Override
 	public boolean execute(Game game) {
 		boolean execute;
-		if (game.useShockwave()) {		//THis also decrements enemy shields
-			game.checkDeadEnemies();
+		if (game.shockWave()) {		//THis also decrements enemy shields
+									//Create new function for checking for dead enemies
 			execute = true;
 		}
 		else {

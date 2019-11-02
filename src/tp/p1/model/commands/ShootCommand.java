@@ -12,8 +12,8 @@ public class ShootCommand extends NoParamsCommand {
 	@Override
 	public boolean execute(Game game) {
 		boolean execute;
-		if (game.ucmShipIsCanShoot()) {
-			game.shootUcmMissile();			
+		if (game.shootMissile()) {
+			// IDEA: Combine the previous "fireMissile" function with the condition in only one method
 			// Set missile + isCanShoot false
 			execute = true;
 		}
