@@ -25,7 +25,7 @@ public abstract class GameElements implements IAttack {
 			// Check if object's sub-class implements Printable interface
 			// Because if not, method toString makes no sense
 			
-			if (this.getPosX() == x && this.getPosY() == y) {
+			if (isOnPosition(x, y)) {
 				str = this.toString();
 			}
 		}		

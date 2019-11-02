@@ -22,6 +22,7 @@ public class MoveCommand extends Command {
 	@Override
 	public boolean execute(Game game) {
 		game.moveUcmShip(this.left, this.right, this.numOfCells);
+		// Use new method movePlayer in game class
 		return true;
 	}
 	
