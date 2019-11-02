@@ -17,8 +17,8 @@ First project for TP
 
 ## GameElements Hierarchy
 
-	- GameElements (Position + Game attribute + checkPos)
-		- Ship (shield)
+	- GameElements (Position + Shield + Game attribute + checkPos)
+		- Ship (???)
 			- UcmShip
 			- EnemyShip (points)
 				- UFO

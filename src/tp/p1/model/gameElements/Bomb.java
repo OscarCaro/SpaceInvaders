@@ -10,7 +10,7 @@ public class Bomb extends Weapon implements Printable{
 	private final String sprite = "!";
 		
 	public Bomb(int posX, int posY, Game game, Destroyer destroyer) {
-		super(posX, posY, game);
+		super(posX, posY, game, 1);
 		this.destroyer = destroyer;
 		
 		this.destroyer.setCanShoot(false);

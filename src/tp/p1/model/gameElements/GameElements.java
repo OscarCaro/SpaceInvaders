@@ -1,15 +1,17 @@
 package tp.p1.model.gameElements;
 import tp.p1.model.*;
 
-public abstract class GameElements implements IAttack {
+public abstract class GameElements implements IAttack {	
 	protected int posX;
 	protected int posY;
+	protected int shield;
 	protected Game game;
 	
-	public GameElements(int posX,int posY,Game game) {
+	public GameElements(int posX,int posY,Game game, int shield) {
 		this.posX = posX;
 		this.posY = posY;
 		this.game = game;
+		this.shield = shield;
 	}
 	
 	public void move(Direction direction, int numOfCells) {
@@ -44,6 +46,22 @@ public abstract class GameElements implements IAttack {
 	public abstract void onDelete();
 	// public abstract void move();				we did it in another way with general method move here
 	// public abstract String toString();		we did it in another way with Interface Printable
+	
+	public int getShield() {
+		return shield;
+	}
+	
+	public void setShield(int shield) {
+		this.shield = shield;
+	}
+	
+	public void decrementShield(int amount) {
+		this.shield -= amount;
+	}
+	
+	public boolean isAlive() {
+		return this.shield > 0;
+	}
 	
 	public int getPosX() {
 		return posX;

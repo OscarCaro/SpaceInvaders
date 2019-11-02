@@ -8,7 +8,7 @@ public class UCM_Missile extends Weapon implements Printable{
 	private final String sprite = "^";
 	
 	public UCM_Missile(int PosX, int PosY, Game game) {
-		super(PosX, PosY, game);
+		super(PosX, PosY, game, 1);
 	}
 	
 	public void moveUp() {
