@@ -9,6 +9,7 @@ public class Destroyer extends AlienShip{
 	public Destroyer (int posX, int posY, Game game) {
 		super(posX, posY, game, 1, 10);
 		this.canShoot = true;
+		AlienShip.incrementCounter();
 	}	
 	
 	@Override
@@ -24,7 +25,7 @@ public class Destroyer extends AlienShip{
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
+		AlienShip.decrementCounter();
 		
 	}
 

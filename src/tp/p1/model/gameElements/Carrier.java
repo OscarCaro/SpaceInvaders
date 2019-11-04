@@ -6,6 +6,7 @@ public class Carrier extends AlienShip{
 	
 	public Carrier(int posX, int posY, Game game) {	
 		super(posX, posY, game, 2, 5);
+		AlienShip.incrementCounter();
 	}
 	
 	@Override
@@ -21,7 +22,7 @@ public class Carrier extends AlienShip{
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
+		AlienShip.decrementCounter();
 		
 	}
 

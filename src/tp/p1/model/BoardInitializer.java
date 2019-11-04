@@ -1,5 +1,6 @@
 package tp.p1.model;
 
+import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Carrier;
 import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
@@ -14,6 +15,7 @@ public class BoardInitializer {
 		this.level  = level;
 		this.game = game;
 		board = new Board(Game.COLUMNS, Game.ROWS);
+		AlienShip.resetCounter();
 		initializeUfo();
 		initializeCarrierShips();
 		initializeDestroyers();
