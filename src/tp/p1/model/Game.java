@@ -14,7 +14,7 @@ public class Game implements IPlayerController{
 	public static final int ROWS = 8;
 	public static final int COLUMNS = 9;
 	
-	Board board; 					// Private??
+	private Board board; 					// Private??
 	private UCM_Ship player;
 	private BoardInitializer initializer; 
 

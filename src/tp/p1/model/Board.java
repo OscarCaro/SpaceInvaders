@@ -11,8 +11,10 @@ public class Board {
 	private GameElements[] elements;
 	private int currentElements;
 	
+	
 	public Board (int width, int height) {
-	// TODO implement
+		elements = new GameElements[width*height];
+		
 	}
 	
 	private int getcurrentElements () {
@@ -70,11 +72,31 @@ public class Board {
 	}
 	
 	private void remove (GameElements gameElement) {
-	// TODO implement
+		// 1. Find pos in list
+		int idx = getIndex(gameElement.getPosX(), gameElement.getPosY());
+		
+		// 2. Shift left remaining elements
+		if (idx != -1) {
+			for (int i = idx; i < getcurrentElements() - 1; i++) {
+				this.elements[i] = this.elements[i + 1];
+			}	
+			
+			this.elements[this.getcurrentElements() - 1] = null; 	// Segunda llamada a getvaliddestroyer retorna uno menos 		
+			//Delete last element pointer because it is already pointed by the previous one 
+		}
 	}
 	
 	private void removeDead() {
-	// TODO implement
+		int i = 0;
+		while(i < this.getcurrentElements()) {
+			if(!elements[i].isAlive()) {
+				remove(elements[i]);		// Call to Remove() shifts list to left, so the same i position
+											// must be checked again because it contains the next object
+			}
+			else {
+				i++; 	//We have to check if the new position shifted has a ship alive or not
+			}			//if it is really alive, we check the next ones
+		}
 	}
 }
 //
