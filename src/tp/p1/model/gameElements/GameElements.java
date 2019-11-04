@@ -19,7 +19,7 @@ public abstract class GameElements implements IAttack {
 	public abstract void move();				
 	public abstract String toString();
 	
-	public void move(Direction direction, int numOfCells) {
+	public void specificMove(Direction direction, int numOfCells) {
 		this.posX += direction.getXmovement() * numOfCells;
 		this.posY += direction.getYmovement() * numOfCells;
 		// See Direction class for better explanation

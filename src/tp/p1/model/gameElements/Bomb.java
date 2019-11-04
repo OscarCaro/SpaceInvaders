@@ -19,7 +19,7 @@ public class Bomb extends Weapon{
 	
 	@Override
 	public void move() {
-		this.move(Direction.DOWN, 1);
+		this.specificMove(Direction.DOWN, 1);
 	}
 	
 	@Override

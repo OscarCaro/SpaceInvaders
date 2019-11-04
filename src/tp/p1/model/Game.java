@@ -117,8 +117,7 @@ public class Game implements IPlayerController{
 		//1) Implement function for checking dead enemies
 		//2) Implement function for checking enemies in bottom row
 		//3) Condition player alive
-		//Final: Combine previous conditions
-		if(AlienShip.allDead()) {
+		if(AlienShip.allDead() && !aliensWin()) {
 			win = true;
 		}
 		return win;
@@ -126,9 +125,63 @@ public class Game implements IPlayerController{
 
 	@Override
 	public boolean movePlayer (int numCells, Direction dir) {
-		// TODO Auto-generated method stub
-		this.player.move(dir, numCells);
-		return false;
+		int posX = this.player.getPosX();
+		
+		if(dir == Direction.LEFT) {
+
+			if(numCells == 1) {
+				if(posX == 0) {
+					this.player.setPosX(8);
+				}
+				
+				else {
+					this.player.setPosX(posX - 1);
+				}
+			}
+			
+			else if(numCells == 2)  {
+				if(posX == 0) {
+					this.player.setPosX(7);
+				}
+				
+				else if(posX == 1) {
+					this.player.setPosX(8);
+				}
+				
+				else {
+					this.player.setPosX(posX - 2);
+				}
+			}	
+		}
+		
+		else if(dir == Direction.RIGHT) {
+			if(numCells == 1) {
+				if(posX == 8) {
+					this.player.setPosX(0);
+				}
+				
+				else {
+					this.player.setPosX(posX + 1);
+				}
+			}
+			
+			else if(numCells == 2)  {
+				if(posX == 7) {
+					this.player.setPosX(0);
+				}
+				
+				else if(posX == 8) {
+					this.player.setPosX(1);
+				}
+				
+				else {
+					this.player.setPosX(posX + 2);
+				}
+			}
+		}
+		
+//		this.player.specificMove(dir, numCells);
+		return true;
 	}
 
 	@Override
@@ -145,24 +198,24 @@ public class Game implements IPlayerController{
 
 	@Override
 	public void receivePoints(int points) {
-		// TODO Auto-generated method stub
-		
+		this.player.addScore(points);
 	}
 
 	@Override
 	public void enableShockWave() {
-		// TODO Auto-generated method stub
-		
+		this.player.setShock(true);
 	}
 
 	@Override
 	public void enableMissile() {
-		// TODO Auto-generated method stub
-		
+		this.player.setCanShoot(true);
 	}
 
 	public void finishGame() {
-		
+		if(isFinished()) {
+			doExit = true;
+			//Maybe it is only necessary to assign true to doExit without checking
+		}
 	}
 	
 	

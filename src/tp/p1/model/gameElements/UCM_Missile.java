@@ -13,7 +13,7 @@ public class UCM_Missile extends Weapon{
 	
 	@Override
 	public void move() {
-		this.move(Direction.UP, 1);
+		this.specificMove(Direction.UP, 1);
 	}
 	
 	@Override

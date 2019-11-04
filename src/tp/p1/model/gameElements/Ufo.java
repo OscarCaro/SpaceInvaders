@@ -14,7 +14,7 @@ public class Ufo extends EnemyShip{
 	
 	@Override
 	public void move() {
-		this.move(Direction.LEFT, 1);
+		this.specificMove(Direction.LEFT, 1);
 	}
 
 	@Override

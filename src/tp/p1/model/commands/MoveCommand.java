@@ -20,9 +20,7 @@ public class MoveCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		game.movePlayer(this.numOfCells, dir);
-		// Use new method movePlayer in game class
-		return true;
+		return game.movePlayer(this.numOfCells, dir);
 	}
 	
 	//A
