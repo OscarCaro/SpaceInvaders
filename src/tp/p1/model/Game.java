@@ -47,6 +47,7 @@ public class Game implements IPlayerController{
 	
 	public void reset() {
 		initGame();
+		doExit = false;
 	}
 	
 	public void addObject(GameElements object) {
@@ -212,10 +213,7 @@ public class Game implements IPlayerController{
 	}
 
 	public void finishGame() {
-		if(isFinished()) {
-			doExit = true;
-			//Maybe it is only necessary to assign true to doExit without checking
-		}
+		doExit = true;		
 	}
 	
 	

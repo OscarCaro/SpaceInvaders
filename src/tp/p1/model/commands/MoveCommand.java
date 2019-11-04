@@ -23,8 +23,6 @@ public class MoveCommand extends Command {
 		return game.movePlayer(this.numOfCells, dir);
 	}
 	
-	//A
-	
 	@Override
 	public Command parse(String[] commandWords) {
 		Command move = null;
