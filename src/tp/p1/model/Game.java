@@ -17,6 +17,7 @@ public class Game implements IPlayerController{
 	private Board board; 					// Private??
 	private UCM_Ship player;
 	private BoardInitializer initializer; 
+	private GamePrinter gamePrinter;
 
 	private Random rand;
 	private Level diffLevel;	
@@ -26,6 +27,7 @@ public class Game implements IPlayerController{
 	public Game (Level gameLevel, Random random){
 		rand = random;
 		diffLevel = gameLevel;
+		gamePrinter = new GamePrinter(Game.ROWS, Game.COLUMNS);
 		initializer = new BoardInitializer();
 		initGame();
 	}
@@ -214,6 +216,10 @@ public class Game implements IPlayerController{
 
 	public void finishGame() {
 		doExit = true;		
+	}
+	
+	public String toString () {
+		return gamePrinter.toString(this);
 	}
 	
 	

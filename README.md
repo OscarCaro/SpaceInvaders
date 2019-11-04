@@ -22,7 +22,7 @@ First project for TP
 			- UcmShip
 			- EnemyShip (points)
 				- UFO
-				- AlienShip (???)
+				- AlienShip (alienCounter)
 					- Carrier 
 					- Destroyer
 		- Weapon (???)
