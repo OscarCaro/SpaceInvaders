@@ -20,7 +20,7 @@ public class Controller {
 	
 	public boolean run () {
 		
-		printInfo();
+		System.out.println(this.game.infoToString());
 		System.out.println(game);
 
 		while (!game.isFinished()){
@@ -31,10 +31,11 @@ public class Controller {
 			Command command = CommandGenerator.parseCommand(words);
 			if (command != null) {
 				if (command.execute(game)) {
-					this.game.computerAction();
+					// this.game.computerAction();				-> already done in update()
 					this.game.update();
-					this.game.incrementCycleCounter();
-					printInfo();
+					// this.game.incrementCycleCounter();		-> already done in update()
+					
+					System.out.println(this.game.infoToString());
 					System.out.println(game);
 				}
 			}
@@ -156,19 +157,7 @@ public class Controller {
 //		return continueGame;
 //	}
 			
-	private void printInfo() {
-		System.out.println("Score: " + this.game.getScore());
-		System.out.println("Shield Strength: " + this.game.getUcmShipShield());
-		String hasShock; 
-		if (this.game.getUcmShipIsShock()) {
-			hasShock = "Yes";
-		} else {
-			hasShock = "No";
-		}
-		System.out.println("Shockwave: " + hasShock);
-		System.out.println("Cycle number: " + this.game.getCycleCounter());
-		System.out.println("Remaining alien ships: " + this.game.getNumOfValidAliens());
-	}
+
 	
 //	private void printHelp() {
 //		System.out.println("move <left|right><1|2>: causes the UCM-Ship to move as indicated.");

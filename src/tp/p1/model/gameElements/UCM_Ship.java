@@ -7,12 +7,14 @@ public class UCM_Ship extends Ship{
 	private final String sprite = "/-^-\\";
 	private boolean shock; 	
 	private boolean canShoot;
+	private int score;
 
 	
 	public UCM_Ship (Game game, int posX, int posY) {
 		super(4, 7, game, 3);
 		this.shock = false;
 		this.canShoot = true;
+		this.score = 0;
 	}
 	
 	@Override
@@ -23,6 +25,7 @@ public class UCM_Ship extends Ship{
 	@Override
 	public void computerAction() {
 		// TODO Auto-generated method stub		
+		// remember to add score when killing enemies
 	}
 
 	@Override
@@ -51,4 +54,11 @@ public class UCM_Ship extends Ship{
 		this.shock = shock;
 	}
 	
+	public int getScore() {
+		return this.score;
+	}
+	
+	public void addScore (int points) {
+		this.score += points;
+	}
 }

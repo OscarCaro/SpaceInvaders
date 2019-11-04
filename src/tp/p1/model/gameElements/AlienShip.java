@@ -4,6 +4,7 @@ import tp.p1.model.Game;
 
 public abstract class AlienShip extends EnemyShip {
 	protected static int alienCounter;
+	
 	public AlienShip (int posX, int posY, Game game, int shield, int points) {
 		super(posX, posY, game, shield, points);
 	}
@@ -32,5 +33,9 @@ public abstract class AlienShip extends EnemyShip {
 	
 	protected static void decrementCounter() {
 		alienCounter--;
+	}
+	
+	public static int getCounter() {
+		return alienCounter;
 	}
 }

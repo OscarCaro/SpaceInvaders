@@ -81,10 +81,21 @@ public class Game implements IPlayerController{
 	}
 	
 	public String infoToString() {
-		String infoString = " ";
-		//Will depend on number of alien ships, cycles...
-		return infoString;
-		// Return info to be printed above the board (cycle num, num of aliens, points...)
+		String str = "";
+		
+		str += "Score: " + this.player.getScore() + System.lineSeparator();
+		str += "Shield Strength: " + this.player.getShield() + System.lineSeparator();
+		String hasShock; 
+		if (this.player.isShock()) {
+			hasShock = "Yes";
+		} else {
+			hasShock = "No";
+		}
+		str += "Shockwave: " + hasShock + System.lineSeparator();
+		str += "Cycle number: " + this.currentCycle + System.lineSeparator();
+		str += "Remaining alien ships: " + AlienShip.getCounter() + System.lineSeparator();
+		
+		return str;
 	}
 	
 	public String getWinnerMessage () {
