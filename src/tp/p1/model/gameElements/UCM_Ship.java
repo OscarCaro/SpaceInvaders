@@ -1,5 +1,6 @@
 package tp.p1.model.gameElements;
 
+import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
 public class UCM_Ship extends Ship{
@@ -36,6 +37,28 @@ public class UCM_Ship extends Ship{
 	@Override
 	public void move() {
 		// This method should be empty because ucmShip doesn't move on update 		
+	}
+	
+	public boolean moveFromCommand(int numCells, Direction dir) {
+		this.specificMove(dir, numCells);
+		
+		// Correct possible overflows when exceeding the sides
+		int posX = this.getPosX();
+		
+		if (posX == -1) {
+			this.setPosX(Game.COLUMNS - 1);
+		} 
+		else if (posX == -2) {
+			this.setPosX(Game.COLUMNS - 2);
+		} 
+		else if (posX == Game.COLUMNS) {
+			this.setPosX(0);
+		}
+		else if (posX == Game.COLUMNS + 1) {
+			this.setPosX(1);
+		}
+		
+		return true;
 	}
 	
 	public boolean isCanShoot() {

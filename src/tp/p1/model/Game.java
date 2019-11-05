@@ -128,63 +128,7 @@ public class Game implements IPlayerController{
 
 	@Override
 	public boolean movePlayer (int numCells, Direction dir) {
-		int posX = this.player.getPosX();
-		
-		if(dir == Direction.LEFT) {
-
-			if(numCells == 1) {
-				if(posX == 0) {
-					this.player.setPosX(8);
-				}
-				
-				else {
-					this.player.setPosX(posX - 1);
-				}
-			}
-			
-			else if(numCells == 2)  {
-				if(posX == 0) {
-					this.player.setPosX(7);
-				}
-				
-				else if(posX == 1) {
-					this.player.setPosX(8);
-				}
-				
-				else {
-					this.player.setPosX(posX - 2);
-				}
-			}	
-		}
-		
-		else if(dir == Direction.RIGHT) {
-			if(numCells == 1) {
-				if(posX == 8) {
-					this.player.setPosX(0);
-				}
-				
-				else {
-					this.player.setPosX(posX + 1);
-				}
-			}
-			
-			else if(numCells == 2)  {
-				if(posX == 7) {
-					this.player.setPosX(0);
-				}
-				
-				else if(posX == 8) {
-					this.player.setPosX(1);
-				}
-				
-				else {
-					this.player.setPosX(posX + 2);
-				}
-			}
-		}
-		
-//		this.player.specificMove(dir, numCells);
-		return true;
+		return this.player.moveFromCommand(numCells, dir);
 	}
 
 	@Override
