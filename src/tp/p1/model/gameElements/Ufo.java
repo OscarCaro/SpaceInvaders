@@ -22,11 +22,6 @@ public class Ufo extends EnemyShip{
 		return this.sprite;
 	}
 
-	@Override
-	public void computerAction() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void onDelete() {

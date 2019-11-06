@@ -2,7 +2,7 @@ package tp.p1.model.gameElements;
 
 import tp.p1.model.Game;
 
-public class Destroyer extends AlienShip{
+public class Destroyer extends AlienShip {
 
 	private boolean canShoot;
 	
@@ -19,8 +19,9 @@ public class Destroyer extends AlienShip{
 
 	@Override
 	public void computerAction() {
-		// TODO Auto-generated method stub
-		
+		if(canShoot && IExecuteRandomActions.canGenerateBomb(this.game)) {
+			game.addObject(new Bomb(this.getPosX(), this.getPosY(), game, this));
+		}	
 	}
 
 	@Override

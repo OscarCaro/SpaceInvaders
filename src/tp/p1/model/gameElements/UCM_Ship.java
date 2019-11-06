@@ -24,12 +24,6 @@ public class UCM_Ship extends Ship{
 	}
 
 	@Override
-	public void computerAction() {
-		// TODO Auto-generated method stub		
-		// remember to add score when killing enemies
-	}
-
-	@Override
 	public void onDelete() {
 		// TODO Auto-generated method stub		
 	}
@@ -37,6 +31,7 @@ public class UCM_Ship extends Ship{
 	@Override
 	public void move() {
 		// This method should be empty because ucmShip doesn't move on update 		
+		// remember to add score when killing enemies
 	}
 	
 	public boolean moveFromCommand(int numCells, Direction dir) {

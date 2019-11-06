@@ -1,7 +1,10 @@
 package tp.p1.model;
 
+import java.util.zip.ZipEntry;
+
 import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
+import tp.p1.model.gameElements.IExecuteRandomActions;
 import tp.p1.model.gameElements.UCM_Missile;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.model.gameElements.Ufo;
@@ -37,13 +40,14 @@ public class Board {
 	}
 	
 	public void computerAction() {
+		
 	// TODO implement
 	}
 	
 	public String posToString( int x, int y ) {
 		String str = "";
-		for (GameElements current : elements) {
-			str += current.checkPos(x, y);
+		for (int i = 0; i < currentElements; i++) {
+			str += elements[i].checkPos(x, y);
 		}
 		return str;
 	}

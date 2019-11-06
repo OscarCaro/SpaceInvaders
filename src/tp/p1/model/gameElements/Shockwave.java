@@ -7,11 +7,6 @@ public class Shockwave extends Weapon {
 		super(-1, -1, game, 1);
 	}
 
-	@Override
-	public void computerAction() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void onDelete() {

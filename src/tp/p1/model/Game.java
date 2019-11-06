@@ -5,11 +5,12 @@ import java.util.Random;
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
+import tp.p1.model.gameElements.IExecuteRandomActions;
 import tp.p1.model.gameElements.IPlayerController;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.view.GamePrinter;
 
-public class Game implements IPlayerController{
+public class Game implements IPlayerController, IExecuteRandomActions{
 	
 	public static final int ROWS = 8;
 	public static final int COLUMNS = 9;

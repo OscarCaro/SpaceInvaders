@@ -23,12 +23,6 @@ public class UCM_Missile extends Weapon{
 	
 
 	@Override
-	public void computerAction() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void onDelete() {
 		// TODO Auto-generated method stub
 		

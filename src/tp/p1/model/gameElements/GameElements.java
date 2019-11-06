@@ -1,7 +1,7 @@
 package tp.p1.model.gameElements;
 import tp.p1.model.*;
 
-public abstract class GameElements implements IAttack {	
+public abstract class GameElements implements IAttack, IExecuteRandomActions {	
 	protected int posX;
 	protected int posY;
 	protected int shield;
@@ -14,7 +14,6 @@ public abstract class GameElements implements IAttack {
 		this.shield = shield;
 	}
 	
-	public abstract void computerAction();
 	public abstract void onDelete();
 	public abstract void move();				
 	public abstract String toString();
