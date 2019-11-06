@@ -3,8 +3,10 @@ package tp.p1.model.gameElements;
 import tp.p1.model.Game;
 
 public class Shockwave extends Weapon {
+	public static final int DAMAGE = 1;
+	
 	public Shockwave(Game game) {
-		super(-1, -1, game, 1);
+		super(-1, -1, game, 1, DAMAGE);
 	}
 
 

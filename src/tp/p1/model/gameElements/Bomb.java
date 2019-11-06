@@ -8,14 +8,26 @@ public class Bomb extends Weapon{
 	
 	private Destroyer destroyer;
 	private final String sprite = "!";
+	public static final int DAMAGE = 1;	
 		
 	public Bomb(int posX, int posY, Game game, Destroyer destroyer) {
-		super(posX, posY, game, 1);
+		super(posX, posY, game, 1, DAMAGE);
 		this.destroyer = destroyer;
 		
 		this.destroyer.setCanShoot(false);
 	}
 	
+	@Override
+	public boolean performAttack(GameElements other) {
+		boolean attacked = false;
+		if(other.getPosY() == this.getPosY() + 1) {
+			other.decrementShield(damage);
+			this.onDelete();
+			attacked = true;
+		}
+		
+		return attacked;
+	}
 	
 	@Override
 	public void move() {

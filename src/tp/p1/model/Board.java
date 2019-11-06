@@ -2,9 +2,11 @@ package tp.p1.model;
 
 import java.util.zip.ZipEntry;
 
+import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
 import tp.p1.model.gameElements.IExecuteRandomActions;
+import tp.p1.model.gameElements.Shockwave;
 import tp.p1.model.gameElements.UCM_Missile;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.model.gameElements.Ufo;
@@ -16,8 +18,7 @@ public class Board {
 	
 	
 	public Board (int width, int height) {
-		elements = new GameElements[width*height];
-		
+		elements = new GameElements[width*height];		
 	}
 	
 	private int getcurrentElements () {
@@ -32,16 +33,33 @@ public class Board {
 	}
 	
 	public void update() {
-	// TODO implement
+		// 1. Move object
+		// 2. Call checkAttack for that object
+		for (int i = 0; i < currentElements; i++) {
+			elements[i].move();
+			checkAttacks(elements[i]);
+			// Increment counter only if the element doesn't die in that turn (because list shifts)
+		}			
 	}
 	
 	private void checkAttacks(GameElements gameElement) {
 	// TODO implement
+		// For the gameElement, call the 4 functions of IAttack (they are only overwritten for the 
+		// subclasses that actually use them, if not they only return false
+		
+		
+		for (int i = 0; i < currentElements; i++) {
+			gameElement.performAttack(elements[i]);
+		}
+		gameElement.receiveBombAttack(Bomb.damage);
+		gameElement.receiveMissileAttack(UCM_Missile.damage);
+		gameElement.receiveShockWaveAttack(Shockwave.damage);
 	}
 	
 	public void computerAction() {
-		
-	// TODO implement
+		for (int i = 0; i < currentElements; i++) {
+			elements[i].computerAction();
+		}		
 	}
 	
 	public String posToString( int x, int y ) {
