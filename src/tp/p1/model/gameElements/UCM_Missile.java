@@ -27,6 +27,24 @@ public class UCM_Missile extends Weapon{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public boolean performAttack(GameElements other) {
+		boolean attacked = false;
+		if(this.isOnPosition(other.getPosX(), other.getPosY() - 1)) {
+			other.receiveMissileAttack(DAMAGE);
+			this.onDelete();
+			attacked = true;
+		}
+		
+		return attacked;
+	}
+	
+	public boolean receiveBombAttack(int damage) {
+		this.decrementShield(damage);
+		
+		return true;
+	}
 
 //	public boolean outOfBoard() {			----> use isOut in GameElem class
 //		return this.getPosY() < 0;

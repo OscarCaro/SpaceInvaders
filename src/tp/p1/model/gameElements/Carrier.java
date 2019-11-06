@@ -20,6 +20,18 @@ public class Carrier extends AlienShip{
 		AlienShip.decrementCounter();
 		
 	}
+	
+	public boolean receiveMissileAttack(int damage) {
+		this.decrementShield(damage);
+		
+		return true;
+	}
+	
+	public boolean receiveShockwaveAttack(int damage) {
+		this.decrementShield(damage);
+		
+		return true;
+	}
 
 	@Override
 	public void move() {

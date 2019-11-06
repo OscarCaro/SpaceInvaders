@@ -34,6 +34,11 @@ public class UCM_Ship extends Ship{
 		// remember to add score when killing enemies
 	}
 	
+	public boolean receiveBombAttack(int damage) {
+		this.decrementShield(damage);
+		return true;
+	}
+	
 	public boolean moveFromCommand(int numCells, Direction dir) {
 		this.specificMove(dir, numCells);
 		

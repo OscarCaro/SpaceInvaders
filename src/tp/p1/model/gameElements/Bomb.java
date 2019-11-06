@@ -20,13 +20,19 @@ public class Bomb extends Weapon{
 	@Override
 	public boolean performAttack(GameElements other) {
 		boolean attacked = false;
-		if(other.getPosY() == this.getPosY() + 1) {
-			other.decrementShield(damage);
+		if((other.isOnPosition(other.getPosX(), other.getPosY() + 1))){ 
+			other.receiveMissileAttack(DAMAGE);
 			this.onDelete();
 			attacked = true;
 		}
 		
 		return attacked;
+	}
+	
+	public boolean receiveMissileAttack(int damage) {
+		this.decrementShield(damage);
+		
+		return true;
 	}
 	
 	@Override

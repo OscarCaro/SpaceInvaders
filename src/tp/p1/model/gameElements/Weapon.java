@@ -10,15 +10,5 @@ public abstract class Weapon extends GameElements {
 		this.damage = damage;
 	}
 	
-	@Override
-	public boolean performAttack(GameElements other) {
-		boolean attacked = false;
-		if(other.getPosY() == this.getPosY() + 1) {
-			other.decrementShield(this.damage);
-			this.onDelete();
-			attacked = true;
-		}
-		
-		return attacked;
-	}
+
 }

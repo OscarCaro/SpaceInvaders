@@ -51,9 +51,9 @@ public class Board {
 		for (int i = 0; i < currentElements; i++) {
 			gameElement.performAttack(elements[i]);
 		}
-		gameElement.receiveBombAttack(Bomb.damage);
-		gameElement.receiveMissileAttack(UCM_Missile.damage);
-		gameElement.receiveShockWaveAttack(Shockwave.damage);
+//		gameElement.receiveBombAttack(Bomb.DAMAGE);
+//		gameElement.receiveMissileAttack(UCM_Missile.DAMAGE);
+//		gameElement.receiveShockWaveAttack(Shockwave.DAMAGE);
 	}
 	
 	public void computerAction() {

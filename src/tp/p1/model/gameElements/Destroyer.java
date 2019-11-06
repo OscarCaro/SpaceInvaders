@@ -35,6 +35,17 @@ public class Destroyer extends AlienShip {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public boolean receiveMissileAttack(int damage) {
+		this.decrementShield(damage);
+		return true;
+	}
+	
+	public boolean receiveShockwaveAttack(int damage) {
+		this.decrementShield(damage);
+		
+		return true;
+	}
 
 	public boolean isCanShoot() {
 		return canShoot;

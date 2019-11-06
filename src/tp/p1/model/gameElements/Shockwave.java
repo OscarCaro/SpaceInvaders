@@ -26,5 +26,11 @@ public class Shockwave extends Weapon {
 		// Empty string because this function is used to be concatenated in general checkPos 
 		return "";
 	}
+	
+	@Override
+	public boolean performAttack(GameElements other) {
+		other.receiveShockWaveAttack(DAMAGE);
+		return true;
+	}
 
 }
