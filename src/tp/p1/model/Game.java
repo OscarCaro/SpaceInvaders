@@ -138,13 +138,14 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 
 	@Override
-	public boolean useShockWave() {
+	public boolean shockWave() {
 		boolean attack = false;
+		
 		if (player.isShock()) {
-			board.useShockwaveFromCommand(new Shockwave(this));
+			this.addObject(new Shockwave(this));
 			player.setShock(false);
 			attack = true;
-		}
+		}		
 		return attack;
 	}
 

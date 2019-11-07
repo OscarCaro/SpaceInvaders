@@ -33,7 +33,6 @@ public class UCM_Missile extends Weapon{
 		boolean attacked = false;
 		if(this.isOnPosition(other.getPosX(), other.getPosY() + 1)) {
 			other.receiveMissileAttack(DAMAGE);
-			this.setShield(0);
 			attacked = true;
 		}
 		

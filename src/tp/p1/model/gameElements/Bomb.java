@@ -22,7 +22,6 @@ public class Bomb extends Weapon{
 		boolean attacked = false;
 		if((this.isOnPosition(other.getPosX(), other.getPosY() - 1))){ 
 			other.receiveBombAttack(DAMAGE);
-			this.setShield(0);
 			attacked = true;
 		}
 		

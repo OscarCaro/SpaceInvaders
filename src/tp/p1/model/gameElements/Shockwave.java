@@ -27,10 +27,10 @@ public class Shockwave extends Weapon {
 		return "";
 	}
 	
-//	@Override
-//	public boolean performAttack(GameElements other) {
-//		return false;
-//	}
+	@Override
+	public boolean performAttack(GameElements other) {
+		return other.receiveShockWaveAttack(DAMAGE);
+	}
 	
 	public void performAttackFromCommand( GameElements other) {
 		other.receiveShockWaveAttack(DAMAGE);

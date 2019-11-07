@@ -36,27 +36,27 @@ public class Board {
 		// 1. Move object
 		// 2. Call checkAttack for that object
 		for (int i = 0; i < currentElements; i++) {
-			elements[i].move();
-			checkAttacks(elements[i]);
+			if (elements[i].isAlive()) {		// To avoid destroyed weapons (shield = 0 but still not removed from array) from attacking 
+				elements[i].move();
+				checkAttacks(elements[i]);
+			}			
 		}			
 		removeDead();
 	}
 	
 	public void checkAttacks(GameElements gameElement) {
-		// To avoid destroyed weapons (shield = 0 but still not removed from array) from attacking 
-		if (gameElement.isAlive()) {		
-			// For the given gameElem, try to attack each other element
-			for (int i = 0; i < currentElements; i++) {
-				gameElement.performAttack(elements[i]);		// condition of X,Y checked inside
+		boolean hasAttacked = false;
+		// For the given gameElem, try to attack each other element
+		
+		for (int i = 0; i < currentElements; i++) {					// condition of X,Y checked inside
+			if (gameElement.performAttack(elements[i])) {
+				hasAttacked = true;
 			}
 		}
-	}
-	
-	public void useShockwaveFromCommand(Shockwave shockwave) {
-		for (int i = 0; i < currentElements; i++) {
-			shockwave.performAttackFromCommand(elements[i]);
+		if (hasAttacked) {
+			gameElement.setShield(0);
 		}
-		removeDead();
+		
 	}
 	
 	public void computerAction() {
