@@ -6,7 +6,6 @@ public class Carrier extends AlienShip{
 	
 	public Carrier(int posX, int posY, Game game) {	
 		super(posX, posY, game, 2, 5);
-		AlienShip.incrementCounter();
 	}
 	
 	@Override
@@ -14,23 +13,10 @@ public class Carrier extends AlienShip{
 		return "-<" + this.getShield() + ">-";
 	}
 
-
 	@Override
 	public void onDelete() {
 		AlienShip.decrementCounter();
 		
-	}
-	
-	public boolean receiveMissileAttack(int damage) {
-		this.decrementShield(damage);
-		
-		return true;
-	}
-	
-	public boolean receiveShockwaveAttack(int damage) {
-		this.decrementShield(damage);
-		
-		return true;
 	}
 
 	@Override

@@ -38,22 +38,25 @@ public class Board {
 		for (int i = 0; i < currentElements; i++) {
 			elements[i].move();
 			checkAttacks(elements[i]);
-			// Increment counter only if the element doesn't die in that turn (because list shifts)
 		}			
+		removeDead();
 	}
 	
-	private void checkAttacks(GameElements gameElement) {
-	// TODO implement
-		// For the gameElement, call the 4 functions of IAttack (they are only overwritten for the 
-		// subclasses that actually use them, if not they only return false
-		
-		
-		for (int i = 0; i < currentElements; i++) {
-			gameElement.performAttack(elements[i]);
+	public void checkAttacks(GameElements gameElement) {
+		// To avoid destroyed weapons (shield = 0 but still not removed from array) from attacking 
+		if (gameElement.isAlive()) {		
+			// For the given gameElem, try to attack each other element
+			for (int i = 0; i < currentElements; i++) {
+				gameElement.performAttack(elements[i]);		// condition of X,Y checked inside
+			}
 		}
-//		gameElement.receiveBombAttack(Bomb.DAMAGE);
-//		gameElement.receiveMissileAttack(UCM_Missile.DAMAGE);
-//		gameElement.receiveShockWaveAttack(Shockwave.DAMAGE);
+	}
+	
+	public void useShockwaveFromCommand(Shockwave shockwave) {
+		for (int i = 0; i < currentElements; i++) {
+			shockwave.performAttackFromCommand(elements[i]);
+		}
+		removeDead();
 	}
 	
 	public void computerAction() {
@@ -105,6 +108,7 @@ public class Board {
 			
 			this.elements[this.getcurrentElements() - 1] = null; 	// Segunda llamada a getvaliddestroyer retorna uno menos 		
 			//Delete last element pointer because it is already pointed by the previous one 
+			currentElements--;
 		}
 	}
 	

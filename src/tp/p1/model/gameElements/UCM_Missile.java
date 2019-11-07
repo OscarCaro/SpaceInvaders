@@ -8,7 +8,7 @@ public class UCM_Missile extends Weapon{
 	private final String sprite = "^";
 	
 	public UCM_Missile(int PosX, int PosY, Game game) {
-		super(PosX, PosY, game, 1, DAMAGE);
+		super(PosX, PosY, game, 1);
 	}
 	
 	@Override
@@ -25,24 +25,24 @@ public class UCM_Missile extends Weapon{
 	@Override
 	public void onDelete() {
 		// TODO Auto-generated method stub
-		
+		// ucmShip can shoot = true
 	}
 	
 	@Override
 	public boolean performAttack(GameElements other) {
 		boolean attacked = false;
-		if(this.isOnPosition(other.getPosX(), other.getPosY() - 1)) {
+		if(this.isOnPosition(other.getPosX(), other.getPosY() + 1)) {
 			other.receiveMissileAttack(DAMAGE);
-			this.onDelete();
+			this.setShield(0);
 			attacked = true;
 		}
 		
 		return attacked;
 	}
 	
+	@Override
 	public boolean receiveBombAttack(int damage) {
-		this.decrementShield(damage);
-		
+		this.decrementShield(damage);		
 		return true;
 	}
 

@@ -29,8 +29,36 @@ First project for TP
 			- Bomb
 			- Missile
 			- ShockWave
+			
+## Board.update() + CheckAttacks()
+The order should be as follows:
 
-## Controller.run() logic
+Iterate the elements[] array, and for each gameElem, try to attack each other element in the array.
+This method performAttack() is only defined on the gameElements that can attack (the weapons)
+For the rest it just returns false.
+
+PerformAttack:
+Try to attack each other element. To do that, it checks if the position of the other is correct, 
+and if so, it decreases the other's shield by DAMAGE constant, and its own shield is reduced to 0.
+Notice that IT DOESN'T REMOVE THE OTHER OBJECT FROM THE ARRAY, NEITHER IT REMOVES ITSELF.
+That's because removing from array is done at the end of the update() loop, calling removeDead(), 
+to avoid nullPointerException when shifting list to the left when removing.
+That is also the reason why only gameElems that are alive (shield > 0) can attack in the performAttack() 
+function
+
+## Shockwave
+The user inputs the ShockWave command.
+The ShockWaveCommand class calls game.useShockWave()
+If the shock attribute of the player is true (it means it has killed an ufo previously),
+a new ShockWave object if temporarily created.
+The board class is in charge of calling the performAttackFromCommand of the shockwave for every
+gameElem.
+Once finished, the shockWave object is lost in memory (garbage collector) and the shock
+attribute of player is set to false.
+Notice that the shockWave object is never introduced in the elements[] array, neither the common
+performAttack method is called, because this object is only alive for a brief moment (just to attack)
+
+## OLD Controller.run() logic
 
 1. Print game
 

@@ -8,6 +8,12 @@ public abstract class EnemyShip extends Ship {
 	public EnemyShip(int posX, int posY, Game game, int shield, int points) {
 		super(posX, posY, game, shield);
 		this.points = points;
+	}	
+	
+	@Override
+	public boolean receiveMissileAttack(int damage) {
+		this.decrementShield(damage);		
+		return true;
 	}
 	
 	public int getPoints() {

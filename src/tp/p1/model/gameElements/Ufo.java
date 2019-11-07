@@ -28,12 +28,7 @@ public class Ufo extends EnemyShip{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public boolean receiveMissileAttack(int damage) {
-		this.decrementShield(damage);
-		
-		return true;
-	}
+
 	
 	//We assume that a shockwave does not affect the ufo to avoid an infinite shockwave glitch
 }

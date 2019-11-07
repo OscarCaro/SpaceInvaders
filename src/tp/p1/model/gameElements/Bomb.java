@@ -11,7 +11,7 @@ public class Bomb extends Weapon{
 	public static final int DAMAGE = 1;	
 		
 	public Bomb(int posX, int posY, Game game, Destroyer destroyer) {
-		super(posX, posY, game, 1, DAMAGE);
+		super(posX, posY, game, 1);
 		this.destroyer = destroyer;
 		
 		this.destroyer.setCanShoot(false);
@@ -20,18 +20,18 @@ public class Bomb extends Weapon{
 	@Override
 	public boolean performAttack(GameElements other) {
 		boolean attacked = false;
-		if((other.isOnPosition(other.getPosX(), other.getPosY() + 1))){ 
-			other.receiveMissileAttack(DAMAGE);
-			this.onDelete();
+		if((this.isOnPosition(other.getPosX(), other.getPosY() - 1))){ 
+			other.receiveBombAttack(DAMAGE);
+			this.setShield(0);
 			attacked = true;
 		}
 		
 		return attacked;
 	}
 	
+	@Override
 	public boolean receiveMissileAttack(int damage) {
-		this.decrementShield(damage);
-		
+		this.decrementShield(damage);		
 		return true;
 	}
 	
@@ -50,17 +50,18 @@ public class Bomb extends Weapon{
 	@Override
 	public void onDelete() {
 		// TODO Auto-generated method stub
-		
+		allowDestroyerShoot();
+		// Also delete from elements array		
 	}
 	
-	public boolean outOfBoard() {			// ----> use isOut in GameElem class
-		boolean out = false;
-		if(this.getPosY() > Game.ROWS) {
-			this.allowDestroyerShoot();
-			out = true;
-		}
-		return out;
-	}
+//	public boolean outOfBoard() {			// ----> use isOut in GameElem class
+//		boolean out = false;
+//		if(this.getPosY() > Game.ROWS) {
+//			this.allowDestroyerShoot();
+//			out = true;
+//		}
+//		return out;
+//	}
 	
 	public void allowDestroyerShoot() {
 		this.destroyer.setCanShoot(true);

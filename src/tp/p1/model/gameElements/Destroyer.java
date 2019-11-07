@@ -9,7 +9,6 @@ public class Destroyer extends AlienShip {
 	public Destroyer (int posX, int posY, Game game) {
 		super(posX, posY, game, 1, 10);
 		this.canShoot = true;
-		AlienShip.incrementCounter();
 	}	
 	
 	@Override

@@ -7,15 +7,17 @@ public abstract class AlienShip extends EnemyShip {
 	
 	public AlienShip (int posX, int posY, Game game, int shield, int points) {
 		super(posX, posY, game, shield, points);
+		incrementCounter();
 	}
-
-	public static boolean allDead() {
-		boolean dead = false;
-		if(alienCounter == 0) {
-			dead = true;
-		}
-		
-		return dead;
+	
+	@Override
+	public boolean receiveShockWaveAttack(int damage) {
+		this.decrementShield(damage);		
+		return true;
+	}
+	
+	public static boolean allDead() {		
+		return (alienCounter <= 0);
 	}
 
 	public static boolean haveLanded() {

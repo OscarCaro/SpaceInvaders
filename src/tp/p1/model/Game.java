@@ -8,6 +8,7 @@ import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
 import tp.p1.model.gameElements.IExecuteRandomActions;
 import tp.p1.model.gameElements.IPlayerController;
+import tp.p1.model.gameElements.Shockwave;
 import tp.p1.model.gameElements.UCM_Missile;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.view.GamePrinter;
@@ -82,10 +83,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		return (x >= 0 && x < COLUMNS) && (y >= 0 && y < ROWS);
 	}
 	
-	public void exit() {
-		doExit = true;
-	}
-	
 	public String infoToString() {
 		String str = "";
 		
@@ -141,9 +138,14 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 
 	@Override
-	public boolean shockWave() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean useShockWave() {
+		boolean attack = false;
+		if (player.isShock()) {
+			board.useShockwaveFromCommand(new Shockwave(this));
+			player.setShock(false);
+			attack = true;
+		}
+		return attack;
 	}
 
 	@Override

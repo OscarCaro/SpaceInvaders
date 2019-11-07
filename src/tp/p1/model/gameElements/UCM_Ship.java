@@ -26,6 +26,7 @@ public class UCM_Ship extends Ship{
 	@Override
 	public void onDelete() {
 		// TODO Auto-generated method stub		
+		// finish game
 	}
 
 	@Override
@@ -34,6 +35,7 @@ public class UCM_Ship extends Ship{
 		// remember to add score when killing enemies
 	}
 	
+	@Override
 	public boolean receiveBombAttack(int damage) {
 		this.decrementShield(damage);
 		return true;
