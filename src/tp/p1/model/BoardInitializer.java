@@ -27,34 +27,110 @@ public class BoardInitializer {
 	} 
 	
 	private void initializeCarrierShips () {
-		int numOfRows = this.level.getNumRowsOfCarrierShips();
-		int numOfCarriersPerRow = this.level.getNumCarrierShipsPerRow();
+int numOfCarriers = this.level.getNumCarrierShips();
 		
-		int initRow = 1;
-		int initCol = 3;
+		if (this.level == Level.EASY) {
+			createCarriersEasy(numOfCarriers);
+		}
+	
+		else if (this.level == Level.HARD) {
+			createCarriersHard(numOfCarriers);
+		}
 		
-		for (int row = initRow; row < initRow + numOfRows; row++) {
-			for (int col = initCol; col < initCol + numOfCarriersPerRow; col++) {
-				this.board.add(new Carrier(col, row, this.game));
-			}
+		else if (this.level == Level.INSANE) {
+			createCarriersInsane(numOfCarriers);
 		}
 	}
 	
 	private void initializeDestroyers () {
 		int numOfDestroyersPerRow = this.level.getNumDestroyersPerRow();
 		
-		int initRow = 3;
+		
 		if (this.level == Level.EASY) {
-			initRow = 2;
+			createEasy(numOfDestroyersPerRow);
+		}
+	
+		else if (this.level == Level.HARD) {
+			createHard(numOfDestroyersPerRow);
 		}
 		
-		int initCol = 4;
-		if (this.level == Level.INSANE) {
-			initCol = 3;
+		else if (this.level == Level.INSANE) {
+			createInsane(numOfDestroyersPerRow);
 		}
 		
-		for (int i = 0; i < numOfDestroyersPerRow; i++) {
-			this.board.add(new Destroyer(initCol + i, initRow, game));
+	}
+	
+	
+public void createEasy(int initNumOfDestroyers) {
+	int posX = 4;
+	int posY = 2;
+	
+	
+	for (int i = 0; i < initNumOfDestroyers; i++ ) {
+		this.board.add(new Destroyer(posX, posY, game));
+		posX++;
+		
+	}
+	
+}
+
+public void createHard(int initNumOfDestroyers) {
+	int posX = 3;
+	int posY = 3;
+	
+	
+	for (int i = 0; i < initNumOfDestroyers; i++ ) {
+		this.board.add(new Destroyer(posX, posY, game));
+		posX++;
+	}
+}
+
+public void createInsane(int initNumOfDestroyers) {
+	int posX = 3;
+	int posY = 4;
+	
+	
+	for (int i = 0; i < initNumOfDestroyers; i++ ) {
+		this.board.add(new Destroyer(posX, posY, game));
+		posX++;
+	}
+}
+
+	
+	
+	public void createCarriersEasy(int initNumOfCarriers) {
+	int posX = 3;
+	int posY = 1;
+	
+	for (int i = 0; i < initNumOfCarriers; i++ ) {
+		this.board.add(new Carrier(posX,  posY, game));
+		posX++;
+	}
+	}
+	
+	public void createCarriersHard(int initNumOfCarriers) {
+	int posX = 3;
+	int posY = 1;
+	for (int i = 0; i < initNumOfCarriers; i++ ) {
+		if(i == 4) {
+			posY++;
+			posX = 3;
+		}
+		this.board.add(new Carrier(posX,  posY, game));
+		posX++;
+	}
+	}
+	
+	public void createCarriersInsane(int initNumOfCarriers) {
+		int posX = 3;
+		int posY = 1;
+		for (int i = 0; i < initNumOfCarriers; i++ ) {
+			if(i == 4|| i == 8) {
+				posY++;
+				posX = 3;
+			}
+			this.board.add(new Carrier(posX,  posY, game));
+			posX++;
 		}
 	}
 }
