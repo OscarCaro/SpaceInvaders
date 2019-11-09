@@ -15,16 +15,9 @@ public class Carrier extends AlienShip{
 
 	@Override
 	public void onDelete() {
-		AlienShip.decrementCounter();
+		AlienShip.decrementAlienCounter();
 		
 	}
 
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-		// Idea: have a static method direction, and move the carrier to that direction
-		// Change this attribute direction when a carrier is on one of the sides
-		
-	}
+	
 }

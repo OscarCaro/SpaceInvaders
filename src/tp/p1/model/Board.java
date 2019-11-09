@@ -2,6 +2,7 @@ package tp.p1.model;
 
 import java.util.zip.ZipEntry;
 
+import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
@@ -33,11 +34,13 @@ public class Board {
 	}
 	
 	public void update() {
+		AlienShip.resetNumOfShipsMovedInTurn();
 		// 1. Move object
 		// 2. Call checkAttack for that object
 		for (int i = 0; i < currentElements; i++) {
-			if (elements[i].isAlive()) {		// To avoid destroyed weapons (shield = 0 but still not removed from array) from attacking 
-				elements[i].move();
+			elements[i].move();
+			if (elements[i].isAlive()) {		
+				// To avoid destroyed weapons (shield = 0 but still not removed from array) from attacking 
 				checkAttacks(elements[i]);
 			}			
 		}			

@@ -25,13 +25,7 @@ public class Destroyer extends AlienShip {
 
 	@Override
 	public void onDelete() {
-		AlienShip.decrementCounter();
-		
-	}
-
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
+		AlienShip.decrementAlienCounter();
 		
 	}
 	

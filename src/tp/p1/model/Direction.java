@@ -21,6 +21,25 @@ public enum Direction {
 		this.yMovement = yMov;
 	}
 	
+	public static Direction oppositeOf (Direction input) {
+		Direction result;
+		switch (input) {
+			case LEFT:
+				result = Direction.RIGHT;
+				break;
+			case RIGHT:
+				result = Direction.LEFT;
+				break;
+			case UP:
+				result = Direction.DOWN;
+				break;	
+			default:
+				result = Direction.UP;
+				break;
+		}
+		return result;
+	}
+	
 	public int getXmovement() {
 		return this.xMovement;
 	}

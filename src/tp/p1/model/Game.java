@@ -96,7 +96,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}
 		str += "Shockwave: " + hasShock + System.lineSeparator();
 		str += "Cycle number: " + this.currentCycle + System.lineSeparator();
-		str += "Remaining alien ships: " + AlienShip.getCounter() + System.lineSeparator();
+		str += "Remaining alien ships: " + AlienShip.getAlienCounter() + System.lineSeparator();
 		
 		return str;
 	}

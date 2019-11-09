@@ -15,7 +15,12 @@ public class BoardInitializer {
 		this.level  = level;
 		this.game = game;
 		board = new Board(Game.COLUMNS, Game.ROWS);
-		AlienShip.resetCounter();
+		
+		AlienShip.resetAlienCounter();
+		AlienShip.setMoveDirection(Direction.LEFT);
+		AlienShip.setMoveDownInThisTurn(false);
+		AlienShip.setMoveDownInNextTurn(false);
+		
 		initializeUfo();
 		initializeCarrierShips();
 		initializeDestroyers();
