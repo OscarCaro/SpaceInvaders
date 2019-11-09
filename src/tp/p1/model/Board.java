@@ -133,7 +133,7 @@ public class Board {
 	private void removeOutOfBoard() {
 		int i = 0;
 		while(i < this.getcurrentElements()) {
-			if(!elements[i].isOut()) {
+			if(elements[i].isOut()) {
 				remove(elements[i]);		// Call to Remove() shifts list to left, so the same i position
 											// must be checked again because it contains the next object
 			}
