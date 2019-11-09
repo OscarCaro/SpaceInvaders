@@ -1,7 +1,7 @@
 /*	Space Invaders
  * 
- * 	Authors:	- Alberto López Cervantes
- * 				- Óscar Caro Navarro
+ * 	Authors:	- Alberto Lopez Cervantes
+ * 				- Oscar Caro Navarro
  */
 
 

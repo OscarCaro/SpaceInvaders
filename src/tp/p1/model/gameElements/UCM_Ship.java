@@ -13,7 +13,7 @@ public class UCM_Ship extends Ship{
 	
 	public UCM_Ship (Game game, int posX, int posY) {
 		super(4, 7, game, 3);
-		this.shock = true;
+		this.shock = false;
 		this.canShoot = true;
 		this.score = 0;
 	}

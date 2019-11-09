@@ -5,11 +5,14 @@ import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
 public class Ufo extends EnemyShip{
+	
+	private static boolean exists;
 
 	private final String sprite = "<(+)>";
 	
 	public Ufo(Game game) {
-		super(Game.COLUMNS, 0, game, 1, 25);		
+		super(Game.COLUMNS, 0, game, 1, 25);	
+		setExists(true);
 	}
 	
 	@Override
@@ -22,13 +25,19 @@ public class Ufo extends EnemyShip{
 		return this.sprite;
 	}
 
-
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
-		
+		this.game.receivePoints(this.getPoints());
+		setExists(false);
+	}
+	
+	public static boolean exists() {
+		return exists;
 	}
 
+	public static void setExists(boolean exists) {
+		Ufo.exists = exists;
+	}
 	
 	//We assume that a shockwave does not affect the ufo to avoid an infinite shockwave glitch
 }

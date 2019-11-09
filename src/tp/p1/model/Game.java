@@ -11,6 +11,7 @@ import tp.p1.model.gameElements.IPlayerController;
 import tp.p1.model.gameElements.Shockwave;
 import tp.p1.model.gameElements.UCM_Missile;
 import tp.p1.model.gameElements.UCM_Ship;
+import tp.p1.model.gameElements.Ufo;
 import tp.p1.view.GamePrinter;
 
 public class Game implements IPlayerController, IExecuteRandomActions{
@@ -68,12 +69,15 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		return playerWin() || aliensWin() || doExit;
 	}
 	
-	public boolean aliensWin() {
-		
+	public boolean aliensWin() {		
 		return !player.isAlive () ||  AlienShip.haveLanded();
 	}
 	
-	public void update() {
+	public void update() {		
+		if (!Ufo.exists() && IExecuteRandomActions.canGenerateUfo(this)) {
+			this.board.add(new Ufo(this));
+		}
+		
 		board.computerAction();
 		board.update();
 		currentCycle += 1;
@@ -133,8 +137,14 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 
 	@Override
 	public boolean shootMissile() {
-		// TODO Auto-generateshd method stubshoo
-		return false;
+		boolean attack = false;
+		
+		if (player.isCanShoot()) {
+			this.addObject( new UCM_Missile(player.getPosX(), player.getPosY(), this) );
+			player.setCanShoot(false);
+			attack = true;
+		}		
+		return attack;
 	}
 
 	@Override

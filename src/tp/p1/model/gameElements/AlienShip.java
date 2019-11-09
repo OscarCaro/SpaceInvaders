@@ -94,7 +94,7 @@ public abstract class AlienShip extends EnemyShip {
 	}
 	
 	public static boolean allDead() {		
-		return (alienCounter <= 0);
+		return (AlienShip.alienCounter <= 0);
 	}
 
 	public static boolean haveLanded() {
@@ -102,15 +102,15 @@ public abstract class AlienShip extends EnemyShip {
 	}
 	
 	public static void resetAlienCounter() {
-		alienCounter = 0;
+		AlienShip.alienCounter = 0;
 	}
 	
 	protected static void incrementAlienCounter() {
-		alienCounter++;
+		AlienShip.alienCounter++;
 	}
 	
 	protected static void decrementAlienCounter() {
-		alienCounter--;
+		AlienShip.alienCounter--;
 	}
 	
 	public static int getAlienCounter() {

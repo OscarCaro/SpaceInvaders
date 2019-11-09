@@ -16,8 +16,7 @@ public class Carrier extends AlienShip{
 	@Override
 	public void onDelete() {
 		AlienShip.decrementAlienCounter();
-		
+		this.game.receivePoints(this.getPoints());
 	}
 
-	
 }

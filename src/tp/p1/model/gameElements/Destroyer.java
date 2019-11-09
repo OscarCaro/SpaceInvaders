@@ -26,18 +26,7 @@ public class Destroyer extends AlienShip {
 	@Override
 	public void onDelete() {
 		AlienShip.decrementAlienCounter();
-		
-	}
-	
-	public boolean receiveMissileAttack(int damage) {
-		this.decrementShield(damage);
-		return true;
-	}
-	
-	public boolean receiveShockwaveAttack(int damage) {
-		this.decrementShield(damage);
-		
-		return true;
+		this.game.receivePoints(this.getPoints());
 	}
 
 	public boolean isCanShoot() {

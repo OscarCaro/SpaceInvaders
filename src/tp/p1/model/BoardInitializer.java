@@ -4,6 +4,7 @@ import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Carrier;
 import tp.p1.model.gameElements.Destroyer;
 import tp.p1.model.gameElements.GameElements;
+import tp.p1.model.gameElements.Ufo;
 
 public class BoardInitializer {
 	
@@ -21,6 +22,8 @@ public class BoardInitializer {
 		AlienShip.setMoveDownInThisTurn(false);
 		AlienShip.setMoveDownInNextTurn(false);
 		AlienShip.setInBottomRow(false);
+		
+		Ufo.setExists(false);
 		
 		initializeUfo();
 		initializeCarrierShips();

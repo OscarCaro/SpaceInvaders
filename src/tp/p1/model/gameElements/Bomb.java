@@ -42,29 +42,15 @@ public class Bomb extends Weapon{
 	@Override
 	public String toString() {
 		return this.sprite;
-	}
-	
-	
+	}	
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
 		allowDestroyerShoot();
-		// Also delete from elements array		
 	}
-	
-//	public boolean outOfBoard() {			// ----> use isOut in GameElem class
-//		boolean out = false;
-//		if(this.getPosY() > Game.ROWS) {
-//			this.allowDestroyerShoot();
-//			out = true;
-//		}
-//		return out;
-//	}
 	
 	public void allowDestroyerShoot() {
 		this.destroyer.setCanShoot(true);
-	}
-	
+	}	
 	
 }

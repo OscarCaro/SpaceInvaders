@@ -6,14 +6,13 @@ public class Shockwave extends Weapon {
 	public static final int DAMAGE = 1;
 	
 	public Shockwave(Game game) {
-		super(-1, -1, game, 1);
+		super(0, 0, game, 1);
 		
 	}
 
-
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
+		this.game.enableShockWave();
 	}
 
 	@Override
@@ -30,10 +29,6 @@ public class Shockwave extends Weapon {
 	@Override
 	public boolean performAttack(GameElements other) {
 		return other.receiveShockWaveAttack(DAMAGE);
-	}
-	
-	public void performAttackFromCommand( GameElements other) {
-		other.receiveShockWaveAttack(DAMAGE);
 	}
 
 }

@@ -15,8 +15,7 @@ import tp.p1.model.gameElements.Ufo;
 public class Board {
 	
 	private GameElements[] elements;
-	private int currentElements;
-	
+	private int currentElements;	
 	
 	public Board (int width, int height) {
 		elements = new GameElements[width*height];		
@@ -45,6 +44,7 @@ public class Board {
 			}			
 		}			
 		removeDead();
+		removeOutOfBoard();
 	}
 	
 	public void checkAttacks(GameElements gameElement) {
@@ -105,6 +105,8 @@ public class Board {
 		
 		// 2. Shift left remaining elements
 		if (idx != -1) {
+			this.elements[idx].onDelete();		// Perform actions before dying 
+			
 			for (int i = idx; i < getcurrentElements() - 1; i++) {
 				this.elements[i] = this.elements[i + 1];
 			}	
@@ -125,6 +127,19 @@ public class Board {
 			else {
 				i++; 	//We have to check if the new position shifted has a ship alive or not
 			}			//if it is really alive, we check the next ones
+		}
+	}
+	
+	private void removeOutOfBoard() {
+		int i = 0;
+		while(i < this.getcurrentElements()) {
+			if(!elements[i].isOut()) {
+				remove(elements[i]);		// Call to Remove() shifts list to left, so the same i position
+											// must be checked again because it contains the next object
+			}
+			else {
+				i++; 	
+			}			
 		}
 	}
 }

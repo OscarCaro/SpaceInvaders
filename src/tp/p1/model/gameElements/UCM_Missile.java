@@ -19,13 +19,11 @@ public class UCM_Missile extends Weapon{
 	@Override
 	public String toString() {
 		return this.sprite;
-	}
-	
+	}	
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
-		// ucmShip can shoot = true
+		this.game.enableMissile();
 	}
 	
 	@Override
@@ -45,7 +43,4 @@ public class UCM_Missile extends Weapon{
 		return true;
 	}
 
-//	public boolean outOfBoard() {			----> use isOut in GameElem class
-//		return this.getPosY() < 0;
-//	}
 }

@@ -20,9 +20,9 @@ First project for TP
 	- GameElements (Position + Shield + Game attribute + checkPos)
 		- Ship (???)
 			- UcmShip
-			- EnemyShip (points)
+			- EnemyShip (points + receiveMissileAttack)
 				- UFO
-				- AlienShip (carr/dest movement + alienCounter + inBottomRow)
+				- AlienShip (carr/dest movement + alienCounter + inBottomRow + receiveShockWaveAttack)
 					- Carrier 
 					- Destroyer
 		- Weapon (???)
