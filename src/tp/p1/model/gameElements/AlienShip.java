@@ -7,9 +7,11 @@ public abstract class AlienShip extends EnemyShip {
 	protected static int alienCounter;
 	
 	protected static Direction moveDirection;
-	protected static int numOfShipsMovedInTurn;				//set to 0 at every turn by Board.update()
-	protected static boolean moveDownInNextTurn;
-	protected static boolean moveDownInThisTurn;
+	protected static int numOfShipsMovedInTurn;			//set to 0 at every turn by Board.update()
+	protected static boolean moveDownInNextTurn;		//set to false at beginning in BoardInitializer
+	protected static boolean moveDownInThisTurn;		//set to false at beginning in BoardInitializer
+	
+	protected static boolean inBottomRow;				//set to false at beginning in BoardInitializer
 	
 	public AlienShip (int posX, int posY, Game game, int shield, int points) {
 		super(posX, posY, game, shield, points);
@@ -52,14 +54,25 @@ public abstract class AlienShip extends EnemyShip {
 			}
 		}		
 		
+		if (this.isOnBottomRow()) {
+			inBottomRow = true;
+		}		
 	}
 	
 	protected boolean isOnSide() {
 		return (this.getPosX() == 0 || this.getPosX() == Game.COLUMNS - 1);
 	}
 	
+	protected boolean isOnBottomRow() {
+		return (this.getPosY() == Game.ROWS - 1);
+	}
+	
 	public static void setMoveDirection(Direction moveDirection) {
 		AlienShip.moveDirection = moveDirection;
+	}
+	
+	public static void setInBottomRow(boolean inBottomRow) {
+		AlienShip.inBottomRow = inBottomRow;
 	}
 	
 	public static void setMoveDownInNextTurn(boolean moveDownInNextTurn) {
@@ -85,8 +98,7 @@ public abstract class AlienShip extends EnemyShip {
 	}
 
 	public static boolean haveLanded() {
-		// Previous "CheckEnemiesInBottomRow()
-		return false;
+		return AlienShip.inBottomRow;
 	}
 	
 	public static void resetAlienCounter() {

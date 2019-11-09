@@ -20,6 +20,7 @@ public class BoardInitializer {
 		AlienShip.setMoveDirection(Direction.LEFT);
 		AlienShip.setMoveDownInThisTurn(false);
 		AlienShip.setMoveDownInNextTurn(false);
+		AlienShip.setInBottomRow(false);
 		
 		initializeUfo();
 		initializeCarrierShips();
