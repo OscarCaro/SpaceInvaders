@@ -14,6 +14,7 @@ First project for TP
 - [x] Generalize method move(Direction dir, int num) in GameElem (only shockWave doesn't need it)
 - [x] Generalize method checkPos and place it on GameElem (only shockWave doesn't need it)
 - [ ] Add every "implements interface"  according with script with corresponding implementation of their 		functions
+- [ ] Final in methods and classes that shouldn't be overwritten
 
 ## GameElements Hierarchy
 

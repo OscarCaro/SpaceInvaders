@@ -28,9 +28,9 @@ public class UCM_Missile extends Weapon{
 	
 	@Override
 	public boolean performAttack(GameElements other) {
+		// Missile has already moved before calling to this method
 		boolean attacked = false;
-		if(this.isOnPosition(other.getPosX(), other.getPosY() + 1)) {
-			other.receiveMissileAttack(DAMAGE);
+		if(this.isOnPosition(other.getPosX(), other.getPosY()) && other.receiveMissileAttack(DAMAGE)) {
 			attacked = true;
 		}
 		

@@ -19,9 +19,9 @@ public class Bomb extends Weapon{
 	
 	@Override
 	public boolean performAttack(GameElements other) {
+		// Bomb has already moved before calling to this method
 		boolean attacked = false;
-		if((this.isOnPosition(other.getPosX(), other.getPosY() - 1))){ 
-			other.receiveBombAttack(DAMAGE);
+		if((this.isOnPosition(other.getPosX(), other.getPosY())) && other.receiveBombAttack(DAMAGE)){ 
 			attacked = true;
 		}
 		
