@@ -99,6 +99,7 @@ public class Board {
 		return idx;
 	}
 	
+	// Auxiliary function in case that we need a remove function for elements, not positions
 	private void remove (GameElements gameElement) {
 		// 1. Find pos in list
 		int idx = getIndex(gameElement.getPosX(), gameElement.getPosY());
@@ -117,11 +118,26 @@ public class Board {
 		}
 	}
 	
+	private void remove (int idx) {		
+		// Shift left remaining elements
+		if (idx != -1) {
+			this.elements[idx].onDelete();		// Perform actions before dying 
+			
+			for (int i = idx; i < getcurrentElements() - 1; i++) {
+				this.elements[i] = this.elements[i + 1];
+			}	
+			
+			this.elements[this.getcurrentElements() - 1] = null; 	// Segunda llamada a getvaliddestroyer retorna uno menos 		
+			//Delete last element pointer because it is already pointed by the previous one 
+			currentElements--;
+		}
+	}
+	
 	private void removeDead() {
 		int i = 0;
 		while(i < this.getcurrentElements()) {
 			if(!elements[i].isAlive()) {
-				remove(elements[i]);		// Call to Remove() shifts list to left, so the same i position
+				remove(i);		// Call to Remove() shifts list to left, so the same i position
 											// must be checked again because it contains the next object
 			}
 			else {
@@ -134,7 +150,7 @@ public class Board {
 		int i = 0;
 		while(i < this.getcurrentElements()) {
 			if(elements[i].isOut()) {
-				remove(elements[i]);		// Call to Remove() shifts list to left, so the same i position
+				remove(i);		// Call to Remove() shifts list to left, so the same i position
 											// must be checked again because it contains the next object
 			}
 			else {
