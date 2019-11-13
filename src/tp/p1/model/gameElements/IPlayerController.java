@@ -7,8 +7,11 @@ public interface IPlayerController {
 	public boolean movePlayer (int numCells, Direction direction);
 	public boolean shootMissile();
 	public boolean shockWave();
+	public boolean buySuperMissile();
+	public boolean shootSuperMissile();
 	// Callbacks 
 	public void receivePoints(int points);
 	public void enableShockWave();
 	public void enableMissile();
+
 }

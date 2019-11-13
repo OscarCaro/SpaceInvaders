@@ -1,7 +1,6 @@
 package tp.p1.model;
 
 import java.util.Random;
-
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
@@ -9,6 +8,7 @@ import tp.p1.model.gameElements.GameElements;
 import tp.p1.model.gameElements.IExecuteRandomActions;
 import tp.p1.model.gameElements.IPlayerController;
 import tp.p1.model.gameElements.Shockwave;
+import tp.p1.model.gameElements.Supermissile;
 import tp.p1.model.gameElements.UCM_Missile;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.model.gameElements.Ufo;
@@ -99,6 +99,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 			hasShock = "No";
 		}
 		str += "Shockwave: " + hasShock + System.lineSeparator();
+		str += "Available supermissiles: " + this.player.getAvailableSupermissiles() + System.lineSeparator();
 		str += "Cycle number: " + this.currentCycle + System.lineSeparator();
 		str += "Remaining alien ships: " + AlienShip.getAlienCounter() + System.lineSeparator();
 		
@@ -146,6 +147,41 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}		
 		return attack;
 	}
+	
+	private boolean spendPoints(int points) {
+		boolean ok = false;
+		if(this.player.getScore() >= points) {
+			this.player.substractScore(points);
+			ok = true;
+		}
+		
+		return ok;
+	}
+	
+	@Override
+	public boolean buySuperMissile() {
+		boolean ok = false;
+		
+		if(this.spendPoints(Supermissile.COST)) {
+			this.player.incrementSupermissiles();
+			ok = true;
+		}
+		
+		return ok;
+	}
+	
+	@Override
+	public boolean shootSuperMissile() {
+		boolean attack = false;
+		
+		if (player.isCanShoot() && (player.getAvailableSupermissiles() > 0)) {
+			this.addObject( new Supermissile(player.getPosX(), player.getPosY(), this) );
+			this.player.decrementSupermissiles();
+			player.setCanShoot(false);
+			attack = true;
+		}		
+		return attack;
+	}
 
 	@Override
 	public boolean shockWave() {
@@ -163,7 +199,9 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	public void receivePoints(int points) {
 		this.player.addScore(points);
 	}
+	
 
+	
 	@Override
 	public void enableShockWave() {
 		this.player.setShock(true);
