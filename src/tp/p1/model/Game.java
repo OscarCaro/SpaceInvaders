@@ -194,7 +194,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}		
 		return attack;
 	}
-
+	
 	@Override
 	public void receivePoints(int points) {
 		this.player.addScore(points);

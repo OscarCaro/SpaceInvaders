@@ -18,5 +18,12 @@ public class Carrier extends AlienShip{
 		AlienShip.decrementAlienCounter();
 		this.game.receivePoints(this.getPoints());
 	}
+	
+	@Override
+	public void computerAction() {
+		if(IExecuteRandomActions.canTurnExplosive(game)) {
+			
+		}
+	}
 
 }
