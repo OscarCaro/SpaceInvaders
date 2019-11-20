@@ -185,9 +185,22 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		return attack;
 	}
 	
-	public void TurnExplosive(int posX, int posY, int shield, int points, GameElements element) {
+	public void TurnExplosive( GameElements element) {
 		this.board.remove(element);
-		this.board.add(new ExplosiveShip(posX, posY, this, shield, points));
+		this.board.add(new ExplosiveShip(element.getPosX(), element.getPosY(), this, element.getShield()));
+	}
+	
+	public void explosiveShipDead(int posX, int posY) {
+		// Calculate position of neighbor ships
+		// Attack them
+		this.board.performExplosiveShipAttack(posX - 1, posY - 1);
+		this.board.performExplosiveShipAttack(posX, posY - 1);
+		this.board.performExplosiveShipAttack(posX + 1, posY - 1);
+		this.board.performExplosiveShipAttack(posX - 1, posY);
+		this.board.performExplosiveShipAttack(posX + 1, posY);
+		this.board.performExplosiveShipAttack(posX - 1 , posY + 1);
+		this.board.performExplosiveShipAttack(posX, posY + 1);
+		this.board.performExplosiveShipAttack(posX + 1, posY + 1);
 	}
 
 	@Override

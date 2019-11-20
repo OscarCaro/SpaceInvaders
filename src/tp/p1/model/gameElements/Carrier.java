@@ -4,20 +4,31 @@ import tp.p1.model.Game;
 
 public class Carrier extends AlienShip{
 	
+	private boolean turnExplosive;
+	
 	public Carrier(int posX, int posY, Game game) {	
 		super(posX, posY, game, 2, 5);
+		turnExplosive = false;
 	}
 	
 	@Override
 	public String toString() {
 		return "-<" + this.getShield() + ">-";
+	}	
+
+	public boolean getTurnExplosive() {
+		return turnExplosive;
+	}
+
+	public void setTurnExplosive(boolean turnExplosive) {
+		this.turnExplosive = turnExplosive;
 	}
 
 	@Override
 	public void onDelete() {
 		
 		AlienShip.decrementAlienCounter();
-		if(IExecuteRandomActions.canTurnExplosive(game)) {
+		if(!this.getTurnExplosive()) {
 			this.game.receivePoints(this.getPoints());		//Provisional
 		}
 		
@@ -26,7 +37,8 @@ public class Carrier extends AlienShip{
 	@Override
 	public void computerAction() {
 		if(IExecuteRandomActions.canTurnExplosive(game)) {
-			game.TurnExplosive(this.getPosX(), this.getPosY(), this.getShield(), this.getPoints(), this);
+			setTurnExplosive(true);
+			game.TurnExplosive(this);
 		}
 	}
 

@@ -5,6 +5,8 @@ import java.util.zip.ZipEntry;
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
+import tp.p1.model.gameElements.EnemyShip;
+import tp.p1.model.gameElements.ExplosiveShip;
 import tp.p1.model.gameElements.GameElements;
 import tp.p1.model.gameElements.IExecuteRandomActions;
 import tp.p1.model.gameElements.Shockwave;
@@ -33,7 +35,7 @@ public class Board {
 	}
 	
 	public void update() {
-		AlienShip.resetNumOfShipsMovedInTurn();
+		AlienShip.resetNumOfShipsMovedInTurn();		// for lateral movement of alienships
 		// 1. Move object
 		// 2. Call checkAttack for that object
 		for (int i = 0; i < currentElements; i++) {
@@ -44,6 +46,7 @@ public class Board {
 			}			
 		}			
 		removeDead();
+		removeDead();  // For explosive ship dead killing other ships on previous removeDead()
 		removeOutOfBoard();
 	}
 	
@@ -60,6 +63,17 @@ public class Board {
 			gameElement.setShield(0);
 		}
 		
+	}
+	
+	public boolean performExplosiveShipAttack(int posX, int posY) {
+		// find object (if possible)
+		// If found, call receiveExpl.. on that object
+		boolean attacked = false;
+		GameElements elem = getObjectAt(posX, posY);
+		if (elem != null) {
+			attacked = elem.receiveExplosiveShipAttack(ExplosiveShip.DAMAGE);
+		}
+		return attacked;
 	}
 	
 	public void computerAction() {

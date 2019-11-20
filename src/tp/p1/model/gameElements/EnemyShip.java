@@ -22,6 +22,12 @@ public abstract class EnemyShip extends Ship {
 		return true;
 	}
 	
+	@Override
+	public boolean receiveExplosiveShipAttack(int damage) {
+		this.decrementShield(damage);
+		return true;
+	}
+	
 	public int getPoints() {
 		return points;
 	}
