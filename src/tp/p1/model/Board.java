@@ -100,7 +100,7 @@ public class Board {
 	}
 	
 	// Auxiliary function in case that we need a remove function for elements, not positions
-	private void remove (GameElements gameElement) {
+	public void remove (GameElements gameElement) {
 		// 1. Find pos in list
 		int idx = getIndex(gameElement.getPosX(), gameElement.getPosY());
 		

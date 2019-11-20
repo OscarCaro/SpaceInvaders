@@ -4,6 +4,7 @@ import java.util.Random;
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
+import tp.p1.model.gameElements.ExplosiveShip;
 import tp.p1.model.gameElements.GameElements;
 import tp.p1.model.gameElements.IExecuteRandomActions;
 import tp.p1.model.gameElements.IPlayerController;
@@ -148,6 +149,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		return attack;
 	}
 	
+	
 	private boolean spendPoints(int points) {
 		boolean ok = false;
 		if(this.player.getScore() >= points) {
@@ -181,6 +183,11 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 			attack = true;
 		}		
 		return attack;
+	}
+	
+	public void TurnExplosive(int posX, int posY, int shield, int points, GameElements element) {
+		this.board.remove(element);
+		this.board.add(new ExplosiveShip(posX, posY, this, shield, points));
 	}
 
 	@Override
