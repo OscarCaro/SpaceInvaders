@@ -104,7 +104,7 @@ public class Board {
 		boolean found = false;
 		int i = 0;
 		while (i < elements.length && !found) {
-			if (elements[i].isOnPosition(x, y)) {
+			if ((elements[i] != null) && (elements[i].isOnPosition(x, y))) {
 				idx = i;
 				found = true;
 			}
