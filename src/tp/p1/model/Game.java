@@ -13,9 +13,11 @@ import tp.p1.model.gameElements.Supermissile;
 import tp.p1.model.gameElements.UCM_Missile;
 import tp.p1.model.gameElements.UCM_Ship;
 import tp.p1.model.gameElements.Ufo;
-import tp.p1.view.GamePrinter;
+import tp.p1.view.BoardPrinter;
 
 public class Game implements IPlayerController, IExecuteRandomActions{
+	
+	//TO-DO -> Remove all references to GamePrinter (BoardPrinter now (?))
 	
 	public static final int ROWS = 8;
 	public static final int COLUMNS = 9;
@@ -23,7 +25,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	private Board board; 					// Private??
 	private UCM_Ship player;
 	private BoardInitializer initializer; 
-	private GamePrinter gamePrinter;
+	private BoardPrinter gamePrinter;
 
 	private Random rand;
 	private Level diffLevel;	
@@ -33,7 +35,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	public Game (Level gameLevel, Random random){
 		rand = random;
 		diffLevel = gameLevel;
-		gamePrinter = new GamePrinter(Game.ROWS, Game.COLUMNS);
+		gamePrinter = new BoardPrinter(Game.ROWS, Game.COLUMNS);
 		initializer = new BoardInitializer();
 		initGame();
 	}
