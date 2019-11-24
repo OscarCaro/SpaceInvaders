@@ -4,8 +4,8 @@ import tp.p1.model.Game;
 
 public class StringifyCommand extends NoParamsCommand {
 
-	public StringifyCommand(String name, String shortName, String commandText, String helpText) {
-		super(name, shortName, commandText, helpText);
+	public StringifyCommand() {
+		super("Stringify", "string", "stringify", "Prints the status of the game as a plain text");
 	}
 
 	@Override

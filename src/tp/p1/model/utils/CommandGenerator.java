@@ -13,8 +13,8 @@ public class CommandGenerator {
 			new MoveCommand(),
 			new ShockwaveCommand(),
 			new NoneCommand(),
-			new BuyCommand()
-			new StringifyCommand();
+			new BuyCommand(),
+			new StringifyCommand()
 			};
 	
 	public static Command parseCommand(String[] commandWords) {
