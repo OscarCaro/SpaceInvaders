@@ -11,7 +11,7 @@ public class Bomb extends Weapon{
 	public static final int DAMAGE = 1;	
 		
 	public Bomb(int posX, int posY, Game game, Destroyer destroyer) {
-		super(posX, posY, game, 1);
+		super(posX, posY, game, 1, "B");
 		this.destroyer = destroyer;
 		
 		this.destroyer.setCanShoot(false);
@@ -47,6 +47,12 @@ public class Bomb extends Weapon{
 	@Override
 	public void onDelete() {
 		allowDestroyerShoot();
+	}
+	
+	public String stringify() {
+		String result="";		
+		result += super.stringify();
+		return result;
 	}
 	
 	public void allowDestroyerShoot() {

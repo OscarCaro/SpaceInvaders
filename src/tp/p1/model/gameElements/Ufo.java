@@ -11,7 +11,7 @@ public class Ufo extends EnemyShip{
 	private final String sprite = "<(+)>";
 	
 	public Ufo(Game game) {
-		super(Game.COLUMNS, 0, game, 1, 25);	
+		super(Game.COLUMNS, 0, game, 1, 25, "U");	
 		setExists(true);
 	}
 	
@@ -29,6 +29,12 @@ public class Ufo extends EnemyShip{
 	public void onDelete() {
 		this.game.receivePoints(this.getPoints());
 		setExists(false);
+	}
+	
+	public String stringify() {
+		String result="";		
+		result += super.stringify() +";"+ exists;
+		return result;
 	}
 	
 	public static boolean exists() {

@@ -7,7 +7,7 @@ public class Destroyer extends AlienShip {
 	private boolean canShoot;
 	
 	public Destroyer (int posX, int posY, Game game) {
-		super(posX, posY, game, 1, 10);
+		super(posX, posY, game, 1, 10, "D");
 		this.canShoot = true;
 	}	
 	
@@ -27,6 +27,12 @@ public class Destroyer extends AlienShip {
 	public void onDelete() {
 		AlienShip.decrementAlienCounter();
 		this.game.receivePoints(this.getPoints());
+	}
+	
+	public String stringify() {
+		String result="";		
+		result += super.stringify() +";" +";"+ canShoot;
+		return result;
 	}
 
 	public boolean isCanShoot() {

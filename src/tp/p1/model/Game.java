@@ -235,8 +235,10 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 
 	public String stringify() {
-		String result = board.stringify();
-		
+		String banner = "G"+ ";"+ currentCycle;
+		String level = "L" + ";" + diffLevel;
+
+		String result = "----Space Invaders v3---- \n \n" + banner + "\n" + level + "\n" + board.stringify();
 		return result;
 	}
 	

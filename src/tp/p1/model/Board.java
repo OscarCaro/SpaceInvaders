@@ -176,7 +176,7 @@ public class Board {
 	public String stringify() {
 		String result = "";
 		for (int i = 0; i < currentElements; i++) {
-			result += elements[i].stringify();
+			result += elements[i].stringify() + "\n";
 		}
 		return result;
 	}

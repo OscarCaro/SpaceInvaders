@@ -9,13 +9,19 @@ public class Supermissile extends Weapon{
 	private final String sprite = "*^*";
 	
 	public Supermissile(int PosX, int PosY, Game game) {
-		super(PosX, PosY, game, 1);
+		super(PosX, PosY, game, 1, "X");
 	}
 
 	@Override
 	public void onDelete() {
 		this.game.enableMissile();
 		
+	}
+	
+	public String stringify() {
+		String result="";		
+		result += super.stringify() +";"+ this.COST +";"+ this.DAMAGE;
+		return result;
 	}
 
 	@Override

@@ -7,7 +7,7 @@ public class Carrier extends AlienShip{
 	private boolean turnExplosive;
 	
 	public Carrier(int posX, int posY, Game game) {	
-		super(posX, posY, game, 2, 5);
+		super(posX, posY, game, 2, 5, "C");
 		turnExplosive = false;
 	}
 	
@@ -25,7 +25,9 @@ public class Carrier extends AlienShip{
 	}
 	
 	public String stringify() {
-		return 
+		String result="";		
+		result += super.stringify();
+		return result;
 	}
 
 	@Override

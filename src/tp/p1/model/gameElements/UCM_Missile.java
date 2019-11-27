@@ -8,7 +8,7 @@ public class UCM_Missile extends Weapon{
 	private final String sprite = "^";
 	
 	public UCM_Missile(int PosX, int PosY, Game game) {
-		super(PosX, PosY, game, 1);
+		super(PosX, PosY, game, 1, "M");
 	}
 	
 	@Override
@@ -24,6 +24,12 @@ public class UCM_Missile extends Weapon{
 	@Override
 	public void onDelete() {
 		this.game.enableMissile();
+	}
+	
+	public String stringify() {
+		String result="";		
+		result += super.stringify();
+		return result;
 	}
 	
 	@Override

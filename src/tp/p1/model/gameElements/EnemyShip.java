@@ -5,8 +5,8 @@ import tp.p1.model.Game;
 public abstract class EnemyShip extends Ship {
 	private int points;
 	
-	public EnemyShip(int posX, int posY, Game game, int shield, int points) {
-		super(posX, posY, game, shield);
+	public EnemyShip(int posX, int posY, Game game, int shield, int points, String initial) {
+		super(posX, posY, game, shield, initial);
 		this.points = points;
 	}	
 	
