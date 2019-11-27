@@ -23,6 +23,10 @@ public class Carrier extends AlienShip{
 	public void setTurnExplosive(boolean turnExplosive) {
 		this.turnExplosive = turnExplosive;
 	}
+	
+	public String stringify() {
+		return 
+	}
 
 	@Override
 	public void onDelete() {

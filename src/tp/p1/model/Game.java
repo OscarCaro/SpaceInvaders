@@ -233,6 +233,12 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	public void finishGame() {
 		doExit = true;		
 	}
+
+	public String stringify() {
+		String result = board.stringify();
+		
+		return result;
+	}
 	
 	
 	

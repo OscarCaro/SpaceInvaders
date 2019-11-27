@@ -13,7 +13,7 @@ public class UCM_Ship extends Ship{
 
 	
 	public UCM_Ship (Game game, int posX, int posY) {
-		super(4, 7, game, 3);
+		super(4, 7, game, 3, "P");
 		this.shock = false;
 		this.canShoot = true;
 		this.score = 0;
@@ -63,6 +63,12 @@ public class UCM_Ship extends Ship{
 		}
 		
 		return true;
+	}
+	
+	public String stringify() {
+		String result="";		
+		result += super.stringify() +";"+ shock +";"+ canShoot +";"+ score +";"+ availableSupermissiles;
+		return result;
 	}
 	
 	public boolean isCanShoot() {

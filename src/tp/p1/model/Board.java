@@ -172,6 +172,14 @@ public class Board {
 			}			
 		}
 	}
+
+	public String stringify() {
+		String result = "";
+		for (int i = 0; i < currentElements; i++) {
+			result += elements[i].stringify();
+		}
+		return result;
+	}
 }
 //
 //public class Board {
