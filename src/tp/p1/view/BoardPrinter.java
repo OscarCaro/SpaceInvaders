@@ -11,9 +11,9 @@ public class BoardPrinter extends GamePrinter {
 	final String space = " ";
 	
 	
-	public BoardPrinter (int rows, int cols) {
-		this.numRows = rows;
-		this.numCols = cols;	
+	public BoardPrinter () {
+		this.numRows = Game.ROWS;
+		this.numCols = Game.COLUMNS;	
 	}
 	
 	private void encodeGame(Game game) {
@@ -25,7 +25,7 @@ public class BoardPrinter extends GamePrinter {
 		}
 	}
 	
-	public String toString(Game game) {
+	public String toString() {
 
 		encodeGame(game);
 		

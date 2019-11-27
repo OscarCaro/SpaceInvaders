@@ -2,6 +2,9 @@
 package tp.p1.controller;
 import tp.p1.model.commands.*;
 import tp.p1.model.utils.*;
+import tp.p1.view.GamePrinter;
+import tp.p1.view.PrinterTypes;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,16 +15,18 @@ public class Controller {
 	
 	private Game game;
 	private Scanner in;
+	private GamePrinter printer;
 	
 	public Controller (Level diffLevel, Random random) {
 		in = new Scanner(System.in);
 		game = new Game(diffLevel, random);
+		this.printer = PrinterTypes.BOARDPRINTER.getObject(game);
 	}
 	
 	public boolean run () {
 		
 		System.out.println(this.game.infoToString());
-		System.out.println(game);
+		System.out.println(this.printer);
 
 		while (!game.isFinished()){
 			
@@ -36,7 +41,7 @@ public class Controller {
 					// this.game.incrementCycleCounter();		-> already done in update()
 					
 					System.out.println(this.game.infoToString());
-					System.out.println(game);
+					System.out.println(this.printer);
 				}
 			}
 			else {

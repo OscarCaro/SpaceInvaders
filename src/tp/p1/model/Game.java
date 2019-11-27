@@ -16,8 +16,6 @@ import tp.p1.model.gameElements.Ufo;
 
 public class Game implements IPlayerController, IExecuteRandomActions{
 	
-	//TO-DO -> Remove all references to GamePrinter (BoardPrinter now (?))
-	
 	public static final int ROWS = 8;
 	public static final int COLUMNS = 9;
 	
