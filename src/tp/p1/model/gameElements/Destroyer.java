@@ -31,7 +31,7 @@ public class Destroyer extends AlienShip {
 	
 	public String stringify() {
 		String result="";		
-		result += super.stringify() +";" +";"+ canShoot;
+		result += super.stringify() +";" + moveDirection +";"+ canShoot;
 		return result;
 	}
 

@@ -26,7 +26,7 @@ public class Carrier extends AlienShip{
 	
 	public String stringify() {
 		String result="";		
-		result += super.stringify();
+		result += super.stringify() +";" + moveDirection;
 		return result;
 	}
 
