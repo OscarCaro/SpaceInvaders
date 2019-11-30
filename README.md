@@ -26,6 +26,7 @@ First project for TP
 				- AlienShip (carr/dest movement + alienCounter + inBottomRow + receiveShockWaveAttack)
 					- Carrier 
 					- Destroyer
+					- ExplosiveShip
 		- Weapon (???)
 			- Bomb
 			- Missile

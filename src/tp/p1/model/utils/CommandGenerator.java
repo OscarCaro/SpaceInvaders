@@ -14,7 +14,8 @@ public class CommandGenerator {
 			new ShockwaveCommand(),
 			new NoneCommand(),
 			new BuyCommand(),
-			new StringifyCommand()
+			new StringifyCommand(),
+			new ListPrintersCommand()
 			};
 	
 	public static Command parseCommand(String[] commandWords) {

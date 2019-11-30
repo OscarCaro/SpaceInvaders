@@ -218,8 +218,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		this.player.addScore(points);
 	}
 	
-
-	
 	@Override
 	public void enableShockWave() {
 		this.player.setShock(true);
