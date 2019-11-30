@@ -235,10 +235,16 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 
 	public String stringify() {
-		String banner = "G"+ ";"+ currentCycle;
-		String level = "L" + ";" + diffLevel;
+		// We made the decision of storing every necessary attribute 
+		// to make the load/store process easier, even though this would 
+		// take more memory to be saved than the suggestion given in the statement
+		String banner = "----Space Invaders v3---- \n \n";
+		String cycle = "G"+ ";"+ currentCycle + "\n";
+		String level = "L" + ";" + diffLevel + "\n";
+		String statics = "S" + ";" + Ufo.exists() + ";" + 
+						AlienShip.getStaticDataForStringify() + "\n";
 
-		String result = "----Space Invaders v3---- \n \n" + banner + "\n" + level + "\n" + board.stringify();
+		String result = banner + cycle + level + board.stringify() + statics;
 		return result;
 	}
 	

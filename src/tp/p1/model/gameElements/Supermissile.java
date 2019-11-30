@@ -17,12 +17,6 @@ public class Supermissile extends Weapon{
 		this.game.enableMissile();
 		
 	}
-	
-	public String stringify() {
-		String result="";		
-		result += super.stringify() +";"+ this.COST +";"+ this.DAMAGE;
-		return result;
-	}
 
 	@Override
 	public boolean performAttack(GameElements other) {

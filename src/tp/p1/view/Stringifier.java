@@ -7,8 +7,8 @@ public class Stringifier extends GamePrinter {
 		
 	}
 	
-	public String toString(Game game) {
-		String result = game.stringify();
+	public String toString() {
+		String result = game.stringify();			// Game object stored in superClass GamePrinter
 		
 		return result;
 	}

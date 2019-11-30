@@ -31,20 +31,20 @@ public class MoveCommand extends Command {
 			if (commandWords[1].equalsIgnoreCase("left")) {
 				
 				if (commandWords[2].equalsIgnoreCase("1")) {
-					move = new MoveCommand(1, dir.LEFT);
+					move = new MoveCommand(1, Direction.LEFT);
 				}
 				else if (commandWords[2].equalsIgnoreCase("2")) {
-					move = new MoveCommand(2, dir.LEFT);
+					move = new MoveCommand(2, Direction.LEFT);
 				}
 				
 			}
 			else if (commandWords[1].equalsIgnoreCase("right")) {
 				
 				if (commandWords[2].equalsIgnoreCase("1")) {
-					move = new MoveCommand(1, dir.RIGHT);
+					move = new MoveCommand(1, Direction.RIGHT);
 				}
 				else if (commandWords[2].equalsIgnoreCase("2")) {
-					move = new MoveCommand(2, dir.RIGHT);
+					move = new MoveCommand(2, Direction.RIGHT);
 				}
 				
 			}		

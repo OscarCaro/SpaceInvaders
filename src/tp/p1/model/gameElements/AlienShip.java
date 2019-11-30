@@ -116,4 +116,9 @@ public abstract class AlienShip extends EnemyShip {
 	public static int getAlienCounter() {
 		return alienCounter;
 	}
+	
+	public static String getStaticDataForStringify() {
+		return alienCounter + ";" + moveDirection + ";" + moveDownInNextTurn 
+				+ ";" + moveDownInThisTurn + ";" + inBottomRow;
+	}
 }

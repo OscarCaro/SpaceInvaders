@@ -31,12 +31,6 @@ public class Ufo extends EnemyShip{
 		setExists(false);
 	}
 	
-	public String stringify() {
-		String result="";		
-		result += super.stringify() +";"+ exists;
-		return result;
-	}
-	
 	public static boolean exists() {
 		return exists;
 	}

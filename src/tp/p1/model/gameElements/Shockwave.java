@@ -6,8 +6,7 @@ public class Shockwave extends Weapon {
 	public static final int DAMAGE = 1;
 	
 	public Shockwave(Game game) {
-		super(0, 0, game, 1,"");
-		
+		super(0, 0, game, 1,"");		
 	}
 
 	@Override

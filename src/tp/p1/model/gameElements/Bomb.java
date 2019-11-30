@@ -49,12 +49,6 @@ public class Bomb extends Weapon{
 		allowDestroyerShoot();
 	}
 	
-	public String stringify() {
-		String result="";		
-		result += super.stringify();
-		return result;
-	}
-	
 	public void allowDestroyerShoot() {
 		this.destroyer.setCanShoot(true);
 	}	

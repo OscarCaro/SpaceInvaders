@@ -26,12 +26,6 @@ public class UCM_Missile extends Weapon{
 		this.game.enableMissile();
 	}
 	
-	public String stringify() {
-		String result="";		
-		result += super.stringify();
-		return result;
-	}
-	
 	@Override
 	public boolean performAttack(GameElements other) {
 		// Missile has already moved before calling to this method

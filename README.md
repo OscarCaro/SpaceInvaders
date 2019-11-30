@@ -29,6 +29,7 @@ First project for TP
 		- Weapon (???)
 			- Bomb
 			- Missile
+			- SuperMissile
 			- ShockWave
 			
 ## Board.update() + CheckAttacks()
