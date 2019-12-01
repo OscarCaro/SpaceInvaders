@@ -1,6 +1,8 @@
 
 package tp.p1.controller;
 import tp.p1.model.commands.*;
+import tp.p1.model.exceptions.CommandExecuteException;
+import tp.p1.model.exceptions.CommandParseException;
 import tp.p1.model.utils.*;
 import tp.p1.view.GamePrinter;
 import tp.p1.view.PrinterTypes;
@@ -24,8 +26,6 @@ public class Controller {
 	}
 	
 	public boolean run () {
-		
-		System.out.println(this.game.infoToString());
 		System.out.println(this.printer);
 
 		while (!game.isFinished()){
@@ -33,20 +33,20 @@ public class Controller {
 			System.out.println("Command > ");
 			String[] words = in.nextLine().toLowerCase().trim().split ("\\s+");
 			
-			Command command = CommandGenerator.parseCommand(words);
-			if (command != null) {
-				if (command.execute(game)) {
-					// this.game.computerAction();				-> already done in update()
-					this.game.update();
-					// this.game.incrementCycleCounter();		-> already done in update()
-					
-					System.out.println(this.game.infoToString());
-					System.out.println(this.printer);
+			try {
+				Command command = CommandGenerator.parseCommand(words);
+				if (command != null) {
+					if (command.execute(game)) {
+						this.game.update();						
+						System.out.println(this.printer);
+					}
 				}
-			}
-			else {
-				System.out.format("Unknown command");
-			}
+				else {
+					System.out.format("Unknown command");
+				}
+			} catch (CommandParseException | CommandExecuteException e) {
+				System.err.format(e.getMessage() + "%n%n");
+			}			
 		}
 		
 		return playAgain();

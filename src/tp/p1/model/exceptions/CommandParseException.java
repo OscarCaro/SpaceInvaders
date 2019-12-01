@@ -1,6 +1,10 @@
 package tp.p1.model.exceptions;
 
 public class CommandParseException extends Exception{
+	
+	public static final String WRONGNUMOFARGS = "Wrong number of arguments";
+	public static final String WRONGFORMATOFARGS = "Wrong format of arguments";
+	
 	public CommandParseException() {
 		super(); 
 	}

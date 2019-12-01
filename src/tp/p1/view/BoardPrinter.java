@@ -26,7 +26,7 @@ public class BoardPrinter extends GamePrinter {
 	}
 	
 	public String toString() {
-
+		
 		encodeGame(game);
 		
 		int cellSize = 7;
@@ -58,6 +58,6 @@ public class BoardPrinter extends GamePrinter {
 			else str.append(lineEdge);	
 		}
 		
-		return str.toString();
+		return this.game.infoToString() + str.toString();
 	}
 }

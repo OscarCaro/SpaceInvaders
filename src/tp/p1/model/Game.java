@@ -1,6 +1,10 @@
 package tp.p1.model;
 
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.Random;
+
+import tp.p1.model.exceptions.MissileAlreadyOnBoardException;
+import tp.p1.model.exceptions.SuperMissileNotBoughtException;
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
@@ -171,15 +175,23 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 	
 	@Override
-	public boolean shootSuperMissile() {
+	public boolean shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException{
 		boolean attack = false;
 		
-		if (player.isCanShoot() && (player.getAvailableSupermissiles() > 0)) {
-			this.addObject( new Supermissile(player.getPosX(), player.getPosY(), this) );
-			this.player.decrementSupermissiles();
-			player.setCanShoot(false);
-			attack = true;
+		if (player.isCanShoot()) {
+			if (player.getAvailableSupermissiles() > 0){
+				this.addObject( new Supermissile(player.getPosX(), player.getPosY(), this) );
+				this.player.decrementSupermissiles();
+				player.setCanShoot(false);
+				attack = true;
+			}			
+			else {
+				throw new SuperMissileNotBoughtException();
+			}
 		}		
+		else {
+			throw new MissileAlreadyOnBoardException();
+		}
 		return attack;
 	}
 	

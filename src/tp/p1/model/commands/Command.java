@@ -1,6 +1,8 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
+import tp.p1.model.exceptions.CommandExecuteException;
+import tp.p1.model.exceptions.CommandParseException;
 
 public abstract class Command {
 	protected final String name;
@@ -17,8 +19,8 @@ public abstract class Command {
 		this.helpText = helpText;
 	}
 	
-	public abstract boolean execute(Game game);
-	public abstract Command parse (String[] commandWords);
+	public abstract boolean execute(Game game) throws CommandExecuteException;
+	public abstract Command parse (String[] commandWords) throws CommandParseException;
 	
 	protected boolean matchCommandName(String inputText) {
 		return this.shortName.equalsIgnoreCase(inputText) || this.name.equalsIgnoreCase(inputText);

@@ -1,5 +1,6 @@
 package tp.p1.model.utils;
 import tp.p1.model.commands.*;
+import tp.p1.model.exceptions.CommandParseException;
 import tp.p1.controller.*;
 import tp.p1.model.*;
 public class CommandGenerator {
@@ -18,7 +19,7 @@ public class CommandGenerator {
 			new ListPrintersCommand()
 			};
 	
-	public static Command parseCommand(String[] commandWords) {
+	public static Command parseCommand(String[] commandWords) throws CommandParseException{
 		Command aux;
 		Command result = null;
 		for (Command cmd : availableCommands) {
