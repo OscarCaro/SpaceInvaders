@@ -1,16 +1,18 @@
 package tp.p1.model.gameElements;
 
 import tp.p1.model.Direction;
-import tp.p1.model.exceptions.MissileAlreadyOnBoardException;
-import tp.p1.model.exceptions.SuperMissileNotBoughtException;
+import tp.p1.model.exceptions.commandExecuteExceptions.MissileAlreadyOnBoardException;
+import tp.p1.model.exceptions.commandExecuteExceptions.NoShockwaveException;
+import tp.p1.model.exceptions.commandExecuteExceptions.ScoreBuySupermissileException;
+import tp.p1.model.exceptions.commandExecuteExceptions.SuperMissileNotBoughtException;
 
 public interface IPlayerController {
 	// Player actions
-	public boolean movePlayer (int numCells, Direction direction);
-	public boolean shootMissile();
-	public boolean shockWave();
-	public boolean buySuperMissile();
-	public boolean shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException;
+	public void movePlayer (int numCells, Direction direction);
+	public void shootMissile() throws MissileAlreadyOnBoardException;
+	public void shockWave() throws NoShockwaveException;
+	public void buySuperMissile() throws ScoreBuySupermissileException;
+	public void shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException;
 	// Callbacks 
 	public void receivePoints(int points);
 	public void enableShockWave();

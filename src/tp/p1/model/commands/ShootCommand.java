@@ -1,10 +1,10 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
-import tp.p1.model.exceptions.CommandExecuteException;
 import tp.p1.model.exceptions.CommandParseException;
-import tp.p1.model.exceptions.MissileAlreadyOnBoardException;
-import tp.p1.model.exceptions.SuperMissileNotBoughtException;
+import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
+import tp.p1.model.exceptions.commandExecuteExceptions.MissileAlreadyOnBoardException;
+import tp.p1.model.exceptions.commandExecuteExceptions.SuperMissileNotBoughtException;
 
 public class ShootCommand extends Command {
 	
@@ -26,21 +26,19 @@ public class ShootCommand extends Command {
 	
 
 	@Override
-	public boolean execute(Game game) throws CommandExecuteException{
-		boolean execute = false;
-		
+	public boolean execute(Game game) throws CommandExecuteException{		
 		try {
-			if(this.isSuper && game.shootSuperMissile()) {
-				execute = true;
+			if(this.isSuper) {
+				game.shootSuperMissile();
 			}			
-			else if(!this.isSuper && game.shootMissile()){
-				execute = true;
+			else {
+				game.shootMissile();
 			}
 		}
 		catch (SuperMissileNotBoughtException | MissileAlreadyOnBoardException e) {
 			throw new CommandExecuteException("Cannot fire missile: " + e.getMessage());
 		}		
-		return execute;
+		return true;
 	}
 
 	@Override

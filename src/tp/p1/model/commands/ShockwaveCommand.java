@@ -1,6 +1,7 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
+import tp.p1.model.exceptions.commandExecuteExceptions.NoShockwaveException;
 
 public class ShockwaveCommand extends NoParamsCommand {
 
@@ -9,18 +10,9 @@ public class ShockwaveCommand extends NoParamsCommand {
 	}
 
 	@Override
-	public boolean execute(Game game) {
-		boolean execute;
-		if (game.shockWave()) {		//THis also decrements enemy shields
-									//Create new function for checking for dead enemies
-			execute = true;
-		}
-		else {
-			System.out.println("No shockwave available");
-			execute = false;
-		}
-		return execute;
+	public boolean execute(Game game) throws NoShockwaveException {
+		game.shockWave();	
+		return true;
 	}
-
 
 }

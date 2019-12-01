@@ -1,6 +1,8 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
+import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
+import tp.p1.model.exceptions.commandExecuteExceptions.ScoreBuySupermissileException;
 
 public class BuyCommand extends NoParamsCommand{
 
@@ -9,10 +11,8 @@ public class BuyCommand extends NoParamsCommand{
 	}
 
 	@Override
-	public boolean execute(Game game) {
-		if(!game.buySuperMissile()) {
-			System.out.println("Not enough score to buy this weapon!");
-		}
+	public boolean execute(Game game) throws CommandExecuteException{
+		game.buySuperMissile();
 		return false;
 	}
 }

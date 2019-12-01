@@ -10,9 +10,7 @@ public class ResetCommand extends NoParamsCommand {
 
 	@Override
 	public boolean execute(Game game) {
-		game.reset();			// TODO: add something so that user is asked to play again
+		game.reset();
 		return false;
 	}
-
-
 }

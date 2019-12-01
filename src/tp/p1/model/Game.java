@@ -3,8 +3,10 @@ package tp.p1.model;
 import java.sql.SQLFeatureNotSupportedException;
 import java.util.Random;
 
-import tp.p1.model.exceptions.MissileAlreadyOnBoardException;
-import tp.p1.model.exceptions.SuperMissileNotBoughtException;
+import tp.p1.model.exceptions.commandExecuteExceptions.MissileAlreadyOnBoardException;
+import tp.p1.model.exceptions.commandExecuteExceptions.NoShockwaveException;
+import tp.p1.model.exceptions.commandExecuteExceptions.ScoreBuySupermissileException;
+import tp.p1.model.exceptions.commandExecuteExceptions.SuperMissileNotBoughtException;
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.Bomb;
 import tp.p1.model.gameElements.Destroyer;
@@ -135,20 +137,19 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 
 	@Override
-	public boolean movePlayer (int numCells, Direction dir) {
-		return this.player.moveFromCommand(numCells, dir);
+	public void movePlayer (int numCells, Direction dir) {
+		this.player.moveFromCommand(numCells, dir);
 	}
 
 	@Override
-	public boolean shootMissile() {
-		boolean attack = false;
-		
+	public void shootMissile() throws MissileAlreadyOnBoardException {		
 		if (player.isCanShoot()) {
 			this.addObject( new UCM_Missile(player.getPosX(), player.getPosY(), this) );
 			player.setCanShoot(false);
-			attack = true;
-		}		
-		return attack;
+		}
+		else {
+			throw new MissileAlreadyOnBoardException();
+		}
 	}
 	
 	
@@ -163,27 +164,22 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 	
 	@Override
-	public boolean buySuperMissile() {
-		boolean ok = false;
-		
+	public void buySuperMissile() throws ScoreBuySupermissileException {		
 		if(this.spendPoints(Supermissile.COST)) {
 			this.player.incrementSupermissiles();
-			ok = true;
 		}
-		
-		return ok;
+		else {
+			throw new ScoreBuySupermissileException();
+		}
 	}
 	
 	@Override
-	public boolean shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException{
-		boolean attack = false;
-		
+	public void shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException{		
 		if (player.isCanShoot()) {
 			if (player.getAvailableSupermissiles() > 0){
 				this.addObject( new Supermissile(player.getPosX(), player.getPosY(), this) );
 				this.player.decrementSupermissiles();
 				player.setCanShoot(false);
-				attack = true;
 			}			
 			else {
 				throw new SuperMissileNotBoughtException();
@@ -192,7 +188,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		else {
 			throw new MissileAlreadyOnBoardException();
 		}
-		return attack;
 	}
 	
 	public void TurnExplosive( GameElements element) {
@@ -214,15 +209,14 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 	}
 
 	@Override
-	public boolean shockWave() {
-		boolean attack = false;
-		
+	public void shockWave() throws NoShockwaveException {		
 		if (player.isShock()) {
 			this.addObject(new Shockwave(this));
 			player.setShock(false);
-			attack = true;
-		}		
-		return attack;
+		}
+		else {
+			throw new NoShockwaveException();
+		}
 	}
 	
 	@Override

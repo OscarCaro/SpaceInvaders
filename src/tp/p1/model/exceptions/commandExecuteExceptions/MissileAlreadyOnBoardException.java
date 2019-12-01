@@ -1,4 +1,4 @@
-package tp.p1.model.exceptions;
+package tp.p1.model.exceptions.commandExecuteExceptions;
 
 public class MissileAlreadyOnBoardException extends CommandExecuteException{
 	

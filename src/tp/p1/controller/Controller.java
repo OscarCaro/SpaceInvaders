@@ -1,8 +1,8 @@
 
 package tp.p1.controller;
 import tp.p1.model.commands.*;
-import tp.p1.model.exceptions.CommandExecuteException;
 import tp.p1.model.exceptions.CommandParseException;
+import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
 import tp.p1.model.utils.*;
 import tp.p1.view.GamePrinter;
 import tp.p1.view.PrinterTypes;

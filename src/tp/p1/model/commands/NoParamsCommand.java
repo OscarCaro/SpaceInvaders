@@ -1,6 +1,7 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
+import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
 
 public abstract class NoParamsCommand extends Command {
 	
@@ -8,7 +9,7 @@ public abstract class NoParamsCommand extends Command {
 		super(name, shortName, commandText, helpText);
 	}
 	
-	public abstract boolean execute(Game game);
+	public abstract boolean execute(Game game) throws CommandExecuteException;
 	
 	public Command parse(String[] commandWords) {
 		Command cmd = null;

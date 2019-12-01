@@ -1,8 +1,8 @@
 package tp.p1.model.commands;
 
 import tp.p1.model.Game;
-import tp.p1.model.exceptions.CommandExecuteException;
 import tp.p1.model.exceptions.CommandParseException;
+import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
 
 public abstract class Command {
 	protected final String name;
