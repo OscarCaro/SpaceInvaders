@@ -25,7 +25,7 @@ public class SaveCommand extends Command{
 	}
 
 	@Override
-	public boolean execute(Game game) throws CommandExecuteException {
+	public boolean execute(Game game){
 		try (BufferedWriter bw = new BufferedWriter( new FileWriter(fileName)) ){
 			bw.write(PrinterTypes.STRINGIFIER.getObject(game).toString());
 			System.out.println("Game succesfully saved in file " + fileName 
