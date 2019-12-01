@@ -44,8 +44,9 @@ public class Controller {
 				else {
 					System.out.format("Unknown command");
 				}
-			} catch (CommandParseException | CommandExecuteException e) {
+			} catch (CommandParseException | CommandExecuteException | NumberFormatException e) {
 				System.err.format(e.getMessage() + "%n%n");
+				e.printStackTrace();
 			}			
 		}
 		
