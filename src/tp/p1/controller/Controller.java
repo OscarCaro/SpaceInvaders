@@ -46,7 +46,6 @@ public class Controller {
 				}
 			} catch (CommandParseException | CommandExecuteException | NumberFormatException e) {
 				System.err.format(e.getMessage() + "%n%n");
-				e.printStackTrace();
 			}			
 		}
 		
