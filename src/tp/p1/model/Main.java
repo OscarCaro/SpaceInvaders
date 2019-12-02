@@ -20,25 +20,30 @@ public class Main {
 	private static Random random;
 
 	public static void main(String[] args) {
-		
-		if (Arguments.processArgs(args)) {
-			// Continue with program -- diffLevel and randomSeed are correctly set
-			
-			random = new Random(seed);
-			controller = new Controller(diffLevel, random);
-			boolean playAgain = controller.run();
-			
-			while (playAgain) {		
+		try {
+			if (Arguments.processArgs(args)) {
+				// Continue with program -- diffLevel and randomSeed are correctly set
+				
 				random = new Random(seed);
 				controller = new Controller(diffLevel, random);
-				playAgain = controller.run();
+				boolean playAgain = controller.run();
+				
+				while (playAgain) {		
+					random = new Random(seed);
+					controller = new Controller(diffLevel, random);
+					playAgain = controller.run();
+				}
+				
 			}
-			
+			else {
+				// Stop program: wrong arguments have been passed
+				System.out.println ("Wrong arguments" + System.lineSeparator());
+			}	
+		} 
+		catch (NumberFormatException e) {
+			System.err.print(e);
 		}
-		else {
-			// Stop program: wrong arguments have been passed
-			System.out.println ("Wrong arguments" + System.lineSeparator());
-		}		
+			
 	}
 	
 	public static void setDiffLevel(Level level) {
