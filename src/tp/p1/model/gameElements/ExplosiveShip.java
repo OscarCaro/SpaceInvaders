@@ -16,12 +16,6 @@ public class ExplosiveShip extends AlienShip {
 		AlienShip.decrementAlienCounter();
 		this.game.receivePoints(this.getPoints());
 	}
-	
-	public String stringify() {
-		String result="";		
-		result += super.stringify();
-		return result;
-	}
 
 	@Override
 	public String toString() {

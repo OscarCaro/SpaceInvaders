@@ -29,7 +29,7 @@ public class Carrier extends AlienShip{
 		
 		AlienShip.decrementAlienCounter();
 		if(!this.getTurnExplosive()) {
-			this.game.receivePoints(this.getPoints());		//Provisional
+			this.game.receivePoints(this.getPoints());
 		}
 		
 	}

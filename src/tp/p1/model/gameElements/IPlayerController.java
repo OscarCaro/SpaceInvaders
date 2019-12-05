@@ -1,10 +1,7 @@
 package tp.p1.model.gameElements;
 
 import tp.p1.model.Direction;
-import tp.p1.model.exceptions.commandExecuteExceptions.MissileAlreadyOnBoardException;
-import tp.p1.model.exceptions.commandExecuteExceptions.NoShockwaveException;
-import tp.p1.model.exceptions.commandExecuteExceptions.ScoreBuySupermissileException;
-import tp.p1.model.exceptions.commandExecuteExceptions.SuperMissileNotBoughtException;
+import tp.p1.model.exceptions.commandExecuteExceptions.*;
 
 public interface IPlayerController {
 	// Player actions

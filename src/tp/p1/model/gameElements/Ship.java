@@ -8,4 +8,9 @@ public abstract class Ship extends GameElements {
 		super(posX, posY, game, shield, initial);
 	}	
 	
+	public String stringify() {
+		String result="";		
+		result += super.stringify() +";" + getShield();
+		return result;
+	}
 }

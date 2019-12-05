@@ -2,7 +2,6 @@ package tp.p1.model.commands;
 
 import tp.p1.model.Game;
 import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
-import tp.p1.model.exceptions.commandExecuteExceptions.ScoreBuySupermissileException;
 
 public class BuyCommand extends NoParamsCommand{
 

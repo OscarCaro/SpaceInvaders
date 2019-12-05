@@ -1,6 +1,5 @@
 package tp.p1.model.gameElements;
 
-import tp.p1.model.Board;
 import tp.p1.model.Direction;
 import tp.p1.model.Game;
 
@@ -27,7 +26,9 @@ public class Ufo extends EnemyShip{
 
 	@Override
 	public void onDelete() {
-		this.game.receivePoints(this.getPoints());
+		if(!isOut()) {
+			this.game.receivePoints(this.getPoints());
+		}
 		setExists(false);
 	}
 	

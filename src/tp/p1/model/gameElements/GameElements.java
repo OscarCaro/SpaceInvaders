@@ -38,7 +38,7 @@ public abstract class GameElements implements IAttack, IExecuteRandomActions {
 	
 	public String stringify() {
 		String result="";		
-		result += this.initial +";"+ this.posX+";"+this.posY+";"+this.shield;		
+		result += this.initial +";"+ this.posX+";"+this.posY;		
 		return result;
 	}
 	

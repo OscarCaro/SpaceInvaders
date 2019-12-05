@@ -1,8 +1,9 @@
 package tp.p1.model.utils;
+
 import tp.p1.model.commands.*;
 import tp.p1.model.exceptions.CommandParseException;
-import tp.p1.controller.*;
-import tp.p1.model.*;
+import tp.p1.model.exceptions.UnknownCommandException;
+
 public class CommandGenerator {
 	
 	private static Command[] availableCommands = {
@@ -20,7 +21,7 @@ public class CommandGenerator {
 			new SaveCommand()
 			};
 	
-	public static Command parseCommand(String[] commandWords) throws CommandParseException{
+	public static Command parseCommand(String[] commandWords) throws CommandParseException, UnknownCommandException{
 		Command aux;
 		Command result = null;
 		for (Command cmd : availableCommands) {
@@ -28,6 +29,9 @@ public class CommandGenerator {
 			if (aux != null) {
 				result = aux;
 			}
+		}
+		if (result == null) {
+			throw new UnknownCommandException();
 		}
 		return result;
 	}

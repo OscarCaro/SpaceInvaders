@@ -1,10 +1,10 @@
 package tp.p1.model;
 
-import java.util.Random;
+import tp.p1.model.exceptions.WrongArgumentsException;
 
 public class Arguments {
 	
-	public static boolean processArgs (String[] args) {
+	public static void processArgs (String[] args) throws WrongArgumentsException {
 		boolean ok = true;
 		
 		if (args.length == 2) {
@@ -19,7 +19,9 @@ public class Arguments {
 			ok = false;
 		}
 		
-		return ok;
+		if(!ok) {
+			throw new WrongArgumentsException();
+		}
 	}
 	
 	private static boolean processDiffArg(String arg1) {

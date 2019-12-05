@@ -1,10 +1,6 @@
 package tp.p1.model;
 
-import tp.p1.model.gameElements.AlienShip;
-import tp.p1.model.gameElements.Carrier;
-import tp.p1.model.gameElements.Destroyer;
-import tp.p1.model.gameElements.GameElements;
-import tp.p1.model.gameElements.Ufo;
+import tp.p1.model.gameElements.*;
 
 public class BoardInitializer {
 	
@@ -25,15 +21,11 @@ public class BoardInitializer {
 		
 		Ufo.setExists(false);
 		
-		initializeUfo();
 		initializeCarrierShips();
 		initializeDestroyers();
+		//We decided not to create an UFO in the first turn
 		return board;
 	}
-	
-	private void initializeUfo () {
-		// TODO: add UFO if probability gives true 
-	} 
 	
 	private void initializeCarrierShips () {
 		int numOfCarriers = this.level.getNumCarrierShips();

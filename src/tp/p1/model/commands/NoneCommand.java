@@ -12,6 +12,4 @@ public class NoneCommand extends NoParamsCommand{
 	public boolean execute(Game game) {
 		return true;	// Nothing changes, but it has to print the game and increment turn
 	}
-
-	
 }

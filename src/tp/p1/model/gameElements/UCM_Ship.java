@@ -27,14 +27,12 @@ public class UCM_Ship extends Ship{
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub		
-		// finish game
+		//Never called, UCM_Ship is never destroyed
 	}
 
 	@Override
 	public void move() {
-		// This method should be empty because ucmShip doesn't move on update 		
-		// remember to add score when killing enemies
+		// This method should be empty because ucmShip doesn't move on update 	
 	}
 	
 	@Override
@@ -67,7 +65,7 @@ public class UCM_Ship extends Ship{
 	
 	public String stringify() {
 		String result="";		
-		result += super.stringify() +";"+ shock +";"+ canShoot +";"+ score +";"+ availableSupermissiles;
+		result += super.stringify() +";"+ score +";"+ shock +";"+ availableSupermissiles;
 		return result;
 	}
 	
@@ -110,6 +108,5 @@ public class UCM_Ship extends Ship{
 	public void incrementSupermissiles() {
 		this.availableSupermissiles += 1;
 	}
-	
 
 }

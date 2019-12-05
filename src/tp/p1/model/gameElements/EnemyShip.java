@@ -31,11 +31,5 @@ public abstract class EnemyShip extends Ship {
 	public int getPoints() {
 		return points;
 	}
-	
-	public String stringify() {
-		String result="";		
-		result += super.stringify() +";"+ points;
-		return result;
-	}
 
 }

@@ -16,5 +16,4 @@ public class ExitCommand extends NoParamsCommand {
 		return false;
 	}
 
-
 }

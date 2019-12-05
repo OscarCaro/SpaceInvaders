@@ -2,9 +2,7 @@ package tp.p1.model.commands;
 
 import tp.p1.model.Game;
 import tp.p1.model.exceptions.CommandParseException;
-import tp.p1.model.exceptions.commandExecuteExceptions.CommandExecuteException;
-import tp.p1.model.exceptions.commandExecuteExceptions.MissileAlreadyOnBoardException;
-import tp.p1.model.exceptions.commandExecuteExceptions.SuperMissileNotBoughtException;
+import tp.p1.model.exceptions.commandExecuteExceptions.*;
 
 public class ShootCommand extends Command {
 	
@@ -65,7 +63,5 @@ public class ShootCommand extends Command {
 		
 		return shoot;
 	}
-
-
 
 }

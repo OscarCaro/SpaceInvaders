@@ -21,15 +21,21 @@ public abstract class AlienShip extends EnemyShip {
 	@Override
 	public void move() {
 		
-		if (moveDownInNextTurn) {
-			this.specificMove(moveDirection, 1);
-			numOfShipsMovedInTurn++;
+		if (moveDownInNextTurn) {			
 			
-			if (numOfShipsMovedInTurn == alienCounter) {
-				// Prepare the boolean for the beginning of next turn
+			if (numOfShipsMovedInTurn == 0) {
+				// If this one is the first moving after a previous cycle in which moveDownInNextTurn was set true,
+				// then swap boolean values so that all the aliens in this turn move down, included this first one
 				moveDownInNextTurn = false;
-				moveDownInThisTurn = true;		
-			}			
+				moveDownInThisTurn = true;	
+				this.specificMove(Direction.DOWN, 1);
+				numOfShipsMovedInTurn++;
+			}	
+			else {
+				this.specificMove(moveDirection, 1);
+				numOfShipsMovedInTurn++;
+			}
+			
 			
 		}
 		
@@ -117,8 +123,10 @@ public abstract class AlienShip extends EnemyShip {
 		return alienCounter;
 	}
 	
-	public static String getStaticDataForStringify() {
-		return alienCounter + ";" + moveDirection + ";" + moveDownInNextTurn 
-				+ ";" + moveDownInThisTurn + ";" + inBottomRow;
+	public String stringify() {
+		String result="";		
+		result += super.stringify() +";"+ moveDownInNextTurn + ";" +  moveDirection;
+		return result;
 	}
+
 }
