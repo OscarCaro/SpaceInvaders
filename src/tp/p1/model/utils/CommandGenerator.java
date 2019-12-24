@@ -6,6 +6,7 @@ import tp.p1.model.exceptions.UnknownCommandException;
 
 public class CommandGenerator {
 	
+	
 	private static Command[] availableCommands = {
 			new ListCommand(),
 			new HelpCommand(),
