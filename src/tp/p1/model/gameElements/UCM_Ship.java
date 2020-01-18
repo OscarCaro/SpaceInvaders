@@ -42,6 +42,11 @@ public class UCM_Ship extends Ship{
 		return true;
 	}
 	
+	public boolean receiveSuperBombBombAttack(int damage) {
+		this.decrementShield(damage);
+		return true;
+	}
+	
 	public boolean moveFromCommand(int numCells, Direction dir) {
 		this.specificMove(dir, numCells);
 		

@@ -2,22 +2,24 @@ package tp.p1.model;
 
 public enum Level {
 
-	EASY(4, 2, 0.2, 3, 0.5, 1),
-	HARD(8, 4, 0.3, 2, 0.2, 2),
-	INSANE(12, 4, 0.5, 1, 0.1, 3);
+	EASY(4, 2, 0, 0.2, 3, 0.5, 1),
+	HARD(8, 4,0, 0.3, 2, 0.2, 2),
+	INSANE(12,4, 2, 0.5, 1, 0.1, 3);
 	
 	private int numCarriers;
 	private int numDestroyers;
+	private int numCommanders;
 	private int numCyclesToMove;
 	private double ufoFreq;
 	private double shootFreq;
 	private int numRowsOfCarriers;	
 
-	private Level( int numCarrierShips, int numDestroyerShips, double shootFrequency,
+	private Level( int numCarrierShips, int numDestroyerShips, int numCommanderShips, double shootFrequency,
 				   int numCyclesToMoveOneCell, double ufoFrequency, int numRowsOfCarrierShips) {
 		
 		numCarriers = numCarrierShips;
 		numDestroyers = numDestroyerShips;
+		numCommanders = numCommanderShips;
 		shootFreq = shootFrequency;
 		numCyclesToMove = numCyclesToMoveOneCell;
 		ufoFreq = ufoFrequency;
@@ -30,6 +32,10 @@ public enum Level {
 	
 	public int getNumDestroyers() {
 		return numDestroyers;
+	}
+	
+	public int getNumCommanders() {
+		return numCommanders;
 	}
 	
 	public Double getShootFrequency() {
