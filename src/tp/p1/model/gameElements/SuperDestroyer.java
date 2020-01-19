@@ -6,7 +6,7 @@ public class SuperDestroyer extends AlienShip {
 	
 	private boolean canShoot;
 	public SuperDestroyer(int posX, int posY, Game game, int shield) {
-		super(posX, posY, game, shield, 50, "S");
+		super(posX, posY, game, shield, 20, "S");
 		canShoot = true;
 		
 	}
@@ -21,7 +21,6 @@ public class SuperDestroyer extends AlienShip {
 		if(canShoot && IExecuteRandomActions.canGenerateBomb(this.game)) {
 			game.addObject(new SuperBomb(this.getPosX(), this.getPosY(), this.game, this));
 		}	
-	
 	}
 
 	@Override

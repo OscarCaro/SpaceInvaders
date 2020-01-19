@@ -30,6 +30,10 @@ public class Destroyer extends AlienShip {
 		}
 	}
 
+	public boolean isUpgrade() {
+		return upgrade;
+	}
+
 	public void setUpgrade(boolean upgrade) {
 		this.upgrade = upgrade;
 	}
@@ -37,7 +41,9 @@ public class Destroyer extends AlienShip {
 	@Override
 	public void onDelete() {
 		AlienShip.decrementAlienCounter();
+		if(!isUpgrade()) {
 		this.game.receivePoints(this.getPoints());
+		}
 	}
 
 	public boolean isCanShoot() {
