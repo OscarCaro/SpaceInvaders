@@ -91,7 +91,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}
 		str += "Shockwave: " + hasShock + System.lineSeparator();
 		str += "Available supermissiles: " + this.player.getAvailableSupermissiles() + System.lineSeparator();
-		str += "Available megamissiles: " + this.player.getAvailableMegamissiles() + System.lineSeparator();
 		str += "Cycle number: " + this.currentCycle + System.lineSeparator();
 		str += "Remaining alien ships: " + AlienShip.getAlienCounter() + System.lineSeparator();
 		
@@ -160,15 +159,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}
 	}
 	
-	public void buyMegaMissile() throws ScoreBuyMegamissileException {		
-		if(this.spendPoints(Megamissile.COST)) {
-			this.player.incrementMegamissiles();
-		}
-		else {
-			throw new ScoreBuyMegamissileException();
-		}
-	}
-	
 	@Override
 	public void shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException{		
 		if (player.isCanShoot()) {
@@ -179,22 +169,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 			}			
 			else {
 				throw new SuperMissileNotBoughtException();
-			}
-		}		
-		else {
-			throw new MissileAlreadyOnBoardException();
-		}
-	}
-	
-	public void shootMegaMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException, MegaMissileNotBoughtException{		
-		if (player.isCanShoot()) {
-			if (player.getAvailableMegamissiles() > 0){
-				this.addObject( new Megamissile(player.getPosX(), player.getPosY(), this) );
-				this.player.decrementMegamissiles();
-				player.setCanShoot(false);
-			}			
-			else {
-				throw new MegaMissileNotBoughtException();
 			}
 		}		
 		else {

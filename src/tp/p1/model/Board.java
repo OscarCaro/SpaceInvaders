@@ -50,7 +50,7 @@ public class Board {
 			}
 		}
 		if (hasAttacked) {
-			gameElement.setShield(gameElement.getShield()-1);
+			gameElement.setShield(0);
 		}
 		
 	}

@@ -17,7 +17,6 @@ public class Supermissile extends Weapon{
 		this.game.enableMissile();
 		
 	}
-	//aaaa
 
 	@Override
 	public boolean performAttack(GameElements other) {

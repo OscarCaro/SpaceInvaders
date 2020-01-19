@@ -23,7 +23,6 @@ public class BoardInitializer {
 		
 		initializeCarrierShips();
 		initializeDestroyers();
-		initializeCommanders();
 		//We decided not to create an UFO in the first turn
 		return board;
 	}
@@ -61,15 +60,6 @@ public class BoardInitializer {
 		
 	}	
 	
-	private void initializeCommanders () {
-		int numOfDestroyersPerRow = this.level.getNumCommanders();
-		
-		if (this.level == Level.INSANE) {
-			createCommandersInsane(numOfDestroyersPerRow);
-		}
-		
-	}	
-	
 	public void createDestroyersEasy(int initNumOfDestroyers) {
 		int posX = 4;
 		int posY = 2;
@@ -97,16 +87,6 @@ public class BoardInitializer {
 				
 		for (int i = 0; i < initNumOfDestroyers; i++ ) {
 			this.board.add(new Destroyer(posX, posY, game));
-			posX++;
-		}
-	}
-	
-	public void createCommandersInsane(int initNumOfCommanders) {
-		int posX = 4;
-		int posY = 5;
-				
-		for (int i = 0; i < initNumOfCommanders; i++ ) {
-			this.board.add(new Commander(posX, posY, game));
 			posX++;
 		}
 	}

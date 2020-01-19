@@ -14,10 +14,6 @@ public interface IExecuteRandomActions {
 		return game.getRandom().nextInt(10) < 10*game.getDiffLevel().getShootFrequency();
 	}
 	
-	static boolean canGenerateSuperBomb(Game game){
-		return game.getRandom().nextInt(10) < 10*game.getDiffLevel().getShootFrequency();
-	}
-	
 	static boolean canTurnExplosive(Game game){
 		return game.getRandom().nextInt(20) == 1; 
 	}
