@@ -17,4 +17,8 @@ public interface IExecuteRandomActions {
 	static boolean canTurnExplosive(Game game){
 		return game.getRandom().nextInt(20) == 1; 
 	}
+	
+	static boolean canUpgrade(Game game){
+		return game.getRandom().nextInt(25) == 1; 
+	}
 }

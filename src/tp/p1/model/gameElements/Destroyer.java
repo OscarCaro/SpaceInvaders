@@ -5,10 +5,12 @@ import tp.p1.model.Game;
 public class Destroyer extends AlienShip {
 
 	private boolean canShoot;
+	private boolean upgrade;
 	
 	public Destroyer (int posX, int posY, Game game) {
 		super(posX, posY, game, 1, 10, "D");
 		this.canShoot = true;
+		this.upgrade = false;
 	}	
 	
 	@Override
@@ -21,6 +23,15 @@ public class Destroyer extends AlienShip {
 		if(canShoot && IExecuteRandomActions.canGenerateBomb(this.game)) {
 			game.addObject(new Bomb(this.getPosX(), this.getPosY(), game, this));
 		}	
+		
+		if(IExecuteRandomActions.canUpgrade(game)) {
+			setUpgrade(true);
+			game.upgradeDest(this);
+		}
+	}
+
+	public void setUpgrade(boolean upgrade) {
+		this.upgrade = upgrade;
 	}
 
 	@Override

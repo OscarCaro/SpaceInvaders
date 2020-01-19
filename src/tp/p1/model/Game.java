@@ -181,6 +181,11 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		this.board.add(new ExplosiveShip(element.getPosX(), element.getPosY(), this, element.getShield()));
 	}
 	
+	public void upgradeDest(GameElements element) {
+		this.board.remove(element);
+		this.board.add(new SuperDestroyer(element.getPosX(), element.getPosY(), this, element.getShield()));
+	}
+	
 	public void explosiveShipDead(int posX, int posY) {
 		// Calculate position of neighbor ships
 		// Attack them
