@@ -10,16 +10,18 @@ public class ShootCommand extends Command {
 	public static final String EXISTS_ALREADY = "Cannot fire missile: missile already exists on board";
 	
 	private boolean isSuper;
+	private boolean isMega;
 	
 	public ShootCommand() {
 		super("shoot", "s", "Shoot", "causes the UCM-Ship to launch a missile");
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ShootCommand(boolean isSuper) {
+	public ShootCommand(boolean isSuper, boolean isMega) {
 		super("shoot", "s", "Shoot", "causes the UCM-Ship to launch a missile");
 		// TODO Auto-generated constructor stub
 		this.isSuper = isSuper;
+		this.isMega = isMega;
 	}
 	
 
@@ -29,6 +31,10 @@ public class ShootCommand extends Command {
 			if(this.isSuper) {
 				game.shootSuperMissile();
 			}			
+			
+			else if (this.isMega) {
+				game.shootMegaMissile();
+			}
 			else {
 				game.shootMissile();
 			}
@@ -44,11 +50,15 @@ public class ShootCommand extends Command {
 		Command shoot = null;
 		if(matchCommandName(commandWords[0])) {
 			if(commandWords.length == 1) {
-				shoot = new ShootCommand(false);
+				shoot = new ShootCommand(false, false);
 			}		
 			else if (commandWords.length == 2) {
 				if(commandWords[1].equalsIgnoreCase("supermissile")) {
-					shoot = new ShootCommand(true);
+					shoot = new ShootCommand(true, false);
+				}
+				
+				else if(commandWords[1].equalsIgnoreCase("megamissile")) {
+					shoot = new ShootCommand(false, true);
 				}
 				else {
 					throw new CommandParseException(CommandParseException.WRONGFORMATOFARGS

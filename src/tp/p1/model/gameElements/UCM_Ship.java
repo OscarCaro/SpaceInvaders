@@ -10,6 +10,7 @@ public class UCM_Ship extends Ship{
 	private boolean canShoot;
 	private int score;
 	private int availableSupermissiles;
+	private int availableMegamissiles;
 
 	
 	public UCM_Ship (Game game, int posX, int posY) {
@@ -18,6 +19,8 @@ public class UCM_Ship extends Ship{
 		this.canShoot = true;
 		this.score = 0;
 		this.availableSupermissiles = 0;
+		this.availableMegamissiles = 0;
+		
 	}
 	
 	@Override
@@ -100,6 +103,18 @@ public class UCM_Ship extends Ship{
 	public int getAvailableSupermissiles() {
 		return availableSupermissiles;
 	}
+	
+	public int getAvailableMegamissiles() {
+		return availableMegamissiles;
+	}
+	
+	public void decrementMegamissiles() {
+		this.availableMegamissiles -= 1;
+	}
+	
+	public void incrementMegamissiles() {
+		this.availableMegamissiles += 1;
+	}	
 	
 	public void decrementSupermissiles() {
 		this.availableSupermissiles -= 1;

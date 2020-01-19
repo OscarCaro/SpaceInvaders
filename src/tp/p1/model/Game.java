@@ -91,6 +91,7 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}
 		str += "Shockwave: " + hasShock + System.lineSeparator();
 		str += "Available supermissiles: " + this.player.getAvailableSupermissiles() + System.lineSeparator();
+		str += "Available megamissiles: " + this.player.getAvailableMegamissiles() + System.lineSeparator();
 		str += "Cycle number: " + this.currentCycle + System.lineSeparator();
 		str += "Remaining alien ships: " + AlienShip.getAlienCounter() + System.lineSeparator();
 		
@@ -176,6 +177,31 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		}
 	}
 	
+	public void buyMegaMissile() throws ScoreBuyMegamissileException {
+		if(this.spendPoints(Supermissile.COST)) {
+			this.player.incrementMegamissiles();
+		}
+		else {
+			throw new ScoreBuyMegamissileException();
+		}
+	}
+	
+	public void shootMegaMissile() throws MegaMissileNotBoughtException, MissileAlreadyOnBoardException{		
+		if (player.isCanShoot()) {
+			if (player.getAvailableMegamissiles() > 0){
+				this.addObject( new MegaMissile(player.getPosX(), player.getPosY(), this) );
+				this.player.decrementMegamissiles();
+				player.setCanShoot(false);
+			}			
+			else {
+				throw new MegaMissileNotBoughtException();
+			}
+		}		
+		else {
+			throw new MissileAlreadyOnBoardException();
+		}
+	}
+	
 	public void TurnExplosive( GameElements element) {
 		this.board.remove(element);
 		this.board.add(new ExplosiveShip(element.getPosX(), element.getPosY(), this, element.getShield()));
@@ -237,4 +263,6 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		String result = banner + cycle + level + board.stringify();
 		return result;
 	}
+
+
 }
