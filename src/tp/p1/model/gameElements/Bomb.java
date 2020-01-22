@@ -34,6 +34,12 @@ public class Bomb extends Weapon{
 	}
 	
 	@Override
+	public boolean receiveSmartBombAttack(int damage) {
+		this.decrementShield(damage);		
+		return true;
+	}
+	
+	@Override
 	public void move() {
 		this.specificMove(Direction.DOWN, 1);
 	}

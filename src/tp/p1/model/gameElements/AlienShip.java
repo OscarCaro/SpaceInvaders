@@ -19,6 +19,12 @@ public abstract class AlienShip extends EnemyShip {
 	}
 	
 	@Override
+	public boolean receiveSniperAttack(int damage) {
+		this.decrementShield(damage);
+		return true;
+	}
+	
+	@Override
 	public void move() {
 		
 		if (moveDownInNextTurn) {			

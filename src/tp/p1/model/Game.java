@@ -2,6 +2,7 @@ package tp.p1.model;
 
 import java.util.Random;
 
+import tp.p1.model.commands.SniperCommand;
 import tp.p1.model.exceptions.commandExecuteExceptions.*;
 import tp.p1.model.gameElements.*; 
 
@@ -203,6 +204,19 @@ public class Game implements IPlayerController, IExecuteRandomActions{
 		else {
 			throw new NoShockwaveException();
 		}
+	}
+	
+	@Override
+	public void shootSniperAttack(int posX, int posY, int damage)
+			throws NotEnoughPointsException, CannotShootObjectException, NothingToKillException {
+		if (this.player.getScore() >= damage * SniperCommand.COST) {
+			this.board.performSniperAttack(posX, posY, damage);
+			this.spendPoints(SniperCommand.COST * damage);
+		}
+		else {
+			throw new NotEnoughPointsException();
+		}
+		
 	}
 	
 	@Override

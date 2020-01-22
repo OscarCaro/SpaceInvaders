@@ -10,6 +10,7 @@ public interface IPlayerController {
 	public void shockWave() throws NoShockwaveException;
 	public void buySuperMissile() throws ScoreBuySupermissileException;
 	public void shootSuperMissile() throws SuperMissileNotBoughtException, MissileAlreadyOnBoardException;
+	public void shootSniperAttack(int posX, int posY, int damage) throws NotEnoughPointsException, CannotShootObjectException, NothingToKillException;
 	// Callbacks 
 	public void receivePoints(int points);
 	public void enableShockWave();

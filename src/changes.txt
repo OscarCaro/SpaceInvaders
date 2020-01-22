@@ -1,0 +1,49 @@
+Óscar Caro Navarro.
+
+MOFIFICATIONS SNIPER:
+	- new class SniperCommand: extends command and must implement methods for parse and execute.
+		It makes use of the integer.parseInt from library. catching possible exception
+		NOT IMPLEMENTED:
+		The proper way to implement this command would be to create a new weapon object of type sniper,
+		so that this command in the execute method creates a new sniper object which will attack
+		on the computerAction as the rest of the weapons. However, as I don't have time to 
+		create that class,  I manually perform the attack in a function in game.
+
+	- new class NothingToKillException: extends commandExecuteException and informs with a message
+	- new class CannotShootObjectException: extends commandExecuteException and informs the user of the
+		type of the element that cannot be shooted, by means of the sprite of the element, that is taken 
+		by passing the GameElement.toString to the constructor of the exception.
+	- new class NotEnoughPointsException: extends CommandExecuteException and informs the user of the cost
+		of the sniper shoot by accesing the public static final int Cost of sniperCommand.
+		NOT IMPLEMENTED:
+		In a well structured project, this exception should be used by this case and the case of
+		purchasing a suppermissile with not enough points ( by passing the cost to the 	exception 				constructor). However, I decided not to carry out this modification due to lack of time.
+	- Modified IPlayerController to add the function to manage the sniper shoot
+	- Modified Game: to add the  new function to perform sniper shoot
+	- modified Iattack: to add function to receive sniperAttack
+	- modified Board: add function to perform sniper attack on specified targer (by position). At the board 
+		level not to break encapsullation with the getObjectAt(posX, posY). However with the implementation
+		proposed of the sniper weapon object, using the board class wouldn't be necessary.
+	- modified Alienship to add receiveSniperAttack function of the Iattack interface
+	- modified CommandGenerator to include the new command in the list 
+
+MODIFICATIONS SMARTBOMB:
+
+	- new SmartBomb class inside GameElements package that extends Weapon
+	- modified BoardInititalizer to place smartBombs at the beggining of the game
+	- modified level to store probabilities of moving smartBomb
+	- modified level to store initial number of smartBombs per level. It is not neccesary but it follows the 
+		schema of the project to keep consistency.
+	- modify iAttack to add receiveSmartBombAttack
+	- modify ucmShip, bomb and missile to declare the receiveSmartbombAttack
+	- modify IExecuteRandomActions to calculate prob of smartbomb movements
+	- the stringify procedure is automatically developed due to the good structure of the project
+	- the lateral dissapearance of the smartbombs if they pass the outer sides is also automatically developed
+
+	NOT IMPLEMENTED: I didn't make the smartBomb able to receive another SmartBomb attack because this would
+	create a conflict in the perform attack of a specific smartBomb, since it will try to attack itself because
+	the smartBomb would have the receiveSmartBombAttack declared.
+
+	TO BE DONE: i didn't have time to:
+		- Add functions in IExecuteRandomAction to calculate prob of bomb movement
+		- In the smartBomb move() the probability should be taken calling those functions, and move 			accordingly

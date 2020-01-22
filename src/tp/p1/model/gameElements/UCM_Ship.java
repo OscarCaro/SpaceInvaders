@@ -16,7 +16,7 @@ public class UCM_Ship extends Ship{
 		super(4, 7, game, 3, "P");
 		this.shock = false;
 		this.canShoot = true;
-		this.score = 0;
+		this.score = 100;							// To be unchanged to 0
 		this.availableSupermissiles = 0;
 	}
 	
@@ -37,6 +37,12 @@ public class UCM_Ship extends Ship{
 	
 	@Override
 	public boolean receiveBombAttack(int damage) {
+		this.decrementShield(damage);
+		return true;
+	}
+	
+	@Override
+	public boolean receiveSmartBombAttack(int damage) {
 		this.decrementShield(damage);
 		return true;
 	}

@@ -18,7 +18,8 @@ public class CommandGenerator {
 			new BuyCommand(),
 			new StringifyCommand(),
 			new ListPrintersCommand(),
-			new SaveCommand()
+			new SaveCommand(),
+			new SniperCommand()
 			};
 	
 	public static Command parseCommand(String[] commandWords) throws CommandParseException, UnknownCommandException{

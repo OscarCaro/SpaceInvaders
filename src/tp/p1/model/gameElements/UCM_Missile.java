@@ -42,5 +42,12 @@ public class UCM_Missile extends Weapon{
 		this.decrementShield(damage);		
 		return true;
 	}
+	
+	@Override
+	public boolean receiveSmartBombAttack(int damage) {
+		this.decrementShield(damage);		
+		return true;
+	}
+
 
 }

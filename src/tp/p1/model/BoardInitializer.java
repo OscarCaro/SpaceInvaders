@@ -23,6 +23,7 @@ public class BoardInitializer {
 		
 		initializeCarrierShips();
 		initializeDestroyers();
+		initializeSmartBombs();
 		//We decided not to create an UFO in the first turn
 		return board;
 	}
@@ -59,6 +60,39 @@ public class BoardInitializer {
 		}
 		
 	}	
+	
+	private void initializeSmartBombs () {
+		int numOfSmartBombs = this.level.getNumSmartBombs();
+		
+		if (this.level == Level.EASY) {
+			createSmartBombsEasy(numOfSmartBombs);
+		}
+	
+		else if (this.level == Level.HARD) {
+			createSmartBombsHard(numOfSmartBombs);
+		}
+		
+		else if (this.level == Level.INSANE) {
+			createSmartBombsInsane(numOfSmartBombs);
+		}
+		
+	}	
+	
+	public void createSmartBombsEasy(int numOfSmartBombs) {
+		this.board.add(new SmartBomb(4, 0, game));
+	}
+
+	public void createSmartBombsHard(int numOfSmartBombs) {
+		this.board.add(new SmartBomb(2, 0, game));
+		this.board.add(new SmartBomb(6, 0, game));
+	}
+	
+	public void createSmartBombsInsane(int numOfSmartBombs) {
+		this.board.add(new SmartBomb(1, 0, game));
+		this.board.add(new SmartBomb(4, 0, game));
+		this.board.add(new SmartBomb(7, 0, game));
+
+	}
 	
 	public void createDestroyersEasy(int initNumOfDestroyers) {
 		int posX = 4;

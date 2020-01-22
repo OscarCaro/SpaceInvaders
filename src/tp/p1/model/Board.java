@@ -1,5 +1,8 @@
 package tp.p1.model;
 
+import tp.p1.model.exceptions.commandExecuteExceptions.CannotShootObjectException;
+import tp.p1.model.exceptions.commandExecuteExceptions.NotEnoughPointsException;
+import tp.p1.model.exceptions.commandExecuteExceptions.NothingToKillException;
 import tp.p1.model.gameElements.AlienShip;
 import tp.p1.model.gameElements.ExplosiveShip;
 import tp.p1.model.gameElements.GameElements;
@@ -64,6 +67,23 @@ public class Board {
 			attacked = elem.receiveExplosiveShipAttack(ExplosiveShip.DAMAGE);
 		}
 		return attacked;
+	}
+	
+	public void performSniperAttack (int posX, int posY, int damage) 
+			throws CannotShootObjectException, NothingToKillException {
+		GameElements receiver = getObjectAt(posX, posY);
+		if (receiver != null) {
+			if (receiver.receiveSniperAttack(damage)) {
+				
+			}
+			else {
+				throw new CannotShootObjectException(receiver.toString());
+			}
+		} 
+		else {
+			throw new NothingToKillException();
+		}
+		
 	}
 	
 	public void computerAction() {
