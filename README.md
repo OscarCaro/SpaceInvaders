@@ -1,25 +1,10 @@
 # TP-SpaceInvaders
-First project for TP
-
-## ToDo List
-
-- [x] Organize delegator methods of classes in parts
-- [x] Make packages
-- [x] Win game method
-- [x] Level parser
-- [x] Command subclasses parser methods should return new Object if that class has arguments 
-- [x] Don't pass Controller controller to parse methods of command subclasses
-- [ ] Fix exception in minDist to side if there are no destroyers remaining
-- [x] Enum with directions (up, down, left, right)
-- [x] Generalize method move(Direction dir, int num) in GameElem (only shockWave doesn't need it)
-- [x] Generalize method checkPos and place it on GameElem (only shockWave doesn't need it)
-- [ ] Add every "implements interface"  according with script with corresponding implementation of their 		functions
-- [ ] Final in methods and classes that shouldn't be overwritten
+Final project for the Programming Technology course of the Computer Science bachelor's degree at UCM
 
 ## GameElements Hierarchy
 
 	- GameElements (Position + Shield + Game attribute + checkPos)
-		- Ship (???)
+		- Ship
 			- UcmShip
 			- EnemyShip (points + receiveMissileAttack)
 				- UFO
@@ -27,7 +12,7 @@ First project for TP
 					- Carrier 
 					- Destroyer
 					- ExplosiveShip
-		- Weapon (???)
+		- Weapon
 			- Bomb
 			- Missile
 			- SuperMissile
